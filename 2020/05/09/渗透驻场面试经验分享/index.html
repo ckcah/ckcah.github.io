@@ -358,7 +358,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T05:33:28-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-09T17:33:28+08:00">
                 2020-05-09
               </time>
             
@@ -461,7 +461,7 @@
       
 
       
-        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>转载于：<a href="https://mp.weixin.qq.com/s/EkDEwnmQIlrnWUqi-e6I9Q" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/EkDEwnmQIlrnWUqi-e6I9Q</a></strong></p>
+        <p><strong>转载于：<a href="https://mp.weixin.qq.com/s/EkDEwnmQIlrnWUqi-e6I9Q" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/EkDEwnmQIlrnWUqi-e6I9Q</a></strong></p>
 <p>最近接到一个渗透测试驻场项目。几位同事去面试了下，下面对面试的问题进行一个汇总。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1.json的csrf的利用</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.小程序的渗透和普通渗透的差异</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3.app本身的漏洞测试 四大组件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4.业务上线前，怎么测试，从哪些角度测试</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">5.java应用上传漏洞利用,如何绕过</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">6.应用有漏洞，但是无法修复和停用，你怎么办</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">7.cookie你会测试什么内容</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">8.用户登录你会测试哪些内容</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">9.你审计java代码挖到的漏洞，怎么挖的，怎么修复的</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">10.如果开发通过加referer的方式修复csrf，怎么判断这个referer是不是有效</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">11.json格式的数据包可以测哪些漏洞</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">12.如果网站评论区的复选框存在xss，怎么修复</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">13.绕过验证码有哪些思路</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">14.除了各种服务的未授权，网站的未授权怎么测</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">15.关于会话你会测哪些内容</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">16.文件上传</span><br></pre></td></tr></table></figure>
 
@@ -623,7 +623,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/08/%E8%8B%B1%E8%AF%AD%E5%9B%BD%E9%99%85%E9%9F%B3%E6%A0%87/" rel="next" title="英语国际音标">
+              <a href="/2020/05/09/%E8%8B%B1%E8%AF%AD%E5%9B%BD%E9%99%85%E9%9F%B3%E6%A0%87/" rel="next" title="英语国际音标">
                 <i class="fa fa-chevron-left"></i> 英语国际音标
               </a>
             
@@ -633,7 +633,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/05/09/%E5%B7%9D%E6%99%AE%E6%95%99%E4%BD%A0%E8%AF%B4%E8%AF%9D%E7%9A%84%E8%89%BA%E6%9C%AF/" rel="prev" title="川普教你说话的艺术">
+              <a href="/2020/05/10/%E5%B7%9D%E6%99%AE%E6%95%99%E4%BD%A0%E8%AF%B4%E8%AF%9D%E7%9A%84%E8%89%BA%E6%9C%AF/" rel="prev" title="川普教你说话的艺术">
                 川普教你说话的艺术 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -709,7 +709,7 @@
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -720,7 +720,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -731,7 +731,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
