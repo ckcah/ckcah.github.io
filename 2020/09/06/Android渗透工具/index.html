@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="QFVAlCf-2gKGgg_VeeyNJs6Z1SZ3zFiHFVraulVVNSw" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat.jpg?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cat.jpg?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.jpg?v=" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="工具集," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Bosch" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="参考文章：https:&#x2F;&#x2F;gbhackers.com&#x2F;android-security-penetration-testing&#x2F; Android安全测试更多地被安全行业用来测试Android应用程序中的漏洞。下面将列举全面的Android渗透测试工具和资源列表，其涵盖了在Android移动设备中执行渗透测试各方面操作。 一、在线分析工具 AndroTotal Tracedroid Visual T">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android渗透工具">
+<meta property="og:url" content="https://ckcah.github.io/2020/09/06/Android%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:site_name" content="Bosch">
+<meta property="og:description" content="参考文章：https:&#x2F;&#x2F;gbhackers.com&#x2F;android-security-penetration-testing&#x2F; Android安全测试更多地被安全行业用来测试Android应用程序中的漏洞。下面将列举全面的Android渗透测试工具和资源列表，其涵盖了在Android移动设备中执行渗透测试各方面操作。 一、在线分析工具 AndroTotal Tracedroid Visual T">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-05T19:52:26.000Z">
+<meta property="article:modified_time" content="2020-09-05T08:35:33.394Z">
+<meta property="article:author" content="bosch cheng">
+<meta property="article:tag" content="工具集">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ckcah.github.io/2020/09/06/Android渗透工具/"/>
+
+
+
+
+
+  <title>Android渗透工具 | Bosch</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bosch</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">cheng</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/09/06/Android%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bosch cheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/emperor.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bosch">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android渗透工具</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-05T15:52:26-04:00">
+                2020-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/09/06/Android%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/06/Android%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/09/06/Android%E6%B8%97%E9%80%8F%E5%B7%A5%E5%85%B7/" class="leancloud_visitors" data-flag-title="Android渗透工具">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>参考文章：<a href="https://gbhackers.com/android-security-penetration-testing/" target="_blank" rel="noopener">https://gbhackers.com/android-security-penetration-testing/</a></strong></p>
+<p>Android安全测试更多地被安全行业用来测试Android应用程序中的漏洞。下面将列举全面的Android渗透测试工具和资源列表，其涵盖了在Android移动设备中执行渗透测试各方面操作。</p>
+<h2 id="一、在线分析工具"><a href="#一、在线分析工具" class="headerlink" title="一、在线分析工具"></a><strong>一、在线分析工具</strong></h2><ol>
+<li><a href="http://andrototal.org/" target="_blank" rel="noopener">AndroTotal</a></li>
+<li><a href="http://tracedroid.few.vu.nl/" target="_blank" rel="noopener">Tracedroid</a></li>
+<li><a href="http://www.visualthreat.com/" target="_blank" rel="noopener">Visual Threat</a></li>
+<li><a href="http://www.mobilemalware.com.br/analysis/index_en.php" target="_blank" rel="noopener">Mobile Malware Sandbox</a></li>
+<li><a href="https://www.appknox.com/" target="_blank" rel="noopener">Appknox</a> - 收费</li>
+<li><a href="https://appscan.bluemix.net/mobileAnalyzer" target="_blank" rel="noopener">IBM Security AppScan Mobile Analyzer</a> - 收费</li>
+<li><a href="https://apkscan.nviso.be/" target="_blank" rel="noopener">NVISO ApkScan</a> </li>
+<li><a href="http://undroid.av-comparatives.info/" target="_blank" rel="noopener">AVC UnDroid</a> </li>
+<li><a href="https://habo.qq.com/" target="_blank" rel="noopener">habo</a> - 10/day</li>
+<li><a href="https://www.virustotal.com/" target="_blank" rel="noopener">Virustotal</a> - 最大128MB</li>
+<li><a href="http://app-ray.co/" target="_blank" rel="noopener">Fraunhofer App-ray</a> - 收费</li>
+<li><a href="https://appcritique.boozallen.com/" target="_blank" rel="noopener">AppCritique</a> - 上传Android APK并进行免费的安全评估</li>
+<li><a href="https://www.nowsecure.com/blog/2016/09/19/announcing-nowsecure-lab-automated/" target="_blank" rel="noopener">NowSecure Lab Automated</a> – 对于Android和iOS移动应用程序进行安全测试，该工具可以自动对上传的软件进行静态和动态分析并返回扫描结果；收费</li>
+</ol>
+<h2 id="二、静态分析工具"><a href="#二、静态分析工具" class="headerlink" title="二、静态分析工具"></a><strong>二、静态分析工具</strong></h2><ol>
+<li><a href="https://github.com/maaaaz/androwarn/" target="_blank" rel="noopener">Androwarn</a> – 检测并警告用户有关Android应用程序开发的潜在恶意行为</li>
+<li><a href="https://github.com/sonyxperiadev/ApkAnalyser" target="_blank" rel="noopener">ApkAnalyser</a></li>
+<li><a href="https://github.com/honeynet/apkinspector/" target="_blank" rel="noopener">APKInspector</a></li>
+<li><a href="https://www.cert.org/secure-coding/tools/didfail.cfm" target="_blank" rel="noopener">Droid Intent Data Flow Analysis for Information Leakage</a></li>
+<li><a href="https://bitbucket.org/srl/droidlegacy" target="_blank" rel="noopener">DroidLegacy</a></li>
+<li><a href="http://siis.cse.psu.edu/tools.html" target="_blank" rel="noopener">Several tools from PSU</a></li>
+<li><a href="https://github.com/EugenioDelfa/Smali-CFGs" target="_blank" rel="noopener">Smali CFG generator</a></li>
+<li><a href="https://blogs.uni-paderborn.de/sse/tools/flowdroid/" target="_blank" rel="noopener">FlowDroid</a></li>
+<li><a href="https://www.pnfsoftware.com/" target="_blank" rel="noopener">Android Decompiler</a> – 收费</li>
+<li><a href="http://pscout.csl.toronto.edu/" target="_blank" rel="noopener">PSC</a><a href="http://pscout.csl.toronto.edu/" target="_blank" rel="noopener">out – A tool that extracts the permission specification from the And</a> - 使用静态分析从Android源码中提取ACL</li>
+<li><a href="http://amandroid.sireum.org/" target="_blank" rel="noopener">Amandroid</a></li>
+<li><a href="https://github.com/dorneanu/smalisca" target="_blank" rel="noopener">SmaliSCA</a> – Smali 静态代码分析</li>
+<li><a href="https://github.com/douggard/CFGScanDroid" target="_blank" rel="noopener">CFGScanDroid</a> – 扫描并比较CFG与恶意程序的CFG</li>
+<li><a href="https://github.com/maldroid/maldrolyzer" target="_blank" rel="noopener">Madrolyzer</a> – 提取敏感的数据，例如：C&amp;C、电话等</li>
+<li><a href="https://www.cs.washington.edu/sparta" target="_blank" rel="noopener">SPARTA</a> – 验证应用程序满足信息安全策略</li>
+<li><a href="https://github.com/JulianSchuette/ConDroid" target="_blank" rel="noopener">ConDroid</a> – 执行符号+具体执行的组合</li>
+<li><a href="https://github.com/serval-snt-uni-lu/DroidRA" target="_blank" rel="noopener">DroidRA</a></li>
+<li><a href="https://github.com/ClaudiuGeorgiu/RiskInDroid" target="_blank" rel="noopener">RiskInDroid</a> – 一种用于根据Android应用程序ACL并检测其风险的工具，提供在线演示</li>
+<li><a href="https://github.com/SUPERAndroidAnalyzer/super" target="_blank" rel="noopener">SUPER</a> – 安全、统一、功能强大且可扩展的分析工具</li>
+<li><a href="https://github.com/google/android-classyshark" target="_blank" rel="noopener">ClassyShark</a> – 独立的二进制检查工具，可以浏览任何Android可执行文件并显示重要信</li>
+</ol>
+<h2 id="三、Android漏洞扫描工具"><a href="#三、Android漏洞扫描工具" class="headerlink" title="三、Android漏洞扫描工具"></a><strong>三、Android漏洞扫描工具</strong></h2><ol>
+<li><p><a href="https://github.com/linkedin/qark/" target="_blank" rel="noopener">QARK</a> – LinkedIn的QARK是为应用程序开发人员扫描应用程序的安全问题</p>
+</li>
+<li><p><a href="https://github.com/AndroBugs/AndroBugs_Framework" target="_blank" rel="noopener">AndroBugs</a></p>
+</li>
+<li><p><a href="https://github.com/google/nogotofail" target="_blank" rel="noopener">Nogotofail</a></p>
+</li>
+<li><p><a href="https://devknox.io/" target="_blank" rel="noopener">Devknox</a> – 自动纠正Android的安全问题</p>
+</li>
+<li><p><a href="https://github.com/flankerhqd/JAADAS" target="_blank" rel="noopener">JAADAS</a> – 程序内和程序间联合程序分析工具，可基于Soot和Scala查找Android应用程序中的漏洞</p>
+</li>
+</ol>
+<h2 id="四、动态分析工具"><a href="#四、动态分析工具" class="headerlink" title="四、动态分析工具"></a><strong>四、动态分析工具</strong></h2><ol>
+<li><p><a href="http://www.mulliner.org/blog/blosxom.cgi/security/androiddbiv02.html" target="_blank" rel="noopener">Android DBI framework</a></p>
+</li>
+<li><p><a href="https://github.com/sh4hin/Androl4b" target="_blank" rel="noopener">Androl4b</a> – 用于评估Android应用程序、逆向工程和恶意软件分析的虚拟机</p>
+</li>
+<li><p><a href="http://www.mobilemalware.com.br/amat/download.html" target="_blank" rel="noopener">Android Malware Analysis Toolkit</a> – (Linux distro) Earlier it use to be an <a href="http://dunkelheit.com.br/amat/analysis/index_en.php" target="_blank" rel="noopener">online analyzer</a></p>
+</li>
+<li><p><a href="https://github.com/MobSF/Mobile-Security-Framework-MobSF" target="_blank" rel="noopener">Mobile-Security-Framework MobSF</a> – 自动测试框架，能够执行静态、动态分析和Web API测试</p>
+</li>
+<li><p><a href="https://appsec-labs.com/AppUse/" target="_blank" rel="noopener">AppUse</a> – 为渗透定制架构</p>
+</li>
+<li><p><a href="https://thecobraden.com/projects/cobradroid/" target="_blank" rel="noopener">Cobradroid</a> – 用于恶意软件分析的自定义图像</p>
+</li>
+<li><p>~<del>~</del><a href="https://github.com/pjlantz/droidbox" target="_blank" rel="noopener">Droidbox</a></p>
+</li>
+<li><p><a href="https://github.com/mwrlabs/drozer" target="_blank" rel="noopener">Drozer</a></p>
+</li>
+<li><p><a href="https://forum.xda-developers.com/xposed/xposed-installer-versions-changelog-t2714053" target="_blank" rel="noopener">Xposed</a> – 相当于进行基于存根的代码注入，但不修改二进制代码</p>
+</li>
+<li><p><a href="https://github.com/ac-pm/Inspeckage" target="_blank" rel="noopener">Inspeckage</a> – Android包检查器——动态分析api钩子，启动未导出的活动等等。(Xposed模块)</p>
+</li>
+<li><p><a href="https://github.com/AndroidHooker/hooker" target="_blank" rel="noopener">Android Hooker</a> – 动态Java代码检测</p>
+</li>
+<li><p><a href="https://github.com/ZSShen/ProbeDroid" target="_blank" rel="noopener">ProbeDroid</a> – 动态Java代码检测</p>
+</li>
+<li><p><a href="https://androidtamer.com/" target="_blank" rel="noopener">Android Tamer</a> – 为Android安全专业人士提供的虚拟/实时平台</p>
+</li>
+<li><p><a href="https://github.com/sycurelab/DECAF" target="_blank" rel="noopener">DECAF</a> – 基于QEMU的动态可执行代码分析框架(DroidScope现在是DECAF的扩展)</p>
+</li>
+<li><p><a href="https://github.com/idanr1986/cuckoo-droid" target="_blank" rel="noopener">CuckooDroid</a> – Cuckoo沙盒的Android扩展</p>
+</li>
+<li><p><a href="https://github.com/MobileForensicsResearch/mem" target="_blank" rel="noopener">Mem</a> – Android安全内存分析(需要root用户)</p>
+</li>
+<li><p><a href="http://www.ida.liu.se/labs/rtslab/publications/2011/spsm11-burguera.pdf" target="_blank" rel="noopener">Crowdroid</a> – 无法找到实际的工具</p>
+</li>
+<li><p><a href="https://github.com/nwhusted/AuditdAndroid" target="_blank" rel="noopener">AuditdAndroid</a> – auditd的android端口，不再处于活跃开发状态</p>
+</li>
+<li><p><a href="https://code.google.com/p/asef/" target="_blank" rel="noopener">AndroidSecurity Evaluation Framework</a></p>
+</li>
+<li><p><a href="https://redmine.honeynet.org/projects/are/wiki" target="_blank" rel="noopener">Android Reverse Engineering</a></p>
+</li>
+<li><p><a href="https://github.com/xurubin/aurasium" target="_blank" rel="noopener">Aurasium</a> – 通过字节码重写和就地引用监视器为Android应用实施实际的安全策略。</p>
+</li>
+<li><p><a href="https://github.com/strazzere/android-lkms" target="_blank" rel="noopener">Android Linux Kernel modules</a></p>
+</li>
+<li><p><a href="https://manifestsecurity.com/appie/" target="_blank" rel="noopener">Appie</a> – Appie是一个预先配置为Android Pentesting环境的软件包。它是完全便携式的，可以通过u盘或智能手机携带。这是Android应用程序安全评估所需的所有工具的一站式答案，也是现有虚拟机的一个极好的替代品。</p>
+</li>
+<li><p><a href="https://github.com/zyrikby/StaDynA" target="_blank" rel="noopener">StaDynA</a> – 一个支持动态代码更新特性(动态类加载和反射)下的安全应用分析系统。该工具结合了Android应用的静态和动态分析，以揭示隐藏/更新的行为，并利用这些信息扩展静态分析结果。</p>
+</li>
+<li><p><a href="https://github.com/zhengmin1989/DroidAnalytics" target="_blank" rel="noopener">DroidAnalytics</a></p>
+</li>
+<li><p><a href="https://github.com/oguzhantopgul/Vezir-Project" target="_blank" rel="noopener">Vezir Project</a> – 虚拟机用于手机应用程序测试和手机恶意软件分析</p>
+</li>
+<li><p><a href="https://github.com/xtiankisutsa/MARA_Framework" target="_blank" rel="noopener">MARA</a> – 移动应用逆向工程与分析框架</p>
+</li>
+<li><p><a href="http://appanalysis.org/download.html" target="_blank" rel="noopener">Taintdroid</a>  – 需要AOSP编译</p>
+</li>
+</ol>
+<h2 id="五、逆向工具"><a href="#五、逆向工具" class="headerlink" title="五、逆向工具"></a><strong>五、逆向工具</strong></h2><ol>
+<li><p><a href="https://github.com/JesusFreke/smali" target="_blank" rel="noopener">Smali/Baksmali</a> – APK反编译</p>
+</li>
+<li><p><a href="https://github.com/strazzere/Emacs-Smali" target="_blank" rel="noopener">emacs syntax coloring for smali files</a></p>
+</li>
+<li><p><a href="http://codetastrophe.com/smali.vim" target="_blank" rel="noopener">vim syntax coloring for smali files</a></p>
+</li>
+<li><p><a href="https://github.com/swdunlop/AndBug" target="_blank" rel="noopener">AndBug</a></p>
+</li>
+<li><p><a href="https://github.com/androguard/androguard" target="_blank" rel="noopener">Androguard</a> – 功能强大，并且可与其他工具很好的集成</p>
+</li>
+<li><p><a href="https://ibotpeaches.github.io/Apktool/" target="_blank" rel="noopener">Apktool</a> – 对于编译/反编译非常有用(使用smali)</p>
+</li>
+<li><p><a href="https://github.com/appknox/AFE" target="_blank" rel="noopener">Android Framework for Exploitation</a></p>
+</li>
+<li><p><a href="https://github.com/iSECPartners/Android-KillPermAndSigChecks" target="_blank" rel="noopener">Bypass signature and permission checks for IPCs</a></p>
+</li>
+<li><p><a href="https://github.com/iSECPartners/Android-OpenDebug" target="_blank" rel="noopener">Android OpenDebug</a> – 使设备上的任何应用程序可调试(使用cydia基板)。</p>
+</li>
+<li><p><a href="http://siis.cse.psu.edu/dare/index.html" target="_blank" rel="noopener">Dare</a> – 将.dex 转换为 .class</p>
+</li>
+<li><p><a href="https://github.com/pxb1988/dex2jar" target="_blank" rel="noopener">Dex2Jar</a> – 将.dex 转换为 .class</p>
+</li>
+<li><p><a href="https://github.com/google/enjarify" target="_blank" rel="noopener">Enjarify</a> – 将.dex 转换为 .class（Chrome）</p>
+</li>
+<li><p><a href="http://dedexer.sourceforge.net/" target="_blank" rel="noopener">Dedexer</a></p>
+</li>
+<li><p><a href="https://github.com/sysdream/fino" target="_blank" rel="noopener">Fino</a></p>
+</li>
+<li><p><a href="https://www.frida.re/" target="_blank" rel="noopener">Frida</a> – 为它注入javascript来探索应用程序和一个<a href="https://github.com/antojoseph/diff-gui" target="_blank" rel="noopener">GUI工具</a></p>
+</li>
+<li><p><a href="https://bitbucket.org/aseemjakhar/indroid" target="_blank" rel="noopener">Indroid</a> – 线程注入设备</p>
+</li>
+<li><p><a href="https://www.nccgroup.trust/us/about-us/resources/intent-sniffer/" target="_blank" rel="noopener">IntentSniffer</a></p>
+</li>
+<li><p><a href="https://github.com/iSECPartners/Introspy-Android" target="_blank" rel="noopener">Introspy</a></p>
+</li>
+<li><p><a href="https://varaneckas.com/jad/" target="_blank" rel="noopener">Jad</a></p>
+</li>
+<li><p><a href="https://github.com/java-decompiler/jd-gui" target="_blank" rel="noopener">JD-GUI</a></p>
+</li>
+<li><p><a href="http://www.benf.org/other/cfr/" target="_blank" rel="noopener">CFR</a></p>
+</li>
+<li><p><a href="https://github.com/Storyyeller/Krakatau" target="_blank" rel="noopener">Krakatau</a></p>
+</li>
+<li><p>[Procyon](<a href="https://bitbucket.org/mstrobel/procyon/wiki/Java" target="_blank" rel="noopener">https://bitbucket.org/mstrobel/procyon/wiki/Java</a> Decompiler)</p>
+</li>
+<li><p><a href="https://github.com/fesh0r/fernflower" target="_blank" rel="noopener">FernFlower</a></p>
+</li>
+<li><p><a href="https://github.com/plum-umd/redexer" target="_blank" rel="noopener">Redexer</a></p>
+</li>
+<li><p><a href="http://blog.avlyun.com/wp-content/uploads/2014/04/SmaliViewer.zip" target="_blank" rel="noopener">Smali viewer</a></p>
+</li>
+<li><p>~<del>~</del><a href="https://github.com/CalebFenton/simplify" target="_blank" rel="noopener">Simplify Android deobfuscator</a></p>
+</li>
+<li><p><a href="https://github.com/Konloch/bytecode-viewer" target="_blank" rel="noopener">Bytecode viewer</a></p>
+</li>
+<li><p><a href="https://github.com/radare/radare2" target="_blank" rel="noopener">Radare2</a></p>
+</li>
+</ol>
+<h2 id="六、模糊测试工具"><a href="#六、模糊测试工具" class="headerlink" title="六、模糊测试工具"></a><strong>六、模糊测试工具</strong></h2><ol>
+<li><p><a href="https://www.nccgroup.trust/us/about-us/resources/intent-fuzzer/" target="_blank" rel="noopener">IntentFuzzer</a></p>
+</li>
+<li><p><a href="https://github.com/anestisb/radamsa-android" target="_blank" rel="noopener">Radamsa Fuzzer</a></p>
+</li>
+<li><p><a href="https://github.com/google/honggfuzz" target="_blank" rel="noopener">Honggfuzz</a></p>
+</li>
+<li><p><a href="https://github.com/anestisb/melkor-android" target="_blank" rel="noopener">An Android port of the melkor ELF fuzzer</a></p>
+</li>
+<li><p><a href="https://github.com/fuzzing/MFFA" target="_blank" rel="noopener">Media Fuzzing Framework for Android</a></p>
+</li>
+<li><p><a href="https://github.com/jonmetz/AndroFuzz" target="_blank" rel="noopener">AndroFuzz</a></p>
+</li>
+</ol>
+<h2 id="七、应用包装检测工具"><a href="#七、应用包装检测工具" class="headerlink" title="七、应用包装检测工具"></a><strong>七、应用包装检测工具</strong></h2><p><a href="https://github.com/zyrikby/FSquaDRA" target="_blank" rel="noopener">FSquaDRA</a> - 基于应用程序资源哈希比较检测重新打包的Android应用程序的Android安全工具。</p>
+<h2 id="八、下载市场爬虫"><a href="#八、下载市场爬虫" class="headerlink" title="八、下载市场爬虫"></a><strong>八、下载市场爬虫</strong></h2><ol>
+<li><p><a href="https://github.com/Akdeniz/google-play-crawler" target="_blank" rel="noopener">Google play crawler (Java)</a></p>
+</li>
+<li><p><a href="https://github.com/egirault/googleplay-api" target="_blank" rel="noopener">Google play crawler (Python)</a></p>
+</li>
+<li><p><a href="https://github.com/dweinstein/node-google-play" target="_blank" rel="noopener">Google play crawler (Node) </a>– 获取应用程序详细信息并从官方Google Play商店下载应用程序</p>
+</li>
+<li><p><a href="https://github.com/dweinstein/node-aptoide" target="_blank" rel="noopener">Aptoide downloader (Node)</a> – 从Aptoide第三方Android市场下载应用程序</p>
+</li>
+<li><p><a href="https://github.com/dweinstein/node-appland" target="_blank" rel="noopener">Appland downloader (Node)</a> – 从Apland第三方Android市场下载应用程序</p>
+</li>
+</ol>
+<h2 id="九、杂项工具"><a href="#九、杂项工具" class="headerlink" title="九、杂项工具"></a><strong>九、杂项工具</strong></h2><ol>
+<li><a href="http://androidcracking.blogspot.com/2011/03/original-smalihook-java-source.html" target="_blank" rel="noopener">smalihook</a></li>
+<li><a href="http://codekiem.com/2012/02/24/apk-downloader/" target="_blank" rel="noopener">APK-Downloader</a></li>
+<li><a href="http://code.google.com/p/android4me/downloads/detail?name=AXMLPrinter2.jar" target="_blank" rel="noopener">AXMLPrinter2</a> – 将二进制XML文件转换为可读的XML文件</li>
+<li><a href="https://github.com/mbrubeck/android-completion" target="_blank" rel="noopener">adb autocomplete</a></li>
+<li><a href="http://pallergabor.uw.hu/androidblog/dalvik_opcodes.html" target="_blank" rel="noopener">Dalvik opcodes</a></li>
+<li><a href="http://ww38.xchg.info/corkami/opcodes_tables.pdf" target="_blank" rel="noopener">Opcodes table for quick reference</a></li>
+<li><a href="http://securitycompass.github.io/AndroidLabs/setup.html" target="_blank" rel="noopener">ExploitMe Android Labs</a></li>
+<li><a href="https://github.com/jackMannino/OWASP-GoatDroid-Project" target="_blank" rel="noopener">GoatDroid</a></li>
+<li><a href="https://github.com/mitmproxy/mitmproxy" target="_blank" rel="noopener">mitmproxy</a></li>
+<li><a href="https://github.com/dweinstein/dockerfile-androguard" target="_blank" rel="noopener">dockerfile/androguard</a></li>
+<li><a href="https://github.com/AndroidVTS/android-vts" target="_blank" rel="noopener">Android Vulnerability Test Suite</a> – android-vts扫描设备的一组漏洞</li>
+<li><a href="https://github.com/dpnishant/appmon" target="_blank" rel="noopener">AppMon</a> – AppMon是一个用于监控和篡改本地macOS、iOS和android应用的系统API调用的自动化框架。它是基于Frida。</li>
+</ol>
+<h2 id="十、学术、研究、出版物、书籍"><a href="#十、学术、研究、出版物、书籍" class="headerlink" title="十、学术、研究、出版物、书籍"></a><strong>十、学术、研究、出版物、书籍</strong></h2><h3 id="10-1-调查报告"><a href="#10-1-调查报告" class="headerlink" title="10.1 调查报告"></a>10.1 调查报告</h3><ol>
+<li><p><a href="https://www.exploit-db.com/papers/" target="_blank" rel="noopener">Exploit Database</a></p>
+</li>
+<li><p><a href="https://github.com/jacobsoo/AndroidSlides" target="_blank" rel="noopener">Androidsecurity related presentations</a></p>
+</li>
+<li><p><a href="https://tthtlc.wordpress.com/2011/09/01/static-analysis-of-android-applications/" target="_blank" rel="noopener">A good collection of static analysis papers</a></p>
+</li>
+</ol>
+<h3 id="10-2-图书"><a href="#10-2-图书" class="headerlink" title="10.2 图书"></a>10.2 图书</h3><p><a href="https://www.securecoding.cert.org/confluence/display/android/Android+Secure+Coding+Standard" target="_blank" rel="noopener">SEI CERT Android Secure Coding Standard</a></p>
+<h3 id="10-3-其他"><a href="#10-3-其他" class="headerlink" title="10.3 其他"></a>10.3 其他</h3><ol>
+<li><a href="https://github.com/OWASP/owasp-mstg" target="_blank" rel="noopener">OWASP Mobile Security Testing Guide Manual</a></li>
+<li><a href="http://www.fasteque.com/android-reverse-engineering-101-part-1/" target="_blank" rel="noopener">Android Reverse Engineering 101 by Daniele Altomare</a></li>
+<li><a href="https://github.com/doridori/Android-Security-Reference" target="_blank" rel="noopener">doridori/Android-Security-Reference</a></li>
+<li><a href="https://github.com/b-mueller/android_app_security_checklist" target="_blank" rel="noopener">android app security checklist</a></li>
+<li><a href="https://github.com/tanprathan/MobileApp-Pentest-Cheatsheet" target="_blank" rel="noopener">Mobile App Pentest Cheat Sheet</a></li>
+</ol>
+<h2 id="十一、开发漏洞利用"><a href="#十一、开发漏洞利用" class="headerlink" title="十一、开发漏洞利用"></a><strong>十一、开发漏洞利用</strong></h2><h3 id="11-1-清单"><a href="#11-1-清单" class="headerlink" title="11.1 清单"></a>11.1 清单</h3><ol>
+<li><a href="https://source.android.com/security/bulletin/" target="_blank" rel="noopener">AndroidSecurity Bulletins</a></li>
+<li><a href="https://www.cvedetails.com/vulnerability-list/vendor_id-1224/product_id-19997/Google-Android.html" target="_blank" rel="noopener">Android’s reported security vulnerabilities</a></li>
+<li><a href="https://kb.androidtamer.com/Device_Security_Patch_tracker/" target="_blank" rel="noopener">Android Devices Security Patch Status</a></li>
+<li><a href="https://code.google.com/p/android/issues/list?can=2&q=priority=Critical&sort=-opened" target="_blank" rel="noopener">AOSP – Issue tracker</a></li>
+<li><a href="https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10" target="_blank" rel="noopener">OWASP Mobile Top 10 2016</a></li>
+<li><a href="https://www.exploit-db.com/search/?action=search&q=android" target="_blank" rel="noopener">Exploit Database</a></li>
+<li><a href="https://docs.google.com/spreadsheet/pub?key=0Am5hHW4ATym7dGhFU1A4X2lqbUJtRm1QSWNRc3E0UlE&single=true&gid=0&output=html" target="_blank" rel="noopener">Vulnerability Google Doc</a></li>
+<li><a href="https://source.android.com/security/reports/Google_Android_Security_PHA_classifications.pdf" target="_blank" rel="noopener">Google AndroidSecurity Team’s Classifications for Potentially Harmful Applications (Malware)</a></li>
+</ol>
+<h3 id="11-2-恶意软件"><a href="#11-2-恶意软件" class="headerlink" title="11.2 恶意软件"></a>11.2 恶意软件</h3><ol>
+<li><p><a href="https://code.google.com/p/androguard/wiki/DatabaseAndroidMalwares" target="_blank" rel="noopener">androguard – Database Android Malwares wiki</a></p>
+</li>
+<li><p><a href="https://github.com/ashishb/android-malware" target="_blank" rel="noopener">Android Malware Github repo</a></p>
+</li>
+<li><p><a href="http://www.malgenomeproject.org/policy.html" target="_blank" rel="noopener">Android Malware Genome Project</a> – 包含1260个恶意样本</p>
+</li>
+<li><p><a href="http://contagiominidump.blogspot.com/" target="_blank" rel="noopener">Contagio Mobile Malware Mini Dump</a></p>
+</li>
+<li><p><a href="https://www.virustotal.com/en/about/contact/" target="_blank" rel="noopener">VirusTotal Malware Intelligence Service</a> – 付费</p>
+</li>
+<li><p><a href="http://admire.necst.it/" target="_blank" rel="noopener">Admire</a></p>
+</li>
+<li><p><a href="https://www.sec.cs.tu-bs.de/~danarp/drebin/" target="_blank" rel="noopener">Drebin</a></p>
+</li>
+</ol>
+<h2 id="十二、赏金计划"><a href="#十二、赏金计划" class="headerlink" title="十二、赏金计划"></a><strong>十二、赏金计划</strong></h2><p><a href="https://www.google.com/about/appsecurity/android-rewards/" target="_blank" rel="noopener">AndroidSecurity Reward Program</a></p>
+<h2 id="十三、如何提交漏洞"><a href="#十三、如何提交漏洞" class="headerlink" title="十三、如何提交漏洞"></a><strong>十三、如何提交漏洞</strong></h2><ol>
+<li><a href="https://source.android.com/security/overview/updates-resources.html#report-issues" target="_blank" rel="noopener">Android – reporting security issues</a></li>
+<li><a href="https://github.com/B3nac/Android-Reports-and-Resources" target="_blank" rel="noopener">Android Reports and Resources</a> – Android Hackerone披露报告列表等资源</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%B7%A5%E5%85%B7%E9%9B%86/" rel="tag"># 工具集</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/06/%E5%B0%8F%E6%8F%90%E7%90%B4%E8%BF%90%E5%BC%93%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" rel="next" title="小提琴运弓遇到的问题">
+                <i class="fa fa-chevron-left"></i> 小提琴运弓遇到的问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/emperor.jpg"
+                alt="bosch cheng" />
+            
+              <p class="site-author-name" itemprop="name">bosch cheng</p>
+              <p class="site-description motion-element" itemprop="description">在这片海洋中，如若无法向上攀游，就只有往下沉沦</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ckcah" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/whaites2" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/bing.cheng.5682" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、在线分析工具"><span class="nav-number">1.</span> <span class="nav-text">一、在线分析工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、静态分析工具"><span class="nav-number">2.</span> <span class="nav-text">二、静态分析工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Android漏洞扫描工具"><span class="nav-number">3.</span> <span class="nav-text">三、Android漏洞扫描工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、动态分析工具"><span class="nav-number">4.</span> <span class="nav-text">四、动态分析工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、逆向工具"><span class="nav-number">5.</span> <span class="nav-text">五、逆向工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、模糊测试工具"><span class="nav-number">6.</span> <span class="nav-text">六、模糊测试工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、应用包装检测工具"><span class="nav-number">7.</span> <span class="nav-text">七、应用包装检测工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、下载市场爬虫"><span class="nav-number">8.</span> <span class="nav-text">八、下载市场爬虫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、杂项工具"><span class="nav-number">9.</span> <span class="nav-text">九、杂项工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、学术、研究、出版物、书籍"><span class="nav-number">10.</span> <span class="nav-text">十、学术、研究、出版物、书籍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-调查报告"><span class="nav-number">10.1.</span> <span class="nav-text">10.1 调查报告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-图书"><span class="nav-number">10.2.</span> <span class="nav-text">10.2 图书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-3-其他"><span class="nav-number">10.3.</span> <span class="nav-text">10.3 其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、开发漏洞利用"><span class="nav-number">11.</span> <span class="nav-text">十一、开发漏洞利用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-1-清单"><span class="nav-number">11.1.</span> <span class="nav-text">11.1 清单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-2-恶意软件"><span class="nav-number">11.2.</span> <span class="nav-text">11.2 恶意软件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、赏金计划"><span class="nav-number">12.</span> <span class="nav-text">十二、赏金计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、如何提交漏洞"><span class="nav-number">13.</span> <span class="nav-text">十三、如何提交漏洞</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bosch cheng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v="></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: '3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz',
+        appKey: 'wxnCuxw6V0b0lAgx5kOUUOSp',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz", "wxnCuxw6V0b0lAgx5kOUUOSp");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
