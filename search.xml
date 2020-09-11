@@ -1450,8 +1450,8 @@
 <h2 id="0x09-参考链接"><a href="#0x09-参考链接" class="headerlink" title="0x09 参考链接"></a>0x09 参考链接</h2><p> <a href="https://lists.apache.org/thread.html/r77eae567ed829da9012cadb29af17f2df8fa23bf66faf88229857bb1%40" target="_blank" rel="noopener">CVE-2020-9484 Apache Tomcat Remote Code Execution via session persistence</a></p>
 ]]></content>
       <categories>
-        <category>web安全</category>
         <category>CVE</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>Apache</tag>
@@ -1864,8 +1864,8 @@ google dork：'inurl:bin/cklb'
 <p>CISA、FBI提供了这些安全漏洞的修复指南</p>
 ]]></content>
       <categories>
-        <category>web安全</category>
         <category>CVE</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>漏洞综合</tag>
@@ -2136,8 +2136,8 @@ google dork：'inurl:bin/cklb'
 <p>ok</p>
 ]]></content>
       <categories>
-        <category>web安全</category>
         <category>CVE</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -2221,8 +2221,8 @@ google dork：'inurl:bin/cklb'
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>要细心观察每一个地方的变化</p>
 ]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -2326,8 +2326,8 @@ google dork：'inurl:bin/cklb'
 
 ]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>-vulnhub</tag>
@@ -2607,8 +2607,8 @@ eval($a['t'].$ab);
 <p>成功获得flag</p>
 <img src="https://ckcah.github.io/images/DC-3/34.png">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -2734,8 +2734,8 @@ eval($a['t'].$ab);
 
 ]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -3246,8 +3246,8 @@ eval($a['t'].$ab);
 <h2 id="0x01-1"><a href="#0x01-1" class="headerlink" title="0x01"></a>0x01</h2><p>也可以在攻击者的帐户添加webshell</p>
 <img src="https://ckcah.github.io/images/CVE-2019-6977/3.png">]]></content>
       <categories>
-        <category>web安全</category>
         <category>CVE</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>xss</tag>
@@ -3273,8 +3273,8 @@ eval($a['t'].$ab);
 ]]></content>
       <categories>
         <category>English</category>
-        <category>听力</category>
         <category>口语</category>
+        <category>听力</category>
       </categories>
       <tags>
         <tag>连读技巧</tag>
@@ -3600,8 +3600,8 @@ eval($a['t'].$ab);
 <p>转载至<a href="https://mp.weixin.qq.com/s/CzJS6gpePZe1W14FrEBIEg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/CzJS6gpePZe1W14FrEBIEg</a></p>
 ]]></content>
       <categories>
-        <category>web安全</category>
         <category>CVE</category>
+        <category>web安全</category>
         <category>SaltStack</category>
       </categories>
       <tags>

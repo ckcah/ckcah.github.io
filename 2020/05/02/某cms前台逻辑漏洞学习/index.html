@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="QFVAlCf-2gKGgg_VeeyNJs6Z1SZ3zFiHFVraulVVNSw" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat.jpg?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cat.jpg?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.jpg?v=" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="cms,水平越权," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Bosch" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="0x00安装feifeicms4.0.18(建议直接安装在WWW目录下),具体代码，在我的资源里面，可免费下载 使用工具，phpstorm（别问，问就是喜欢它的界面） 0x01漏洞代码所在 1\Lib\Lib\Action\Home\UserAction.class.php  出现问题的代码段在198-225行 代码如下，简单分析 123456789101112131415161718192021">
+<meta property="og:type" content="article">
+<meta property="og:title" content="某cms前台逻辑漏洞学习">
+<meta property="og:url" content="https://ckcah.github.io/2020/05/02/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Bosch">
+<meta property="og:description" content="0x00安装feifeicms4.0.18(建议直接安装在WWW目录下),具体代码，在我的资源里面，可免费下载 使用工具，phpstorm（别问，问就是喜欢它的界面） 0x01漏洞代码所在 1\Lib\Lib\Action\Home\UserAction.class.php  出现问题的代码段在198-225行 代码如下，简单分析 123456789101112131415161718192021">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ckcah.github.io/images/%E6%9F%90cms%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/1.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E6%9F%90cms%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/2.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E6%9F%90cms%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/3.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E6%9F%90cms%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/4.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E6%9F%90cms%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/5.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E6%9F%90cms%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/6.png">
+<meta property="og:image" content="https://ckcah.github.io/images/%E6%9F%90cms%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/7.png">
+<meta property="article:published_time" content="2020-05-02T01:01:42.000Z">
+<meta property="article:modified_time" content="2020-05-07T10:14:34.000Z">
+<meta property="article:author" content="bosch cheng">
+<meta property="article:tag" content="cms">
+<meta property="article:tag" content="水平越权">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ckcah.github.io/images/%E6%9F%90cms%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ckcah.github.io/2020/05/02/某cms前台逻辑漏洞学习/"/>
+
+
+
+
+
+  <title>某cms前台逻辑漏洞学习 | Bosch</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bosch</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">cheng</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/02/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bosch cheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/emperor.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bosch">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">某cms前台逻辑漏洞学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-02T09:01:42+08:00">
+                2020-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E5%AE%89%E5%85%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" itemprop="url" rel="index">
+                    <span itemprop="name">代码审计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/02/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/02/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/05/02/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/" class="leancloud_visitors" data-flag-title="某cms前台逻辑漏洞学习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><p>安装feifeicms4.0.18(建议直接安装在WWW目录下),具体代码，在我的资源里面，可免费下载</p>
+<p>使用工具，phpstorm（别问，问就是喜欢它的界面）</p>
+<h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p>漏洞代码所在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\Lib\Lib\Action\Home\UserAction.class.php</span><br></pre></td></tr></table></figure>
+
+<p>出现问题的代码段在<code>198-225</code>行</p>
+<p>代码如下，简单分析</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public function post()&#123;</span><br><span class="line">	$info &#x3D; D(&quot;User&quot;)-&gt;ff_update($_POST);</span><br><span class="line">	if($info)&#123;</span><br><span class="line">		&#x2F;&#x2F;注册积分</span><br><span class="line">		if(C(&#39;user_register_score&#39;))&#123;</span><br><span class="line">			D(&#39;Score&#39;)-&gt;ff_user_score($info[&#39;user_id&#39;], 2, intval(C(&#39;user_register_score&#39;)));</span><br><span class="line">		&#125;</span><br><span class="line">		&#x2F;&#x2F;推广积分</span><br><span class="line">		if($info[&#39;user_pid&#39;] &amp;&amp; C(&#39;user_register_score_pid&#39;))&#123;</span><br><span class="line">			D(&#39;Score&#39;)-&gt;ff_user_score($info[&#39;user_pid&#39;], 4, intval(C(&#39;user_register_score_pid&#39;)));</span><br><span class="line">		&#125;</span><br><span class="line">		&#x2F;&#x2F;json返回</span><br><span class="line">		$data &#x3D; array(&#39;id&#39;&#x3D;&gt;$info[&#39;user_id&#39;],&#39;referer&#39;&#x3D;&gt;cookie(&#39;ff_register_referer&#39;));</span><br><span class="line">		&#x2F;&#x2F;欢迎邮件信息</span><br><span class="line">		if( C(&#39;user_register_welcome&#39;) )&#123;</span><br><span class="line">			$content &#x3D; str_replace(array(&#39;&#123;username&#125;&#39;,&#39;&#123;sitename&#125;&#39;,&#39;&#123;time&#125;&#39;), array($info[&#39;user_name&#39;],C(&#39;site_name&#39;),time()), C(&#39;user_register_welcome&#39;));</span><br><span class="line">			D(&quot;Email&quot;)-&gt;send($info[&#39;user_email&#39;], $info[&#39;user_name&#39;], $info[&#39;user_name&#39;].&#39;您好，感谢您的注册&#39;, $content);</span><br><span class="line">		&#125;</span><br><span class="line">		&#x2F;&#x2F;返回注册结果</span><br><span class="line">		if (C(&#39;user_register_check&#39;)) &#123;</span><br><span class="line">			$this-&gt;ajaxReturn($data, &quot;我们会尽快审核你的注册！&quot;, 201);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			$this-&gt;ajaxReturn($data, &quot;感谢你的注册！&quot;, 200);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		$this-&gt;ajaxReturn(0, D(&quot;User&quot;)-&gt;getError(), 500);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>函数直接将 post 的数据传入，可以看到函数<code>ff_update</code></p>
+<p>不知道它的用途，所以跟进看看，如果是使用phpstorm，可以直接使用ctrl+shift+F，搜索function ff_update，</p>
+<img src="https://ckcah.github.io/images/某cms逻辑漏洞/1.png">
+
+<p><code>\Lib\Lib\Model\AdsModel.class.php</code>，但是建议选择</p>
+<p><code>\Lib\Lib\Model\UserModel.class.php</code>,因为这里本就是关于注册的内容，在回溯函数的时候，最好是找对应的代码</p>
+<h2 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h2><p>继续查看ff_update函数的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 新增或更新</span><br><span class="line">public function ff_update($data, $group&#x3D;&#39;home&#39;)&#123;</span><br><span class="line">	&#x2F;&#x2F; 创建安全数据对象TP</span><br><span class="line">	$data &#x3D; $this-&gt;create($data);</span><br><span class="line">	if(false &#x3D;&#x3D;&#x3D; $data)&#123;</span><br><span class="line">		$this-&gt;error &#x3D; $this-&gt;getError();</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;* 添加或修改行为 *&#x2F;</span><br><span class="line">	if(empty($data[&#39;user_id&#39;]))&#123;</span><br><span class="line">		$data[&#39;user_id&#39;] &#x3D; $this-&gt;add();</span><br><span class="line">		if(!$data[&#39;user_id&#39;])&#123;</span><br><span class="line">			$this-&gt;error &#x3D; $this-&gt;getError();</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">		if($group &#x3D;&#x3D; &#39;home&#39;)&#123;</span><br><span class="line">			&#x2F;&#x2F;写入注册时间防刷新注册</span><br><span class="line">			cookie(&#39;ff_register_time&#39;, time());</span><br><span class="line">			&#x2F;&#x2F;写入登录信息</span><br><span class="line">			$this-&gt;ff_login_write(array(&#39;user_id&#39;&#x3D;&gt;$data[&#39;user_id&#39;],&#39;user_name&#39;&#x3D;&gt;$data[&#39;user_name&#39;],&#39;user_pwd&#39;&#x3D;&gt;$data[&#39;user_pwd&#39;]));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		$status &#x3D; $this-&gt;save();</span><br><span class="line">		if(false &#x3D;&#x3D;&#x3D; $status)&#123;</span><br><span class="line">			$this-&gt;error &#x3D; $this-&gt;getError();</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return $data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>来到这个函数，其他感觉都还好，本人喜欢先全部通看一遍，查找那些代码审计时需要注意的函数，然后目标锁定create函数，因为不知道它是干嘛的，它又在最开始，继续使用上面的方法回溯，看了前面几个，一方面是因为没看见它的参数，另一方面是觉得它内容不符合关于注册的东西，所以我果断选择了下边这个函数</p>
+<img src="https://ckcah.github.io/images/某cms逻辑漏洞/2.png">
+
+<h2 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a>0x03</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">public function create($data&#x3D;&#39;&#39;,$type&#x3D;&#39;&#39;) &#123;</span><br><span class="line">        &#x2F;&#x2F; 如果没有传值默认取POST数据</span><br><span class="line">        if(empty($data)) &#123;</span><br><span class="line">            $data    &#x3D;   $_POST;</span><br><span class="line">        &#125;elseif(is_object($data))&#123;</span><br><span class="line">            $data   &#x3D;   get_object_vars($data);</span><br><span class="line">        &#125;elseif(!is_array($data))&#123;</span><br><span class="line">            $this-&gt;error &#x3D; L(&#39;_DATA_TYPE_INVALID_&#39;);</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; 状态</span><br><span class="line">        $type &#x3D; $type?$type:(!empty($data[$this-&gt;getPk()])?self::MODEL_UPDATE:self::MODEL_INSERT);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 表单令牌验证</span><br><span class="line">        if(C(&#39;TOKEN_ON&#39;) &amp;&amp; !$this-&gt;autoCheckToken($data)) &#123;</span><br><span class="line">            $this-&gt;error &#x3D; L(&#39;_TOKEN_ERROR_&#39;);</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 检查字段映射</span><br><span class="line">        if(!empty($this-&gt;_map)) &#123;</span><br><span class="line">            foreach ($this-&gt;_map as $key&#x3D;&gt;$val)&#123;</span><br><span class="line">                if(isset($data[$key])) &#123;</span><br><span class="line">                    $data[$val] &#x3D;   $data[$key];</span><br><span class="line">                    unset($data[$key]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 数据自动验证</span><br><span class="line">        if(!$this-&gt;autoValidation($data,$type)) return false;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 验证完成生成数据对象</span><br><span class="line">        $vo   &#x3D;  array();</span><br><span class="line">        foreach ($this-&gt;fields as $key&#x3D;&gt;$name)&#123;</span><br><span class="line">            if(substr($key,0,1)&#x3D;&#x3D;&#39;_&#39;) continue;</span><br><span class="line">            $val &#x3D; isset($data[$name])?$data[$name]:null;</span><br><span class="line">            &#x2F;&#x2F;保证赋值有效</span><br><span class="line">            if(!is_null($val))&#123;</span><br><span class="line">                $vo[$name] &#x3D; (MAGIC_QUOTES_GPC &amp;&amp; is_string($val))?   stripslashes($val)  :  $val;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; 创建完成对数据进行自动处理</span><br><span class="line">        $this-&gt;autoOperation($vo,$type);</span><br><span class="line">        &#x2F;&#x2F; 赋值当前数据对象</span><br><span class="line">        $this-&gt;data &#x3D;   $vo;</span><br><span class="line">        &#x2F;&#x2F; 返回创建的数据以供其他调用</span><br><span class="line">        return $vo;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+<p>简单看看，大概就是传入参数，然后进行判断，<code>getPk</code>函数在这里没什么实际意思，大概就是不能为空，然后得到当前要判断的字段所在表的主键名称，<code>autoCheckToken</code>是关于令牌验证的，这个，我还没学到，所以暂定为没问题，重心也不在这里。继续往下，可以跟进 <code>autoValidation</code> 函数查看程序如何对数据进行验证，在同一个文件里面</p>
+<img src="https://ckcah.github.io/images/某cms逻辑漏洞/3.png">
+
+<h2 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a>0x04</h2><p><code>\Lib\ThinkPHP\Lib\Think\Core\Model.class.php</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">protected function autoValidation($data,$type) &#123;</span><br><span class="line">    &#x2F;&#x2F; 属性验证</span><br><span class="line">    if(!empty($this-&gt;_validate)) &#123;</span><br><span class="line">        &#x2F;&#x2F; 如果设置了数据自动验证</span><br><span class="line">        &#x2F;&#x2F; 则进行数据验证</span><br><span class="line">        &#x2F;&#x2F; 重置验证错误信息</span><br><span class="line">        foreach($this-&gt;_validate as $key&#x3D;&gt;$val) &#123;</span><br><span class="line">            &#x2F;&#x2F; 验证因子定义格式</span><br><span class="line">            &#x2F;&#x2F; array(field,rule,message,condition,type,when,params)</span><br><span class="line">            &#x2F;&#x2F; 判断是否需要执行验证</span><br><span class="line">            if(empty($val[5]) || $val[5]&#x3D;&#x3D; self::MODEL_BOTH || $val[5]&#x3D;&#x3D; $type ) &#123;</span><br><span class="line">                if(0&#x3D;&#x3D;strpos($val[2],&#39;&#123;%&#39;) &amp;&amp; strpos($val[2],&#39;&#125;&#39;))</span><br><span class="line">                    &#x2F;&#x2F; 支持提示信息的多语言 使用 &#123;%语言定义&#125; 方式</span><br><span class="line">                    $val[2]  &#x3D;  L(substr($val[2],2,-1));</span><br><span class="line">                $val[3]  &#x3D;  isset($val[3])?$val[3]:self::EXISTS_VAILIDATE;</span><br><span class="line">                $val[4]  &#x3D;  isset($val[4])?$val[4]:&#39;regex&#39;;</span><br><span class="line">                &#x2F;&#x2F; 判断验证条件</span><br><span class="line">                switch($val[3]) &#123;</span><br><span class="line">                    case self::MUST_VALIDATE:   &#x2F;&#x2F; 必须验证 不管表单是否有设置该字段</span><br><span class="line">                        if(false &#x3D;&#x3D;&#x3D; $this-&gt;_validationField($data,$val))&#123;</span><br><span class="line">                            $this-&gt;error    &#x3D;   $val[2];</span><br><span class="line">                            return false;</span><br><span class="line">                        &#125;</span><br><span class="line">                        break;</span><br><span class="line">                    case self::VALUE_VAILIDATE:    &#x2F;&#x2F; 值不为空的时候才验证</span><br><span class="line">                        if(&#39;&#39; !&#x3D; trim($data[$val[0]]))&#123;</span><br><span class="line">                            if(false &#x3D;&#x3D;&#x3D; $this-&gt;_validationField($data,$val))&#123;</span><br><span class="line">                                $this-&gt;error    &#x3D;   $val[2];</span><br><span class="line">                                return false;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        break;</span><br><span class="line">                    default:    &#x2F;&#x2F; 默认表单存在该字段就验证</span><br><span class="line">                        if(isset($data[$val[0]]))&#123;</span><br><span class="line">                            if(false &#x3D;&#x3D;&#x3D; $this-&gt;_validationField($data,$val))&#123;</span><br><span class="line">                                $this-&gt;error    &#x3D;   $val[2];</span><br><span class="line">                                return false;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码注释比较多，所以，不用我们自己怎么去分析，问题在于<code>_validationField</code>函数，它虽然确实实在验证，但，这里看不出来它到底是怎么验证的，所以继续回溯吧,发现在同一个文件里</p>
+<h2 id="0x05"><a href="#0x05" class="headerlink" title="0x05"></a>0x05</h2><p>先看看<code>autoValidation</code>函数验证了些什么参数吧</p>
+<img src="https://ckcah.github.io/images/某cms逻辑漏洞/4.png">
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">protected $_validate &#x3D; array(</span><br><span class="line">   array(&#39;forum_vcode&#39;,&#39;require&#39;,&#39;请输入验证码!&#39;,1,&#39;&#39;,1),</span><br><span class="line">   array(&#39;forum_vcode&#39;,&#39;validate_vcode&#39;,&#39;验证码错误！&#39;,1,&#39;callback&#39;,1),</span><br><span class="line">   array(&#39;forum_uid&#39;,&#39;validate_uid&#39;,&#39;您还没有登录!&#39;,1,&#39;callback&#39;,1),</span><br><span class="line">   array(&#39;forum_cookie&#39;,&#39;validate_cookie&#39;,&#39;您已经评论过了!&#39;,2,&#39;callback&#39;,1),</span><br><span class="line">   array(&#39;forum_sid&#39;,&#39;require&#39;,&#39;您没有指定模型ID！&#39;,1,&#39;&#39;,1),</span><br><span class="line">   array(&#39;forum_content&#39;,&#39;require&#39;,&#39;请填写评论内容！&#39;,1),</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>这些都是正常注册的，找不出漏洞，所以失败，回到刚刚的<code>\Lib\ThinkPHP\Lib\Think\CoreModel.class.php</code>继续看</p>
+<h2 id="0x07"><a href="#0x07" class="headerlink" title="0x07"></a>0x07</h2><p>发现<code>default</code>的部分：<code>if(isset($data[$val[0]]))</code>只要传入的数据为空就不必进入检测了，这样会带来问题</p>
+<img src="https://ckcah.github.io/images/某cms逻辑漏洞/5.png">
+
+<p>那就是咯，这样不就出问题了吗</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">protected function _validationField($data,$val) &#123;</span><br><span class="line">    switch($val[4]) &#123;</span><br><span class="line">        case &#39;function&#39;:&#x2F;&#x2F; 使用函数进行验证</span><br><span class="line">        case &#39;callback&#39;:&#x2F;&#x2F; 调用方法进行验证</span><br><span class="line">            $args &#x3D; isset($val[6])?$val[6]:array();</span><br><span class="line">            array_unshift($args,$data[$val[0]]);</span><br><span class="line">            if(&#39;function&#39;&#x3D;&#x3D;$val[4]) &#123;</span><br><span class="line">                return call_user_func_array($val[1], $args);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                return call_user_func_array(array(&amp;$this, $val[1]), $args);</span><br><span class="line">            &#125;</span><br><span class="line">        case &#39;confirm&#39;: &#x2F;&#x2F; 验证两个字段是否相同</span><br><span class="line">            return $data[$val[0]] &#x3D;&#x3D; $data[$val[1]];</span><br><span class="line">        case &#39;in&#39;: &#x2F;&#x2F; 验证是否在某个数组范围之内</span><br><span class="line">            return in_array($data[$val[0]] ,$val[1]);</span><br><span class="line">        case &#39;equal&#39;: &#x2F;&#x2F; 验证是否等于某个值</span><br><span class="line">            return $data[$val[0]] &#x3D;&#x3D; $val[1];</span><br><span class="line">        case &#39;unique&#39;: &#x2F;&#x2F; 验证某个值是否唯一</span><br><span class="line">            if(is_string($val[0]) &amp;&amp; strpos($val[0],&#39;,&#39;))</span><br><span class="line">                $val[0]  &#x3D;  explode(&#39;,&#39;,$val[0]);</span><br><span class="line">            $map &#x3D; array();</span><br><span class="line">            if(is_array($val[0])) &#123;</span><br><span class="line">                &#x2F;&#x2F; 支持多个字段验证</span><br><span class="line">                foreach ($val[0] as $field)</span><br><span class="line">                    $map[$field]   &#x3D;  $data[$field];</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                $map[$val[0]] &#x3D; $data[$val[0]];</span><br><span class="line">            &#125;</span><br><span class="line">            if(!empty($data[$this-&gt;getPk()])) &#123; &#x2F;&#x2F; 完善编辑的时候验证唯一</span><br><span class="line">                $map[$this-&gt;getPk()] &#x3D; array(&#39;neq&#39;,$data[$this-&gt;getPk()]);</span><br><span class="line">            &#125;</span><br><span class="line">            if($this-&gt;where($map)-&gt;find())</span><br><span class="line">                return false;</span><br><span class="line">            break;</span><br><span class="line">        case &#39;regex&#39;:</span><br><span class="line">        default:    &#x2F;&#x2F; 默认使用正则验证 可以使用验证类中定义的验证名称</span><br><span class="line">            &#x2F;&#x2F; 检查附加规则</span><br><span class="line">            return $this-&gt;regex($data[$val[0]],$val[1]);</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>$this-&gt;getPk()</code> 函数是得到当前要判断的字段所在表的主键名称（注册时影响的表即为 ff_user，主键为 user_id，在thinkphp 中也有该函数）。如果存在，那么就用 ‘neq’, 也即不等于。但是，它这里，都没什么验证啊，比如是验证是不是当前该用户，换句话说，就是没有限制访问其他id的页面，等于说注册完以后，随便传入一个字段<code>user_id</code>就可以看其他用户了哦？只要这个id存在。</p>
+<h2 id="0x08"><a href="#0x08" class="headerlink" title="0x08"></a>0x08</h2><p>（原本是还有一个注册界面的越权的，但是没有发现相应的参数，只好作废）</p>
+<p>大概原理：如果已经注册了一个<code>user_name=test1</code>并且<code>user_id=2</code>的用户，那么可以尝试绕过了字段验证。或者只需要传入<code>user_id</code>这个字段就可以绕过了。字段验证完以后数据库会自动更新。(这里没有传入 user_name, user_email 等字段，仅仅传入了 user_id 和密码)，那么程序就会对<code>user_id</code>对应的用户进行密码更改。</p>
+<p>同时网站可以通过<code>user_id</code>来遍历得到注册用户的<code>user_name</code>。可以检测 user_id 是否存在（水平越权）</p>
+<img src="https://ckcah.github.io/images/某cms逻辑漏洞/6.png">
+
+<p>又可以访问test2</p>
+<img src="https://ckcah.github.io/images/某cms逻辑漏洞/7.png">
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cms/" rel="tag"># cms</a>
+          
+            <a href="/tags/%E6%B0%B4%E5%B9%B3%E8%B6%8A%E6%9D%83/" rel="tag"># 水平越权</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/02/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-SQL%E6%B3%A8%E5%85%A5/" rel="next" title="代码审计-SQL注入">
+                <i class="fa fa-chevron-left"></i> 代码审计-SQL注入
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/02/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/" rel="prev" title="逻辑漏洞学习一">
+                逻辑漏洞学习一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/emperor.jpg"
+                alt="bosch cheng" />
+            
+              <p class="site-author-name" itemprop="name">bosch cheng</p>
+              <p class="site-description motion-element" itemprop="description">在这片海洋中，如若无法向上攀游，就只有往下沉沦</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ckcah" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/whaites2" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/bing.cheng.5682" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00"><span class="nav-number">1.</span> <span class="nav-text">0x00</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01"><span class="nav-number">2.</span> <span class="nav-text">0x01</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02"><span class="nav-number">3.</span> <span class="nav-text">0x02</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03"><span class="nav-number">4.</span> <span class="nav-text">0x03</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04"><span class="nav-number">5.</span> <span class="nav-text">0x04</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05"><span class="nav-number">6.</span> <span class="nav-text">0x05</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07"><span class="nav-number">7.</span> <span class="nav-text">0x07</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x08"><span class="nav-number">8.</span> <span class="nav-text">0x08</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bosch cheng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v="></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: '3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz',
+        appKey: 'wxnCuxw6V0b0lAgx5kOUUOSp',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz", "wxnCuxw6V0b0lAgx5kOUUOSp");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

