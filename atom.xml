@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ckcah.github.io/"/>
-  <updated>2020-10-04T18:23:27.088Z</updated>
+  <updated>2020-10-07T15:37:53.512Z</updated>
   <id>https://ckcah.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://ckcah.github.io/2020/10/05/xray%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"/>
     <id>https://ckcah.github.io/2020/10/05/xray%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</id>
     <published>2020-10-05T06:09:50.000Z</published>
-    <updated>2020-10-04T18:23:27.088Z</updated>
+    <updated>2020-10-07T15:37:53.512Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="0x01-xray下载"><a href="#0x01-xray下载" class="headerlink" title="0x01 xray下载"></a>0x01 xray下载</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;chaitin&#x2F;xray&#x2F;releases</span><br></pre></td></tr></table></figure><h1 id="0x02-xray官方文档"><a href="#0x02-xray官方文档" class="headerlink" title="0x02 xray官方文档"></a>0x02 xray官方文档</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;docs.xray.cool&#x2F;#&#x2F;tutorial&#x2F;introduce</span><br></pre></td></tr></table></figure><h1 id="0x03-xray-破解软件下载"><a href="#0x03-xray-破解软件下载" class="headerlink" title="0x03 xray 破解软件下载"></a>0x03 xray 破解软件下载</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;Lz1y&#x2F;xray-crack&#x2F;releases&#x2F;tag&#x2F;v1.0</span><br></pre></td></tr></table></figure><h1 id="0x04-破解过程"><a href="#0x04-破解过程" class="headerlink" title="0x04 破解过程"></a>0x04 破解过程</h1><h2 id="创建文件夹方便查找文件"><a href="#创建文件夹方便查找文件" class="headerlink" title="创建文件夹方便查找文件"></a>创建文件夹方便查找文件</h2><p>初始状态下应该是只有这三个文件，<code>config.yaml</code>是点击<code>xray_windows_386.exe</code>后生成的</p><p><img src="C:%5CUsers%5CC%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201005021846719.png" alt=""></p><h2 id="开始破解"><a href="#开始破解" class="headerlink" title="开始破解"></a>开始破解</h2><h3 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h3><p>使用 <code>-g username</code> 生成永久证书</p><h3 id="Patch-Xray"><a href="#Patch-Xray" class="headerlink" title="Patch Xray"></a>Patch Xray</h3><p>使用 <code>-c xray_path</code> 修改xray</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;xray-crack.exe -c xray_windows_386.exe</span><br><span class="line">&gt;xray-crack.exe -g ckcahgithubio</span><br></pre></td></tr></table></figure><p>完成</p><p><img src="C:%5CUsers%5CC%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201005022249364.png" alt="image-20201005022249364"></p><h1 id="常见用法"><a href="#常见用法" class="headerlink" title="常见用法"></a>常见用法</h1>]]></content>
     
