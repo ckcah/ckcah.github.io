@@ -1,6 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>python-04_实验报告-2</title>
+    <url>/2020/10/13/python-04-%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A-2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h5 id="任务一"><a href="#任务一" class="headerlink" title="任务一"></a>任务一</h5><p>任务说明：找出所有的水仙花先。水仙花数是指一个三位数，它的每个位上的数字3次方之和等于它本身（例如，1<strong>3+5</strong>3+3**3 = 153）。</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>, <span class="number">1000</span>):</span><br><span class="line"></span><br><span class="line">        a = i // <span class="number">100</span></span><br><span class="line"></span><br><span class="line">        b = (i % <span class="number">100</span>) // <span class="number">10</span></span><br><span class="line"></span><br><span class="line">        c = i % <span class="number">10</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (a * a * a + b * b * b + c * c * c == i):</span><br><span class="line">            print(i)</span><br><span class="line"></span><br><span class="line">test1()</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<img src="https://ckcah.github.io/images/homework/python/1.png">
+
+<h5 id="任务二"><a href="#任务二" class="headerlink" title="任务二"></a>任务二</h5><p>任务说明：利用循环语句打印出九九乘法表。</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, i + <span class="number">1</span>):</span><br><span class="line">            print(<span class="string">"%d*%d=%d"</span> % (i, j, i * j), end=<span class="string">" "</span>)</span><br><span class="line">        print(<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line">test2()</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<img src="https://ckcah.github.io/images/homework/python/2.png">
+
+<h5 id="任务三"><a href="#任务三" class="headerlink" title="任务三"></a>任务三</h5><p>任务说明: 找出1000以内所有的完全数。完全数是一些特殊的自然数，它的所有真因子（除自身以外的因子）的和恰好等于它本身（例如，6=1+2+3）。</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test3</span><span class="params">()</span>:</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">1000</span>):</span><br><span class="line">        s = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, i):</span><br><span class="line">            <span class="keyword">if</span> i % j == <span class="number">0</span>:</span><br><span class="line">                s += j</span><br><span class="line">        <span class="keyword">if</span> s == i:</span><br><span class="line">            result.append(str(i))</span><br><span class="line">    <span class="keyword">return</span> <span class="string">" "</span>.join(result)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"1000以内的完全数有：&#123;&#125;"</span>.format(test3()))</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<img src="https://ckcah.github.io/images/homework/python/3.png">
+
+<h5 id="任务四"><a href="#任务四" class="headerlink" title="任务四"></a>任务四</h5><p>任务说明：无穷级数 4/1-4/3+4/5-4/7+….的和是圆周率π。</p>
+<p>（1）请写一个程序计算出这一级前n项的和。</p>
+<p>（2）请利用该多项式求出误差小于10-6的圆周率π，真实值π可以使用math.PI。</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test4</span><span class="params">()</span>:</span></span><br><span class="line">    n = int(input(<span class="string">"输入一个n值:"</span>))</span><br><span class="line">    pi = <span class="number">0.0</span></span><br><span class="line">    fuhao = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n):</span><br><span class="line">        <span class="keyword">if</span> fuhao == <span class="number">1</span>:</span><br><span class="line">            pi += (<span class="number">1</span> / ((i * <span class="number">2</span>) - <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pi -= (<span class="number">1</span> / ((i * <span class="number">2</span>) - <span class="number">1</span>))</span><br><span class="line">        <span class="comment">#print(4 * pi)</span></span><br><span class="line">        PI = <span class="number">4</span> * pi</span><br><span class="line">        fuhao = fuhao * <span class="number">-1</span></span><br><span class="line">    <span class="keyword">print</span> (PI)</span><br><span class="line">test4()</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<img src="https://ckcah.github.io/images/homework/python/4.png">
+
+<h5 id="任务五"><a href="#任务五" class="headerlink" title="任务五"></a>任务五</h5><p>素数求和</p>
+<p>任务说明：找出300以内的所有素数，并对它们求和。</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test5</span><span class="params">()</span>:</span></span><br><span class="line">    sum = <span class="number">0</span></span><br><span class="line">    value = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">300</span>):</span><br><span class="line">        <span class="keyword">if</span> i == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        v = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">2</span>, i):</span><br><span class="line">            <span class="keyword">if</span> i % j == <span class="number">0</span>:</span><br><span class="line">                v = <span class="literal">False</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> v:</span><br><span class="line">            sum += i</span><br><span class="line">            value += <span class="number">1</span></span><br><span class="line">    print(value, sum)</span><br><span class="line">test5()</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<img src="https://ckcah.github.io/images/homework/python/5.png">
+
+<h5 id="任务六"><a href="#任务六" class="headerlink" title="任务六"></a>任务六</h5><p>斐波那契数列</p>
+<p>任务说明：斐波那契数列指的是这样一个数列：1,1,2,3,5,8,13,21，…..。这个数列从第3项开始，每一项都等于前两项之和，请编程实现输出该数列的前n项。</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test6</span><span class="params">()</span>:</span></span><br><span class="line">    n = int(input(<span class="string">"输入一个正整数:"</span>))</span><br><span class="line"></span><br><span class="line">    n1 = <span class="number">1</span></span><br><span class="line">    n2 = <span class="number">1</span></span><br><span class="line">    count = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        print(<span class="string">"斐波那契数列："</span>)</span><br><span class="line">        print(n1)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"斐波那契数列："</span>)</span><br><span class="line">        print(n1, <span class="string">","</span>, n2, end=<span class="string">" , "</span>)</span><br><span class="line">        <span class="keyword">while</span> count &lt; n:</span><br><span class="line">            nth = n1 + n2</span><br><span class="line">            print(nth, end=<span class="string">" , "</span>)</span><br><span class="line">            <span class="comment"># 更新值</span></span><br><span class="line">            n1 = n2</span><br><span class="line">            n2 = nth</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">test6()</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<img src="https://ckcah.github.io/images/homework/python/6.png">
+
+<h5 id="任务七"><a href="#任务七" class="headerlink" title="任务七"></a>任务七</h5><p>猜数游戏</p>
+<p>任务说明：在程序中随机生成一个0〜9之间（包含0和9）的随机整数T，让用户通过键盘输入所猜的数。如果输入的数大于T显示“遗憾，太大了”；如果输入小于T显示“遗憾，太小了”；如此循环，直至猜中该数，显示“猜了N次，你猜中了”, 其中N是指用户在这次游戏中猜中该随机数一共尝试的次数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test7</span><span class="params">()</span>:</span></span><br><span class="line">    i = <span class="number">1</span></span><br><span class="line">    a = random.randrange(<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        b = int(input(<span class="string">"输入所猜的数:"</span>))</span><br><span class="line">        <span class="keyword">if</span> a &gt; b:</span><br><span class="line">            print(<span class="string">"遗憾，太大了"</span>)</span><br><span class="line">        <span class="keyword">elif</span> a &lt; b:</span><br><span class="line">            print(<span class="string">"遗憾，太小了"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        i = i + <span class="number">1</span></span><br><span class="line">    print(<span class="string">"猜了%d次，你猜中了"</span> % i)</span><br><span class="line">test7()</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<img src="https://ckcah.github.io/images/homework/python/7.png">]]></content>
+      <categories>
+        <category>homework</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hadoop搭建过程（踩坑版）</title>
+    <url>/2020/10/12/hadoop%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%EF%BC%88%E8%B8%A9%E5%9D%91%E7%89%88%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>Centos7 + hadoop2.6.0 + jdk1.8.0_261 + ssh</p>
+<p>推荐工具：vmware虚拟机、winscp.exe、putty.exe</p>
+<p>我把所有的文件都分享到了百度网盘，需要的朋友可以下载.</p>
+<h2 id="主线"><a href="#主线" class="headerlink" title="主线"></a>主线</h2><h3 id="jdk1-8"><a href="#jdk1-8" class="headerlink" title="jdk1.8"></a>jdk1.8</h3><h4 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h4><p>将jdk文件下载好后，移动至linux下（你想要保存的路径下）</p>
+<p><img src="C:%5CUsers%5CC%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201011222400793.png" alt="image-20201011222400793"></p>
+<h4 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h4><p>putty.exe连接centos</p>
+<hr>
+<p><img src="C:%5CUsers%5CC%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201011222649970.png" alt="image-20201011222649970"></p>
+<h4 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a>0x03</h4><p>进入centos后，更改环境配置</p>
+<p><img src="C:%5CUsers%5CC%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201011223520373.png" alt="image-20201011223520373"></p>
+<p><img src="C:%5CUsers%5CC%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201011223556312.png" alt="image-20201011223556312"></p>
+<p>注意红框的地方，就是0x01中，你将jdk放入的地方</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/src/jdk1.8.0_261</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre/lib/rt.jar:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib/dt.jar:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib/tools.jar</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin</span><br></pre></td></tr></table></figure>
+
+<h4 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a>0x04</h4><p>验证是否成功</p>
+<p><img src="C:%5CUsers%5CC%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201011224149009.png" alt="image-20201011224149009"></p>
+<h3 id="ssh配置"><a href="#ssh配置" class="headerlink" title="ssh配置"></a>ssh配置</h3><p><strong>原理</strong>：Hadoop运行过程中需要管理远端Hadoop守护进程，在Hadoop启动以后，NameNode是通过SSH（Secure Shell）来启动和停止各个DataNode上的各种守护进程的。这就必须在节点之间执行指令的时候是不需要输入密码的形式，故我们需要配置SSH运用无密码公钥认证的形式，这样NameNode使用SSH无密码登录并启动DataName进程，同样原理，DataNode上也能使用SSH无密码登录到NameNode.</p>
+<h4 id="0x01-1"><a href="#0x01-1" class="headerlink" title="0x01"></a>0x01</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ssh-keygen</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="C:%5CUsers%5CC%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201011224356548.png" alt="image-20201011224356548"></p>
+<h4 id="0x02-1"><a href="#0x02-1" class="headerlink" title="0x02"></a>0x02</h4><p><img src="C:%5CUsers%5CC%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201011225556309.png" alt="image-20201011225556309"></p>
+<h4 id="0x03-1"><a href="#0x03-1" class="headerlink" title="0x03"></a>0x03</h4><p>验证ssh登陆不需要密码</p>
+<h3 id="hadoop"><a href="#hadoop" class="headerlink" title="hadoop"></a>hadoop</h3><h2 id="副本"><a href="#副本" class="headerlink" title="副本"></a>副本</h2>]]></content>
+      <categories>
+        <category>homework</category>
+        <category>hadoop</category>
+      </categories>
+      <tags>
+        <tag>hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《面向对象程序设计(JAVA)》实验报告2</title>
     <url>/2020/10/12/%E3%80%8A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-JAVA-%E3%80%8B%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="必做题"><a href="#必做题" class="headerlink" title="必做题"></a>必做题</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>编程:已知半径r，圆柱高h，求圆周长2πr、圆面积πr2、圆球表面积πr3、圆球体积4/3πr3及圆柱体积πr2h。运行程序后输入半径r和高h，输出计算结果。</p>
@@ -29,7 +122,7 @@
 <p><strong><em>分析提示： 在这个题中要计算 <img src="file:///C:/Users/C/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png" alt="img">)，此题的关键是平方根如何表示，Math.sqrt()方法是系统提供的用于计算平方根的方法，例如计算变量x的平方根应写为Math.sqrt(x)。</em></strong></p>
 ]]></content>
       <categories>
-        <category>学校作业</category>
+        <category>homework</category>
         <category>java</category>
       </categories>
       <tags>
