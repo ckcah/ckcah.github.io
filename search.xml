@@ -201,7 +201,8 @@
 <p>解决方案：</p>
 <p>将$JAVA_HOME、$HADOOP_HOME配置到<code>.bashrc</code>、<code>.bash_profile</code>中</p>
 <p>并更新配置<code>source .bashrc</code>、<code>source .bash_profile</code></p>
-<h4 id="踩坑六"><a href="#踩坑六" class="headerlink" title="踩坑六"></a>踩坑六</h4><p>这次重新搭建没遇到，但是，在启动hadoop的时候确实会存在这个问题</p>
+<h4 id="踩坑六"><a href="#踩坑六" class="headerlink" title="踩坑六"></a>踩坑六</h4><img src="https://ckcah.github.io/images/homework/hadoop/30.png">
+
 <p>解决方案：</p>
 <p>1.查看centos的IP地址：<code>ifconfig</code></p>
 <p>更改<code>/etc/hostname</code>、<code>/etc/hosts</code>如下</p>
