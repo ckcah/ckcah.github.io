@@ -127,7 +127,7 @@
 <meta property="og:image" content="https://ckcah.github.io/images/homework/hadoop/30.png">
 <meta property="og:image" content="https://ckcah.github.io/images/homework/hadoop/27.png">
 <meta property="article:published_time" content="2020-10-12T02:06:20.000Z">
-<meta property="article:modified_time" content="2020-10-13T14:28:51.938Z">
+<meta property="article:modified_time" content="2020-10-15T15:45:24.226Z">
 <meta property="article:author" content="bosch cheng">
 <meta property="article:tag" content="hadoop">
 <meta name="twitter:card" content="summary">
@@ -571,6 +571,10 @@
 <h3 id="配置局域网也可访问"><a href="#配置局域网也可访问" class="headerlink" title="配置局域网也可访问"></a>配置局域网也可访问</h3><p><strong>题外话</strong>：虚拟机搭建的话，因为IP地址是自动分配的，所以有时候会出现IP地址变更的情况，所以我建议改成静态IP</p>
 <p>如果要配置局域网也可访问，就涉及到linux的防火墙功能.</p>
 <p>很简单，只需要关闭防火墙就行.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service &amp;&amp; systemctl <span class="built_in">disable</span> firewalld.service</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="副本"><a href="#副本" class="headerlink" title="副本"></a>副本</h2><p><strong>此副本不考虑后期安全性，只是初学者尽快解决问题的快捷办法，大佬请绕道</strong></p>
 <p><strong>注意</strong>：建议每次更改配置之前，先进入<code>/usr/local/src/hadoop/sbin</code>中，执行<code>stop-all.sh</code>停止hadoop服务，再进行更改，更改完成后，执行<code>start-all.sh</code>开启hadoop服务.</p>
 <h4 id="踩坑一"><a href="#踩坑一" class="headerlink" title="踩坑一"></a>踩坑一</h4><p>当我运行hdfs时，出现了这种情况</p>
@@ -757,7 +761,7 @@
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
