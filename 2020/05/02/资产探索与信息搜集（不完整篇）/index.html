@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ckcah.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="一、前言在众测中，基本上SRC的漏洞收集范围有如下几种形式： 1234567形式一：暂时仅限以下系统：www.xxx.com,其他域名不在此次测试范围内形式二：只奖励与*.xxx.com相关的漏洞形式三：无限制形式一，基本被限定了范围形式二，注重于子域名的收集形式三，子域名及相关域名的收集  另外，随着企业内部业务的不断壮大，各种业务平台和管理系统越来越多，很多单位往往存在着“隐形资产”，这些“隐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="资产探索与信息搜集（不完整篇）">
+<meta property="og:url" content="https://ckcah.github.io/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/index.html">
+<meta property="og:site_name" content="bosch">
+<meta property="og:description" content="一、前言在众测中，基本上SRC的漏洞收集范围有如下几种形式： 1234567形式一：暂时仅限以下系统：www.xxx.com,其他域名不在此次测试范围内形式二：只奖励与*.xxx.com相关的漏洞形式三：无限制形式一，基本被限定了范围形式二，注重于子域名的收集形式三，子域名及相关域名的收集  另外，随着企业内部业务的不断壮大，各种业务平台和管理系统越来越多，很多单位往往存在着“隐形资产”，这些“隐">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-02T07:35:18.000Z">
+<meta property="article:modified_time" content="2020-05-07T10:14:34.000Z">
+<meta property="article:author" content="bosch">
+<meta property="article:tag" content="信息收集">
+<meta property="article:tag" content="资产探索">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://ckcah.github.io/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>资产探索与信息搜集（不完整篇） | bosch</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">bosch</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">cheng</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>books</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/ckcah" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/title1.jpg">
+      <meta itemprop="name" content="bosch">
+      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bosch">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          资产探索与信息搜集（不完整篇）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-02 15:35:18" itemprop="dateCreated datePublished" datetime="2020-05-02T15:35:18+08:00">2020-05-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-07 18:14:34" itemprop="dateModified" datetime="2020-05-07T18:14:34+08:00">2020-05-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">渗透测试</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="资产探索与信息搜集（不完整篇）" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h1><p>在众测中，基本上SRC的漏洞收集范围有如下几种形式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">形式一：暂时仅限以下系统：www.xxx.com,其他域名不在此次测试范围内</span><br><span class="line">形式二：只奖励与*.xxx.com相关的漏洞</span><br><span class="line">形式三：无限制</span><br><span class="line"></span><br><span class="line">形式一，基本被限定了范围</span><br><span class="line">形式二，注重于子域名的收集</span><br><span class="line">形式三，子域名及相关域名的收集</span><br></pre></td></tr></table></figure>
+
+<p>另外，随着企业内部业务的不断壮大，各种业务平台和管理系统越来越多，很多单位往往存在着“隐形资产”，这些“隐形资产”通常被管理员所遗忘，长时间无人维护，导致存在较多的已知漏洞。</p>
+<p>在渗透测试中，我们需要尽可能多的去收集目标的信息，资产探测和信息收集，决定了你发现安全漏洞的几率有多大。如何最大化的去收集目标范围，尽可能的收集到子域名及相关域名的信息，这对我们进一步的渗透测试显得尤为重要。</p>
+<p>在这里，通过介绍一些资产探测和信息收集的技巧，来收集渗透目标的信息。</p>
+<p>假设我们只拿到了一个主域名。</p>
+<h1 id="二、资产探测"><a href="#二、资产探测" class="headerlink" title="二、资产探测"></a><strong>二、资产探测</strong></h1><p>从主域名出发，我们首先需要考虑的是子域名，即*.xxx.com，接下来进行子域名搜集思路的梳理。</p>
+<h2 id="2-1-子域名收集"><a href="#2-1-子域名收集" class="headerlink" title="2.1 子域名收集"></a><strong>2.1 子域名收集</strong></h2><h3 id="A、搜索引擎查询"><a href="#A、搜索引擎查询" class="headerlink" title="A、搜索引擎查询"></a><strong>A、搜索引擎查询</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Google、baidu、Bing等传统搜索引擎</span><br><span class="line"><span class="attr">site</span>:baidu.com inurl:baidu.com</span><br><span class="line">搜target.com|公司名字</span><br><span class="line"></span><br><span class="line">网络空间安全搜索引擎</span><br><span class="line">zoomeye(钟馗之眼)：https:<span class="comment">//www.zoomeye.org</span></span><br><span class="line">shodan：https:<span class="comment">//www.shodan.io</span></span><br><span class="line">Fofa：https:<span class="comment">//fofa.so</span></span><br><span class="line">Censys：https:<span class="comment">//www.censys.io</span></span><br><span class="line">Dnsdb搜索引擎：https:<span class="comment">//www.dnsdb.io</span></span><br><span class="line"></span><br><span class="line">PS：可编写Python脚本批量查询、获取</span><br></pre></td></tr></table></figure>
+
+<h3 id="B、在线查询接口"><a href="#B、在线查询接口" class="headerlink" title="B、在线查询接口"></a><strong>B、在线查询接口</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//tool.chinaz.com/subdomain/</span></span><br><span class="line">http:<span class="comment">//i.links.cn/subdomain/    </span></span><br><span class="line">http:<span class="comment">//subdomain.chaxun.la/</span></span><br><span class="line">http:<span class="comment">//searchdns.netcraft.com/</span></span><br><span class="line">https:<span class="comment">//www.virustotal.com/</span></span><br><span class="line">https:<span class="comment">//censys.io/</span></span><br><span class="line">https:<span class="comment">//x.threatbook.cn/ 微步在线</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="C、子域名暴力猜解"><a href="#C、子域名暴力猜解" class="headerlink" title="C、子域名暴力猜解"></a><strong>C、子域名暴力猜解</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">爆破工具：</span><br><span class="line">Layer子域名挖掘机</span><br><span class="line">wydomain：https:<span class="comment">//github.com/ring04h/wydomain    </span></span><br><span class="line">subDomainsBrute:https:<span class="comment">//github.com/lijiejie/</span></span><br><span class="line">Sublist3r:https:<span class="comment">//github.com/aboul3la/Sublist3r</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="D、DNS查询-枚举"><a href="#D、DNS查询-枚举" class="headerlink" title="D、DNS查询/枚举"></a><strong>D、DNS查询/枚举</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DNS查询：</span><br><span class="line">host -t a domainName</span><br><span class="line">host -t mx domainName</span><br><span class="line"></span><br><span class="line">优点：非常直观，通过查询DNS服务器的A记录、CNAME等，可以准确得到相关信息，较全。</span><br><span class="line">缺点：有很大的局限性，很多DNS是禁止查询的。</span><br><span class="line">参考：https:<span class="comment">//www.cnblogs.com/xuanhun/p/3489038.html</span></span><br><span class="line"></span><br><span class="line">域传送漏洞</span><br><span class="line"></span><br><span class="line">DNS暴力破解：fierce</span><br><span class="line">参考链接：http:<span class="comment">//blog.csdn.net/jeanphorn/article/details/44987549</span></span><br><span class="line"></span><br><span class="line">Passive DNS</span><br><span class="line">参考链接：http:<span class="comment">//www.freebuf.com/articles/network/103815.html</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="E、HTTPS证书"><a href="#E、HTTPS证书" class="headerlink" title="E、HTTPS证书"></a><strong>E、HTTPS证书</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">证书颁发机构(CA)必须将他们发布的每个SSL/TLS证书发布到公共日志中。SSL/TLS证书通常包含域名、子域名和电子邮件地址。因此SSL/TLS证书成为了攻击者的切入点。</span><br><span class="line"></span><br><span class="line">SSL证书搜索引擎：</span><br><span class="line"><span class="attr">https</span>:<span class="comment">//certdb.com/domain/github.com</span></span><br><span class="line">https:<span class="comment">//crt.sh/?Identity=%%.github.com</span></span><br><span class="line">https:<span class="comment">//censys.io/</span></span><br><span class="line"></span><br><span class="line">基于 HTTPS 证书的子域名收集小程序 ：GetDomainsBySSL.py</span><br><span class="line">参考链接：http:<span class="comment">//www.freebuf.com/articles/network/140738.html</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="F、综合搜索"><a href="#F、综合搜索" class="headerlink" title="F、综合搜索"></a><strong>F、综合搜索</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">提莫：https:<span class="comment">//github.com/bit4woo/teemo </span></span><br><span class="line">主要有三大模块：搜索引擎 第三方站点 枚举 </span><br><span class="line"></span><br><span class="line">利用全网IP扫描http端口 在访问IP的<span class="number">80</span>或者<span class="number">8080</span>端口的时候，可能会遇到配置了<span class="number">301</span>跳转的，可以在header里获取域名信息。</span><br><span class="line">全网扫描结果如下：https:<span class="comment">//scans.io/study/sonar.http</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="G、子域名筛选"><a href="#G、子域名筛选" class="headerlink" title="G、子域名筛选"></a><strong>G、子域名筛选</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当收集的子域名数量过大，手动筛选工作量太大，如何快速扫描，半自动的筛选出有效的可能存在漏洞的子域名。</span><br><span class="line">参考链接：http:<span class="comment">//www.52bug.cn/%E9%BB%91%E5%AE%A2%E6%8A%80%E6%9C%AF/3413.html</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-相关域名收集："><a href="#2-2-相关域名收集：" class="headerlink" title="2.2 相关域名收集："></a><strong>2.2 相关域名收集：</strong></h2><h3 id="A、旁站及c段收集"><a href="#A、旁站及c段收集" class="headerlink" title="A、旁站及c段收集"></a><strong>A、旁站及c段收集</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">同IP网站及C段查询</span><br><span class="line">IP反查域名</span><br><span class="line"></span><br><span class="line">工具：御剑、K8</span><br><span class="line">在线查询工具：</span><br><span class="line"><span class="attr">http</span>:<span class="comment">//www.hackmall.cn/</span></span><br><span class="line">http:<span class="comment">//www.webscan.cc/  推荐</span></span><br><span class="line">https:<span class="comment">//phpinfo.me/bing.php </span></span><br><span class="line"></span><br><span class="line">将C段收集的相关IP，推测该单位所在的IP段，再针对IP段进行服务器端口扫描</span><br></pre></td></tr></table></figure>
+
+<h3 id="B、端口扫描"><a href="#B、端口扫描" class="headerlink" title="B、端口扫描"></a><strong>B、端口扫描</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对<span class="number">1</span>-<span class="number">65535</span>端口扫描，探测Web服务端口</span><br></pre></td></tr></table></figure>
+
+<h3 id="C、主站提取"><a href="#C、主站提取" class="headerlink" title="C、主站提取"></a><strong>C、主站提取</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">通过编写爬虫，从主站页面（一般在主页）获取相关业务系统</span><br><span class="line">思路是：通过访问主域名或者子域名，然后爬取页面上该域名的所有子域名，</span><br><span class="line">然后循环访问获取到的子域名，然后再次循环，直到爬完为止</span><br><span class="line"></span><br><span class="line">跨域策略文件 crossdomain.xml</span><br><span class="line">如：https:<span class="comment">//www.baidu.com/crossdomain.xml</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="D、移动端"><a href="#D、移动端" class="headerlink" title="D、移动端"></a><strong>D、移动端</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">随着移动端的兴起，很多单位都有自己的移动APP、微信公众号、支付宝生活号等，这也是值得重点关注的点。</span><br></pre></td></tr></table></figure>
+
+<h3 id="E、行业系统"><a href="#E、行业系统" class="headerlink" title="E、行业系统"></a><strong>E、行业系统</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">同行业可能存在类似的系统，甚至于采用同一家厂商的系统，可互做对比</span><br><span class="line">通用：办公OA、邮件系统、VPN等</span><br><span class="line">医院：门户、预约系统、掌上医院、微信公众平台等</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、信息收集"><a href="#三、信息收集" class="headerlink" title="三、信息收集"></a><strong>三、信息收集</strong></h1><p>主要是针对单个站点的信息收集技巧，主要围绕服务器IP、域名、网站。</p>
+<h2 id="3-1-服务器IP"><a href="#3-1-服务器IP" class="headerlink" title="3.1 服务器IP"></a><strong>3.1 服务器IP</strong></h2><h3 id="A、绕过CDN查找网站真实ip"><a href="#A、绕过CDN查找网站真实ip" class="headerlink" title="A、绕过CDN查找网站真实ip"></a><strong>A、绕过</strong><a target="_blank" rel="noopener" href="https://cloud.tencent.com/product/cdn?from=10680"><strong>CDN</strong></a><strong>查找网站真实ip</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、查询历史DNS记录：</span><br><span class="line">查看 IP 与 域名绑定的历史记录，可能会存在使用 CDN 前的记录，相关查询网站有：</span><br><span class="line"><span class="attr">https</span>:<span class="comment">//dnsdb.io/zh-cn/</span></span><br><span class="line">https:<span class="comment">//x.threatbook.cn/</span></span><br><span class="line">http:<span class="comment">//toolbar.netcraft.com/site_report?url=</span></span><br><span class="line">http:<span class="comment">//viewdns.info/</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、xcdn</span><br><span class="line">    <span class="attr">https</span>:<span class="comment">//github.com/3xp10it/xcdn</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、Zmap扫描全网</span><br><span class="line">操作方法：http:<span class="comment">//bobao.360.cn/learning/detail/211.html</span></span><br><span class="line"></span><br><span class="line">Tips：找到真实ip，绑定host ，是否可以打开目标网站，就是真实IP，对真实IP进行入侵测试，DDOS流量攻击，CC等等，实现无视CDN防御。</span><br></pre></td></tr></table></figure>
+
+<h3 id="B、识别服务器及中间件类型"><a href="#B、识别服务器及中间件类型" class="headerlink" title="B、识别服务器及中间件类型"></a><strong>B、识别服务器及中间件类型</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">远程操作系统探测</span><br><span class="line">用 NMAP 探测操作系统</span><br></pre></td></tr></table></figure>
+
+<h3 id="C、端口及服务"><a href="#C、端口及服务" class="headerlink" title="C、端口及服务"></a><strong>C、端口及服务</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Nmap  <span class="number">1</span>-<span class="number">65535</span>端口扫描，探测端口服务</span><br></pre></td></tr></table></figure>
+
+<h3 id="D、查询IP所在位置"><a href="#D、查询IP所在位置" class="headerlink" title="D、查询IP所在位置"></a><strong>D、查询IP所在位置</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IP地址查询：</span><br><span class="line"><span class="attr">http</span>:<span class="comment">//www.hao7188.com</span></span><br><span class="line">http:<span class="comment">//www.882667.com</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-域名"><a href="#3-2-域名" class="headerlink" title="3.2 域名"></a><strong>3.2 域名</strong></h2><h3 id="A、搜索引擎"><a href="#A、搜索引擎" class="headerlink" title="A、搜索引擎"></a><strong>A、搜索引擎</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Google Hacking</span><br><span class="line">Google Hacking查找，如site:baidu.com inurl:admin，使用类似语法，获取网站的敏感信息</span><br></pre></td></tr></table></figure>
+
+<h3 id="B、whois信息-DNS解析"><a href="#B、whois信息-DNS解析" class="headerlink" title="B、whois信息/DNS解析"></a><strong>B、whois信息/DNS解析</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在whois查询中，获取注册人姓名和邮箱、电话信息，可以通过搜索引擎，社交网络，进一步挖掘出更多域名所有人的信息</span><br><span class="line">DNS服务器</span><br><span class="line"><span class="attr">http</span>:<span class="comment">//whois.chinaz.com</span></span><br><span class="line">https:<span class="comment">//whois.aliyun.com</span></span><br><span class="line">域名注册邮箱，可用于社工或是登录处的账号。</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-站点"><a href="#3-3-站点" class="headerlink" title="3.3 站点"></a><strong>3.3 站点</strong></h2><h3 id="A、robots-txt"><a href="#A、robots-txt" class="headerlink" title="A、robots.txt"></a><strong>A、robots.txt</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取，可能存在一些敏感路径。</span><br></pre></td></tr></table></figure>
+
+<h3 id="B、网站架构"><a href="#B、网站架构" class="headerlink" title="B、网站架构"></a><strong>B、网站架构</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">网站语言、数据库，网站框架、组件框架历史漏洞</span><br><span class="line">常用的网站架构如：LAMP/LNMP</span><br><span class="line">PHP框架：ThinkPHP</span><br></pre></td></tr></table></figure>
+
+<h3 id="C、目录结构-后台地址"><a href="#C、目录结构-后台地址" class="headerlink" title="C、目录结构/后台地址"></a><strong>C、目录结构/后台地址</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">常见的敏感目录以及文件扫描,这些对以后的突破都可能产生至关重要的作用。</span><br><span class="line">收集的方式有爬虫采集，目录扫描</span><br><span class="line"><span class="number">1</span>）使用爬虫获取网站目录结构。如wvs爬虫功能获取网站目录结构。</span><br><span class="line"><span class="number">2</span>）使用目录猜解工具暴力猜解。如：御剑后台扫描工具、7kbscan-WebPathBrute</span><br></pre></td></tr></table></figure>
+
+<h3 id="D、敏感文件信息泄露"><a href="#D、敏感文件信息泄露" class="headerlink" title="D、敏感文件信息泄露"></a><strong>D、敏感文件信息泄露</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">备份文件、测试文件、Github泄露、SVN源码泄露</span><br></pre></td></tr></table></figure>
+
+<h3 id="E、web-指纹"><a href="#E、web-指纹" class="headerlink" title="E、web 指纹"></a><strong>E、web 指纹</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">云悉在线WEB指纹CMS识别平台：http:<span class="comment">//www.yunsee.cn</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="F、安全防护"><a href="#F、安全防护" class="headerlink" title="F、安全防护"></a><strong>F、安全防护</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安全防护，云waf、硬件waf、主机防护软件、软waf</span><br></pre></td></tr></table></figure>
+
+<p>参考链接：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">我是如何收集厂商ip段，并进行简单的信息探测的</span><br><span class="line"><span class="attr">http</span>:<span class="comment">//www.91ri.org/15674.html</span></span><br><span class="line">他山之石 | 渗透测试中的各种子域名枚举技术介绍</span><br><span class="line"><span class="attr">http</span>:<span class="comment">//www.freebuf.com/articles/web/154809.html</span></span><br><span class="line">子域名搜集思路与技巧梳理</span><br><span class="line"><span class="attr">http</span>:<span class="comment">//www.freebuf.com/articles/web/117006.html</span></span><br><span class="line">企业人员信息收集</span><br><span class="line"><span class="attr">https</span>:<span class="comment">//www.zhihu.com/question/24195319</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="PunkSPIDER映射哪些类型的漏洞？"><a href="#PunkSPIDER映射哪些类型的漏洞？" class="headerlink" title="PunkSPIDER映射哪些类型的漏洞？"></a>PunkSPIDER映射哪些类型的漏洞？</h3><ul>
+<li>BSQLI = <a target="_blank" rel="noopener" href="https://www.owasp.org/index.php/Blind_SQL_Injection">盲SQL注入</a></li>
+<li>SQLI = <a target="_blank" rel="noopener" href="https://www.owasp.org/index.php/SQL_Injection">SQL注入</a></li>
+<li>XSS = <a target="_blank" rel="noopener" href="https://www.owasp.org/index.php/XSS_Attacks">跨站点脚本</a></li>
+<li>TRAV = <a target="_blank" rel="noopener" href="https://www.owasp.org/index.php/Path_Traversal">路径遍历</a></li>
+<li>MXI = <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Email_injection">邮件标题注入或电子邮件注入</a></li>
+<li>OSCI = <a target="_blank" rel="noopener" href="https://www.owasp.org/index.php/OS_Command_Injection">操作系统命令注入</a></li>
+<li>XPATHI = <a target="_blank" rel="noopener" href="https://www.owasp.org/index.php/XPATH_Injection">XPath注入</a></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" rel="tag"># 信息收集</a>
+              <a href="/tags/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2/" rel="tag"># 资产探索</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/02/paylaod-sql/" rel="prev" title="paylaod-sql">
+      <i class="fa fa-chevron-left"></i> paylaod-sql
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/02/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E5%88%9D%E7%AF%87/" rel="next" title="代码审计-初篇">
+      代码审计-初篇 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%B5%84%E4%BA%A7%E6%8E%A2%E6%B5%8B"><span class="nav-number">2.</span> <span class="nav-text">二、资产探测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%AD%90%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 子域名收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A%E3%80%81%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.1.1.</span> <span class="nav-text">A、搜索引擎查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B%E3%80%81%E5%9C%A8%E7%BA%BF%E6%9F%A5%E8%AF%A2%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.1.2.</span> <span class="nav-text">B、在线查询接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C%E3%80%81%E5%AD%90%E5%9F%9F%E5%90%8D%E6%9A%B4%E5%8A%9B%E7%8C%9C%E8%A7%A3"><span class="nav-number">2.1.3.</span> <span class="nav-text">C、子域名暴力猜解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D%E3%80%81DNS%E6%9F%A5%E8%AF%A2-%E6%9E%9A%E4%B8%BE"><span class="nav-number">2.1.4.</span> <span class="nav-text">D、DNS查询&#x2F;枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E%E3%80%81HTTPS%E8%AF%81%E4%B9%A6"><span class="nav-number">2.1.5.</span> <span class="nav-text">E、HTTPS证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F%E3%80%81%E7%BB%BC%E5%90%88%E6%90%9C%E7%B4%A2"><span class="nav-number">2.1.6.</span> <span class="nav-text">F、综合搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#G%E3%80%81%E5%AD%90%E5%9F%9F%E5%90%8D%E7%AD%9B%E9%80%89"><span class="nav-number">2.1.7.</span> <span class="nav-text">G、子域名筛选</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E7%9B%B8%E5%85%B3%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 相关域名收集：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A%E3%80%81%E6%97%81%E7%AB%99%E5%8F%8Ac%E6%AE%B5%E6%94%B6%E9%9B%86"><span class="nav-number">2.2.1.</span> <span class="nav-text">A、旁站及c段收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B%E3%80%81%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">B、端口扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C%E3%80%81%E4%B8%BB%E7%AB%99%E6%8F%90%E5%8F%96"><span class="nav-number">2.2.3.</span> <span class="nav-text">C、主站提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D%E3%80%81%E7%A7%BB%E5%8A%A8%E7%AB%AF"><span class="nav-number">2.2.4.</span> <span class="nav-text">D、移动端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E%E3%80%81%E8%A1%8C%E4%B8%9A%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.2.5.</span> <span class="nav-text">E、行业系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">3.</span> <span class="nav-text">三、信息收集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E6%9C%8D%E5%8A%A1%E5%99%A8IP"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 服务器IP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A%E3%80%81%E7%BB%95%E8%BF%87CDN%E6%9F%A5%E6%89%BE%E7%BD%91%E7%AB%99%E7%9C%9F%E5%AE%9Eip"><span class="nav-number">3.1.1.</span> <span class="nav-text">A、绕过CDN查找网站真实ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B%E3%80%81%E8%AF%86%E5%88%AB%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8A%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.1.2.</span> <span class="nav-text">B、识别服务器及中间件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C%E3%80%81%E7%AB%AF%E5%8F%A3%E5%8F%8A%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.1.3.</span> <span class="nav-text">C、端口及服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D%E3%80%81%E6%9F%A5%E8%AF%A2IP%E6%89%80%E5%9C%A8%E4%BD%8D%E7%BD%AE"><span class="nav-number">3.1.4.</span> <span class="nav-text">D、查询IP所在位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E5%9F%9F%E5%90%8D"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 域名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A%E3%80%81%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E"><span class="nav-number">3.2.1.</span> <span class="nav-text">A、搜索引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B%E3%80%81whois%E4%BF%A1%E6%81%AF-DNS%E8%A7%A3%E6%9E%90"><span class="nav-number">3.2.2.</span> <span class="nav-text">B、whois信息&#x2F;DNS解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E7%AB%99%E7%82%B9"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 站点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A%E3%80%81robots-txt"><span class="nav-number">3.3.1.</span> <span class="nav-text">A、robots.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B%E3%80%81%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84"><span class="nav-number">3.3.2.</span> <span class="nav-text">B、网站架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C%E3%80%81%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84-%E5%90%8E%E5%8F%B0%E5%9C%B0%E5%9D%80"><span class="nav-number">3.3.3.</span> <span class="nav-text">C、目录结构&#x2F;后台地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D%E3%80%81%E6%95%8F%E6%84%9F%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2"><span class="nav-number">3.3.4.</span> <span class="nav-text">D、敏感文件信息泄露</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E%E3%80%81web-%E6%8C%87%E7%BA%B9"><span class="nav-number">3.3.5.</span> <span class="nav-text">E、web 指纹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F%E3%80%81%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4"><span class="nav-number">3.3.6.</span> <span class="nav-text">F、安全防护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PunkSPIDER%E6%98%A0%E5%B0%84%E5%93%AA%E4%BA%9B%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%BC%8F%E6%B4%9E%EF%BC%9F"><span class="nav-number">3.3.7.</span> <span class="nav-text">PunkSPIDER映射哪些类型的漏洞？</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="bosch"
+      src="/images/title1.jpg">
+  <p class="site-author-name" itemprop="name">bosch</p>
+  <div class="site-description" itemprop="description">在这片海洋中，如若无法向上攀游，就只有往下沉沦</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bosch</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">293k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">4:26</span>
+</div>
+
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+-->
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz","app_key":"wxnCuxw6V0b0lAgx5kOUUOSp","server_url":null,"security":true,"betterPerformance":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '3nEcwhMJTxkWHiNp8cMyOlAI-gzGzoHsz',
+      appKey     : 'wxnCuxw6V0b0lAgx5kOUUOSp',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
