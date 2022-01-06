@@ -203,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/02/waf-study-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/title1.jpg">
@@ -217,7 +217,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" class="post-title-link" itemprop="url">DC-5</a>
+            <a href="/2020/05/02/waf-study-1/" class="post-title-link" itemprop="url">waf-study</a>
         </h2>
 
         <div class="post-meta">
@@ -227,14 +227,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-05-14 05:36:20" itemprop="dateCreated datePublished" datetime="2020-05-14T05:36:20+08:00">2020-05-14</time>
+              <time title="Created: 2020-05-02 19:02:26" itemprop="dateCreated datePublished" datetime="2020-05-02T19:02:26+08:00">2020-05-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-15 06:12:56" itemprop="dateModified" datetime="2020-05-15T06:12:56+08:00">2020-05-15</time>
+                <time title="Modified: 2022-01-06 10:42:22" itemprop="dateModified" datetime="2022-01-06T10:42:22+08:00">2022-01-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,16 +242,12 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kali/" itemprop="url" rel="index"><span itemprop="name">kali</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">内网渗透</span></a>
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="DC-5" title="Views">
+            <span id="/2020/05/02/waf-study-1/" class="post-meta-item leancloud_visitors" data-flag-title="waf-study" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -266,8 +262,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/05/02/waf-study-1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/02/waf-study-1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -277,14 +273,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1k</span>
+              <span>33k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>30 mins.</span>
             </span>
 
         </div>
@@ -296,19 +292,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmap -Pn 192.168.114.0/24</span><br><span class="line"></span><br><span class="line">nmap -A -T 4 192.168.114.146</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="D:\Blog\blog\source\images\DC-5\1.png" alt="image-20200514054055039"></p>
-<p>特地查了一下rpcbind，大概是将RPC服务映射到其侦听的端口的服务，和DNS类似。</p>
-<p><strong>rpcbind [3]实用程序将RPC服务映射到其侦听的端口。RPC进程在启动时会通知rpcbind，注册正在侦听的端口以及期望使用的RPC程序号。然后，客户端系统使用特定的RPC程序服务器与服务器上的rpcbind联系。rpcbind服务重新设置客户端重定向到正确的端口号，刹车它可以与请求的服务进行通信</strong></p>
-<p>80端口也是打开的，先试试从80端口入手</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\2.png" alt="image-20200514054437764"></p>
-<p>wappalyzer只检测出它是php编写的，以及服务器是nginx。</p>
-<p>访问contact的时候，发现有一个留言功能，或许可以试试xss</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\3.png" alt="image-20200514054556665"></p>
+          <h3 id="0X00-Fuzz-爆破"><a href="#0X00-Fuzz-爆破" class="headerlink" title="0X00  Fuzz/爆破"></a><strong>0X00  Fuzz/爆破</strong></h3><p><strong>fuzz字典</strong></p>
+<p><strong>1.Seclists/Fuzzing</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/danielmiessler/SecLists/tree/master/Fuzzing">https://github.com/danielmiessler/SecLists/tree/master/Fuzzing</a></p>
+<p><strong>2.Fuzz-DB/Attack</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fuzzdb-project/fuzzdb/tree/master/attack">https://github.com/fuzzdb-project/fuzzdb/tree/master/attack</a></p>
+<p><strong>3.Other Payloads 可能会被ban ip，小心为妙。</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/foospidy/payloads">https://github.com/foospidy/payloads</a></p>
+<h3 id="0X01-正则绕过"><a href="#0X01-正则绕过" class="headerlink" title="0X01  正则绕过"></a><strong>0X01  正则绕过</strong></h3><p>多少waf 使用正则匹配。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/#more" rel="contents">
+              <a class="btn" href="/2020/05/02/waf-study-1/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -332,7 +326,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/13/DC-4/">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/02/%E6%94%BB%E9%98%B2%E6%B5%8B%E8%AF%95%E6%89%8B%E5%86%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/title1.jpg">
@@ -346,7 +340,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/13/DC-4/" class="post-title-link" itemprop="url">DC-4</a>
+            <a href="/2020/05/02/%E6%94%BB%E9%98%B2%E6%B5%8B%E8%AF%95%E6%89%8B%E5%86%8C/" class="post-title-link" itemprop="url">攻防测试手册</a>
         </h2>
 
         <div class="post-meta">
@@ -356,14 +350,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-05-13 19:17:47" itemprop="dateCreated datePublished" datetime="2020-05-13T19:17:47+08:00">2020-05-13</time>
+              <time title="Created: 2020-05-02 18:54:24" itemprop="dateCreated datePublished" datetime="2020-05-02T18:54:24+08:00">2020-05-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-14 05:34:08" itemprop="dateModified" datetime="2020-05-14T05:34:08+08:00">2020-05-14</time>
+                <time title="Modified: 2022-01-06 10:46:02" itemprop="dateModified" datetime="2022-01-06T10:46:02+08:00">2022-01-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -371,16 +365,12 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kali/" itemprop="url" rel="index"><span itemprop="name">kali</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">内网渗透</span></a>
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/05/13/DC-4/" class="post-meta-item leancloud_visitors" data-flag-title="DC-4" title="Views">
+            <span id="/2020/05/02/%E6%94%BB%E9%98%B2%E6%B5%8B%E8%AF%95%E6%89%8B%E5%86%8C/" class="post-meta-item leancloud_visitors" data-flag-title="攻防测试手册" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -395,8 +385,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/05/13/DC-4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/13/DC-4/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/05/02/%E6%94%BB%E9%98%B2%E6%B5%8B%E8%AF%95%E6%89%8B%E5%86%8C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/02/%E6%94%BB%E9%98%B2%E6%B5%8B%E8%AF%95%E6%89%8B%E5%86%8C/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -406,7 +396,750 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.7k</span>
+              <span>9.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>9 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="攻防测试手册"><a href="#攻防测试手册" class="headerlink" title="攻防测试手册"></a>攻防测试手册</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">https://micropoor.blogspot.com/2019/01/php8.html PHP 安全新闻早 8 点课程系列高持续渗透--Microporor</span><br><span class="line"></span><br><span class="line">https://github.com/Micropoor/Micro8 Microporor 高级攻防 100 课</span><br><span class="line"></span><br><span class="line">https://github.com/maskhed/Papers 包含 100 课等经典攻防教材、安全知识</span><br><span class="line"></span><br><span class="line">https://github.com/infosecn1nja/AD-Attack-Defense 红蓝方攻防手册</span><br><span class="line"></span><br><span class="line">https://github.com/yeyintminthuhtut/Awesome-Red-Teaming 优秀红队资源列表</span><br><span class="line"></span><br><span class="line">https://github.com/foobarto/redteam-notebook 红队标准渗透测试流程+常用命令</span><br><span class="line"></span><br><span class="line">https://github.com/tom0li/collection-document 文章收集：安全部、SDL、src、渗透测试、漏洞利用</span><br><span class="line"></span><br><span class="line">https://github.com/kbandla/APTnotes 各种公开的文件和相关的 APT 笔记，还有软件样本</span><br><span class="line"></span><br><span class="line">https://wizardforcel.gitbooks.io/web-hacking-101/content Web Hacking 101 中文版</span><br><span class="line"></span><br><span class="line">https://techvomit.net/web-application-penetration-testing-notes/ web 渗透测试笔记</span><br><span class="line"></span><br><span class="line">https://github.com/qazbnm456/awesome-web-security Web 安全资料和资源列表</span><br><span class="line"></span><br><span class="line">http://pentestmonkey.net/category/cheat-sheet 渗透测试常见条目</span><br><span class="line"></span><br><span class="line">https://github.com/demonsec666/Security-Toolkit 渗透攻击链中常用工具及使用场景</span><br><span class="line"></span><br><span class="line">https://github.com/Kinimiwar/Penetration-Testing 渗透测试方向优秀资源收集</span><br><span class="line"></span><br><span class="line">https://github.com/jshaw87/Cheatsheets 渗透测试/安全秘籍/笔记</span><br></pre></td></tr></table></figure>
+
+<h3 id="学习手册相关资源"><a href="#学习手册相关资源" class="headerlink" title="学习手册相关资源"></a>学习手册相关资源</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/HarmJ0y/CheatSheets 多个项目的速查手册（Beacon / Cobalt Strike，PowerView，PowerUp，Empire 和 PowerSploit）</span><br><span class="line"></span><br><span class="line">https://wizardforcel.gitbooks.io/kali-linux-web-pentest-cookbook/content/ Kali Linux Web 渗透测试秘籍中文版</span><br><span class="line"></span><br><span class="line">https://github.com/louchaooo/kali-tools-zh kali 下工具使用介绍手册</span><br><span class="line"></span><br><span class="line">https://www.offensive-security.com/metasploit-unleashed/ kali 出的 metasploit 指导笔记</span><br><span class="line"></span><br><span class="line">http://www.hackingarticles.in/comprehensive-guide-on-hydra-a-brute-forcing-tool/ hydra 使用手册</span><br><span class="line"></span><br><span class="line">https://www.gitbook.com/book/t0data/burpsuite/details burpsuite 实战指南</span><br><span class="line"></span><br><span class="line">https://zhuanlan.zhihu.com/p/26618074 Nmap 扩展脚本使用方法</span><br><span class="line"></span><br><span class="line">https://somdev.me/21-things-xss/ XSS 的 21 个扩展用途</span><br><span class="line"></span><br><span class="line">https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/ sql 注入 sheet 表</span><br><span class="line"></span><br><span class="line">https://sqlwiki.netspi.com/ 你要的 sql 注入知识点都能找到</span><br><span class="line"></span><br><span class="line">https://github.com/kevins1022/SQLInjectionWiki 一个专注于聚合和记录各种 SQL 注入方法的 wiki</span><br><span class="line"></span><br><span class="line">https://github.com/hardenedlinux/linux-exploit-development-tutorial Linux exploit 开发入门</span><br><span class="line"></span><br><span class="line">https://wizardforcel.gitbooks.io/asani/content 浅入浅出 Android 安全 中文版</span><br><span class="line"></span><br><span class="line">https://wizardforcel.gitbooks.io/lpad/content Android 渗透测试学习手册 中文版</span><br><span class="line"></span><br><span class="line">https://github.com/writeups/ios ios 漏洞 writeup 笔记</span><br><span class="line"></span><br><span class="line">http://blog.safebuff.com/2016/07/03/SSRF-Tips/ ssrf 漏洞利用手册</span><br></pre></td></tr></table></figure>
+
+<h3 id="学习靶场"><a href="#学习靶场" class="headerlink" title="学习靶场"></a>学习靶场</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">https://www.blackmoreops.com/2018/11/06/124-legal-hacking-websites-to-practice-and-learn/ 124 个合法的可以练习 Hacking 技术的网站</span><br><span class="line"></span><br><span class="line">https://www.zhihu.com/question/267204109 学 web 安全去哪里找各种各样的靶场？</span><br><span class="line"></span><br><span class="line">https://www.vulnhub.com 许多 ctf 靶机汇总https://www.wechall.net 世界知名 ctf 汇总交流网站</span><br><span class="line"></span><br><span class="line">https://www.xssgame.com 谷歌 XSS 挑战http://xss.tv 在线靶场挑战https://www.hackthebox.eu 在线靶场挑战</span><br><span class="line"></span><br><span class="line">https://www.root-me.org 在线靶场挑战http://www.itsecgames.com bWAPP，包含 100 多种漏洞环境</span><br><span class="line"></span><br><span class="line">https://github.com/c0ny1/vulstudy 多种漏洞复现系统的 docker 汇总</span><br><span class="line"></span><br><span class="line">https://github.com/bkimminich/juice-shop 常见 web 安全实验靶场市场</span><br><span class="line"></span><br><span class="line">https://github.com/ethicalhack3r/DVWA web 安全实验靶场</span><br><span class="line"></span><br><span class="line">https://www.freebuf.com/articles/web/123779.html 新手指南：DVWA-1.9 全级别教程https://github.com/78778443/permeate php，常见漏洞靶场</span><br><span class="line"></span><br><span class="line">https://github.com/gh0stkey/DoraBox php,常见漏洞靶场https://github.com/stamparm/DSVW py2,常见漏洞靶场</span><br><span class="line"></span><br><span class="line">https://github.com/amolnaik4/bodhi py,常见漏洞靶场https://github.com/Safflower/Solve-Me php，韩国一个偏代码审计的 ctf 靶场源码</span><br><span class="line"></span><br><span class="line">https://github.com/WebGoat/WebGoat 一键 jar 包，web 安全实验靶场https://github.com/Audi-1/sqli-labs 基于 SQLite 的 sql 注入学习靶场</span><br><span class="line"></span><br><span class="line">https://github.com/lcamry/sqli-labs 通过 sqli-labs 演示 mysql 相关的注入手法</span><br><span class="line"></span><br><span class="line">https://github.com/c0ny1/upload-labs 一个帮你总结所有类型的上传漏洞的靶场</span><br><span class="line"></span><br><span class="line">https://github.com/LandGrey/upload-labs-writeup upload-labs 指导手册</span><br><span class="line"></span><br><span class="line">https://github.com/Go0s/LFIboomCTF 本地文件包含漏洞&amp;&amp;PHP 利用协议&amp;&amp;实践源码</span><br><span class="line"></span><br><span class="line">https://in.security/lin-security-practise-your-linux-privilege-escalation-foo/ 一个虚拟机文件用于 linux 提权练习</span><br><span class="line"></span><br><span class="line">https://github.com/OWASP/igoat 适用于 ios 应用程序测试和安全性的学习工具</span><br><span class="line"></span><br><span class="line">https://github.com/prateek147/DVIA-v2 适用于 ios 应用程序测试和安全性的学习工具</span><br><span class="line"></span><br><span class="line">https://github.com/rapid7/metasploitable3 metasploit 练习系统</span><br><span class="line"></span><br><span class="line">https://github.com/rapid7/metasploit-vulnerability-emulator 基于 perl 的 metasploit 模拟环境，练习操作</span><br><span class="line"></span><br><span class="line">https://github.com/chryzsh/DarthSidious AD 域环境的搭建、渗透、防护</span><br><span class="line"></span><br><span class="line">https://github.com/c0ny1/xxe-lab 一个包含 php,java,python,C#等各种语言版本的 XXE 漏洞 Demo</span><br></pre></td></tr></table></figure>
+
+<h3 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/vulhub/vulhub Vulhub 是一个面向大众的开源漏洞靶场，无需 docker 知识，执行两条命令即可编译、运行一个完整的漏洞靶场镜像</span><br><span class="line"></span><br><span class="line">https://github.com/Medicean/VulApps 收集各种漏洞环境，为方便使用，统一采用 Dockerfile 形式。同时也收集了安全工具环境。</span><br><span class="line"></span><br><span class="line">https://github.com/bingohuang/docker-labs 制作在线 docker 平台</span><br></pre></td></tr></table></figure>
+
+<h3 id="开源漏洞库"><a href="#开源漏洞库" class="headerlink" title="开源漏洞库"></a>开源漏洞库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">https://wooyun.kieran.top/#!/ 2016 年之前，乌云 Drops 文章，公开漏洞详情文章</span><br><span class="line"></span><br><span class="line">https://wooyun.js.org/ 2016 年之前，乌云 Drops 文章，公开漏洞详情文章</span><br><span class="line"></span><br><span class="line">https://dvpnet.io/list/index/state/3 公开漏洞详情文章</span><br><span class="line"></span><br><span class="line">https://sec.ly.com/bugs 同程安全公开漏洞详情文章</span><br><span class="line"></span><br><span class="line">http://ics.cnvd.org.cn 中国国家工控漏洞库</span><br><span class="line"></span><br><span class="line">https://ics-cert.us-cert.gov/advisories 美国国家工控漏洞库</span><br><span class="line"></span><br><span class="line">http://www.nsfocus.net/index.php?act=sec_bug 绿盟漏洞库，含工控</span><br><span class="line"></span><br><span class="line">http://ivd.winicssec.com/ 威努特工控漏洞库</span><br><span class="line"></span><br><span class="line">http://cve.scap.org.cn/view/ics CVE 中文工控漏洞库</span><br><span class="line"></span><br><span class="line">https://cve.mitre.org/cve/search_cve_list.html 美国 MITRE 公司负责维护的 CVE 漏洞库</span><br><span class="line"></span><br><span class="line">https://www.exploit-db.com 美国 Offensive Security 的漏洞库</span><br><span class="line"></span><br><span class="line">https://nvd.nist.gov/vuln/search 美国国家信息安全漏洞库</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/02/%E6%94%BB%E9%98%B2%E6%B5%8B%E8%AF%95%E6%89%8B%E5%86%8C/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/02/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E5%88%9D%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/title1.jpg">
+      <meta itemprop="name" content="bosch">
+      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bosch">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/02/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E5%88%9D%E7%AF%87/" class="post-title-link" itemprop="url">代码审计-初篇</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-02 17:50:55" itemprop="dateCreated datePublished" datetime="2020-05-02T17:50:55+08:00">2020-05-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-08-03 18:55:21" itemprop="dateModified" datetime="2021-08-03T18:55:21+08:00">2021-08-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">代码审计</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/02/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E5%88%9D%E7%AF%87/" class="post-meta-item leancloud_visitors" data-flag-title="代码审计-初篇" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/05/02/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E5%88%9D%E7%AF%87/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/02/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E5%88%9D%E7%AF%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>27k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>25 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>代码审计是渗透大佬的基本功，对的，我不是大佬，害！</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/02/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-%E5%88%9D%E7%AF%87/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/title1.jpg">
+      <meta itemprop="name" content="bosch">
+      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bosch">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/" class="post-title-link" itemprop="url">资产探索与信息搜集（不完整篇）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-02 15:35:18" itemprop="dateCreated datePublished" datetime="2020-05-02T15:35:18+08:00">2020-05-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-06 10:45:50" itemprop="dateModified" datetime="2022-01-06T10:45:50+08:00">2022-01-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/" itemprop="url" rel="index"><span itemprop="name">信息搜集</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="资产探索与信息搜集（不完整篇）" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h1><p>在众测中，基本上SRC的漏洞收集范围有如下几种形式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">形式一：暂时仅限以下系统：www.xxx.com,其他域名不在此次测试范围内</span><br><span class="line">形式二：只奖励与*.xxx.com相关的漏洞</span><br><span class="line">形式三：无限制</span><br><span class="line"></span><br><span class="line">形式一，基本被限定了范围</span><br><span class="line">形式二，注重于子域名的收集</span><br><span class="line">形式三，子域名及相关域名的收集</span><br></pre></td></tr></table></figure>
+
+<p>另外，随着企业内部业务的不断壮大，各种业务平台和管理系统越来越多，很多单位往往存在着“隐形资产”，这些“隐形资产”通常被管理员所遗忘，长时间无人维护，导致存在较多的已知漏洞。</p>
+<p>在渗透测试中，我们需要尽可能多的去收集目标的信息，资产探测和信息收集，决定了你发现安全漏洞的几率有多大。如何最大化的去收集目标范围，尽可能的收集到子域名及相关域名的信息，这对我们进一步的渗透测试显得尤为重要。</p>
+<p>在这里，通过介绍一些资产探测和信息收集的技巧，来收集渗透目标的信息。</p>
+<p>假设我们只拿到了一个主域名。</p>
+<h1 id="二、资产探测"><a href="#二、资产探测" class="headerlink" title="二、资产探测"></a><strong>二、资产探测</strong></h1><p>从主域名出发，我们首先需要考虑的是子域名，即*.xxx.com，接下来进行子域名搜集思路的梳理。</p>
+<h2 id="2-1-子域名收集"><a href="#2-1-子域名收集" class="headerlink" title="2.1 子域名收集"></a><strong>2.1 子域名收集</strong></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/02/%E8%B5%84%E4%BA%A7%E6%8E%A2%E7%B4%A2%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%AF%87%EF%BC%89/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/02/paylaod-sql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/title1.jpg">
+      <meta itemprop="name" content="bosch">
+      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bosch">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/02/paylaod-sql/" class="post-title-link" itemprop="url">paylaod-sql</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-02 09:05:02" itemprop="dateCreated datePublished" datetime="2020-05-02T09:05:02+08:00">2020-05-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-06 10:46:16" itemprop="dateModified" datetime="2022-01-06T10:46:16+08:00">2022-01-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/02/paylaod-sql/" class="post-meta-item leancloud_visitors" data-flag-title="paylaod-sql" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/05/02/paylaod-sql/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/02/paylaod-sql/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>8 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>所有用户：<br><code>select group_concat(user) from mysql.user</code></p>
+<p>用户hash：<br><code>select group_concat(password) from mysql.user where user=&#39;root&#39;</code></p>
+<p>所有数据库：<br><code>SELECT group_concat(schema_name) from information_schema.schemata</code></p>
+<p>表名：<br><code>SELECT group_concat(table_name) from information_schema.tables where table_schema=&#39;库名&#39;</code></p>
+<p>//表中有主码约束，非空约束等完整性约束条件的才能用这个语句查询出来<br><code>SELECT group_concat(table_name) from information_schema.table_constraints where table_schema=&#39;库名&#39;</code></p>
+<p>字段名：<br><code>SELECT group_concat(column_name) from information_schema.columns where table_name=&#39;表名&#39;</code></p>
+<p>读文件：<br><code>SELECT load_file(&#39;/etc/passwd&#39;)</code></p>
+<p>写文件：<br><code>SELECT  into outfile &#39;/var/www/html/shell.php&#39;</code></p>
+<h2 id="1-2-UNION注入"><a href="#1-2-UNION注入" class="headerlink" title="1.2 UNION注入"></a>1.2 UNION注入</h2><h3 id="1-2-1-猜字段长度"><a href="#1-2-1-猜字段长度" class="headerlink" title="1.2.1 猜字段长度"></a>1.2.1 猜字段长度</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/02/paylaod-sql/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/01/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/title1.jpg">
+      <meta itemprop="name" content="bosch">
+      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bosch">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/01/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/" class="post-title-link" itemprop="url">逻辑漏洞学习一</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-01 21:11:23" itemprop="dateCreated datePublished" datetime="2020-05-01T21:11:23+08:00">2020-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-06 10:41:32" itemprop="dateModified" datetime="2022-01-06T10:41:32+08:00">2022-01-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/01/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/" class="post-meta-item leancloud_visitors" data-flag-title="逻辑漏洞学习一" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/05/01/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/01/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><p>涉及sql注入、xss、RCE</p>
+<h1 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h1><p>在虚拟机中搭建了一个zzcms8.1，之前原本想用DC_1来测试来，但尝试了一下用户注册，发现必须要管理员同意才算注册成功，就想着先找个简单的下手，这里先留个坑，之后再去填吧。</p>
+<h1 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h1><p>挖掘一个站时，大概思路就是：</p>
+<p>确定业务流程—&gt;寻找流程中可以被操控的环节—&gt;分析可被操控环节中可能产生的逻辑问题—&gt;尝试修改参数触发逻辑问题</p>
+<p>拿到一个站后，第一步可以看看，但真正的第一步，是注册，就业务逻辑漏洞来说，我个人的理解，就是因为逻辑程序不严谨或逻辑太过复杂，才导致了一些逻辑分支不能正常处理</p>
+<p>逻辑分布主要分布在用户身份、业务一致性、用户信息方面。今天就尝试一下用户身份，关于注册和密码找回</p>
+<h2 id="恶意用户批量注册"><a href="#恶意用户批量注册" class="headerlink" title="恶意用户批量注册"></a>恶意用户批量注册</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/01/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E4%B8%80/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/01/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/title1.jpg">
+      <meta itemprop="name" content="bosch">
+      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bosch">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/01/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">某cms前台逻辑漏洞学习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-01 21:01:42" itemprop="dateCreated datePublished" datetime="2020-05-01T21:01:42+08:00">2020-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-06 10:41:23" itemprop="dateModified" datetime="2022-01-06T10:41:23+08:00">2022-01-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/01/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="某cms前台逻辑漏洞学习" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/05/01/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/01/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>8.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>7 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><p>安装feifeicms4.0.18(建议直接安装在WWW目录下),具体代码，在我的资源里面，可免费下载</p>
+<p>使用工具，phpstorm（别问，问就是喜欢它的界面）</p>
+<h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p>漏洞代码所在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\Lib\Lib\Action\Home\UserAction.class.php</span><br></pre></td></tr></table></figure>
+
+<p>出现问题的代码段在<code>198-225</code>行</p>
+<p>代码如下，简单分析</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public function post()&#123;</span><br><span class="line">	$info = D(&quot;User&quot;)-&gt;ff_update($_POST);</span><br><span class="line">	if($info)&#123;</span><br><span class="line">		//注册积分</span><br><span class="line">		if(C(&#x27;user_register_score&#x27;))&#123;</span><br><span class="line">			D(&#x27;Score&#x27;)-&gt;ff_user_score($info[&#x27;user_id&#x27;], 2, intval(C(&#x27;user_register_score&#x27;)));</span><br><span class="line">		&#125;</span><br><span class="line">		//推广积分</span><br><span class="line">		if($info[&#x27;user_pid&#x27;] &amp;&amp; C(&#x27;user_register_score_pid&#x27;))&#123;</span><br><span class="line">			D(&#x27;Score&#x27;)-&gt;ff_user_score($info[&#x27;user_pid&#x27;], 4, intval(C(&#x27;user_register_score_pid&#x27;)));</span><br><span class="line">		&#125;</span><br><span class="line">		//json返回</span><br><span class="line">		$data = array(&#x27;id&#x27;=&gt;$info[&#x27;user_id&#x27;],&#x27;referer&#x27;=&gt;cookie(&#x27;ff_register_referer&#x27;));</span><br><span class="line">		//欢迎邮件信息</span><br><span class="line">		if( C(&#x27;user_register_welcome&#x27;) )&#123;</span><br><span class="line">			$content = str_replace(array(&#x27;&#123;username&#125;&#x27;,&#x27;&#123;sitename&#125;&#x27;,&#x27;&#123;time&#125;&#x27;), array($info[&#x27;user_name&#x27;],C(&#x27;site_name&#x27;),time()), C(&#x27;user_register_welcome&#x27;));</span><br><span class="line">			D(&quot;Email&quot;)-&gt;send($info[&#x27;user_email&#x27;], $info[&#x27;user_name&#x27;], $info[&#x27;user_name&#x27;].&#x27;您好，感谢您的注册&#x27;, $content);</span><br><span class="line">		&#125;</span><br><span class="line">		//返回注册结果</span><br><span class="line">		if (C(&#x27;user_register_check&#x27;)) &#123;</span><br><span class="line">			$this-&gt;ajaxReturn($data, &quot;我们会尽快审核你的注册！&quot;, 201);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			$this-&gt;ajaxReturn($data, &quot;感谢你的注册！&quot;, 200);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		$this-&gt;ajaxReturn(0, D(&quot;User&quot;)-&gt;getError(), 500);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>函数直接将 post 的数据传入，可以看到函数<code>ff_update</code></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/01/%E6%9F%90cms%E5%89%8D%E5%8F%B0%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/01/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-SQL%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/title1.jpg">
+      <meta itemprop="name" content="bosch">
+      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bosch">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/01/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-SQL%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">代码审计-SQL注入</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-01 20:56:03" itemprop="dateCreated datePublished" datetime="2020-05-01T20:56:03+08:00">2020-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-08 08:21:12" itemprop="dateModified" datetime="2020-05-08T08:21:12+08:00">2020-05-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">代码审计</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/01/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-SQL%E6%B3%A8%E5%85%A5/" class="post-meta-item leancloud_visitors" data-flag-title="代码审计-SQL注入" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/05/01/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-SQL%E6%B3%A8%E5%85%A5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/01/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-SQL%E6%B3%A8%E5%85%A5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -425,18 +1158,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>照理下载<a target="_blank" rel="noopener" href="https://www.vulnhub.com/">vulnhub</a>的dc-4项目进行练习</p>
-<p>设置的网卡是NAT，其实也可以设置成和物理网络相同的，凭喜好设置</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">namp -Pn 192.168.114.0/24</span><br></pre></td></tr></table></figure>
+          <h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><p>安装YXcms1.4.6（当时没找到1.4.6，所以用了1.4.5代替，但其实代码都是一样的，路径也没变化，可放心使用），具体代码，在资源，可免费下载。</p>
+<p>使用工具，phpstorm。尝试过用seay审计工具试试能不能检测到，然后发现不能，就放弃了，直接用PHPstorm直接看吧。</p>
+<p>全局查找快捷键：ctrl+shift+F</p>
+<h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p>文件里面有提示，后台的账号密码为admin/123456</p>
+<p>直奔主题（可能经验多了，大概就知道哪些地方有漏洞了，可惜我是小白，只能先照着做积累经验）</p>
+<p>漏洞的位置大概是这样的</p>
+<img src="https://ckcah.github.io/images/代碼審計之sql/1.png">
 
-<img src="https://ckcah.github.io/images/DC-4/1.png">
 
-<p>看到了mac地址为虚拟机里的，IP地址为<code>192.168.114.131</code></p>
-<p>直接用浏览器访问查看</p>
-<img src="https://ckcah.github.io/images/DC-4/2.png">
+
+<p>这里存在sql注入</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/13/DC-4/#more" rel="contents">
+              <a class="btn" href="/2020/05/01/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1-SQL%E6%B3%A8%E5%85%A5/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -460,7 +1195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/13/%E5%B8%B8%E8%A7%81WAF%E7%BB%95%E8%BF%87/">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/01/googlehack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/title1.jpg">
@@ -474,715 +1209,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/13/%E5%B8%B8%E8%A7%81WAF%E7%BB%95%E8%BF%87/" class="post-title-link" itemprop="url">常见WAF绕过</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-05-13 19:13:23 / Modified: 20:26:16" itemprop="dateCreated datePublished" datetime="2020-05-13T19:13:23+08:00">2020-05-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WAF/" itemprop="url" rel="index"><span itemprop="name">WAF</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/13/%E5%B8%B8%E8%A7%81WAF%E7%BB%95%E8%BF%87/" class="post-meta-item leancloud_visitors" data-flag-title="常见WAF绕过" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2020/05/13/%E5%B8%B8%E8%A7%81WAF%E7%BB%95%E8%BF%87/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/13/%E5%B8%B8%E8%A7%81WAF%E7%BB%95%E8%BF%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>转载于:<a target="_blank" rel="noopener" href="https://www.freebuf.com/column/228763.html">https://www.freebuf.com/column/228763.html</a></strong></p>
-<p><strong>PHPIDS</strong></p>
-<p>0.6.1.1默认规则 ：</p>
-<p>拒绝：/?id=1+union+select+user,password+from+mysql.user+where+user=1</p>
-<p>允许：/?id=1+union+select+user,password+from+mysql.user+limit+0,1 </p>
-<p>拒绝： /?id=1+OR+1=1</p>
-<p>允许： /?id=1+OR+0×50=0×50</p>
-<p>拒绝：/?id=substring((1),1,1)</p>
-<p>允许： /?id=mid((1),1,1)</p>
-<p><strong>Mod_Security</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/13/%E5%B8%B8%E8%A7%81WAF%E7%BB%95%E8%BF%87/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/13/DC-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/title1.jpg">
-      <meta itemprop="name" content="bosch">
-      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bosch">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/13/DC-3/" class="post-title-link" itemprop="url">DC_3</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-05-13 18:54:58 / Modified: 21:00:56" itemprop="dateCreated datePublished" datetime="2020-05-13T18:54:58+08:00">2020-05-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kali/" itemprop="url" rel="index"><span itemprop="name">kali</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">内网渗透</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/13/DC-3/" class="post-meta-item leancloud_visitors" data-flag-title="DC_3" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2020/05/13/DC-3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/13/DC-3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.5k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><p>本人为初学小白，若文章有什么不对的，请大家多多指教。</p>
-<h1 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h1><h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p>使用arp-scan扫描出本网段的主机</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure>
-
-<img src="https://ckcah.github.io/images/DC-3/1.png">
-
-<p>可以看到靶机IP地址为192.168.3.17</p>
-<p>尝试浏览器访问</p>
-<img src="https://ckcah.github.io/images/DC-3/2.png">
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/13/DC-3/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/13/DC-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/title1.jpg">
-      <meta itemprop="name" content="bosch">
-      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bosch">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/13/DC-2/" class="post-title-link" itemprop="url">DC_2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-05-13 18:54:53 / Modified: 21:01:22" itemprop="dateCreated datePublished" datetime="2020-05-13T18:54:53+08:00">2020-05-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kali/" itemprop="url" rel="index"><span itemprop="name">kali</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">内网渗透</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/13/DC-2/" class="post-meta-item leancloud_visitors" data-flag-title="DC_2" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2020/05/13/DC-2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/13/DC-2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h1><p>信息安全初学者一枚，正在努力提升中。。。。</p>
-<p>今天渗透的实验靶场，是Vulnhub的DC-2，和之前的DC-1是同系列的。</p>
-<h1 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h1><p>成功安装virtual Box，只需要下载vlunhub的DC-2项目，导入virtual中即可使用，不需要登录什么的。</p>
-<h1 id="渗透"><a href="#渗透" class="headerlink" title="渗透"></a>渗透</h1><h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p>老样子，打开你的kali，直接nmap，使用参数-Pn扫描网段</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -Pn 192.168.3.0/24</span><br></pre></td></tr></table></figure>
-
-<img src="https://ckcah.github.io/images/DC_2/1.png">
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/13/DC-2/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/11/dedecms%E4%BD%8E%E4%BA%8E5-7SP2%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/title1.jpg">
-      <meta itemprop="name" content="bosch">
-      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bosch">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/11/dedecms%E4%BD%8E%E4%BA%8E5-7SP2%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/" class="post-title-link" itemprop="url">dedecms低于5.7SP2任意文件上传漏洞</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-05-11 06:43:02 / Modified: 19:43:02" itemprop="dateCreated datePublished" datetime="2020-05-11T06:43:02+08:00">2020-05-11</time>
-            </span>
-
-          
-            <span id="/2020/05/11/dedecms%E4%BD%8E%E4%BA%8E5-7SP2%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/" class="post-meta-item leancloud_visitors" data-flag-title="dedecms低于5.7SP2任意文件上传漏洞" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2020/05/11/dedecms%E4%BD%8E%E4%BA%8E5-7SP2%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/11/dedecms%E4%BD%8E%E4%BA%8E5-7SP2%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>197</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h1><p>文件<code>/dede/file_class.php</code></p>
-<h1 id="修复方法："><a href="#修复方法：" class="headerlink" title="修复方法："></a>修复方法：</h1><p>打开/dede/file_class.php<br>找到大概第161行的代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">else if(preg_match(&quot;/\.(&quot;.$fileexp.&quot;)/i&quot;,$filename))</span><br></pre></td></tr></table></figure>
-
-<p>修改为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">else if(substr($filename, -strlen($fileexp))===$fileexp)</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/11/dedecms%E4%BD%8E%E4%BA%8E5-7SP2%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%E6%8A%80%E5%B7%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/title1.jpg">
-      <meta itemprop="name" content="bosch">
-      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bosch">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">渗透测试实战技巧</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-05-10 21:16:00 / Modified: 21:19:30" itemprop="dateCreated datePublished" datetime="2020-05-10T21:16:00+08:00">2020-05-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">渗透测试</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%E6%8A%80%E5%B7%A7/" class="post-meta-item leancloud_visitors" data-flag-title="渗透测试实战技巧" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2020/05/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%E6%8A%80%E5%B7%A7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>28k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>26 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>转载于<a target="_blank" rel="noopener" href="https://www.freebuf.com/sectool/105524.html">https://www.freebuf.com/sectool/105524.html</a></strong></p>
-<h3 id="最好的-NMAP-扫描策略"><a href="#最好的-NMAP-扫描策略" class="headerlink" title="最好的 NMAP 扫描策略"></a>最好的 NMAP 扫描策略</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># 适用所有大小网络最好的 nmap 扫描策略</span><br><span class="line"></span><br><span class="line"># 主机发现，生成存活主机列表</span><br><span class="line">$ nmap -sn -T4 -oG Discovery.gnmap 192.168.56.0/24</span><br><span class="line">$ grep &quot;Status: Up&quot; Discovery.gnmap | cut -f 2 -d &#x27; &#x27; &gt; LiveHosts.txt</span><br><span class="line"></span><br><span class="line"># 端口发现，发现大部分常用端口</span><br><span class="line"># http://nmap.org/presentations/BHDC08/bhdc08-slides-fyodor.pdf</span><br><span class="line">$ nmap -sS -T4 -Pn -oG TopTCP -iL LiveHosts.txt</span><br><span class="line">$ nmap -sU -T4 -Pn -oN TopUDP -iL LiveHosts.txt</span><br><span class="line">$ nmap -sS -T4 -Pn --top-ports 3674 -oG 3674 -iL LiveHosts.txt</span><br><span class="line"></span><br><span class="line"># 端口发现，发现全部端口，但 UDP 端口的扫描会非常慢</span><br><span class="line">$ nmap -sS -T4 -Pn -p 0-65535 -oN FullTCP -iL LiveHosts.txt</span><br><span class="line">$ nmap -sU -T4 -Pn -p 0-65535 -oN FullUDP -iL LiveHosts.txt</span><br><span class="line"></span><br><span class="line"># 显示 TCP\UDP 端口</span><br><span class="line">$ grep &quot;open&quot; FullTCP|cut -f 1 -d &#x27; &#x27; | sort -nu | cut -f 1 -d &#x27;/&#x27; |xargs | sed &#x27;s/ /,/g&#x27;|awk &#x27;&#123;print &quot;T:&quot;$0&#125;&#x27;</span><br><span class="line">$ grep &quot;open&quot; FullUDP|cut -f 1 -d &#x27; &#x27; | sort -nu | cut -f 1 -d &#x27;/&#x27; |xargs | sed &#x27;s/ /,/g&#x27;|awk &#x27;&#123;print &quot;U:&quot;$0&#125;&#x27;</span><br><span class="line"></span><br><span class="line"># 侦测服务版本</span><br><span class="line">$ nmap -sV -T4 -Pn -oG ServiceDetect -iL LiveHosts.txt</span><br><span class="line"></span><br><span class="line"># 扫做系统扫描</span><br><span class="line">$ nmap -O -T4 -Pn -oG OSDetect -iL LiveHosts.txt</span><br><span class="line"></span><br><span class="line"># 系统和服务检测</span><br><span class="line">$ nmap -O -sV -T4 -Pn -p U:53,111,137,T:21-25,80,139,8080 -oG OS_Service_Detect -iL LiveHosts.txt</span><br></pre></td></tr></table></figure>
-
-<h3 id="Nmap-–-躲避防火墙"><a href="#Nmap-–-躲避防火墙" class="headerlink" title="Nmap – 躲避防火墙"></a>Nmap – 躲避防火墙</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># 分段</span><br><span class="line">$ nmap -f</span><br><span class="line"></span><br><span class="line"># 修改默认 MTU 大小，但必须为 8 的倍数(8,16,24,32 等等)</span><br><span class="line">$ nmap --mtu 24</span><br><span class="line"></span><br><span class="line"># 生成随机数量的欺骗</span><br><span class="line">$ nmap -D RND:10 [target]</span><br><span class="line"></span><br><span class="line"># 手动指定欺骗使用的 IP</span><br><span class="line">$ nmap -D decoy1,decoy2,decoy3 etc.</span><br><span class="line"></span><br><span class="line"># 僵尸网络扫描, 首先需要找到僵尸网络的IP</span><br><span class="line">$ nmap -sI [Zombie IP] [Target IP]</span><br><span class="line"></span><br><span class="line"># 指定源端口号</span><br><span class="line">$ nmap --source-port 80 IP</span><br><span class="line"></span><br><span class="line"># 在每个扫描数据包后追加随机数量的数据</span><br><span class="line">$ nmap --data-length 25 IP</span><br><span class="line"></span><br><span class="line"># MAC 地址欺骗，可以生成不同主机的 MAC 地址</span><br><span class="line">$ nmap --spoof-mac Dell/Apple/3Com IP</span><br></pre></td></tr></table></figure>
-
-<h3 id="Nmap-进行-Web-漏洞扫描"><a href="#Nmap-进行-Web-漏洞扫描" class="headerlink" title="Nmap 进行 Web 漏洞扫描"></a>Nmap 进行 Web 漏洞扫描</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/nmap/scripts/</span><br><span class="line">wget http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz &amp;&amp; tar xzf nmap_nse_vulscan-2.0.tar.gz</span><br><span class="line">nmap -sS -sV --script=vulscan/vulscan.nse target</span><br><span class="line">nmap -sS -sV --script=vulscan/vulscan.nse –script-args vulscandb=scipvuldb.csv target</span><br><span class="line">nmap -sS -sV --script=vulscan/vulscan.nse –script-args vulscandb=scipvuldb.csv -p80 target</span><br><span class="line">nmap -PN -sS -sV --script=vulscan –script-args vulscancorrelation=1 -p80 target</span><br><span class="line">nmap -sV --script=vuln target</span><br><span class="line">nmap -PN -sS -sV --script=all –script-args vulscancorrelation=1 target</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用-DIRB-爆破目录"><a href="#使用-DIRB-爆破目录" class="headerlink" title="使用 DIRB 爆破目录"></a>使用 DIRB 爆破目录</h3><p>注：<a target="_blank" rel="noopener" href="http://dirb.sourceforge.net/">DIRB</a> 是一个专门用于爆破目录的工具，在 Kali 中默认已经安装，类似工具还有国外的<a target="_blank" rel="noopener" href="https://github.com/lanjelot/patator">patator</a>，<a target="_blank" rel="noopener" href="https://github.com/maurosoria/dirsearch">dirsearch</a>，<a target="_blank" rel="noopener" href="https://www.owasp.org/index.php/Category:OWASP_DirBuster_Project">DirBuster</a>， 国内的御剑等等。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirb http://IP:PORT /usr/share/dirb/wordlists/common.txt</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/10/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%E6%8A%80%E5%B7%A7/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/10/PHP%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%80%9D%E8%B7%AF%E4%B8%8EBypass%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/title1.jpg">
-      <meta itemprop="name" content="bosch">
-      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bosch">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/10/PHP%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%80%9D%E8%B7%AF%E4%B8%8EBypass%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" class="post-title-link" itemprop="url">PHP文件包含漏洞利用思路与Bypass总结（不完整）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-05-10 19:58:10 / Modified: 20:51:16" itemprop="dateCreated datePublished" datetime="2020-05-10T19:58:10+08:00">2020-05-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">web安全</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/10/PHP%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%80%9D%E8%B7%AF%E4%B8%8EBypass%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="PHP文件包含漏洞利用思路与Bypass总结（不完整）" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2020/05/10/PHP%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%80%9D%E8%B7%AF%E4%B8%8EBypass%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/10/PHP%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%80%9D%E8%B7%AF%E4%B8%8EBypass%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>6.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>6 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h1><h2 id="四个函数"><a href="#四个函数" class="headerlink" title="四个函数"></a>四个函数</h2><p>当利用下面这四个函数来包含文件时，不管文件是什么类型（图片、txt等等），都会直接作为php文件进行解析。</p>
-<p>php中引发文件包含漏洞的通常主要是以下四个函数：</p>
-<p><strong>1、include()</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.php.net/manual/en/function.include.php</span><br></pre></td></tr></table></figure>
-
-<p><strong>2、include_once()</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://php.net/manual/en/function.include-once.php</span><br></pre></td></tr></table></figure>
-
-<p><strong>3、require()</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://php.net/manual/en/function.require.php</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/10/PHP%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%80%9D%E8%B7%AF%E4%B8%8EBypass%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/10/%E8%91%97%E5%90%8D%E7%BB%BF%E7%9C%BC%E9%80%BB%E8%BE%91%E8%B0%9C%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/title1.jpg">
-      <meta itemprop="name" content="bosch">
-      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bosch">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/10/%E8%91%97%E5%90%8D%E7%BB%BF%E7%9C%BC%E9%80%BB%E8%BE%91%E8%B0%9C%E9%A2%98/" class="post-title-link" itemprop="url">著名绿眼逻辑谜题</a>
+            <a href="/2020/05/01/googlehack/" class="post-title-link" itemprop="url">googlehack</a>
         </h2>
 
         <div class="post-meta">
@@ -1192,14 +1219,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-05-10 16:22:39" itemprop="dateCreated datePublished" datetime="2020-05-10T16:22:39+08:00">2020-05-10</time>
+              <time title="Created: 2020-05-01 20:42:27" itemprop="dateCreated datePublished" datetime="2020-05-01T20:42:27+08:00">2020-05-01</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-03 08:21:25" itemprop="dateModified" datetime="2021-08-03T08:21:25+08:00">2021-08-03</time>
+                <time title="Modified: 2020-05-16 07:23:50" itemprop="dateModified" datetime="2020-05-16T07:23:50+08:00">2020-05-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1207,24 +1234,12 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%8B%B1%E8%AF%AD/" itemprop="url" rel="index"><span itemprop="name">英语</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%89%A9%E5%B1%95%E8%AF%BB%E7%89%A9/" itemprop="url" rel="index"><span itemprop="name">扩展读物</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%89%A9%E5%B1%95%E8%AF%BB%E7%89%A9/%E5%8F%8D%E7%9C%81/" itemprop="url" rel="index"><span itemprop="name">反省</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%8B%B1%E8%AF%AD/TED/" itemprop="url" rel="index"><span itemprop="name">TED</span></a>
+                  <a href="/categories/googlehack/" itemprop="url" rel="index"><span itemprop="name">googlehack</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/05/10/%E8%91%97%E5%90%8D%E7%BB%BF%E7%9C%BC%E9%80%BB%E8%BE%91%E8%B0%9C%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="著名绿眼逻辑谜题" title="Views">
+            <span id="/2020/05/01/googlehack/" class="post-meta-item leancloud_visitors" data-flag-title="googlehack" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1239,8 +1254,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/05/10/%E8%91%97%E5%90%8D%E7%BB%BF%E7%9C%BC%E9%80%BB%E8%BE%91%E8%B0%9C%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/10/%E8%91%97%E5%90%8D%E7%BB%BF%E7%9C%BC%E9%80%BB%E8%BE%91%E8%B0%9C%E9%A2%98/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/05/01/googlehack/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/01/googlehack/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1250,14 +1265,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>22</span>
+              <span>4.3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>4 mins.</span>
             </span>
 
         </div>
@@ -1269,15 +1284,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>keyword：多读书多看报，少吃零食多睡觉</strong></p>
-<span id="more"></span> 
+          <p><strong>笔记</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Google hack是指使用Google等搜索引擎对某些特定的网络主机漏洞（通常是服务器上的脚本漏洞）进行搜索，以达到快速找到漏洞主机或特定主机的漏洞的目的。</span><br></pre></td></tr></table></figure>
 
-<iframe src="https://xbeibeix.com/api/bilibili/biliplayer/?url=BV19f4y1m7Mp" allowfullscreen="allowfullscreen" width="100%" height="638" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
+<p><strong>google hacking的简单实现</strong><br>使用google中的一些语法可以提供给我们更多的信息(当然也提供给那些习惯攻击的人更多他们所想要的.),下面就来介绍一些常用的语法.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">intext: 这个就是把网页中的正文内容中的某个字符做为搜索条件.</span><br><span class="line"></span><br><span class="line">例如在google里输入:</span><br><span class="line">intext: 渗透.将返回所有在网页正文部分包含&quot;渗透&quot;的网页.</span><br><span class="line"></span><br><span class="line">allintext: 使用方法和intext类似.</span><br><span class="line"></span><br><span class="line">intitle: 和上面那个intext差不多,搜索网页标题中是否有我们所要找的字符.</span><br><span class="line">例如搜索:</span><br><span class="line">intitle:安全 将返回所有网页标题中包含&quot;安全&quot;的网页</span><br><span class="line"></span><br><span class="line">cache: 搜索google里关于某些内容的缓存,有时候也许能找到一些好东西哦.</span><br><span class="line"></span><br><span class="line">define: 搜索某个词语的定义,</span><br><span class="line">搜索:</span><br><span class="line">define:hacker 将返回关于hacker的定义.</span><br><span class="line"></span><br><span class="line">filetype: 这个我要重点推荐一下,无论是撒网式攻击还是我们后面要说的对特定目标进行信息收集都需要用到这个.搜索指定 类型的文件.例如输入</span><br><span class="line"></span><br><span class="line">filetype:.doc 将返回所有以doc结尾的文件URL.当然如果你找.bak、.mdb或.inc也是可以的,获得的信息也许会更丰富</span><br><span class="line"></span><br><span class="line">info: 查找指定站点的一些基本信息.</span><br><span class="line"></span><br><span class="line">inurl:搜索我们指定的字符是否存在于URL中.</span><br><span class="line">例如输入:</span><br><span class="line">inurl:admin,将返回N个类似于这样的连接 </span><br><span class="line"></span><br><span class="line">http://www.xxx.com/xxx/admin,用来找管理员登录地址 </span><br><span class="line">例如搜索:</span><br><span class="line">inurl:baidu.com  可以返回url中含baidu.com的网页 </span><br><span class="line"></span><br><span class="line">site:这个也很有用,</span><br><span class="line">例如:site:www.baidu.com</span><br><span class="line">将返回所有和baidu.com这个站有关的URL.(搜索子域名)</span><br></pre></td></tr></table></figure>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+<p><strong>常用搭配</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">查找后台地址：</span><br><span class="line">site:域 inurl:login|admin|manage|member|admin_login|login_admin|system|login|user|main|cms</span><br><span class="line"></span><br><span class="line">查找文本内容：</span><br><span class="line">site:域名 intext:管理|后台|登陆|用户名|密码|验证码|系统|帐号|admin|login|sys|managetem|password|username</span><br><span class="line"></span><br><span class="line">查找可注入点：</span><br><span class="line">site:域名 inurl:aspx|jsp|php|asp</span><br><span class="line"></span><br><span class="line">查找上传漏洞：</span><br><span class="line">site:域名 inurl:file|load|editor|Files</span><br><span class="line"></span><br><span class="line">找eweb编辑器：</span><br><span class="line">site:域名 </span><br><span class="line">inurl:ewebeditor|editor|uploadfile|eweb|edit</span><br><span class="line"></span><br><span class="line">存在的数据库：</span><br><span class="line">site:域名 filetype:mdb|asp|#</span><br><span class="line"></span><br><span class="line">查看脚本类型：</span><br><span class="line">site:域名 filetype:asp/aspx/php/jsp</span><br><span class="line"></span><br><span class="line">迂回策略入侵：</span><br><span class="line">inurl:cms/data/templates/images/index/</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="0501"><a href="#0501" class="headerlink" title="0501"></a>0501</h1><p>[intitle：] </p>
+<p>标题搜索帮助google限定了你搜索的结果，只有那些标题含有你指定的关键词的页面会返回给你。例如“intitle：login password”会返回标题含有登录，而页面里面随便什么地方含有密码的网页给你。<br>当你想在标题里面搜索超过2个词的时候，你可以使用“allintitle：”，当然也可以使用“intitle”来代替搜索，“intitle：login intitle：password”和“allintitle：登录密码”的搜索结果是一样的。</p>
+<p>[inurl：] </p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/10/%E8%91%97%E5%90%8D%E7%BB%BF%E7%9C%BC%E9%80%BB%E8%BE%91%E8%B0%9C%E9%A2%98/#more" rel="contents">
+              <a class="btn" href="/2020/05/01/googlehack/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1301,7 +1324,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/10/CVE-2019-6977/">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/01/CVE-2017-8917%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/title1.jpg">
@@ -1315,7 +1338,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/10/CVE-2019-6977/" class="post-title-link" itemprop="url">CVE-2019-6977</a>
+            <a href="/2020/05/01/CVE-2017-8917%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">CVE-2017-8917个人理解</a>
         </h2>
 
         <div class="post-meta">
@@ -1324,26 +1347,28 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-05-10 06:47:11 / Modified: 14:31:50" itemprop="dateCreated datePublished" datetime="2020-05-10T06:47:11+08:00">2020-05-10</time>
+              <time title="Created: 2020-05-01 20:33:25" itemprop="dateCreated datePublished" datetime="2020-05-01T20:33:25+08:00">2020-05-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-06 10:43:13" itemprop="dateModified" datetime="2022-01-06T10:43:13+08:00">2022-01-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">web安全</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CVE/" itemprop="url" rel="index"><span itemprop="name">CVE</span></a>
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/05/10/CVE-2019-6977/" class="post-meta-item leancloud_visitors" data-flag-title="CVE-2019-6977" title="Views">
+            <span id="/2020/05/01/CVE-2017-8917%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="CVE-2017-8917个人理解" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1358,8 +1383,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/05/10/CVE-2019-6977/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/10/CVE-2019-6977/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/05/01/CVE-2017-8917%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/01/CVE-2017-8917%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1369,14 +1394,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.6k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -1388,17 +1413,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><p>此漏洞为存储型XSS，存在于WordPress 5.0到5.0.4,5.1和5.1.1版本</p>
-<h1 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h1><p>存在的地方为文章写入的地方</p>
-<img src="https://ckcah.github.io/images/CVE-2019-6977/1.png">
-
-<p>Poc</p>
-<p><code>&quot;&gt;&lt;img src=1 onerror=alert(&quot;bosch&quot;)&gt;</code></p>
-<h1 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h1><p>结果</p>
-<img src="https://ckcah.github.io/images/CVE-2019-6977/2.png">
+          <h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><p>这两天正好在网上看到看到了关于2017一个Joomla的漏洞，所以就尝试跟着做了一下，感觉还是有些云里雾里的，特此梳理。小白一个，请大佬们多多指教，欢迎交流</p>
+<h1 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h1><p>前提，下载Joomla！3.7.0版本（我已经上传到了自己博客里面，可免费下载），应该随便一个版本都可以，这里是直接安装的企业什么什么版（我不记得了），然后，跟着安装就是了</p>
+<p>本文，是直接将cms安装到www的路径下的，www就是根目录</p>
+<h1 id="0x02-正题"><a href="#0x02-正题" class="headerlink" title="0x02 正题"></a>0x02 正题</h1><p>3.7.0新增一个 <code>com_field</code> 组件,这个组件很神奇，不需要授权就可以访问</p>
+<h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2><p>首先看到<code>\components\com_fields\controller.php</code>（怎么找到这个东西的，我就不说了，因为我也不知道，可能这就是我和大佬的差距吧）</p>
+<img src="https://ckcah.github.io/images/CVE-2017-8917/1.png">
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/10/CVE-2019-6977/#more" rel="contents">
+              <a class="btn" href="/2020/05/01/CVE-2017-8917%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1421,7 +1444,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1489,20 +1512,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1539,13 +1562,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">293k</span>
+    <span title="Symbols count total">289k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:26</span>
+    <span title="Reading time total">4:23</span>
 </div>
 
 <!--

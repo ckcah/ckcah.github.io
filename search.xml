@@ -271,21 +271,6 @@
       </tags>
   </entry>
   <entry>
-    <title>kaoyan first</title>
-    <url>/2021/08/02/kaoyan-first/</url>
-    <content><![CDATA[<p>之后想经常更新一下在考研中学到的新东西</p>
-<p>或者是一些日常总结</p>
-<p>笔记整理等</p>
-<p><strong>正式开始！！！</strong></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>A nice day</title>
     <url>/2021/08/02/it&#39;s-nice-day/</url>
     <content><![CDATA[<p><img src="https://ckcah.github.io/images/me/hand.jpg" alt="hand"></p>
@@ -373,127 +358,6 @@
       </categories>
       <tags>
         <tag>网络安全</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一元函数微分学</title>
-    <url>/2021/08/07/%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6/</url>
-    <content><![CDATA[<h3 id="关于原函数的存在性："><a href="#关于原函数的存在性：" class="headerlink" title="关于原函数的存在性："></a>关于原函数的存在性：</h3><p>f(x)在区间<em><strong>I</strong></em>上连续  –&gt;  存在原函数</p>
-<p>但存在原函数   不可以推出   f(x)在区间<em><strong>I</strong></em>上连续</p>
-<p>若f(x)在区间<em><strong>I</strong></em>上有第一类间断点，则f(x)在区间***/***上无原函数</p>
-<h3 id="基本公式"><a href="#基本公式" class="headerlink" title="基本公式"></a>基本公式</h3><p><img src="https://ckcah.github.io/images/math/3/image-20210806120028266.png" alt="image-20210806120028266"></p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806120052859.png" alt="image-20210806120052859"></p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806120134960.png" alt="image-20210806120134960"></p>
-<h3 id="无理积分"><a href="#无理积分" class="headerlink" title="无理积分"></a>无理积分</h3><p><img src="https://ckcah.github.io/images/math/3/image-20210806121133718.png" alt="image-20210806121133718"></p>
-<h1 id="三角形有理式积分"><a href="#三角形有理式积分" class="headerlink" title="三角形有理式积分"></a>三角形有理式积分</h1><p><img src="https://ckcah.github.io/images/math/3/image-20210810121847061.png" alt="image-20210810121847061"></p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210810121900312.png" alt="image-20210810121900312"></p>
-<h2 id="特殊方法（三角变形、换元、分部）"><a href="#特殊方法（三角变形、换元、分部）" class="headerlink" title="特殊方法（三角变形、换元、分部）"></a>特殊方法（三角变形、换元、分部）</h2><p><img src="https://ckcah.github.io/images/math/3/image-20210810121811899.png" alt="image-20210810121811899"></p>
-<h3 id="可积性"><a href="#可积性" class="headerlink" title="可积性"></a>可积性</h3><p><img src="https://ckcah.github.io/images/math/3/image-20210806121412662.png" alt="image-20210806121412662"></p>
-<h3 id="定积分的计算"><a href="#定积分的计算" class="headerlink" title="定积分的计算"></a>定积分的计算</h3><p>牛顿 - 莱布尼兹公式</p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806121615915.png" alt="image-20210806121615915"></p>
-<p>换元积分法</p>
-<p>分部积分法</p>
-<p>利用奇偶性和周期性</p>
-<p>利用公式</p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806121710393.png" alt="image-20210806121710393"></p>
-<h3 id="变上限积分"><a href="#变上限积分" class="headerlink" title="变上限积分"></a>变上限积分</h3><p><img src="https://ckcah.github.io/images/math/3/image-20210806121805457.png" alt="image-20210806121805457"></p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806121819605.png" alt="image-20210806121819605"></p>
-<h3 id="定积分的性质"><a href="#定积分的性质" class="headerlink" title="定积分的性质"></a>定积分的性质</h3><p><img src="https://ckcah.github.io/images/math/3/image-20210806121850918.png" alt="image-20210806121850918"></p>
-<p>积分中值定理</p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806121930716.png" alt="image-20210806121930716"></p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806121948298.png" alt="image-20210806121948298"></p>
-<h3 id="变上限积分函数及其应用"><a href="#变上限积分函数及其应用" class="headerlink" title="变上限积分函数及其应用"></a>变上限积分函数及其应用</h3><p><img src="https://ckcah.github.io/images/math/3/image-20210806122328066.png" alt="image-20210806122328066"></p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806122358433.png" alt="image-20210806122358433"></p>
-<p>关于奇偶性</p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806122547859.png" alt="image-20210806122547859"></p>
-<h3 id="反常积分"><a href="#反常积分" class="headerlink" title="反常积分"></a>反常积分</h3><p><img src="https://ckcah.github.io/images/math/3/image-20210806122822599.png" alt="image-20210806122822599"></p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806123931164.png" alt="image-20210806123931164"></p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806123957066.png" alt="image-20210806123957066"></p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806124159328.png" alt="image-20210806124159328"></p>
-<h3 id="定积分的应用"><a href="#定积分的应用" class="headerlink" title="定积分的应用"></a>定积分的应用</h3><p><img src="https://ckcah.github.io/images/math/3/image-20210806124314202.png" alt="image-20210806124314202"></p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806124332551.png" alt="image-20210806124332551"></p>
-<h3 id="曲线弧长、旋转测体积"><a href="#曲线弧长、旋转测体积" class="headerlink" title="曲线弧长、旋转测体积"></a>曲线弧长、旋转测体积</h3><p><img src="https://ckcah.github.io/images/math/3/image-20210806124451274.png" alt="image-20210806124451274"></p>
-<p><img src="https://ckcah.github.io/images/math/3/image-20210806124509958.png" alt="image-20210806124509958"></p>
-<h3 id="物理应用"><a href="#物理应用" class="headerlink" title="物理应用"></a>物理应用</h3><p><img src="https://ckcah.github.io/images/math/3/image-20210806124524606.png" alt="image-20210806124524606"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>数学</category>
-        <category>定义篇</category>
-        <category>高数</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一天一个小故事21-08-15</title>
-    <url>/2021/08/15/%E4%B8%80%E5%A4%A9%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%95%85%E4%BA%8B21-08-15/</url>
-    <content><![CDATA[<p><em><strong>deluge</strong></em>专指大洪水，还可以比喻成各种洪水一般的事物。</p>
-<p>相传是上帝创造人后，看到人类的胡作非为后，想要毁掉人类，所以就发了大洪水。</p>
-<p>而<em><strong>flood</strong></em>指的是实际的洪水这一自然灾害。</p>
-<p>还有一个<em><strong>antediluvian</strong></em>，adj：大洪水前的、远古的、陈旧的，年迈的人、不合时宜的人</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>一天一个小故事</category>
-        <category>英语</category>
-        <category>随记</category>
-        <category>有趣的新发现</category>
-      </categories>
-      <tags>
-        <tag>知识浅薄的证明</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>story21.08.05</title>
-    <url>/2021/08/05/story21-08-05/</url>
-    <content><![CDATA[<p>因自恋而化为水仙的美男子纳西索斯希腊神话中，纳西索斯（Narcissus）是河神 Cephisus 和宁芙仙女 Liriope 的儿子。当他出生不久后，他母亲向盲先知提瑞西阿斯（Tiresias）询问儿子的命运。先知回答：“只要你的儿子没有见过自己，就能长命百岁。” </p>
-<p>纳西索斯长大后，成为了绝世美少年，引得无数凡人与神女的爱慕，却将他们无情拒绝——其中最有名的便是回声女神艾柯（Echo）。众女神对他愤怒不已，向报应女神 Nemesis 祷告，诅咒他永远得不到自己所爱的东西。这个诅咒很快就生效了。有一天，纳西索斯去打猎，口渴后准备到河边喝水。悲剧发生了，纳西索斯看见了自己在水中的倒影，立刻被这张无比英俊的脸庞迷住了，对其产生了狂热的爱情。他一面追求，同时又被追求；他燃起爱情，又被爱情焚烧。他寝食难安，呆在湖边不肯离去，最后奄奄一息，化为一株水仙花，依然留在水边守望着自己在水中的倒影。水仙的名字（narcissus）就来自纳西索斯的名字 Narcissus，该单词还是“自恋狂”的代名词，</p>
-<p>并衍生了narcissism（自恋）等英语单词。</p>
-<p><img src="https://ckcah.github.io/images/story/image-20210805061044501.png" alt="image-20210805061044501"></p>
-<p>narcissus：[nɑr’sɪsəs] n.水仙，自恋狂，纳西索斯</p>
-<p>narcissism：[‘nɑːsɪsɪz(ə)m; nɑː’sɪs-] n.自恋，自我陶醉，自恋症</p>
-<p>narcissist：[nɑː’sɪsɪst] n.自恋者，自我陶醉者</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>一天一个小故事</category>
-      </categories>
-      <tags>
-        <tag>知识浅薄的证明</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一天一个小故事21.08.04</title>
-    <url>/2021/08/04/%E4%B8%80%E5%A4%A9%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%95%85%E4%BA%8B21-08-04/</url>
-    <content><![CDATA[<p>​        斯芬克斯（Sphinx）最早源于古埃及神话，是长翅膀的怪物，通常是雄性，是仁慈和高贵的象征，包括三种：人面狮身的Androsphinx、羊头狮身的 Criosphinx 和鹰头狮身的Hierocosphinx。但在希腊神话中，斯芬克斯变成了雌性，代表着“神的惩罚”。据说，天后赫拉派斯芬克斯坐在底比斯城附近的悬崖上，用缪斯所传授的谜语考验路人：什么东西早晨四条腿，中午两条腿，晚上三条腿？猜不出谜语的人就会被它吃掉。</p>
-<p>​        俄狄浦斯猜出了斯芬克斯的谜语，谜底是“人”，因为人在婴儿阶段四脚着地爬着走，长大后用两只脚走路，年老体弱后拄着拐杖走。看到自己的谜语被猜中，斯芬克斯于是在羞愧中跳崖而死。</p>
-<p>在英语中，斯芬克斯的名字 sphinx 比喻“难以理解的人”，习语 riddle of sphinx 比喻难题。</p>
-<p>sphinx：[sfɪŋks] n.难以理解的人，斯芬克斯，（古埃及的）狮身人面像</p>
-<p>riddle of sphinx：n.难题，难解之谜</p>
-<p>确实很难以理解</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>一天一个小故事</category>
-      </categories>
-      <tags>
-        <tag>知识浅薄的证明</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二重积分解题思路篇</title>
-    <url>/2021/08/08/%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF%E7%AF%87/</url>
-    <content><![CDATA[<p><img src="https://ckcah.github.io/images/math/6/image-20210808103911691.png" alt="image-20210808103911691"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>数学</category>
-        <category>思维导图</category>
-        <category>解题思路篇</category>
-        <category>高数</category>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
       </tags>
   </entry>
   <entry>
@@ -620,48 +484,6 @@
       </tags>
   </entry>
   <entry>
-    <title>双端RAM和多模块存储器</title>
-    <url>/2021/08/14/%E5%8F%8C%E7%AB%AFRAM%E5%92%8C%E5%A4%9A%E6%A8%A1%E5%9D%97%E5%AD%98%E5%82%A8%E5%99%A8/</url>
-    <content><![CDATA[<p><img src="https://ckcah.github.io//images/CO/image-20210814161549219.png" alt="image-20210814161549219"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>思维导图</category>
-        <category>408</category>
-        <category>408</category>
-        <category>CO</category>
-        <category>CO</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>向量代数与空间解析几何及多元微分学在几何上的应用-定义篇</title>
-    <url>/2021/08/19/%E5%90%91%E9%87%8F%E4%BB%A3%E6%95%B0%E4%B8%8E%E7%A9%BA%E9%97%B4%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95%E5%8F%8A%E5%A4%9A%E5%85%83%E5%BE%AE%E5%88%86%E5%AD%A6%E5%9C%A8%E5%87%A0%E4%BD%95%E4%B8%8A%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<p><img src="https://ckcah.github.io/images/math/8/image-20210819080712502.png" alt="image-20210819080712502"></p>
-<p><img src="https://ckcah.github.io/images/math/8/image-20210819080808929.png" alt="image-20210819080808929"></p>
-<p><img src="https://ckcah.github.io/images/math/8/image-20210819080835709.png" alt="image-20210819080835709"></p>
-<p><img src="https://ckcah.github.io/images/math/8/image-20210819081112492.png" alt="image-20210819081112492"></p>
-<p><img src="https://ckcah.github.io/images/math/8/image-20210819081323931.png" alt="image-20210819081323931"></p>
-<p><img src="https://ckcah.github.io/images/math/8/image-20210819081340005.png" alt="image-20210819081340005"></p>
-<p><img src="https://ckcah.github.io/images/math/8/image-20210819081519572.png" alt="image-20210819081519572"></p>
-<p><img src="https://ckcah.github.io/images/math/8/image-20210819081534786.png" alt="image-20210819081534786"></p>
-<p><img src="https://ckcah.github.io/images/math/8/image-20210819081552212.png" alt="image-20210819081552212"></p>
-<p><img src="https://ckcah.github.io/images/math/8/image-20210819081733150.png" alt="image-20210819081733150"></p>
-<p><img src="https://ckcah.github.io/images/math/8/image-20210819081840456.png" alt="image-20210819081840456"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>数学</category>
-        <category>定义篇</category>
-        <category>高数</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>命令执行绕过</title>
     <url>/2020/08/01/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E7%BB%95%E8%BF%87/</url>
     <content><![CDATA[<p><strong>keyword：我只是互联网的搬运工</strong></p>
@@ -759,103 +581,6 @@
       </tags>
   </entry>
   <entry>
-    <title>多元函数微分学定义篇</title>
-    <url>/2021/08/03/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6%E5%AE%9A%E4%B9%89%E7%AF%87/</url>
-    <content><![CDATA[<h3 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h3><p><img src="https://ckcah.github.io/images/math/5/image-20210802094431031.png" alt="image-20210802094431031"></p>
-<p><img src="https://ckcah.github.io/images/math/5/image-20210802094457045.png" alt="image-20210802094457045"></p>
-<p><img src="https://ckcah.github.io/images/math/5/image-20210802094547842.png" alt="image-20210802094547842"></p>
-<p><img src="https://ckcah.github.io/images/math/5/image-20210802094614235.png" alt="image-20210802094614235"></p>
-<p><img src="https://ckcah.github.io/images/math/5/image-20210802094740416.png" alt="image-20210802094740416"></p>
-<p><img src="https://ckcah.github.io/images/math/5/image-20210802094800383.png" alt="image-20210802094800383"></p>
-<p><img src="https://ckcah.github.io/images/math/5/image-20210802094953782.png" alt="image-20210802094953782"></p>
-<p><img src="https://ckcah.github.io/images/math/5/image-20210802095046503.png" alt="image-20210802095046503"></p>
-<p><img src="https://ckcah.github.io/images/math/5/image-20210802095301416.png" alt="image-20210802095301416"></p>
-<p><img src="https://ckcah.github.io/images/math/5/image-20210802095340547.png" alt="image-20210802095340547"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>数学</category>
-        <category>定义篇</category>
-        <category>高数</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多元函数微分学解题思路篇</title>
-    <url>/2021/08/03/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF%E7%AF%87/</url>
-    <content><![CDATA[<h1 id="1-多元函数微分学"><a href="#1-多元函数微分学" class="headerlink" title="1.   多元函数微分学"></a>1.   多元函数微分学</h1><h2 id="1-1-重极限、连续、偏导数、全微分"><a href="#1-1-重极限、连续、偏导数、全微分" class="headerlink" title="1.1.   重极限、连续、偏导数、全微分"></a>1.1.   重极限、连续、偏导数、全微分</h2><h3 id="1-1-1-求极限"><a href="#1-1-1-求极限" class="headerlink" title="1.1.1.    求极限"></a>1.1.1.    求极限</h3><h4 id="1-1-1-1-p143-例1"><a href="#1-1-1-1-p143-例1" class="headerlink" title="1.1.1.1.    p143 例1"></a>1.1.1.1.    p143 例1</h4><h5 id="1-1-1-1-1-夹逼定理"><a href="#1-1-1-1-1-夹逼定理" class="headerlink" title="1.1.1.1.1.    夹逼定理"></a>1.1.1.1.1.    夹逼定理</h5><h5 id="1-1-1-1-2-整体绝对值函数-lt-绝对值分散到函数内部"><a href="#1-1-1-1-2-整体绝对值函数-lt-绝对值分散到函数内部" class="headerlink" title="1.1.1.1.2.    整体绝对值函数 &lt;= 绝对值分散到函数内部"></a>1.1.1.1.2.    整体绝对值函数 &lt;= 绝对值分散到函数内部</h5><h3 id="1-1-2-证明重极限不存在"><a href="#1-1-2-证明重极限不存在" class="headerlink" title="1.1.2.    证明重极限不存在"></a>1.1.2.    证明重极限不存在</h3><h4 id="1-1-2-1-p144-例2"><a href="#1-1-2-1-p144-例2" class="headerlink" title="1.1.2.1.    p144 例2"></a>1.1.2.1.    p144 例2</h4><h5 id="1-1-2-1-1-带入直线-如：-y-kx"><a href="#1-1-2-1-1-带入直线-如：-y-kx" class="headerlink" title="1.1.2.1.1.    带入直线 如： y = kx"></a>1.1.2.1.1.    带入直线 如： y = kx</h5><h5 id="1-1-2-1-2-只有沿两条不同路径-极限相同-才存在-否则极限不存在"><a href="#1-1-2-1-2-只有沿两条不同路径-极限相同-才存在-否则极限不存在" class="headerlink" title="1.1.2.1.2.    只有沿两条不同路径  极限相同 才存在 否则极限不存在"></a>1.1.2.1.2.    只有沿两条不同路径  极限相同 才存在 否则极限不存在</h5><h3 id="1-1-3-判断分段函数连续性"><a href="#1-1-3-判断分段函数连续性" class="headerlink" title="1.1.3.    判断分段函数连续性"></a>1.1.3.    判断分段函数连续性</h3><h4 id="1-1-3-1-分段函数在分段点的连续性"><a href="#1-1-3-1-分段函数在分段点的连续性" class="headerlink" title="1.1.3.1.    分段函数在分段点的连续性"></a>1.1.3.1.    分段函数在分段点的连续性</h4><h5 id="1-1-3-1-1-夹逼定理"><a href="#1-1-3-1-1-夹逼定理" class="headerlink" title="1.1.3.1.1.    夹逼定理"></a>1.1.3.1.1.    夹逼定理</h5><h3 id="1-1-4-讨论连续性、可导性、可微性-（考的最多的是可微性）"><a href="#1-1-4-讨论连续性、可导性、可微性-（考的最多的是可微性）" class="headerlink" title="1.1.4.    讨论连续性、可导性、可微性 （考的最多的是可微性）"></a>1.1.4.    讨论连续性、可导性、可微性 （考的最多的是可微性）</h3><h4 id="1-1-4-1-题型变幻可能点"><a href="#1-1-4-1-题型变幻可能点" class="headerlink" title="1.1.4.1.    题型变幻可能点"></a>1.1.4.1.    题型变幻可能点</h4><h5 id="1-1-4-1-1-简单分段函数判断"><a href="#1-1-4-1-1-简单分段函数判断" class="headerlink" title="1.1.4.1.1.    简单分段函数判断"></a>1.1.4.1.1.    简单分段函数判断</h5><h5 id="1-1-4-1-2-函数实例可微问充分条件"><a href="#1-1-4-1-2-函数实例可微问充分条件" class="headerlink" title="1.1.4.1.2.    函数实例可微问充分条件"></a>1.1.4.1.2.    函数实例可微问充分条件</h5><h5 id="1-1-4-1-3-函数在某点连续，选项中有带绝对值的，有平方的，判断三个特性"><a href="#1-1-4-1-3-函数在某点连续，选项中有带绝对值的，有平方的，判断三个特性" class="headerlink" title="1.1.4.1.3.    函数在某点连续，选项中有带绝对值的，有平方的，判断三个特性"></a>1.1.4.1.3.    函数在某点连续，选项中有带绝对值的，有平方的，判断三个特性</h5><h5 id="1-1-4-1-4-知可微，求-dz"><a href="#1-1-4-1-4-知可微，求-dz" class="headerlink" title="1.1.4.1.4.    知可微，求 dz"></a>1.1.4.1.4.    知可微，求 dz</h5><h5 id="1-1-4-1-5-函数带绝对值，在某点的邻域连续，先求x-y一阶偏导分别存在的条件，再求该点是否可微"><a href="#1-1-4-1-5-函数带绝对值，在某点的邻域连续，先求x-y一阶偏导分别存在的条件，再求该点是否可微" class="headerlink" title="1.1.4.1.5.    函数带绝对值，在某点的邻域连续，先求x,y一阶偏导分别存在的条件，再求该点是否可微"></a>1.1.4.1.5.    函数带绝对值，在某点的邻域连续，先求x,y一阶偏导分别存在的条件，再求该点是否可微</h5><h5 id="1-1-4-1-6-p150-例7-（最难的题）-综合考察"><a href="#1-1-4-1-6-p150-例7-（最难的题）-综合考察" class="headerlink" title="1.1.4.1.6.    p150 例7 （最难的题） 综合考察"></a>1.1.4.1.6.    p150 例7 （最难的题） 综合考察</h5><h6 id="1-1-4-1-6-1-￼"><a href="#1-1-4-1-6-1-￼" class="headerlink" title="1.1.4.1.6.1.    ￼ "></a>1.1.4.1.6.1.    ￼ <img src="https://ckcah.github.io/images/math/5.01/image_1627953354_4.png" alt="img"></h6><h6 id="1-1-4-1-6-2-￼-￼"><a href="#1-1-4-1-6-2-￼-￼" class="headerlink" title="1.1.4.1.6.2.    ￼ ￼ "></a>1.1.4.1.6.2.    ￼ ￼ <img src="https://ckcah.github.io/images/math/5.01/image_1627953677_7.png" alt="img"></h6><p>1.1.4.1.6.2.1. 做题步骤： 目的：可微公式构造等价 1.用拉格朗日中值定理找出题目中未给出的二元函数的y一导数形式（带有一个无穷小的θ * △y） 2.看到题目中给出的x的一阶偏导式子 3.根据1.  和2.  写出△z 4.从y的一阶偏导连续知道极限值等于函数值 5.将△z中关于y的式子替换为  不带θ * △y 的式子 6.根据绝对值的性质得出 （△z / p）趋近于 0  则（△z / p）= o(p) ，所以可微</p>
-<p>1.1.4.1.6.2.2. 涉及知识点： 1.拉格朗日中值定理 2.可微公式 3.绝对值分散</p>
-<p>1.1.4.1.6.2.3. 总结： 可微就一定满足可微的公式 而可微公式中有无穷小 所以问题变成如何证明可微公式的多余式子等于无穷小</p>
-<h4 id="1-1-4-2-解题套路"><a href="#1-1-4-2-解题套路" class="headerlink" title="1.1.4.2.    解题套路"></a>1.1.4.2.    解题套路</h4><h5 id="1-1-4-2-1-￼"><a href="#1-1-4-2-1-￼" class="headerlink" title="1.1.4.2.1.    ￼  "></a>1.1.4.2.1.    ￼  <img src="https://ckcah.github.io/images/math/5.01/image_1627952623_3.png" alt="img"></h5><h5 id="1-1-4-2-2-￼"><a href="#1-1-4-2-2-￼" class="headerlink" title="1.1.4.2.2.    ￼  "></a>1.1.4.2.2.    ￼  <img src="https://ckcah.github.io/images/math/5.01/image_1627951844_1.png" alt="img"></h5><h5 id="1-1-4-2-3-用的最多"><a href="#1-1-4-2-3-用的最多" class="headerlink" title="1.1.4.2.3.    用的最多"></a>1.1.4.2.3.    用的最多</h5><h4 id="1-1-4-3-注意："><a href="#1-1-4-3-注意：" class="headerlink" title="1.1.4.3.    注意："></a>1.1.4.3.    注意：</h4><h5 id="1-1-4-3-1-￼"><a href="#1-1-4-3-1-￼" class="headerlink" title="1.1.4.3.1.    ￼  "></a>1.1.4.3.1.    ￼  <img src="https://ckcah.github.io/images/math/5.01/image_1627952197_2.png" alt="img"></h5><h4 id="1-1-4-4-自我总结"><a href="#1-1-4-4-自我总结" class="headerlink" title="1.1.4.4.    自我总结"></a>1.1.4.4.    自我总结</h4><h5 id="1-1-4-4-1-一般涉及到可微，都要用到这5个公式-特别是△z-f-x-y-f-x0-y0-A-x-x0-B-y-y0-o-p"><a href="#1-1-4-4-1-一般涉及到可微，都要用到这5个公式-特别是△z-f-x-y-f-x0-y0-A-x-x0-B-y-y0-o-p" class="headerlink" title="1.1.4.4.1.    一般涉及到可微，都要用到这5个公式 特别是△z = f(x,y) - f(x0,y0) = A(x - x0) + B(y - y0) + o(p)"></a>1.1.4.4.1.    一般涉及到可微，都要用到这5个公式 特别是△z = f(x,y) - f(x0,y0) = A(x - x0) + B(y - y0) + o(p)</h5><h2 id="1-2-偏导数与全微分的计算"><a href="#1-2-偏导数与全微分的计算" class="headerlink" title="1.2.    偏导数与全微分的计算"></a>1.2.    偏导数与全微分的计算</h2><h3 id="1-2-1-求一点处的偏导数与全微分"><a href="#1-2-1-求一点处的偏导数与全微分" class="headerlink" title="1.2.1.    求一点处的偏导数与全微分"></a>1.2.1.    求一点处的偏导数与全微分</h3><h4 id="1-2-1-1-题型变幻可能点"><a href="#1-2-1-1-题型变幻可能点" class="headerlink" title="1.2.1.1.    题型变幻可能点"></a>1.2.1.1.    题型变幻可能点</h4><h5 id="1-2-1-1-1-带绝对值的分段函数求极限"><a href="#1-2-1-1-1-带绝对值的分段函数求极限" class="headerlink" title="1.2.1.1.1.    带绝对值的分段函数求极限"></a>1.2.1.1.1.    带绝对值的分段函数求极限</h5><h5 id="1-2-1-1-2-求函数在某点的x、y一阶偏导数"><a href="#1-2-1-1-2-求函数在某点的x、y一阶偏导数" class="headerlink" title="1.2.1.1.2.    求函数在某点的x、y一阶偏导数"></a>1.2.1.1.2.    求函数在某点的x、y一阶偏导数</h5><h5 id="1-2-1-1-3-函数为幂指函数，带xyz"><a href="#1-2-1-1-3-函数为幂指函数，带xyz" class="headerlink" title="1.2.1.1.3.    函数为幂指函数，带xyz"></a>1.2.1.1.3.    函数为幂指函数，带xyz</h5><h4 id="1-2-1-2-解题套路"><a href="#1-2-1-2-解题套路" class="headerlink" title="1.2.1.2.    解题套路"></a>1.2.1.2.    解题套路</h4><h5 id="1-2-1-2-1-求分段函数在分界点处的偏导数一般都是用定义"><a href="#1-2-1-2-1-求分段函数在分界点处的偏导数一般都是用定义" class="headerlink" title="1.2.1.2.1.    求分段函数在分界点处的偏导数一般都是用定义"></a>1.2.1.2.1.    求分段函数在分界点处的偏导数一般都是用定义</h5><h5 id="1-2-1-2-2-求具体点处的偏导数可先代后求"><a href="#1-2-1-2-2-求具体点处的偏导数可先代后求" class="headerlink" title="1.2.1.2.2.    求具体点处的偏导数可先代后求"></a>1.2.1.2.2.    求具体点处的偏导数可先代后求</h5><h5 id="1-2-1-2-3-求具体点处的高阶偏导数采用先代后求"><a href="#1-2-1-2-3-求具体点处的高阶偏导数采用先代后求" class="headerlink" title="1.2.1.2.3.    求具体点处的高阶偏导数采用先代后求"></a>1.2.1.2.3.    求具体点处的高阶偏导数采用先代后求</h5><h3 id="1-2-2-求已给出具体表达式函数的偏导数与全微分"><a href="#1-2-2-求已给出具体表达式函数的偏导数与全微分" class="headerlink" title="1.2.2.    求已给出具体表达式函数的偏导数与全微分"></a>1.2.2.    求已给出具体表达式函数的偏导数与全微分</h3><h4 id="1-2-2-1-题型变幻可能点-及解题套路"><a href="#1-2-2-1-题型变幻可能点-及解题套路" class="headerlink" title="1.2.2.1.    题型变幻可能点 及解题套路"></a>1.2.2.1.    题型变幻可能点 及解题套路</h4><h5 id="1-2-2-1-1-二元带幂复合函数求偏导"><a href="#1-2-2-1-1-二元带幂复合函数求偏导" class="headerlink" title="1.2.2.1.1.    二元带幂复合函数求偏导"></a>1.2.2.1.1.    二元带幂复合函数求偏导</h5><h5 id="1-2-2-1-2-给出一部分一阶偏导，原函数的式子和值，求完整的原函数"><a href="#1-2-2-1-2-给出一部分一阶偏导，原函数的式子和值，求完整的原函数" class="headerlink" title="1.2.2.1.2.    给出一部分一阶偏导，原函数的式子和值，求完整的原函数"></a>1.2.2.1.2.    给出一部分一阶偏导，原函数的式子和值，求完整的原函数</h5><h6 id="1-2-2-1-2-1-若为选择题，则直接带入选项测试"><a href="#1-2-2-1-2-1-若为选择题，则直接带入选项测试" class="headerlink" title="1.2.2.1.2.1.    若为选择题，则直接带入选项测试"></a>1.2.2.1.2.1.    若为选择题，则直接带入选项测试</h6><h6 id="1-2-2-1-2-2-若为简答题，则采用不定积分法"><a href="#1-2-2-1-2-2-若为简答题，则采用不定积分法" class="headerlink" title="1.2.2.1.2.2.    若为简答题，则采用不定积分法"></a>1.2.2.1.2.2.    若为简答题，则采用不定积分法</h6><h5 id="1-2-2-1-3-已知全微分，求其中的不确定常数值"><a href="#1-2-2-1-3-已知全微分，求其中的不确定常数值" class="headerlink" title="1.2.2.1.3.    已知全微分，求其中的不确定常数值"></a>1.2.2.1.3.    已知全微分，求其中的不确定常数值</h5><h6 id="1-2-2-1-3-1-利用公式-如：-￼-￼"><a href="#1-2-2-1-3-1-利用公式-如：-￼-￼" class="headerlink" title="1.2.2.1.3.1.    利用公式 如： ￼ ￼ "></a>1.2.2.1.3.1.    利用公式 如： ￼ ￼ <img src="https://ckcah.github.io/images/math/5.01/image_1627955298_9.png" alt="img"></h6><p><img src="https://ckcah.github.io/images/math/5.01/image_1627955159_8.png" alt="img"></p>
-<h6 id="1-2-2-1-3-2-凑微分-如：-￼"><a href="#1-2-2-1-3-2-凑微分-如：-￼" class="headerlink" title="1.2.2.1.3.2.    凑微分 如： ￼ "></a>1.2.2.1.3.2.    凑微分 如： ￼ <img src="https://ckcah.github.io/images/math/5.01/image_1627955386_10.png" alt="img"></h6><h3 id="1-2-3-含有抽象函数的复合函数偏导数与全微分"><a href="#1-2-3-含有抽象函数的复合函数偏导数与全微分" class="headerlink" title="1.2.3.    含有抽象函数的复合函数偏导数与全微分"></a>1.2.3.    含有抽象函数的复合函数偏导数与全微分</h3><h4 id="1-2-3-1-题型变幻可能点"><a href="#1-2-3-1-题型变幻可能点" class="headerlink" title="1.2.3.1.    题型变幻可能点"></a>1.2.3.1.    题型变幻可能点</h4><h5 id="1-2-3-1-1-一般形式就是复合函数，然后带有抽象函数"><a href="#1-2-3-1-1-一般形式就是复合函数，然后带有抽象函数" class="headerlink" title="1.2.3.1.1.    一般形式就是复合函数，然后带有抽象函数"></a>1.2.3.1.1.    一般形式就是复合函数，然后带有抽象函数</h5><h5 id="1-2-3-1-2-或带有不定积分函数"><a href="#1-2-3-1-2-或带有不定积分函数" class="headerlink" title="1.2.3.1.2.    或带有不定积分函数"></a>1.2.3.1.2.    或带有不定积分函数</h5><h5 id="1-2-3-1-3-极坐标（虚张声势型）"><a href="#1-2-3-1-3-极坐标（虚张声势型）" class="headerlink" title="1.2.3.1.3.    极坐标（虚张声势型）"></a>1.2.3.1.3.    极坐标（虚张声势型）</h5><h6 id="1-2-3-1-3-1-￼"><a href="#1-2-3-1-3-1-￼" class="headerlink" title="1.2.3.1.3.1.    ￼ "></a>1.2.3.1.3.1.    ￼ <img src="https://ckcah.github.io/images/math/5.01/image_1627956434_11.png" alt="img"></h6><h5 id="1-2-3-1-4-￼"><a href="#1-2-3-1-4-￼" class="headerlink" title="1.2.3.1.4.    ￼  "></a>1.2.3.1.4.    ￼  <img src="https://ckcah.github.io/images/math/5.01/image_1627956985_12.png" alt="img"></h5><h4 id="1-2-3-2-解题套路"><a href="#1-2-3-2-解题套路" class="headerlink" title="1.2.3.2.    解题套路"></a>1.2.3.2.    解题套路</h4><h5 id="1-2-3-2-1-直接求"><a href="#1-2-3-2-1-直接求" class="headerlink" title="1.2.3.2.1.    直接求"></a>1.2.3.2.1.    直接求</h5><h5 id="1-2-3-2-2-选择题：带入选项"><a href="#1-2-3-2-2-选择题：带入选项" class="headerlink" title="1.2.3.2.2.    选择题：带入选项"></a>1.2.3.2.2.    选择题：带入选项</h5><h3 id="1-2-4-隐函数的偏导数与全微分"><a href="#1-2-4-隐函数的偏导数与全微分" class="headerlink" title="1.2.4.    隐函数的偏导数与全微分"></a>1.2.4.    隐函数的偏导数与全微分</h3><h4 id="1-2-4-1-求解思路"><a href="#1-2-4-1-求解思路" class="headerlink" title="1.2.4.1.    求解思路"></a>1.2.4.1.    求解思路</h4><h5 id="1-2-4-1-1-直接求"><a href="#1-2-4-1-1-直接求" class="headerlink" title="1.2.4.1.1.    直接求"></a>1.2.4.1.1.    直接求</h5><h5 id="1-2-4-1-2-求微分"><a href="#1-2-4-1-2-求微分" class="headerlink" title="1.2.4.1.2.    求微分"></a>1.2.4.1.2.    求微分</h5><h5 id="1-2-4-1-3-￼"><a href="#1-2-4-1-3-￼" class="headerlink" title="1.2.4.1.3.    ￼  "></a>1.2.4.1.3.    ￼  <img src="https://ckcah.github.io/images/math/5.01/image_1627957311_13.png" alt="img"></h5><h6 id="1-2-4-1-3-1-￼"><a href="#1-2-4-1-3-1-￼" class="headerlink" title="1.2.4.1.3.1.    ￼ "></a>1.2.4.1.3.1.    ￼ <img src="https://ckcah.github.io/images/math/5.01/image_1627957350_14.png" alt="img"></h6><h3 id="1-2-5-总结-时时刻刻想到全微分公式"><a href="#1-2-5-总结-时时刻刻想到全微分公式" class="headerlink" title="1.2.5.    总结: 时时刻刻想到全微分公式"></a>1.2.5.    总结: 时时刻刻想到全微分公式</h3><h2 id="1-3-极值与最值"><a href="#1-3-极值与最值" class="headerlink" title="1.3.    极值与最值"></a>1.3.    极值与最值</h2><h3 id="1-3-1-求无条件极值"><a href="#1-3-1-求无条件极值" class="headerlink" title="1.3.1.    求无条件极值"></a>1.3.1.    求无条件极值</h3><h4 id="1-3-1-1-1-先求出驻点（一阶偏导为0组合组成的点）-2-然后求出ABC-3-判定"><a href="#1-3-1-1-1-先求出驻点（一阶偏导为0组合组成的点）-2-然后求出ABC-3-判定" class="headerlink" title="1.3.1.1.    1.先求出驻点（一阶偏导为0组合组成的点） 2.然后求出ABC 3.判定"></a>1.3.1.1.    1.先求出驻点（一阶偏导为0组合组成的点） 2.然后求出ABC 3.判定</h4><h4 id="1-3-1-2-1-构造满足条件的全微分公式-2-可看出无穷小p的样子-则得出驻点为（x0-y0）"><a href="#1-3-1-2-1-构造满足条件的全微分公式-2-可看出无穷小p的样子-则得出驻点为（x0-y0）" class="headerlink" title="1.3.1.2.    1.构造满足条件的全微分公式 2.可看出无穷小p的样子 则得出驻点为（x0,y0）"></a>1.3.1.2.    1.构造满足条件的全微分公式 2.可看出无穷小p的样子 则得出驻点为（x0,y0）</h4><h5 id="1-3-1-2-1-如：-则"><a href="#1-3-1-2-1-如：-则" class="headerlink" title="1.3.1.2.1.    如： 则"></a>1.3.1.2.1.    如：<img src="https://ckcah.github.io/images/math/5.01/image_1627957764_15.png" alt="img"> 则<img src="https://ckcah.github.io/images/math/5.01/image_1627957807_16.png" alt="img"></h5><h4 id="1-3-1-3-先代后求"><a href="#1-3-1-3-先代后求" class="headerlink" title="1.3.1.3.    先代后求"></a>1.3.1.3.    先代后求</h4><h5 id="1-3-1-3-1-￼"><a href="#1-3-1-3-1-￼" class="headerlink" title="1.3.1.3.1.    ￼  "></a>1.3.1.3.1.    ￼  <img src="https://ckcah.github.io/images/math/5.01/image_1627957888_17.png" alt="img"></h5><h4 id="1-3-1-4-给出函数在某点连续，且给出一个关于函数的极限为常数的式子，判断函数的极值"><a href="#1-3-1-4-给出函数在某点连续，且给出一个关于函数的极限为常数的式子，判断函数的极值" class="headerlink" title="1.3.1.4.    给出函数在某点连续，且给出一个关于函数的极限为常数的式子，判断函数的极值"></a>1.3.1.4.    给出函数在某点连续，且给出一个关于函数的极限为常数的式子，判断函数的极值</h4><h5 id="1-3-1-4-1-保号性"><a href="#1-3-1-4-1-保号性" class="headerlink" title="1.3.1.4.1.    保号性"></a>1.3.1.4.1.    保号性</h5><h5 id="1-3-1-4-2-极限与无穷小"><a href="#1-3-1-4-2-极限与无穷小" class="headerlink" title="1.3.1.4.2.    极限与无穷小"></a>1.3.1.4.2.    极限与无穷小</h5><h3 id="1-3-2-求最大最小值"><a href="#1-3-2-求最大最小值" class="headerlink" title="1.3.2.    求最大最小值"></a>1.3.2.    求最大最小值</h3><h4 id="1-3-2-1-一个函数在另一个函数上的最值"><a href="#1-3-2-1-一个函数在另一个函数上的最值" class="headerlink" title="1.3.2.1.    一个函数在另一个函数上的最值"></a>1.3.2.1.    一个函数在另一个函数上的最值</h4><h5 id="1-3-2-1-1-直接求一阶偏导找驻点"><a href="#1-3-2-1-1-直接求一阶偏导找驻点" class="headerlink" title="1.3.2.1.1.    直接求一阶偏导找驻点"></a>1.3.2.1.1.    直接求一阶偏导找驻点</h5><h6 id="1-3-2-1-1-1-注意：当题目问所围成区域上的最值点时，边界不取"><a href="#1-3-2-1-1-1-注意：当题目问所围成区域上的最值点时，边界不取" class="headerlink" title="1.3.2.1.1.1.    注意：当题目问所围成区域上的最值点时，边界不取"></a>1.3.2.1.1.1.    注意：当题目问所围成区域上的最值点时，边界不取</h6><p>1.3.2.1.1.1.1. 如：x=0,y=0</p>
-<h5 id="1-3-2-1-2-条件最值（带有一个未知常数）"><a href="#1-3-2-1-2-条件最值（带有一个未知常数）" class="headerlink" title="1.3.2.1.2.    条件最值（带有一个未知常数）"></a>1.3.2.1.2.    条件最值（带有一个未知常数）</h5><h5 id="1-3-2-1-3-构造拉格朗日函数"><a href="#1-3-2-1-3-构造拉格朗日函数" class="headerlink" title="1.3.2.1.3.    构造拉格朗日函数"></a>1.3.2.1.3.    构造拉格朗日函数</h5><h5 id="1-3-2-1-4-写成参数方程"><a href="#1-3-2-1-4-写成参数方程" class="headerlink" title="1.3.2.1.4.    写成参数方程"></a>1.3.2.1.4.    写成参数方程</h5><h5 id="1-3-2-1-5-当用一阶偏导求出的驻点不在函数区域范围内时，-可看成是函数离该点的距离（当函数具有对称性时），"><a href="#1-3-2-1-5-当用一阶偏导求出的驻点不在函数区域范围内时，-可看成是函数离该点的距离（当函数具有对称性时），" class="headerlink" title="1.3.2.1.5.    当用一阶偏导求出的驻点不在函数区域范围内时， 可看成是函数离该点的距离（当函数具有对称性时），"></a>1.3.2.1.5.    当用一阶偏导求出的驻点不在函数区域范围内时， 可看成是函数离该点的距离（当函数具有对称性时），</h5><h5 id="1-3-2-1-6-典例-￼"><a href="#1-3-2-1-6-典例-￼" class="headerlink" title="1.3.2.1.6.    典例 ￼  "></a>1.3.2.1.6.    典例 ￼  <img src="https://ckcah.github.io/images/math/5.01/image_1627959413_18.png" alt="img"></h5><h6 id="1-3-2-1-6-1-拉格朗日法"><a href="#1-3-2-1-6-1-拉格朗日法" class="headerlink" title="1.3.2.1.6.1.    拉格朗日法"></a>1.3.2.1.6.1.    拉格朗日法</h6><p>1.3.2.1.6.1.1. ￼<img src="https://ckcah.github.io/images/math/5.01/image_1627959482_19.png" alt="img"></p>
-<h6 id="1-3-2-1-6-2-参数方程法"><a href="#1-3-2-1-6-2-参数方程法" class="headerlink" title="1.3.2.1.6.2.    参数方程法"></a>1.3.2.1.6.2.    参数方程法</h6><p>1.3.2.1.6.2.1. ￼<img src="https://ckcah.github.io/images/math/5.01/image_1627959503_20.png" alt="img"></p>
-<h6 id="1-3-2-1-6-3-看做函数到该点距离的方法"><a href="#1-3-2-1-6-3-看做函数到该点距离的方法" class="headerlink" title="1.3.2.1.6.3.    看做函数到该点距离的方法"></a>1.3.2.1.6.3.    看做函数到该点距离的方法</h6><p>1.3.2.1.6.3.1. ￼<img src="https://ckcah.github.io/images/math/5.01/image_1627959519_21.png" alt="img"></p>
-<h5 id="1-3-2-1-7-综合性考题"><a href="#1-3-2-1-7-综合性考题" class="headerlink" title="1.3.2.1.7.    综合性考题"></a>1.3.2.1.7.    综合性考题</h5><h6 id="1-3-2-1-7-1-￼"><a href="#1-3-2-1-7-1-￼" class="headerlink" title="1.3.2.1.7.1.    ￼ "></a>1.3.2.1.7.1.    ￼ <img src="https://ckcah.github.io/images/math/5.01/image_1627959997_22.png" alt="img"></h6><p>1.3.2.1.7.1.1. ￼<img src="https://ckcah.github.io/images/math/5.01/image_1627960034_23.png" alt="img"></p>
-<p><img src="file:///C:/Users/C/AppData/Local/Temp/mindmaster/c301e3e048/001/_CopyPix_1627956985_12.png" alt="img"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>数学</category>
-        <category>解题思路篇</category>
-        <category>高数</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多元函数微分学解题思路（思维导图）篇</title>
-    <url>/2021/08/03/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF%EF%BC%88%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%EF%BC%89%E7%AF%87/</url>
-    <content><![CDATA[<p><img src="https://ckcah.github.io/images/math/5.01/image-20210803121932793.png" alt="image-20210803121932793"></p>
-<p><em><strong>更新：严选题汇总</strong></em></p>
-<p><img src="https://ckcah.github.io/images/math/5.01/image-20210806075526831.png" alt="image-20210806075526831"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>数学</category>
-        <category>思维导图</category>
-        <category>解题思路篇</category>
-        <category>高数</category>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多元积分学及其应用-定义篇</title>
-    <url>/2021/08/22/%E5%A4%9A%E5%85%83%E7%A7%AF%E5%88%86%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8-%E5%AE%9A%E4%B9%89%E7%AF%87/</url>
-    <content><![CDATA[<p><img src="https://ckcah.github.io/images/math/9/image-20210822084211501.png" alt="image-20210822084211501"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>数学</category>
-        <category>定义篇</category>
-        <category>高数</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多元积分学及其应用-解题篇</title>
-    <url>/2021/08/24/%E5%A4%9A%E5%85%83%E7%A7%AF%E5%88%86%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8-%E8%A7%A3%E9%A2%98%E7%AF%87/</url>
-    <content><![CDATA[<p><a href="https://ckcah.github.io/images/math/9/image-20210824101252647.png">image-20210824101252647</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>数学</category>
-        <category>定义篇</category>
-        <category>高数</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构自我探索1</title>
     <url>/2021/08/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%87%AA%E6%88%91%E6%8E%A2%E7%B4%A21/</url>
     <content><![CDATA[<p><img src="https://ckcah.github.io/images/DS/answer1.png" alt="image-20210801161555987"></p>
@@ -883,106 +608,6 @@
         <category>考研</category>
         <category>408</category>
         <category>小领悟</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>无穷级数+二重积分定义篇</title>
-    <url>/2021/08/13/%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0-%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86%E5%AE%9A%E4%B9%89%E7%AF%87/</url>
-    <content><![CDATA[<h1 id="二重积分"><a href="#二重积分" class="headerlink" title="二重积分"></a>二重积分</h1><h2 id="易忘点"><a href="#易忘点" class="headerlink" title="易忘点"></a>易忘点</h2><p><img src="https://ckcah.github.io/images/math/6/image-20210807114234230.png" alt="image-20210807114234230"></p>
-<h2 id="对称性"><a href="#对称性" class="headerlink" title="对称性"></a>对称性</h2><p><img src="https://ckcah.github.io/images/math/6/image-20210807114204814.png" alt="image-20210807114204814"></p>
-<h1 id="无穷级数"><a href="#无穷级数" class="headerlink" title="无穷级数"></a>无穷级数</h1><h2 id="常数项级数"><a href="#常数项级数" class="headerlink" title="常数项级数"></a>常数项级数</h2><p>级数收敛与发散与前有限项无关</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813093102844.png" alt="image-20210813093102844"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813093155576.png" alt="image-20210813093155576"></p>
-<p><strong>前提：</strong><img src="https://ckcah.github.io/images/math/6-7/image-20210813093320064.png" alt="image-20210813093320064"></p>
-<p><strong>基础原理：</strong><img src="https://ckcah.github.io/images/math/6-7/image-20210813093357134.png" alt="image-20210813093357134"></p>
-<h3 id="级数的审敛"><a href="#级数的审敛" class="headerlink" title="级数的审敛"></a>级数的审敛</h3><p>1.比较判别法</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813093637455.png" alt="image-20210813093637455"></p>
-<p>2.比较法极限形式（把Vn乘到右边更好看）</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813093701499.png" alt="image-20210813093701499"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813093810738.png" alt="image-20210813093810738"></p>
-<p>3.比值法</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813093830890.png" alt="image-20210813093830890"></p>
-<p>4.根值法</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813093848032.png" alt="image-20210813093848032"></p>
-<p>5.积分判别法</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813093905880.png" alt="image-20210813093905880"></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>优</th>
-<th>缺</th>
-<th>遇到的情况</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1、2</td>
-<td>适用范围广</td>
-<td>不方便</td>
-<td>n^p        ln(n)</td>
-</tr>
-<tr>
-<td>3、4</td>
-<td>方便</td>
-<td>适用范围小</td>
-<td>a^n      n!       n^n<br>一般a^n和n^n用根植法<br>n!用比值法<br></td>
-</tr>
-</tbody></table>
-<p>交错级数</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813094518245.png" alt="image-20210813094518245"></p>
-<h3 id="条件收敛与绝对收敛"><a href="#条件收敛与绝对收敛" class="headerlink" title="条件收敛与绝对收敛"></a>条件收敛与绝对收敛</h3><p><img src="https://ckcah.github.io/images/math/6-7/image-20210813094745786.png" alt="image-20210813094745786"></p>
-<h2 id="幂级数"><a href="#幂级数" class="headerlink" title="幂级数"></a>幂级数</h2><p>基本形式：</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813094916467.png" alt="image-20210813094916467"></p>
-<p>或<img src="https://ckcah.github.io/images/math/6-7/image-20210813094929251.png" alt="image-20210813094929251"></p>
-<p>阿贝尔定理（注意绝对值）：</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813095105609.png" alt="image-20210813095105609"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813100049727.png" alt="image-20210813100049727"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813100103344.png" alt="image-20210813100103344"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813100306336.png" alt="image-20210813100306336"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813101110138.png" alt="image-20210813101110138"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813101219302.png" alt="image-20210813101219302"></p>
-<p><strong>泰勒级数：</strong></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813101307712.png" alt="image-20210813101307712"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813101428405.png" alt="image-20210813101428405"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813101449835.png" alt="image-20210813101449835"></p>
-<h3 id="函数展开为幂级数的方法"><a href="#函数展开为幂级数的方法" class="headerlink" title="函数展开为幂级数的方法"></a>函数展开为幂级数的方法</h3><p>1.直接展开法</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813101557690.png" alt="image-20210813101557690"></p>
-<p><strong>2.间接展开法（重）</strong></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813101626613.png" alt="image-20210813101626613"></p>
-<h2 id="傅里叶级数"><a href="#傅里叶级数" class="headerlink" title="傅里叶级数"></a>傅里叶级数</h2><p><img src="https://ckcah.github.io/images/math/6-7/image-20210813101755960.png" alt="image-20210813101755960"></p>
-<p>2.收敛定理（狄利克雷）</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813101852118.png" alt="image-20210813101852118"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813101937706.png" alt="image-20210813101937706"></p>
-<p>奇偶延拓</p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813102018629.png" alt="image-20210813102018629"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813102045596.png" alt="image-20210813102045596"></p>
-<p><img src="https://ckcah.github.io/images/math/6-7/image-20210813102100714.png" alt="image-20210813102100714"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>数学</category>
-        <category>定义篇</category>
-        <category>高数</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>无穷级数解题思路篇</title>
-    <url>/2021/08/14/%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF%E7%AF%87/</url>
-    <content><![CDATA[<p><img src="https://ckcah.github.io/images/math/6-7/image-20210815090522517.png" alt="image-20210815090522517"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>数学</category>
-        <category>思维导图</category>
-        <category>解题思路篇</category>
-        <category>高数</category>
-        <category>数学</category>
       </categories>
       <tags>
         <tag>考研</tag>
@@ -1147,83 +772,6 @@
       </categories>
       <tags>
         <tag>网络安全</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>王道-杂论篇</title>
-    <url>/2021/08/05/%E7%8E%8B%E9%81%93-%E6%9D%82%E8%AE%BA%E7%AF%87/</url>
-    <content><![CDATA[<p><img src="https://ckcah.github.io/images/DS/image-20210805141953547.png" alt="image-20210805141953547"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>思维导图</category>
-        <category>408</category>
-        <category>408</category>
-        <category>DS</category>
-        <category>DS</category>
-        <category>习题篇</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>王道天勤-串</title>
-    <url>/2021/08/08/%E7%8E%8B%E9%81%93%E5%A4%A9%E5%8B%A4-%E4%B8%B2/</url>
-    <content><![CDATA[<p><img src="https://ckcah.github.io/images/DS/image-20210808173413653.png" alt="image-20210808173413653"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>思维导图</category>
-        <category>408</category>
-        <category>408</category>
-        <category>DS</category>
-        <category>DS</category>
-        <category>习题篇</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>王道天勤-查找</title>
-    <url>/2021/08/16/%E7%8E%8B%E9%81%93%E5%A4%A9%E5%8B%A4-%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-  </entry>
-  <entry>
-    <title>王道天勤-栈与队列</title>
-    <url>/2021/08/05/%E7%8E%8B%E9%81%93%E5%A4%A9%E5%8B%A4-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/</url>
-    <content><![CDATA[<p><img src="https://ckcah.github.io/images/DS/image-20210805172014107.png" alt="image-20210805172014107"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>思维导图</category>
-        <category>408</category>
-        <category>408</category>
-        <category>DS</category>
-        <category>DS</category>
-        <category>习题篇</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>王道天勤-线性表</title>
-    <url>/2021/08/05/%E7%8E%8B%E9%81%93%E5%A4%A9%E5%8B%A4-%E7%BA%BF%E6%80%A7%E8%A1%A8/</url>
-    <content><![CDATA[<p><img src="https://ckcah.github.io/images/DS/image-20210805151612370.png" alt="image-20210805151612370"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>思维导图</category>
-        <category>408</category>
-        <category>408</category>
-        <category>DS</category>
-        <category>DS</category>
-        <category>习题篇</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
       </tags>
   </entry>
   <entry>
@@ -2390,33 +1938,6 @@
       </tags>
   </entry>
   <entry>
-    <title>备忘录</title>
-    <url>/2021/10/16/%E5%A4%87%E5%BF%98%E5%BD%95/</url>
-    <content><![CDATA[<p>插入视频</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">&quot;480&quot;</span> <span class="attr">height</span>=<span class="string">&quot;320&quot;</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">https://www.bilibili.com/video/BV1GB4y1w7ns</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <tags>
-        <tag>无</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>政治背诵脑图</title>
-    <url>/2021/10/28/%E6%94%BF%E6%B2%BB%E8%83%8C%E8%AF%B5%E8%84%91%E5%9B%BE/</url>
-    <content><![CDATA[<h1 id="马原"><a href="#马原" class="headerlink" title="马原"></a>马原</h1><p><a href="https://ckcah.github.io/images/%E6%94%BF%E6%B2%BB/%E9%A9%AC%E5%8E%9F%E8%AE%B2%E4%B9%891-6%E8%8A%82%E9%9B%86%E5%90%88.pdf">马原讲义1-6节集合</a></p>
-<h1 id="史纲"><a href="#史纲" class="headerlink" title="史纲"></a>史纲</h1><p><a href="https://ckcah.github.io/images/%E6%94%BF%E6%B2%BB/%E5%8F%B2%E7%BA%B2%E6%97%B6%E9%97%B4%E8%BD%B4.pdf">史纲时间轴</a></p>
-<p><img src="https://ckcah.github.io/images/%E6%94%BF%E6%B2%BB/%E5%8F%B2%E7%BA%B2%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE01.jpg" alt="img"></p>
-<p><img src="https://ckcah.github.io/images/%E6%94%BF%E6%B2%BB/%E5%8F%B2%E7%BA%B2%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE02.jpg" alt="img"></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>政治背诵</category>
-      </categories>
-      <tags>
-        <tag>总结</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2016-2019年被利用最多的10个漏洞</title>
     <url>/2020/05/19/2016-2019%E5%B9%B4%E8%A2%AB%E5%88%A9%E7%94%A8%E6%9C%80%E5%A4%9A%E7%9A%8410%E4%B8%AA%E6%BC%8F%E6%B4%9E/</url>
     <content><![CDATA[<p><strong>转载于：<a href="https://www.4hou.com/posts/Qvnq">https://www.4hou.com/posts/Qvnq</a></strong></p>
@@ -2616,11 +2137,11 @@
 <p>到这里，就没继续的必要了，因为你已经把<code>\administrator\components\com_fields\models\fields.php</code>escape之前的东西追溯了这么多了，还没发现问题，就没必要再继续了。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>CVE</category>
-        <category>代码审计</category>
+        <category>网络安全</category>
       </categories>
       <tags>
         <tag>sql</tag>
+        <tag>CVE</tag>
       </tags>
   </entry>
   <entry>
@@ -4256,7 +3777,7 @@ shop_users 后面的两个``,做了shop_users 表的别名,所以无影响。
 <h2 id="4-5-读文件"><a href="#4-5-读文件" class="headerlink" title="4.5 读文件"></a>4.5 读文件</h2><p>只能用在Windows上，需要特殊配置。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">load_extension(library_file,entry_point)</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>web安全</category>
+        <category>网络安全</category>
       </categories>
       <tags>
         <tag>sql</tag>
@@ -4558,11 +4079,10 @@ shop_users 后面的两个``,做了shop_users 表的别名,所以无影响。
 <p>最好的方式避免暴力破解就是限制登录次数和IP地址。最新版本的WordPress默认有这个选项。确保你限制输入条目最大为3，增加锁定功能（即6次密码尝试就上锁）。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>web安全</category>
-        <category>tools</category>
+        <category>网络安全</category>
       </categories>
       <tags>
-        <tag>wpscan</tag>
+        <tag>tool</tag>
       </tags>
   </entry>
   <entry>
@@ -5237,6 +4757,13 @@ secure_file_priv没有设置时，则表示没有任何限制
 
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>扩展读物</category>
+        <category>反省</category>
+      </categories>
+      <tags>
+        <tag>日常阅读</tag>
+      </tags>
   </entry>
   <entry>
     <title>川普教你说话的艺术</title>
@@ -5444,7 +4971,7 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
 <h3 id="漏洞收集与-Exp、Poc-利用"><a href="#漏洞收集与-Exp、Poc-利用" class="headerlink" title="漏洞收集与 Exp、Poc 利用"></a>漏洞收集与 Exp、Poc 利用</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/Lcys/Python_PoC python3 的 poc、exp 快速编写模板，有众多模范版本</span><br><span class="line"></span><br><span class="line">https://github.com/raminfp/linux_exploit_development linux 漏洞利用开发手册</span><br><span class="line"></span><br><span class="line">https://github.com/mudongliang/LinuxFlaw 包含 linux 下软件漏洞列表</span><br><span class="line"></span><br><span class="line">https://github.com/coffeehb/Some-PoC-oR-ExP 各种漏洞 poc、Exp 的收集或编写</span><br><span class="line"></span><br><span class="line">https://github.com/userlandkernel/plataoplomo Sem Voigtländer 公开其发现的 iOS 中各种漏洞，包</span><br><span class="line">括（Writeup/POC/Exploit）</span><br><span class="line"></span><br><span class="line">https://github.com/coffeehb/Some-PoC-oR-ExP/blob/master/check_icmp_dos.py CVE-2018-4407，macos/ios 缓冲区溢出可导致系统崩溃</span><br><span class="line"></span><br><span class="line">https://github.com/vulnersCom/getsploit py2,仿照 searchsploit 通过各种数据库的官方接口进行 payload 的查找</span><br><span class="line"></span><br><span class="line">https://github.com/SecWiki/CMS-Hunter CMS 漏洞测试用例集合https://github.com/Mr5m1th/0day 各种开源 CMS 各种版本的漏洞以及 EXP</span><br><span class="line"></span><br><span class="line">https://github.com/w1109790800/penetration CMS 新老版本 exp 与系统漏洞搜集表</span><br><span class="line"></span><br><span class="line">https://github.com/blacknbunny/libSSH-Authentication-Bypass CVE-2018-10933，libssh 服务端身份验证绕过</span><br><span class="line"></span><br><span class="line">https://github.com/leapsecurity/libssh-scanner CVE-2018-10933，libssh 服务端身份验证绕过https://github.com/anbai-inc/CVE-2018-4878 Adobe Flash Exploit 生成 payload</span><br><span class="line"></span><br><span class="line">https://github.com/RetireJS/grunt-retire 扫描 js 扩展库的常见漏洞</span><br><span class="line"></span><br><span class="line">https://github.com/coffeehb/SSTIF 服务器端模板注入漏洞的半自动化工具</span><br><span class="line"></span><br><span class="line">https://github.com/tijme/angularjs-csti-scanner 探测客户端 AngularJS 模板注入漏洞工具</span><br><span class="line"></span><br><span class="line">https://github.com/blackye/Jenkins Jenkins 漏洞探测、用户抓取爆破</span><br><span class="line"></span><br><span class="line">https://github.com/epinna/tplmap 服务器端模板注入漏洞检测与利用工具</span><br><span class="line"></span><br><span class="line">https://github.com/irsdl/IIS-ShortName-Scanner Java,IIS 短文件名暴力枚举漏洞利用工具</span><br><span class="line"></span><br><span class="line">https://github.com/lijiejie/IIS_shortname_Scanner py2,IIS 短文件名漏洞扫描</span><br><span class="line"></span><br><span class="line">https://github.com/rudSarkar/crlf-injector CRLF 注入漏洞批量扫描</span><br><span class="line"></span><br><span class="line">https://github.com/hahwul/a2sv SSL 漏洞扫描，例如心脏滴血漏洞等</span><br><span class="line"></span><br><span class="line">https://github.com/jagracey/Regex-DoS RegEx 拒绝服务扫描器</span><br><span class="line"></span><br><span class="line">https://github.com/Bo0oM/PHP_imap_open_exploit 利用 imap_open 绕过 php exec 函数禁用</span><br><span class="line"></span><br><span class="line">https://www.anquanke.com/post/id/106488 利用 mysql 服务端恶意配置读取客户端文件，（如何利用 MySQL </span><br><span class="line">LOCAL INFILE 读取客户端文件，Read MySQL Client&#x27;s File，【技术分享】从 MySQL 出发的反击之路）</span><br><span class="line"></span><br><span class="line">https://www.waitalone.cn/awvs-poc.html CVE-2015-4027，AWVS10 命令执行漏洞</span><br><span class="line"></span><br><span class="line">http://an7isec.blogspot.com/2014/04/pown-noobs-acunetix-0day.html Pwn the n00bs - Acunetix 0day，awvs8 命令执行漏洞</span><br><span class="line"></span><br><span class="line">https://github.com/numpy/numpy/issues/12759 科学计算框架 numpy 命令执行 RCE 漏洞</span><br><span class="line"></span><br><span class="line">https://github.com/petercunha/Jenkins-PreAuth-RCE-PoC jenkins 远程命令执行</span><br><span class="line"></span><br><span class="line">https://github.com/WyAtu/CVE-2018-20250 WinRar 执行漏洞加使用介绍</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>web安全</category>
+        <category>网络安全</category>
       </categories>
       <tags>
         <tag>安全合辑</tag>
@@ -5725,8 +5252,7 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>web安全</category>
-        <category>代码审计</category>
+        <category>网络安全</category>
       </categories>
       <tags>
         <tag>cms</tag>
@@ -5917,10 +5443,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>渗透测试</category>
+        <category>网络安全</category>
+        <category>信息搜集</category>
       </categories>
       <tags>
-        <tag>信息收集</tag>
         <tag>资产探索</tag>
       </tags>
   </entry>
@@ -6114,12 +5640,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>3.没有被骗钱的话，遇到了诈骗，建议发朋友圈或者其他信息告知更多人，避免亲友被骗</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>web安全</category>
-        <category>渗透测试</category>
+        <category>网络安全</category>
       </categories>
       <tags>
-        <tag>日常相关</tag>
-        <tag>wexin</tag>
+        <tag>姿势学习</tag>
       </tags>
   </entry>
   <entry>
@@ -6245,7 +5769,7 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>成功，密码是我重新注册的密码</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>逻辑漏洞</category>
+        <category>网络安全</category>
       </categories>
       <tags>
         <tag>cms</tag>
@@ -6982,7 +6506,7 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <h3 id="IIS-Generic"><a href="#IIS-Generic" class="headerlink" title="IIS Generic"></a><strong>IIS Generic</strong></h3><p>Tabs before method by @i_bo0om</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GET /login.php HTTP/1.1</span><br><span class="line">Host: favoritewaf.com</span><br><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>web安全</category>
+        <category>网络安全</category>
       </categories>
       <tags>
         <tag>waf</tag>
