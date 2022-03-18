@@ -203,6 +203,135 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/title1.jpg">
+      <meta itemprop="name" content="bosch">
+      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bosch">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" class="post-title-link" itemprop="url">DC-5</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-14 05:36:20" itemprop="dateCreated datePublished" datetime="2020-05-14T05:36:20+08:00">2020-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-15 06:12:56" itemprop="dateModified" datetime="2020-05-15T06:12:56+08:00">2020-05-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kali/" itemprop="url" rel="index"><span itemprop="name">kali</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" itemprop="url" rel="index"><span itemprop="name">内网渗透</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="DC-5" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmap -Pn 192.168.114.0/24</span><br><span class="line"></span><br><span class="line">nmap -A -T 4 192.168.114.146</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="D:\Blog\blog\source\images\DC-5\1.png" alt="image-20200514054055039"></p>
+<p>特地查了一下rpcbind，大概是将RPC服务映射到其侦听的端口的服务，和DNS类似。</p>
+<p><strong>rpcbind [3]实用程序将RPC服务映射到其侦听的端口。RPC进程在启动时会通知rpcbind，注册正在侦听的端口以及期望使用的RPC程序号。然后，客户端系统使用特定的RPC程序服务器与服务器上的rpcbind联系。rpcbind服务重新设置客户端重定向到正确的端口号，刹车它可以与请求的服务进行通信</strong></p>
+<p>80端口也是打开的，先试试从80端口入手</p>
+<p><img src="D:\Blog\blog\source\images\DC-5\2.png" alt="image-20200514054437764"></p>
+<p>wappalyzer只检测出它是php编写的，以及服务器是nginx。</p>
+<p>访问contact的时候，发现有一个留言功能，或许可以试试xss</p>
+<p><img src="D:\Blog\blog\source\images\DC-5\3.png" alt="image-20200514054556665"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/13/DC-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1289,131 +1418,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/09/%E8%8B%B1%E8%AF%AD%E8%BF%9E%E8%AF%BB%E7%A7%AF%E7%B4%AF%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/title1.jpg">
-      <meta itemprop="name" content="bosch">
-      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bosch">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/09/%E8%8B%B1%E8%AF%AD%E8%BF%9E%E8%AF%BB%E7%A7%AF%E7%B4%AF%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" class="post-title-link" itemprop="url">英语连读积累</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-09 17:43:04" itemprop="dateCreated datePublished" datetime="2020-05-09T17:43:04+08:00">2020-05-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-11 20:45:29" itemprop="dateModified" datetime="2020-09-11T20:45:29+08:00">2020-09-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%8B%B1%E8%AF%AD%E7%9A%84%E6%BC%AB%E9%95%BF%E5%8E%86%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">学习英语的漫长历程</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/05/09/%E8%8B%B1%E8%AF%AD%E8%BF%9E%E8%AF%BB%E7%A7%AF%E7%B4%AF%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="英语连读积累" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2020/05/09/%E8%8B%B1%E8%AF%AD%E8%BF%9E%E8%AF%BB%E7%A7%AF%E7%B4%AF%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/09/%E8%8B%B1%E8%AF%AD%E8%BF%9E%E8%AF%BB%E7%A7%AF%E7%B4%AF%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>185</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>5.9</strong></p>
-<p>Dunno  =  Don’t know  </p>
-<p>Gotta    =  Got to   </p>
-<p>Lemme  =  Let me  </p>
-<p>Wanna  =  Want to   </p>
-<p>Gonna   =  Going to   </p>
-<p>Gimme  =  Give me  </p>
-<p>Shoulda=  Should have  </p>
-<p>Coulda  =  Could have  </p>
-<p>Innit      =  Isn’t it  </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/09/%E8%8B%B1%E8%AF%AD%E8%BF%9E%E8%AF%BB%E7%A7%AF%E7%B4%AF%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1485,14 +1489,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1535,13 +1539,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">289k</span>
+    <span title="Symbols count total">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:23</span>
+    <span title="Reading time total">4:24</span>
 </div>
 
 <!--

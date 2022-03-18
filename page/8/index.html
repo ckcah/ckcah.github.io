@@ -203,6 +203,135 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/01/googlehack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/title1.jpg">
+      <meta itemprop="name" content="bosch">
+      <meta itemprop="description" content="在这片海洋中，如若无法向上攀游，就只有往下沉沦">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bosch">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/01/googlehack/" class="post-title-link" itemprop="url">googlehack</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-01 20:42:27" itemprop="dateCreated datePublished" datetime="2020-05-01T20:42:27+08:00">2020-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-16 07:23:50" itemprop="dateModified" datetime="2020-05-16T07:23:50+08:00">2020-05-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/googlehack/" itemprop="url" rel="index"><span itemprop="name">googlehack</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/05/01/googlehack/" class="post-meta-item leancloud_visitors" data-flag-title="googlehack" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/05/01/googlehack/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/01/googlehack/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>笔记</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Google hack是指使用Google等搜索引擎对某些特定的网络主机漏洞（通常是服务器上的脚本漏洞）进行搜索，以达到快速找到漏洞主机或特定主机的漏洞的目的。</span><br></pre></td></tr></table></figure>
+
+<p><strong>google hacking的简单实现</strong><br>使用google中的一些语法可以提供给我们更多的信息(当然也提供给那些习惯攻击的人更多他们所想要的.),下面就来介绍一些常用的语法.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">intext: 这个就是把网页中的正文内容中的某个字符做为搜索条件.</span><br><span class="line"></span><br><span class="line">例如在google里输入:</span><br><span class="line">intext: 渗透.将返回所有在网页正文部分包含&quot;渗透&quot;的网页.</span><br><span class="line"></span><br><span class="line">allintext: 使用方法和intext类似.</span><br><span class="line"></span><br><span class="line">intitle: 和上面那个intext差不多,搜索网页标题中是否有我们所要找的字符.</span><br><span class="line">例如搜索:</span><br><span class="line">intitle:安全 将返回所有网页标题中包含&quot;安全&quot;的网页</span><br><span class="line"></span><br><span class="line">cache: 搜索google里关于某些内容的缓存,有时候也许能找到一些好东西哦.</span><br><span class="line"></span><br><span class="line">define: 搜索某个词语的定义,</span><br><span class="line">搜索:</span><br><span class="line">define:hacker 将返回关于hacker的定义.</span><br><span class="line"></span><br><span class="line">filetype: 这个我要重点推荐一下,无论是撒网式攻击还是我们后面要说的对特定目标进行信息收集都需要用到这个.搜索指定 类型的文件.例如输入</span><br><span class="line"></span><br><span class="line">filetype:.doc 将返回所有以doc结尾的文件URL.当然如果你找.bak、.mdb或.inc也是可以的,获得的信息也许会更丰富</span><br><span class="line"></span><br><span class="line">info: 查找指定站点的一些基本信息.</span><br><span class="line"></span><br><span class="line">inurl:搜索我们指定的字符是否存在于URL中.</span><br><span class="line">例如输入:</span><br><span class="line">inurl:admin,将返回N个类似于这样的连接 </span><br><span class="line"></span><br><span class="line">http://www.xxx.com/xxx/admin,用来找管理员登录地址 </span><br><span class="line">例如搜索:</span><br><span class="line">inurl:baidu.com  可以返回url中含baidu.com的网页 </span><br><span class="line"></span><br><span class="line">site:这个也很有用,</span><br><span class="line">例如:site:www.baidu.com</span><br><span class="line">将返回所有和baidu.com这个站有关的URL.(搜索子域名)</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用搭配</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">查找后台地址：</span><br><span class="line">site:域 inurl:login|admin|manage|member|admin_login|login_admin|system|login|user|main|cms</span><br><span class="line"></span><br><span class="line">查找文本内容：</span><br><span class="line">site:域名 intext:管理|后台|登陆|用户名|密码|验证码|系统|帐号|admin|login|sys|managetem|password|username</span><br><span class="line"></span><br><span class="line">查找可注入点：</span><br><span class="line">site:域名 inurl:aspx|jsp|php|asp</span><br><span class="line"></span><br><span class="line">查找上传漏洞：</span><br><span class="line">site:域名 inurl:file|load|editor|Files</span><br><span class="line"></span><br><span class="line">找eweb编辑器：</span><br><span class="line">site:域名 </span><br><span class="line">inurl:ewebeditor|editor|uploadfile|eweb|edit</span><br><span class="line"></span><br><span class="line">存在的数据库：</span><br><span class="line">site:域名 filetype:mdb|asp|#</span><br><span class="line"></span><br><span class="line">查看脚本类型：</span><br><span class="line">site:域名 filetype:asp/aspx/php/jsp</span><br><span class="line"></span><br><span class="line">迂回策略入侵：</span><br><span class="line">inurl:cms/data/templates/images/index/</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="0501"><a href="#0501" class="headerlink" title="0501"></a>0501</h1><p>[intitle：] </p>
+<p>标题搜索帮助google限定了你搜索的结果，只有那些标题含有你指定的关键词的页面会返回给你。例如“intitle：login password”会返回标题含有登录，而页面里面随便什么地方含有密码的网页给你。<br>当你想在标题里面搜索超过2个词的时候，你可以使用“allintitle：”，当然也可以使用“intitle”来代替搜索，“intitle：login intitle：password”和“allintitle：登录密码”的搜索结果是一样的。</p>
+<p>[inurl：] </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/01/googlehack/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://ckcah.github.io/2020/05/01/CVE-2017-8917%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -638,14 +767,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -688,13 +817,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">289k</span>
+    <span title="Symbols count total">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:23</span>
+    <span title="Reading time total">4:24</span>
 </div>
 
 <!--

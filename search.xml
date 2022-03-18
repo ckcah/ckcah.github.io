@@ -6718,4 +6718,156 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
         <tag>学习笔记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>eclipse-mapreduce-hadoop</title>
+    <url>/2020/11/20/eclipse-mapreduce-hadoop/</url>
+    <content><![CDATA[<h3 id="hadoop三节点配置方案"><a href="#hadoop三节点配置方案" class="headerlink" title="hadoop三节点配置方案"></a>hadoop三节点配置方案</h3><p>pass</p>
+<h3 id="eclipse配置mapreduce"><a href="#eclipse配置mapreduce" class="headerlink" title="eclipse配置mapreduce"></a>eclipse配置mapreduce</h3><h4 id="配置前的准备"><a href="#配置前的准备" class="headerlink" title="配置前的准备"></a>配置前的准备</h4><p>下载相关文件</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/clip_image002.jpg">
+
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120210007946.png">
+
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120210042940.png">
+
+<p><strong>注意</strong>：箭头所指的ppt可下载下来进行对照配置，方框所指的文件为后续所需要的文件。</p>
+<h4 id="启动eclipse并添加mapreduce插件"><a href="#启动eclipse并添加mapreduce插件" class="headerlink" title="启动eclipse并添加mapreduce插件"></a>启动eclipse并添加mapreduce插件</h4><h5 id="1-在Windows中解压eclipse-java-2019-03-R-linux-gtk-x86-64-tar-gz"><a href="#1-在Windows中解压eclipse-java-2019-03-R-linux-gtk-x86-64-tar-gz" class="headerlink" title="1.在Windows中解压eclipse-java-2019-03-R-linux-gtk-x86_64.tar.gz"></a>1.在Windows中解压<code>eclipse-java-2019-03-R-linux-gtk-x86_64.tar.gz</code></h5><p>并确定文件内容是否完整</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120210418200.png">
+
+<h5 id="2-将eclipse文件夹拖入centos中（最好放在桌面）并确认文件夹内容是否完整"><a href="#2-将eclipse文件夹拖入centos中（最好放在桌面）并确认文件夹内容是否完整" class="headerlink" title="2.将eclipse文件夹拖入centos中（最好放在桌面）并确认文件夹内容是否完整"></a>2.将eclipse文件夹拖入centos中（最好放在桌面）并确认文件夹内容是否完整</h5><src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120210624532.png">
+
+<p><strong>注意</strong>：之所以<code>.eclipseproduct</code>没看到，是因为以<code>.</code>开头的文件为隐藏文件</p>
+<h5 id="3-将事先下载好的hadoop-eclipse-plugin-2-6-0-jar文件拖入eclipse文件夹的dropins文件夹中"><a href="#3-将事先下载好的hadoop-eclipse-plugin-2-6-0-jar文件拖入eclipse文件夹的dropins文件夹中" class="headerlink" title="3.将事先下载好的hadoop-eclipse-plugin-2.6.0.jar文件拖入eclipse文件夹的dropins文件夹中"></a>3.将事先下载好的<code>hadoop-eclipse-plugin-2.6.0.jar</code>文件拖入<code>eclipse</code>文件夹的<code>dropins</code>文件夹中</h5><src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120210930397.png">
+
+
+
+<h5 id="4-运行eclipse"><a href="#4-运行eclipse" class="headerlink" title="4.运行eclipse"></a>4.运行eclipse</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@master eclipse]<span class="comment"># ./eclipse</span></span><br></pre></td></tr></table></figure>
+
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120211939140.png">
+
+<p><strong>注意</strong>：箭头所指的地方，用默认已出现的路径就ok</p>
+<h5 id="5-添加mapreduce插件"><a href="#5-添加mapreduce插件" class="headerlink" title="5.添加mapreduce插件"></a>5.添加mapreduce插件</h5><src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120212208424.png">
+
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120212227296.png">
+
+<p>并添加hadoop的路径</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120212845862.png">
+
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120212909560.png">
+
+<p><strong>注意</strong>：<code>/usr/local/src/hadoop</code>为个人hadoop路径</p>
+<h5 id="6-添加mapreduce项目"><a href="#6-添加mapreduce项目" class="headerlink" title="6.添加mapreduce项目"></a>6.添加mapreduce项目</h5><src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120212341742.png">
+
+
+
+<p>双击下方图像中箭头所指的插件名称</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120212633046.png">
+
+<p>下方箭头所指的文件名可以随便取</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120212610818.png">
+
+
+
+<h5 id="7-打开mapreduce的窗口"><a href="#7-打开mapreduce的窗口" class="headerlink" title="7.打开mapreduce的窗口"></a>7.打开mapreduce的窗口</h5><src img="https://ckcah.github.io/eclipse-mapreduce/image-20201120213202087.png">
+
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120213228220.png">
+
+<p>可以看到mapreduce窗口</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120213317365.png">
+
+
+
+<h5 id="8-启动master节点（一个就好）"><a href="#8-启动master节点（一个就好）" class="headerlink" title="8.启动master节点（一个就好）"></a>8.启动master节点（一个就好）</h5><src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120213448320.png">
+
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120213607067.png">
+
+<p><strong>注意</strong>：记得用<code>root</code>账户执行该命令</p>
+<p><code>jps</code>查看运行结果</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120213652526.png">
+
+<h5 id="9-使用eclipse连接节点"><a href="#9-使用eclipse连接节点" class="headerlink" title="9.使用eclipse连接节点"></a>9.使用eclipse连接节点</h5><src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120213734455.png">
+
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120213835618.png">
+
+<p><code>1</code>：随便写的名字</p>
+<p><code>2</code>：主机的名字，也可以写127.0.0.1</p>
+<p><code>3</code>：固定写50070</p>
+<p><code>4</code>：参考<code>hadoop</code>目录下<code>etc/hadoop/</code>目录下的<code>core-site.xml</code>文件中的<code>&lt;value&gt;hdfs://master:9000&lt;/value&gt;</code></p>
+<p><code>5</code>：user name为hadoop运行时的权限用户</p>
+<h5 id="10-加载完后，my-hadoop会加载出之前创建的input、output文件夹"><a href="#10-加载完后，my-hadoop会加载出之前创建的input、output文件夹" class="headerlink" title="10.加载完后，my hadoop会加载出之前创建的input、output文件夹"></a>10.加载完后，my hadoop会加载出之前创建的<code>input</code>、<code>output</code>文件夹</h5><src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120215347257.png">
+
+<p>如果没有，建议打开终端执行以下两条命令（记得用root执行命令）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@master hadoop]<span class="comment"># hdfs dfs -mkdir /input</span></span><br><span class="line">[root@master hadoop]<span class="comment"># hdfs dfs -mkdir /output</span></span><br></pre></td></tr></table></figure>
+
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120215837928.png">
+
+<p>之所以这里报错，是因为我已经创建了这个文件夹</p>
+<h4 id="创建wordcount项目"><a href="#创建wordcount项目" class="headerlink" title="创建wordcount项目"></a>创建wordcount项目</h4><p><strong>前提</strong>：Windows中的文件能够直接复制粘贴到centos中</p>
+<p>点击<code>WordCount.java</code>，右击复制</p>
+<p>返回centos中，进入eclipse，进行粘贴</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120221341360.png">
+
+<p>修改<code>WordCount.java</code></p>
+<p>1.删除该串代码</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120221628985.png">
+
+
+
+<p>2.修改该串代码</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120221711337.png">
+
+<p>修改后：</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120225739412.png">
+
+<h4 id="上传dream-txt"><a href="#上传dream-txt" class="headerlink" title="上传dream.txt"></a>上传<code>dream.txt</code></h4><p>将事先下载到windows中的dream.txt复制到centos桌面</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120222838526.png">
+
+<p>使用终端上传至hadoop中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@master Desktop]<span class="comment"># hdfs dfs -put dream.txt /input/dream.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>刷新eclipse的my Hadoop节点，查看文件</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120223135672.png">
+
+
+
+<h4 id="运行WordCount-java"><a href="#运行WordCount-java" class="headerlink" title="运行WordCount.java"></a>运行<code>WordCount.java</code></h4><p>点击进入WordCount.java，并进行下图操作</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120223627162.png">
+
+<p>配置输入输出文件</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120223719324.png">
+
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120223747622.png">
+
+
+
+<p>将<code>log4j.properties</code>复制到src中</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120223942190.png">
+
+
+
+<p>完成</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120224012523.png">
+
+
+
+<p>复制<code>hadoop</code>路径下的<code>etc/hadoop</code>路径下的<code>core-site.xml</code>、<code>hdfs-site.xml</code>到<code>src</code>中</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120225832279.png">
+
+<p>运行<code>WordCount.java</code></p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120230128228.png">
+
+
+
+<p>完成</p>
+<src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120230219523.png">
+
+<h4 id="检验是否成功，可查看output文件是否生成对应的文档"><a href="#检验是否成功，可查看output文件是否生成对应的文档" class="headerlink" title="检验是否成功，可查看output文件是否生成对应的文档"></a>检验是否成功，可查看output文件是否生成对应的文档</h4><src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120230355752.png">
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>hadoop</category>
+      </categories>
+      <tags>
+        <tag>hadoop</tag>
+      </tags>
+  </entry>
 </search>
