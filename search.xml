@@ -6698,4 +6698,24 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
         <tag>渗透技巧</tag>
       </tags>
   </entry>
+  <entry>
+    <title>android reverse</title>
+    <url>/2022/03/18/android-reverse/</url>
+    <content><![CDATA[<p><strong>如何判断apk文件是32还是64：</strong></p>
+<p>ARM 32位对应的是armv7架构、armv6架构、armv5架构</p>
+<p>ARM 64位是armv8架构</p>
+<p>常用的abi:</p>
+<p>armeabi: armv5架构和armv6架构 （32位）</p>
+<p>armeabi-v7a:armv7架构 （32位）</p>
+<p>armeabi-v8a:armv8架构 （64位）</p>
+<p>x86:x86架构 （32位）</p>
+<p>x86_<em>64:x86</em>_64架构 （64位）</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>安卓逆向</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
 </search>
