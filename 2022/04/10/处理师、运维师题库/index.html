@@ -28,7 +28,7 @@
 <meta property="og:description" content="考试用的东西">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-10T13:20:06.000Z">
-<meta property="article:modified_time" content="2022-04-15T13:25:55.797Z">
+<meta property="article:modified_time" content="2022-04-16T01:34:22.356Z">
 <meta property="article:author" content="bosch">
 <meta property="article:tag" content="记录">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>处理师、运维师题库 | bosch</title><meta name="robots" content="noindex">
+  <title>处理师、运维师题库 | bosch</title>
   
 
 
@@ -237,7 +237,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-15 21:25:55" itemprop="dateModified" datetime="2022-04-15T21:25:55+08:00">2022-04-15</time>
+                <time title="Modified: 2022-04-16 09:34:22" itemprop="dateModified" datetime="2022-04-16T09:34:22+08:00">2022-04-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -332,7 +332,7 @@
 <p>\33. 用二维表结构表达实体集的模型是  D．关系模型</p>
 <p>\34. Oracle 11g 是基于（）的A.关系型</p>
 <p>\35. ( )代表了数据库中最小粒度的逻辑数据存储层次。  C.数据块</p>
-<p>\36. 你使用下列命令连接数据库：sqlplus scott/<a href="mailto:&#116;&#114;&#105;&#103;&#x67;&#101;&#x72;&#x40;&#x61;&#x62;&#99;&#x2e;&#x63;&#x6f;&#x6d;">&#116;&#114;&#105;&#103;&#x67;&#101;&#x72;&#x40;&#x61;&#x62;&#99;&#x2e;&#x63;&#x6f;&#x6d;</a>:1522/orcl.目标数据库是哪一个？ C. orcl </p>
+<p>\36. 你使用下列命令连接数据库：sqlplus scott/<a href="mailto:&#116;&#x72;&#x69;&#103;&#103;&#101;&#x72;&#x40;&#97;&#98;&#99;&#46;&#99;&#x6f;&#109;">&#116;&#x72;&#x69;&#103;&#103;&#101;&#x72;&#x40;&#97;&#98;&#99;&#46;&#99;&#x6f;&#109;</a>:1522/orcl.目标数据库是哪一个？ C. orcl </p>
 <p>\37. 设有一个关系：DEPT（DNO，DNAME,LOC），如果要找出倒数第三个字母为 W，并且至少包含 4 个字母的 DNAME，则查询条件子句应写成 WHERE DNAME LIKE  B.‘_ % W _ _’  </p>
 <p>\38. 下列解锁 scott 账户的命令正确的是B、alter user scott account unlock; </p>
 <p>\39. having , where , group by 的正确执行顺序是D、where ,group by,having </p>
@@ -672,7 +672,7 @@
 <p>253、insert into 和 override write 区别？ insert into：将数据写到表中 override write：覆盖之前的内容。 </p>
 <p>254、.创建 rdd 的几种方式 1.集合并行化创建(有数据) val arr = Array(1,2,3,4,5) val rdd = sc.parallelize(arr) val rdd =sc.makeRDD(arr) 2.读取外部文件系统，如 hdfs，或者读取本地文件(最常用的方式)(没数据) val rdd2 = sc.textFile(“hdfs://hdp-01:9000/words.txt”) // 读取本地文件 val rdd2 = sc.textFile(“file:///root/words.txt”) 3.从父 RDD 转换成新的子 RDD 调用 Transformation 类的方法，生成新的 RDD </p>
 <p>255、HBase 宕机如何处理 答：宕机分为 HMaster 宕机和 HRegisoner 宕机，如果是 HRegisoner 宕机，HMaster 会将其所管 理的 region 重新分布到其他活动的 RegionServer 上，由于数据和日志都持久在 HDFS 中，该操作 不会导致数据丢失。所以数据的一致性和安全性是有保障的。 如果是 HMaster 宕机，HMaster 没有单点问题，HBase 中可以启动多个 HMaster，通过 Zookeeper 的 Master Election 机制保证总有一个 Master 运行。即 ZooKeeper 会保证总会有一个 HMaster 在对外提供服务。</p>
-<!-- flag of hidden posts --><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
     </div>
 
     
@@ -688,6 +688,16 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/06/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E5%B9%B3%E5%8F%B0/" rel="prev" title="威胁情报平台">
+      <i class="fa fa-chevron-left"></i> 威胁情报平台
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/04/11/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E5%B7%A5%E5%85%B7/" rel="next" title="应急响应工具">
+      应急响应工具 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -762,7 +772,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -775,7 +785,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -812,13 +822,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">288k</span>
+    <span title="Symbols count total">304k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:21</span>
+    <span title="Reading time total">4:36</span>
 </div>
 
 <!--
