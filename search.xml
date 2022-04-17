@@ -3689,8 +3689,8 @@ google dork：'inurl:bin/cklb'
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>要细心观察每一个地方的变化</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -3794,8 +3794,8 @@ google dork：'inurl:bin/cklb'
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>-vulnhub</tag>
@@ -4116,8 +4116,8 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>成功获得flag</p>
 <img src="https://ckcah.github.io/images/DC-3/34.png"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -4243,8 +4243,8 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
