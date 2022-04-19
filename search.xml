@@ -72,6 +72,10 @@
 <p><strong>总结：不断回溯，查看每个字段是什么，参数内容怎么拼接的</strong></p>
 <p>3）拼接后，根据apk用的算法，进行转换</p>
 <p>注意是否字段是否进行其他操作</p>
+<p>4）使用log输出，来打印出想要看的值</p>
+<h4 id="案例2：1905电影网app"><a href="#案例2：1905电影网app" class="headerlink" title="案例2：1905电影网app"></a>案例2：1905电影网app</h4><p>易语言模拟调试过程</p>
+<p>检测是否需要延迟、关键代码</p>
+<p>DevicesId的处理_通过解密获取参数</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>安卓逆向</category>
