@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>毕业设计答辩编稿</title>
-    <url>/2022/04/06/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E7%AD%94%E8%BE%A9%E7%BC%96%E7%A8%BF/</url>
-    <content><![CDATA[<h1 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h1><p>老师们好，我是大数据专升本01班xx，下面，我将进行我的毕业设计答辩自述。</p>
-<p>这是一个一整套的电影推荐系统，基于java语言、hadoop平台，spark框架。</p>
-<p>web系统网站采用ssm架构对用户进行展示，用户可以在网站上浏览电影信息和查询电影，并且网站会根据用户的浏览记录给用户进行实时的电影推荐。</p>
-<p>推荐系统由spark搭建，运用mysql数据库、使用ALS算法做模型训练、zookeeper +kafka 做实时推荐、通过在电影网站系统埋点，获取到用户的点击行为并将信息传至推荐系统，推荐系统根据该信息做出相应的处理，将推荐结果存入到mysql数据库中，web前端通过查询数据库将推荐的电影展示给用户。</p>
-<p>其中，推荐系统主要用到的模块为ETL、模型训练、实时推荐、数据入库等。</p>
-<p>ETL模块包括对数据进行基本处理、清洗、加工。</p>
-<p>模型训练模块采用ALS算法，计算出模型参数。</p>
-<p>实时推荐模块主要包括数据实时加工、接受和处理，主要涉及ml构建模型。</p>
-<p>同时，我会详细讲解每个模块代码的基本情况及实施结果。</p>
-<h1 id="具体细节"><a href="#具体细节" class="headerlink" title="具体细节"></a>具体细节</h1><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h3 id="遇到的问题-1"><a href="#遇到的问题-1" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p><em>1.最开始做的时候，遇到电脑不行，内存不足，</em></p>
-<p>因此也可以说明，大数据平台搭建，是一个很耗费硬件的东西，当数据量大时，集群及硬件的大小就开始体现。</p>
-<p><em>2.idea maven配置问题</em></p>
-<p>pom.xml无法下载依赖包，但有的时候只是因为它抽风，因为本地确实存在那个包的版本。</p>
-<p>还有就是，可能为仓库源的问题，多添加几个国内的仓库即可</p>
-<p><em>3.spark与hive数据库无法同步</em></p>
-<p>只需将hive文件下conf文件夹中的hive-site.xml文件软链接到spark文件下的conf文件夹中</p>
-<h2 id="有可能的提问"><a href="#有可能的提问" class="headerlink" title="有可能的提问"></a>有可能的提问</h2><p><em>1.为什么要把数据从sql中存入hive</em></p>
-<p>答：因为spark快</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>论文</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>学习计划进程表</title>
     <url>/2022/03/20/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%E8%BF%9B%E7%A8%8B%E8%A1%A8/</url>
     <content><![CDATA[<p><strong>2022.3 -</strong> ：</p>
@@ -54,6 +25,59 @@
       </categories>
       <tags>
         <tag>技能提升</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>android reverse</title>
+    <url>/2022/03/18/android-reverse/</url>
+    <content><![CDATA[<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p><strong>如何判断apk文件是32还是64：</strong></p>
+<p>ARM 32位对应的是armv7架构、armv6架构、armv5架构</p>
+<p>ARM 64位是armv8架构</p>
+<p>常用的abi:</p>
+<p>armeabi: armv5架构和armv6架构 （32位）</p>
+<p>armeabi-v7a:armv7架构 （32位）xxx</p>
+<p>armeabi-v8a:armv8架构 （64位）</p>
+<p>x86:x86架构 （32位）</p>
+<p>x86_<em>64:x86</em>_64架构 （64位）</p>
+<p><strong>签名：</strong></p>
+<p>签名的算法一般用消息摘要算法（不可逆）</p>
+<p>md5、、、</p>
+<p>签名的源数据一半来自于数据包</p>
+<p>签名之前对源数据进行排序，头尾可能会有固定字符串</p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>1.一般会先抓包，分析参数名，查看待会逆向分析需要找哪些字段</p>
+<h3 id="零散"><a href="#零散" class="headerlink" title="零散"></a><strong>零散</strong></h3><p>看到<code>StringBuilder</code>要找<code>toString</code>：输出的地方</p>
+<p>log输出、匿名管道、smali插桩</p>
+<p><strong>smali插桩：</strong>大概就是调试代码，插入代码，打印出想看到的东西</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输出byte</span><br><span class="line"></span><br><span class="line">invoke-static &#123;vx&#125;, Lcrack;-&gt;convertByteArrayToString([B])Ljava/lang/String;</span><br><span class="line"></span><br><span class="line">输出string</span><br><span class="line"></span><br><span class="line">invoke-static &#123;vx&#125;, Lcrack;-&gt;log(Ljava/lang/String;)V</span><br><span class="line"></span><br><span class="line">输出tag</span><br><span class="line"></span><br><span class="line">==Debug-Info==</span><br></pre></td></tr></table></figure>
+
+
+
+<p>最主要的是理清它的加密思路，适当记录</p>
+<p>做算法逆向分析的时候，要结合流量包来看是否可逆验证</p>
+<p>**Hook:**顾名思义，就是“钩子”，也称作“钩子技术”，其原理是先将需要修改的函数“钩住”，然后使用自定义的函数替换原函数，让程序在运行时执行自定义函数，从而达到动态修改软件的目的。</p>
+<h3 id="实际案例"><a href="#实际案例" class="headerlink" title="实际案例"></a>实际案例</h3><h4 id="案例1：0715圈app"><a href="#案例1：0715圈app" class="headerlink" title="案例1：0715圈app"></a>案例1：0715圈app</h4><p>1）多次抓包，对比变化的参数</p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220419112431019.png" alt="image-20220419112431019"></p>
+<p>锁定 <code>access_token</code> 、<code>codeSign</code> 、<code>nonce</code></p>
+<p>2）打开jeb，查找 <code>codeSign</code>可能存在的位置</p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220419114044095.png" alt="image-20220419114044095"></p>
+<p>反编译进入java代码</p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220419114107732.png" alt="image-20220419114107732"></p>
+<p>如果找到多个位置，反编译后下断点，开始动态调试</p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220419115234960.png" alt="image-20220419115234960"></p>
+<p><em><strong>注意：要知道断点生效的位置与app运行时的位置，否则要重新附加等</strong></em></p>
+<p>断点找到位置后，开始分析代码，如何组成的字段</p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220419115741749.png" alt="image-20220419115741749"></p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220419120043976.png" alt="image-20220419120043976"></p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220419120507058.png" alt="image-20220419120507058"></p>
+<p><strong>总结：不断回溯，查看每个字段是什么，参数内容怎么拼接的</strong></p>
+<p>3）拼接后，根据apk用的算法，进行转换</p>
+<p>注意是否字段是否进行其他操作</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>安卓逆向</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -374,6 +398,35 @@
       </tags>
   </entry>
   <entry>
+    <title>毕业设计答辩编稿</title>
+    <url>/2022/04/06/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E7%AD%94%E8%BE%A9%E7%BC%96%E7%A8%BF/</url>
+    <content><![CDATA[<h1 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h1><p>老师们好，我是大数据专升本01班xx，下面，我将进行我的毕业设计答辩自述。</p>
+<p>这是一个一整套的电影推荐系统，基于java语言、hadoop平台，spark框架。</p>
+<p>web系统网站采用ssm架构对用户进行展示，用户可以在网站上浏览电影信息和查询电影，并且网站会根据用户的浏览记录给用户进行实时的电影推荐。</p>
+<p>推荐系统由spark搭建，运用mysql数据库、使用ALS算法做模型训练、zookeeper +kafka 做实时推荐、通过在电影网站系统埋点，获取到用户的点击行为并将信息传至推荐系统，推荐系统根据该信息做出相应的处理，将推荐结果存入到mysql数据库中，web前端通过查询数据库将推荐的电影展示给用户。</p>
+<p>其中，推荐系统主要用到的模块为ETL、模型训练、实时推荐、数据入库等。</p>
+<p>ETL模块包括对数据进行基本处理、清洗、加工。</p>
+<p>模型训练模块采用ALS算法，计算出模型参数。</p>
+<p>实时推荐模块主要包括数据实时加工、接受和处理，主要涉及ml构建模型。</p>
+<p>同时，我会详细讲解每个模块代码的基本情况及实施结果。</p>
+<h1 id="具体细节"><a href="#具体细节" class="headerlink" title="具体细节"></a>具体细节</h1><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h3 id="遇到的问题-1"><a href="#遇到的问题-1" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p><em>1.最开始做的时候，遇到电脑不行，内存不足，</em></p>
+<p>因此也可以说明，大数据平台搭建，是一个很耗费硬件的东西，当数据量大时，集群及硬件的大小就开始体现。</p>
+<p><em>2.idea maven配置问题</em></p>
+<p>pom.xml无法下载依赖包，但有的时候只是因为它抽风，因为本地确实存在那个包的版本。</p>
+<p>还有就是，可能为仓库源的问题，多添加几个国内的仓库即可</p>
+<p><em>3.spark与hive数据库无法同步</em></p>
+<p>只需将hive文件下conf文件夹中的hive-site.xml文件软链接到spark文件下的conf文件夹中</p>
+<h2 id="有可能的提问"><a href="#有可能的提问" class="headerlink" title="有可能的提问"></a>有可能的提问</h2><p><em>1.为什么要把数据从sql中存入hive</em></p>
+<p>答：因为spark快</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>成长记录</title>
     <url>/2022/04/05/%E6%88%90%E9%95%BF%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h1 id="每日必看"><a href="#每日必看" class="headerlink" title="每日必看"></a>每日必看</h1><p><strong>1.早上三问</strong></p>
@@ -488,38 +541,6 @@
       </categories>
       <tags>
         <tag>日常阅读</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>android reverse</title>
-    <url>/2022/03/18/android-reverse/</url>
-    <content><![CDATA[<p><strong>如何判断apk文件是32还是64：</strong></p>
-<p>ARM 32位对应的是armv7架构、armv6架构、armv5架构</p>
-<p>ARM 64位是armv8架构</p>
-<p>常用的abi:</p>
-<p>armeabi: armv5架构和armv6架构 （32位）</p>
-<p>armeabi-v7a:armv7架构 （32位）</p>
-<p>armeabi-v8a:armv8架构 （64位）</p>
-<p>x86:x86架构 （32位）</p>
-<p>x86_<em>64:x86</em>_64架构 （64位）</p>
-<p><strong>签名：</strong></p>
-<p>签名的算法一般用消息摘要算法（不可逆）</p>
-<p>md5、、、</p>
-<p>签名的源数据一半来自于数据包</p>
-<p>签名之前对源数据进行排序，头尾可能会有固定字符串</p>
-<p><strong>零散：</strong></p>
-<p>看到<code>StringBuilder</code>要找<code>toString</code>：输出的地方</p>
-<p>log输出、匿名管道、smali插桩</p>
-<p><strong>smali插桩：</strong>大概就是调试代码，插入代码，打印出想看到的东西</p>
-<p>最主要的是理清它的加密思路，适当记录</p>
-<p>做算法逆向分析的时候，要结合流量包来看是否可逆验证</p>
-<p>**Hook:**顾名思义，就是“钩子”，也称作“钩子技术”，其原理是先将需要修改的函数“钩住”，然后使用自定义的函数替换原函数，让程序在运行时执行自定义函数，从而达到动态修改软件的目的。</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>安卓逆向</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
