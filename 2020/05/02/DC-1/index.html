@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="hide-aside" lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>DC_1 | 程冰的个人博客</title><meta name="keywords" content="vulnhub"><meta name="author" content="bosch"><meta name="copyright" content="bosch"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="环境由于没有安装virtual Box的原因，所以直接用vm打开的，决定后期安装virtual，将网卡调成NAT模式,然后开启虚拟机，不需要登录（也进不去）   渗透测试0x00 前提不知道IP地址，但是知道在同一个网段 0x01 nmap扫描一波1namp -Pn 192.168.114.0&#x2F;24    总共就开了两个虚拟机，2是kali的地址，理所当然1就是我们的目标IP地址了。">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>DC_1 | 程冰的个人博客</title><meta name="keywords" content="vulnhub"><meta name="author" content="bosch"><meta name="copyright" content="bosch"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="环境由于没有安装virtual Box的原因，所以直接用vm打开的，决定后期安装virtual，将网卡调成NAT模式,然后开启虚拟机，不需要登录（也进不去）   渗透测试0x00 前提不知道IP地址，但是知道在同一个网段 0x01 nmap扫描一波1namp -Pn 192.168.114.0&#x2F;24    总共就开了两个虚拟机，2是kali的地址，理所当然1就是我们的目标IP地址了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DC_1">
 <meta property="og:url" content="https://ckcah.github.io/2020/05/02/DC-1/index.html">
@@ -11,7 +11,10 @@
 <meta property="article:author" content="bosch">
 <meta property="article:tag" content="vulnhub">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.pixabay.com/photo/2017/12/26/21/19/tech-3041437__340.jpg"><link rel="shortcut icon" href="https://ckcah.github.io/images/cat.jpg"><link rel="canonical" href="https://ckcah.github.io/2020/05/02/DC-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://cdn.pixabay.com/photo/2017/12/26/21/19/tech-3041437__340.jpg"><link rel="shortcut icon" href="https://ckcah.github.io/images/cat.jpg"><link rel="canonical" href="https://ckcah.github.io/2020/05/02/DC-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: '',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
