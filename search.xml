@@ -78,7 +78,12 @@
 <p>做算法逆向分析的时候，要结合流量包来看是否可逆验证</p>
 <p>**Hook:**顾名思义，就是“钩子”，也称作“钩子技术”，其原理是先将需要修改的函数“钩住”，然后使用自定义的函数替换原函数，让程序在运行时执行自定义函数，从而达到动态修改软件的目的。</p>
 <p>拿到一个加密的，也可以先自己试试是否是MD5等</p>
-<h3 id="实际案例"><a href="#实际案例" class="headerlink" title="实际案例"></a>实际案例</h3><h4 id="案例1：0715圈app"><a href="#案例1：0715圈app" class="headerlink" title="案例1：0715圈app"></a>案例1：0715圈app</h4><p>1）多次抓包，对比变化的参数</p>
+<p>多抓两个同样的包，对比一下加密后的字段，哪些在改变，哪些没变</p>
+<p>然后判断算法：比如分组算法分为对称和非对称</p>
+<p>app中的加密方式一般都是相通的，不一定要找登录的，如果登录的太困难，也可以从注册下手分析。</p>
+<p><strong>动态调试对比静态分析</strong>的好处在于：当一个加密字段由多个参数构成时，jeb动态调试可以直接看到用了哪些参数，然后再回去静态分析</p>
+<p>jeb分析时，回溯到类时，要注意是否是重载函数，确定好参数对应的个数</p>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><h4 id="案例1：0715圈app"><a href="#案例1：0715圈app" class="headerlink" title="案例1：0715圈app"></a>案例1：0715圈app</h4><p>1）多次抓包，对比变化的参数</p>
 <p><img src="https://ckcah.github.io/2022/03/18/android-reverse/image-20220419112431019.png" alt="image-20220419112431019"></p>
 <p>锁定 <code>access_token</code> 、<code>codeSign</code> 、<code>nonce</code></p>
 <p>2）打开jeb，查找 <code>codeSign</code>可能存在的位置</p>
@@ -102,12 +107,57 @@
 <h4 id="案例3：易果-apk"><a href="#案例3：易果-apk" class="headerlink" title="案例3：易果.apk"></a><strong>案例3：易果.apk</strong></h4><p>分析抓到的包，查找需要密钥的地方，定位函数，进行断点。</p>
 <p>解析java源代码</p>
 <p><em><strong>注意：jeb有些引用无法显示，且反编译不是最准确的</strong></em></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<h3 id="脱壳"><a href="#脱壳" class="headerlink" title="脱壳"></a>脱壳</h3><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>安卓逆向</category>
       </categories>
       <tags>
         <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>取证分析全环境配置</title>
+    <url>/2022/04/21/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p><em><strong>前提紧要：这里面的配置，并不适合于小白照着一步一步找位置，适合于有点基础的计算机人员想要开始学习安卓逆向，或是第n次重新配置环境的老手。大集合看起来方便，一次性配好。</strong></em></p>
+<p>引用：文中软件解释大部分来自于<a href="https://mp.weixin.qq.com/s/b0tOkr_YGPCriWTp-vkrig">https://mp.weixin.qq.com/s/b0tOkr_YGPCriWTp-vkrig</a></p>
+<p><strong>工具集合：</strong></p>
+<p>链接：<a href="https://pan.baidu.com/s/1DsXBhvTA9fNm0eMsG9N1aw">https://pan.baidu.com/s/1DsXBhvTA9fNm0eMsG9N1aw</a><br>提取码：srqm </p>
+<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>jdk8</p>
+<p>点击工具集合中的<code>jdk-8u131-windows-x64</code>进行安装</p>
+<p>不立即安装32位是因为32位会覆盖64位，但后续有些软件是必须使用64位，因此不能先安装32位。</p>
+<p>记录下jdk安装位置为:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Program Files\Java\jdk1.8.0_131</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Program Files\Java\jdk1.8.0_131\jre\bin;</span><br><span class="line">C:\Program Files\Java\jdk1.8.0_131\lib\tools.jar;</span><br><span class="line">C:\Program Files\Java\jdk1.8.0_131\lib\dt.jar;</span><br></pre></td></tr></table></figure>
+
+<p>解压<code>platform-tools</code>、<code>Apktool</code>、<code>AndroidKiller</code>、，并记录下地址</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\tools\platform-tools;</span><br><span class="line"></span><br><span class="line">C:\tools\AndroidKiller_v1.3.1\bin\dex2jar;</span><br><span class="line"></span><br><span class="line">C:\tools\Apktool_4.0.0\ShakaApktool_4.0.0;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将上述地址配置到Windows的环境变量中</p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220421121054916.png" alt="image-20220421121054916"></p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220421121122930.png" alt="image-20220421121122930"></p>
+<p><strong>验证：</strong></p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220421121156989.png" alt="image-20220421121156989"></p>
+<h2 id="python3-7"><a href="#python3-7" class="headerlink" title="python3.7"></a>python3.7</h2><p>这里是安装Anaconda3-5.2.0-Windows-x86_64，原因是后续frida需要依靠。</p>
+<h2 id="frida"><a href="#frida" class="headerlink" title="frida"></a>frida</h2><h2 id="fiddler"><a href="#fiddler" class="headerlink" title="fiddler"></a>fiddler</h2><p>安装时需注意，有可能缺少插件，但是我也放在工具包中，先安装一下插件即可</p>
+<p><code>NDP461-KB3102436-x86-x64-AllOS-ENU</code></p>
+<h2 id="APK-Messenger"><a href="#APK-Messenger" class="headerlink" title="APK Messenger"></a>APK Messenger</h2><p>APK Messenger是一款非常实用的apk文件信息查看软件，使用这款软件可以轻松查看任何apk软件信息，apk的所有信息都可以显示出来，包括文件名称、包名，版本名，版本号，文件MD。还可以查看并提取apk文件的签名信息，包括证书MD5，证书SHA信息等信息。同时还有apk全限查看和提取功能，可以轻松提取apk的应用权限，同时会给出权限的注释。</p>
+<h2 id="dex2jar-2-0"><a href="#dex2jar-2-0" class="headerlink" title="dex2jar-2.0"></a>dex2jar-2.0</h2><p><strong>使用dex2jar反编译apk得到Java源代码</strong></p>
+<p>将要进行反编译的APK后缀名改为.rar或者 .zip，并解压，得到其中的classes.dex文件（它就是java文件编译再通过dx工具打包而成的）</p>
+<h2 id="Apktool"><a href="#Apktool" class="headerlink" title="Apktool"></a>Apktool</h2><p>资源文件获取，可以提取出图片文件和布局文件进行使用查看</p>
+<p>使用apktool反编译apk得到图片、XML配置、语言资源等文件</p>
+<h2 id="jd-gui"><a href="#jd-gui" class="headerlink" title="jd-gui"></a>jd-gui</h2><p>查看APK中classes.dex转化成出的jar文件，即源码文件</p>
+<h2 id="dex2jar"><a href="#dex2jar" class="headerlink" title="dex2jar"></a>dex2jar</h2><p>将apk反编译成java源码（classes.dex转化成jar文件）</p>
+<h2 id="Android逆向助手"><a href="#Android逆向助手" class="headerlink" title="Android逆向助手"></a>Android逆向助手</h2><p>Android逆向助手是一款针对安卓平台的强大逆向辅助软件，功能涵盖apk反编译打包签名；dex/jar互转替换提取修复；so反编译；xml、txt加密；字符串编码等。</p>
+<h2 id="Android-killer"><a href="#Android-killer" class="headerlink" title="Android killer"></a>Android killer</h2><p>Android Killer 是一款可视化的安卓应用逆向工具，集Apk反编译、Apk打包、Apk签名，编码互转，ADB通信（应用安装-卸载-运行-设备文件管理）等特色功能于一身。</p>
+<h2 id="jeb3"><a href="#jeb3" class="headerlink" title="jeb3"></a>jeb3</h2><h2 id="jadx-gui"><a href="#jadx-gui" class="headerlink" title="jadx-gui"></a>jadx-gui</h2><p>jadx-gui是一款安卓反编译工具，安装后可以用来查看apk源码，支持zip、dex、jar、apk、class文件，可以算得上一键反编译，使用非常方便。如通过加载apk文件可便于查看AndroidManifest.xml应用清单文件，可以了解应用程序的版本号、包名、权限、第三方公司的标识ID等内容。</p>
+<p><strong>使用桌面插件进行整合：</strong></p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220421122911723.png" alt="image-20220421122911723"></p>
+<h1 id="模拟器"><a href="#模拟器" class="headerlink" title="模拟器"></a>模拟器</h1><p>夜神模拟器Android5.1.1、雷电模拟器3与4、</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>取证分析</category>
+      </categories>
+      <tags>
+        <tag>环境配置</tag>
       </tags>
   </entry>
   <entry>
