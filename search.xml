@@ -116,6 +116,77 @@
       </tags>
   </entry>
   <entry>
+    <title>HOOK简单理解</title>
+    <url>/2022/04/21/HOOK%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在英文中，hook翻译出来是钩的意思，而在IT行业，这是一个术语。</p>
+<p>作用就是去调用或者篡改APP代码。</p>
+<h1 id="具体目的实现"><a href="#具体目的实现" class="headerlink" title="具体目的实现"></a>具体目的实现</h1><p>在关键函数执行前，先执行预先设置的钩子函数，从而达到监控函数调用，改变函数功能的目的</p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>有学过PE文件的朋友可能都会这样一个感染文件的方法：</p>
+<p>1、 新建一个区段。</p>
+<p>2、 把代码放入这个区段里。</p>
+<p>3、 在原始代码入口前，增加一条指令，jmp到这个区段中。</p>
+<p>4、 执行完整个区段之后，在区段的末尾，jmp回到原始代码的入口。</p>
+<p>这样就完成了一个程序的Hook，我们可以直接在程序入口添加一个Hook，弹出信息框，选确定方可进入程序，选否则退出程序。</p>
+<p>其实这也就是一个hook，不过这样的Hook并不实用。因为我们并不是想控制程序的运行与否，而是控制程序执行过程而达到我们的一些目的。</p>
+<h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><p>1.系统消息HOOK</p>
+<p>对系统平台自带的函数进行干预和监测（比如检测app的推送消息）</p>
+<p>2.API HOOK技术（拦截方面的重点）</p>
+<p>安卓平台下的API Hook技术分以下三种:</p>
+<ul>
+<li><p><em>基于异常的Hook</em></p>
+<p>利用SIGILL异常机制实现Hook，对监测的地址设置一条非法指令，当程序执行到非法指令位置时，系统会回调预先设定好的异常处理函数，在异常处理函数中恢复监控地址的原指令，<strong>获取上下文的环境信息，然后打印寄存器</strong>等信息(主动触发异常)</p>
+</li>
+<li><p><em>基于ARM指令集的内联Hook(inlinee Hook)</em></p>
+<p>Inline Hook翻译为内联钩子，它是基于二进制汇编代码替换方式而实现的Hook。(<strong>修改指令集实现</strong>)</p>
+</li>
+<li><p><em>导入表的Hook实现方式</em></p>
+<p><strong>替换</strong>需要Hook的导入函数地址，当导入函数调用时Hook函数先获得执行时机。</p>
+<p>通常以<strong>so文件</strong>的导入函数作为目标进行<strong>函数指针替换</strong>。</p>
+</li>
+</ul>
+<h2 id="划分不同"><a href="#划分不同" class="headerlink" title="划分不同"></a>划分不同</h2><p>1.根据Android开发模式，Native模式（C/C++）和Java模式（Java）区分，在Android平台上<br> Java层级的Hook；<br> Native层级的Hook；</p>
+<p>2.根Hook对象与Hook后处理事件方式不同，Hook还分为：<br> 消息Hook；<br> API Hook；</p>
+<p>3.针对Hook的不同进程上来说，还可以分为：<br> 全局Hook；<br> 单个进程Hook；</p>
+<h2 id="安卓进程注入（略）"><a href="#安卓进程注入（略）" class="headerlink" title="安卓进程注入（略）"></a>安卓进程注入（略）</h2><h2 id="枚举进程模块（略）"><a href="#枚举进程模块（略）" class="headerlink" title="枚举进程模块（略）"></a>枚举进程模块（略）</h2><h2 id="Native层的Hook方式（略）"><a href="#Native层的Hook方式（略）" class="headerlink" title="Native层的Hook方式（略）"></a>Native层的Hook方式（略）</h2><h1 id="常用框架"><a href="#常用框架" class="headerlink" title="常用框架"></a>常用框架</h1><p><strong>sub框架：</strong>该框架作用于so层</p>
+<p><strong>xpsoed框架：</strong>作用于java层</p>
+<p><strong>frida框架：</strong>作用于java层与so层</p>
+<h1 id="常见API函数"><a href="#常见API函数" class="headerlink" title="常见API函数"></a>常见API函数</h1><h2 id="远程Hook"><a href="#远程Hook" class="headerlink" title="远程Hook"></a>远程Hook</h2><p>1、OpenProcess                打开一个进程，返回进程句柄</p>
+<p>2、WriteProcessMemory     在一个进程中写入数据</p>
+<p>3、CloseHandle                关闭一个内核对象</p>
+<p>4、ReadProcessMemory     读取进程数据</p>
+<p>5、VirtualAllocEx                在目标进程中申请一段内存空间(存放Hook代码)</p>
+<p>6、VirtualFreeEx                在目标进程中释放申请的内存空间</p>
+<p>因为是要动态修改程序代码，所以这节课的原程序有所改变，是一个静态编译的Windows窗口程序。</p>
+<h2 id="APIHOOK"><a href="#APIHOOK" class="headerlink" title="APIHOOK"></a>APIHOOK</h2><p>对本程序中的函数调用进行Hook</p>
+<p>GetModuleHandle          获取库句柄</p>
+<p>lpModuleName          库名称，如 kernel32.dll</p>
+<p>GetProcAddress          获取库函数地址</p>
+<p>hModule                     库句柄</p>
+<p>lpProcName                库函数名称</p>
+<p>VirtualProtect                修改虚拟保护</p>
+<p>lpAddress                修改的虚拟保护区域首地址</p>
+<p>dwSize                     修改的虚拟保护长度</p>
+<p>flNewProtect                新的虚拟保护</p>
+<p>lpflOldProtect                保存旧的虚拟保护</p>
+<p>我们要知道，程序的任何地方都可以调用API函数，所以我们不能Hook程序的某个地方，我们要Hook API函数的某个地方。一般情况下，我们都选择Hook API首地址的前5个字节。</p>
+<h1 id="大概手法"><a href="#大概手法" class="headerlink" title="大概手法"></a>大概手法</h1><p>修改返回代码-&gt;手写一段汇编，保存寄存器等-&gt;跳转到Hook子程序区-&gt;进行处理-&gt;返回到保存的API的返回代码（ret xxxx）进行返回。</p>
+<h1 id="Hook工作流程"><a href="#Hook工作流程" class="headerlink" title="Hook工作流程"></a>Hook工作流程</h1><p>1.Android相关内核函数：<br> ptrace函数：跟踪一个目标进程，结束跟踪一个目标进程，获取内存字节，像内存写入地址；<br> dlopen函数：以指定模式打开指定的动态链接库文件；<br> mmap函数：分配一段临时的内存来完成代码的存放；</p>
+<p>2.向目标进程注入代码总结后的步骤分为以下几步：<br> 用ptrace函数attch上目标进程；<br> 发现装载共享库so函数；<br> 装载指定的.so；<br> 让目标进程的执行流程跳转到注入的代码执行；<br> 使用ptrace函数的detach释放目标集成；</p>
+<h1 id="参考以下文章："><a href="#参考以下文章：" class="headerlink" title="参考以下文章："></a>参考以下文章：</h1><p><a href="https://www.52pojie.cn/thread-514227-1-1.html">hook基础讲解</a></p>
+<p><a href="https://blog.csdn.net/weixin_39707612/article/details/110668554">hook什么意思_安卓逆向学习之详解Hook含义及作用</a></p>
+<p><a href="https://juejin.cn/post/7018745071356870692">安卓逆向基础之Hook技术</a></p>
+<p><a href="https://www.52pojie.cn/forum.php?mod=viewthread&tid=682743&page=1">萌新跟我来入门Hook技术</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>安卓逆向</category>
+        <category>HOOK</category>
+        <category>取证分析</category>
+      </categories>
+      <tags>
+        <tag>HOOK</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>取证分析全环境配置</title>
     <url>/2022/04/21/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p><em><strong>前提紧要：这里面的配置，并不适合于小白照着一步一步找位置，适合于有点基础的计算机人员想要开始学习安卓逆向，或是第n次重新配置环境的老手。大集合看起来方便，一次性配好。</strong></em></p>
@@ -1067,8 +1138,8 @@
 <p>从陈老师那里，我也明白了对一件事情需要认真到什么程度。考研加油！</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>英语</category>
         <category>自我探索</category>
+        <category>英语</category>
         <category>陈仲凯老师</category>
       </categories>
       <tags>
@@ -3803,8 +3874,8 @@ google dork：'inurl:bin/cklb'
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>要细心观察每一个地方的变化</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -3908,8 +3979,8 @@ google dork：'inurl:bin/cklb'
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>-vulnhub</tag>
@@ -4230,8 +4301,8 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>成功获得flag</p>
 <img src="https://ckcah.github.io/images/DC-3/34.png"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -4357,8 +4428,8 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
         <category>内网渗透</category>
+        <category>kali</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
