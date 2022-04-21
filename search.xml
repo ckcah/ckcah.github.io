@@ -132,10 +132,10 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\tools\platform-tools;</span><br><span class="line"></span><br><span class="line">C:\tools\AndroidKiller_v1.3.1\bin\dex2jar;</span><br><span class="line"></span><br><span class="line">C:\tools\Apktool_4.0.0\ShakaApktool_4.0.0;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>将上述地址配置到Windows的环境变量中</p>
-<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220421121054916.png" alt="image-20220421121054916"></p>
-<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220421121122930.png" alt="image-20220421121122930"></p>
+<p><img src="https://ckcah.github.io/2022/04/21/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20220421121054916.png" alt="image-20220421121054916"></p>
+<p><img src="https://ckcah.github.io/2022/04/21/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20220421121122930.png" alt="image-20220421121122930"></p>
 <p><strong>验证：</strong></p>
-<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220421121156989.png" alt="image-20220421121156989"></p>
+<p><img src="https://ckcah.github.io/2022/04/21/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20220421121156989.png" alt="image-20220421121156989"></p>
 <h2 id="python3-7"><a href="#python3-7" class="headerlink" title="python3.7"></a>python3.7</h2><p>这里是安装Anaconda3-5.2.0-Windows-x86_64，原因是后续frida需要依靠。</p>
 <h2 id="frida"><a href="#frida" class="headerlink" title="frida"></a>frida</h2><h2 id="fiddler"><a href="#fiddler" class="headerlink" title="fiddler"></a>fiddler</h2><p>安装时需注意，有可能缺少插件，但是我也放在工具包中，先安装一下插件即可</p>
 <p><code>NDP461-KB3102436-x86-x64-AllOS-ENU</code></p>
@@ -150,7 +150,7 @@
 <h2 id="Android-killer"><a href="#Android-killer" class="headerlink" title="Android killer"></a>Android killer</h2><p>Android Killer 是一款可视化的安卓应用逆向工具，集Apk反编译、Apk打包、Apk签名，编码互转，ADB通信（应用安装-卸载-运行-设备文件管理）等特色功能于一身。</p>
 <h2 id="jeb3"><a href="#jeb3" class="headerlink" title="jeb3"></a>jeb3</h2><h2 id="jadx-gui"><a href="#jadx-gui" class="headerlink" title="jadx-gui"></a>jadx-gui</h2><p>jadx-gui是一款安卓反编译工具，安装后可以用来查看apk源码，支持zip、dex、jar、apk、class文件，可以算得上一键反编译，使用非常方便。如通过加载apk文件可便于查看AndroidManifest.xml应用清单文件，可以了解应用程序的版本号、包名、权限、第三方公司的标识ID等内容。</p>
 <p><strong>使用桌面插件进行整合：</strong></p>
-<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220421122911723.png" alt="image-20220421122911723"></p>
+<p><img src="https://ckcah.github.io/2022/04/21/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90%E5%85%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20220421122911723.png" alt="image-20220421122911723"></p>
 <h1 id="模拟器"><a href="#模拟器" class="headerlink" title="模拟器"></a>模拟器</h1><p>夜神模拟器Android5.1.1、雷电模拟器3与4、</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -1067,8 +1067,8 @@
 <p>从陈老师那里，我也明白了对一件事情需要认真到什么程度。考研加油！</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>自我探索</category>
         <category>英语</category>
+        <category>自我探索</category>
         <category>陈仲凯老师</category>
       </categories>
       <tags>
