@@ -3,32 +3,51 @@
   <entry>
     <title>Study investment notes</title>
     <url>/2022/04/25/Study%20investment%20notes/</url>
-    <content><![CDATA[<h1 id="企业"><a href="#企业" class="headerlink" title="企业"></a>企业</h1><h2 id="关键财务指标"><a href="#关键财务指标" class="headerlink" title="关键财务指标"></a>关键财务指标</h2><p><img src="https://ckcah.github.io/2022/04/25/Study-investment-notes/image-20220425201541523.png" alt="image-20220425201541523"></p>
+    <content><![CDATA[<h1 id="企业"><a href="#企业" class="headerlink" title="企业"></a>企业</h1><h2 id="关键财务指标"><a href="#关键财务指标" class="headerlink" title="关键财务指标"></a>关键财务指标</h2><p>![image-20220425201541523](<a href="https://ckcah.github.io/2022/04/25/Study">https://ckcah.github.io/2022/04/25/Study</a> investment notes/image-20220425201541523.png)</p>
 <p>比如：</p>
-<p>1.首选ROE（视频中的封老师一般只选ROE连续五年大于20%的公司）</p>
-<p><img src="/.io//blog\source_posts\notes\image-20220425201826454.png" alt="image-20220425201826454"></p>
-<p>2.如果选第二个，则会选净利润现金比率</p>
-<p><img src="/.io//blog\source_posts\notes\image-20220425201919454.png" alt="image-20220425201919454"></p>
+<h3 id="1-首选ROE（视频中的封老师一般只选ROE连续五年大于20-的公司）"><a href="#1-首选ROE（视频中的封老师一般只选ROE连续五年大于20-的公司）" class="headerlink" title="1.首选ROE（视频中的封老师一般只选ROE连续五年大于20%的公司）"></a>1.首选ROE（视频中的封老师一般只选ROE连续五年大于20%的公司）</h3><p>![image-20220425201826454](<a href="https://ckcah.github.io/2022/04/25/Study">https://ckcah.github.io/2022/04/25/Study</a> investment notes/image-20220425201826454.png)</p>
+<p>ROE也叫做净资产收益率，或权益报酬率或权益净利率，即一家公司经营过程中，股东的<strong>实际投资</strong>和当年净利率的比率。</p>
+<p>这一指标主要能全年面反映公司盈利能力、运营能力和财务杠杆水平。</p>
+<p><strong>ROE = 净利润率 * 资产周转率 * 杠杆率</strong></p>
+<p>净利润率 代表 是不是一个好主意</p>
+<p>资产周转率 代表 运营能力如何</p>
+<p>杠杆率  代表  是否一直持续的外部融资</p>
+<h4 id="1、销售净利率"><a href="#1、销售净利率" class="headerlink" title="1、销售净利率"></a>1、销售净利率</h4><p>净利率=净利润/营业收入<br>ROE受销售净利率的影响最大，被销售净利率推高的ROE较为健康。贵州茅台的高ROE来自销售净利率，其销售净利率一直维持在45%<br>至55%之间，R0E达到25%以上。<br>高销售净利率最易带来高ROE,但是高销售净利率很难维持，有的来自产品和品牌竞争力强，有的具备垄断地位，有的商业模式难以复<br>制或者有技术壁垒。</p>
+<h4 id="2、资产周转率"><a href="#2、资产周转率" class="headerlink" title="2、资产周转率"></a>2、资产周转率</h4><p>总资产周转率=营业收入/总资产<br>高资产周转率的公司意味着同样的投入有更高的收入，或者说只需要投入少量资金就能维持生产经营，这说明公司运营和管理资产的能力强，也可能意味着薄利多销，盈利较依赖高效的管理，所以仅依靠高资产周转率维持ROE较困难。<br>沃尔玛是典型高周转模式，虽然其销售净利润率仅为贵州茅台的二十分之一，但是靠着高周转和高杠杆其R0E一度保持在15%-25%。</p>
+<h4 id="3、杠杆率"><a href="#3、杠杆率" class="headerlink" title="3、杠杆率"></a>3、杠杆率</h4><p>杠杆率=总资产/净资产=(净资产+负债)/净资产<br>企业的负债率越高、杠杆倍数越大，企业的ROE越大，但是杠杆过大、也就是负债过高的话，企业的经营就会有风险。所以这个指标，需要具体情况具体分析，并不是越高越好。就借债度日，有10块钱，借1块钱，还账不难，但若借100块、1000块钱，则风险极大。</p>
+<h3 id="2-如果选第二个，则会选净利润现金比率"><a href="#2-如果选第二个，则会选净利润现金比率" class="headerlink" title="2.如果选第二个，则会选净利润现金比率"></a>2.如果选第二个，则会选净利润现金比率</h3><p>![image-20220425201919454](<a href="https://ckcah.github.io/2022/04/25/Study">https://ckcah.github.io/2022/04/25/Study</a> investment notes/image-20220425201919454.png)</p>
+<p>现金流量表，首先将企业从<strong>债权人</strong>那里<strong>借</strong>的钱和<strong>股东</strong>那里<strong>筹</strong>的钱，划入<strong>筹资活动</strong>。然后将企业赚的钱分为两部分，一部分是企业投资赚的钱（投资活动），一部分是企业日常经营（经营活动）。</p>
+<p>现金流量表展示的就是：筹资活动现金流、投资活动现金流和经营活动现金流。</p>
+<p>在<strong>经营活动现金流</strong>中，最重要的数据是“经营活动现金流净额”和“销售商品、提供劳务收到的现金”这两个。</p>
+<p>之前讲过经营活动现金流净额和净利润之间的关系，如果持续大于净利润说明公司利润都变成了实实在在的现金，企业是“挣到钱”了的。</p>
+<p>销售商品、提供劳务收到的现金，这个数字可以和营业收入进行对比。因为销售商品、提供劳务收到的现金包含了增值税，所以理想数据应该是营业收入的1.17倍。或者加上应收票据里的银行承兑汇票后，是营业收入的1.17倍。通常而言，只要这个比值是大于1的，说明企业销售的绝大部分款项是已经收到了，如果小于1说明大量款项被作为应收款欠着。</p>
+<p><strong>投资活动现金流</strong>的流入分两种情况，一是变卖家当；二是投资的分红或者利息。</p>
+<p>流出也分两种情况，一是投资给自己的形成固定资产或者无形资产；二是投出去购买了别人的股票或债券，或者组建了子公司、合资企业。</p>
+<p>简单粗暴理解，投资活动现金流为负，说明企业在扩张阶段，为正说明在收缩。</p>
+<p><strong>筹资活动现金流</strong>主要需要区别权益性筹资和债务性筹资，权益性筹资反应市场对企业价值和成长性的估计，债务性筹资的利率反应市场对企业信用的评价，债务性筹资利率越高，企业越危险。</p>
 <p><strong>总结：</strong>通过“ROE”和“净利润现金比率”财务指标我们能够知道一家公司的盈利能力，以及盈利能立的真实性。另外还要考虑财务杠杆带来的风险。</p>
-<p>3.因此需要第三个指标：资产负债率</p>
-<p><img src="/.io//blog\source_posts\notes\image-20220425202248464.png" alt="image-20220425202248464"></p>
-<p>4.毛利率</p>
-<p><img src="/.io//blog\source_posts\notes\image-20220425202450084.png" alt="image-20220425202450084"></p>
-<p>5.营业利润率</p>
-<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220425202540192.png" alt="image-20220425202540192"></p>
-<p>6.营业收入增长率</p>
-<p><img src="/.io//blog\source_posts\notes\image-20220425202605175.png" alt="image-20220425202605175"></p>
+<h3 id="3-因此需要第三个指标：资产负债率"><a href="#3-因此需要第三个指标：资产负债率" class="headerlink" title="3.因此需要第三个指标：资产负债率"></a>3.因此需要第三个指标：资产负债率</h3><p>![image-20220425202248464](<a href="https://ckcah.github.io/2022/04/25/Study">https://ckcah.github.io/2022/04/25/Study</a> investment notes/image-20220425202248464.png)</p>
+<p><strong>资产负债率</strong>又称举债经营比率</p>
+<p>它是用以<strong>衡量企业利用债权人提供资金进行经营活动的能力</strong>，以及反映<strong>债权人发放贷款的安全程度的指标</strong>，通过将企业的负债总额与资产总额相比较得出，反映在企业全部资产中属于负债比率。</p>
+<p>资产负债率是<strong>负债总额</strong>与<strong>资产总额</strong>的比例关系。资产负债率反映在总资产中有多大比例是通过借债来筹资的，也可以衡量企业在清算时保护债权人利益的程度。</p>
+<p>资产负债率这个指标反映债权人所提供的资本占全部资本的比例，也被称为举债经营比率。</p>
+<p>资产负债率=总负债/总资产，表示公司总资产中有多少是通过负债筹集的，该指标是评价公司负债水平的综合指标。</p>
+<p>同时也是一项衡量公司利用债权人资金进行经营活动能力的指标，也反映债权人发放贷款的安全程度。</p>
+<p>如果资产负债比率达到100%或超过100%说明公司已经没有净资产或资不抵债。</p>
+<h3 id="4-毛利率"><a href="#4-毛利率" class="headerlink" title="4.毛利率"></a>4.毛利率</h3><p>![image-20220425202450084](<a href="https://ckcah.github.io/2022/04/25/Study">https://ckcah.github.io/2022/04/25/Study</a> investment notes/image-20220425202450084.png)</p>
+<h3 id="5-营业利润率"><a href="#5-营业利润率" class="headerlink" title="5.营业利润率"></a>5.营业利润率</h3><p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220425202540192.png" alt="image-20220425202540192"></p>
+<h3 id="6-营业收入增长率"><a href="#6-营业收入增长率" class="headerlink" title="6.营业收入增长率"></a>6.营业收入增长率</h3><p>![image-20220425202605175](<a href="https://ckcah.github.io/2022/04/25/Study">https://ckcah.github.io/2022/04/25/Study</a> investment notes/image-20220425202605175.png)</p>
 <p>总结：</p>
-<p><img src="/.io//blog\source_posts\notes\image-20220425202629814.png" alt="image-20220425202629814"></p>
-<p>7.固定资产比率</p>
-<p><img src="/.io//blog\source_posts\notes\image-20220425202703596.png" alt="image-20220425202703596"></p>
+<p>![image-20220425202629814](<a href="https://ckcah.github.io/2022/04/25/Study">https://ckcah.github.io/2022/04/25/Study</a> investment notes/image-20220425202629814.png)</p>
+<h3 id="7-固定资产比率"><a href="#7-固定资产比率" class="headerlink" title="7.固定资产比率"></a>7.固定资产比率</h3><p>![image-20220425202703596](<a href="https://ckcah.github.io/2022/04/25/Study">https://ckcah.github.io/2022/04/25/Study</a> investment notes/image-20220425202703596.png)</p>
 <p>总结：</p>
-<p><img src="/.io//blog\source_posts\notes\image-20220425202720816.png" alt="image-20220425202720816"></p>
-<p>8.分红率</p>
-<p><img src="/.io//blog\source_posts\notes\image-20220425202753229.png" alt="image-20220425202753229"></p>
+<p>![image-20220425202720816](<a href="https://ckcah.github.io/2022/04/25/Study">https://ckcah.github.io/2022/04/25/Study</a> investment notes/image-20220425202720816.png)</p>
+<h3 id="8-分红率"><a href="#8-分红率" class="headerlink" title="8.分红率"></a>8.分红率</h3><p>![image-20220425202753229](<a href="https://ckcah.github.io/2022/04/25/Study">https://ckcah.github.io/2022/04/25/Study</a> investment notes/image-20220425202753229.png)</p>
 <p>总结：</p>
-<p><img src="/.io//blog\source_posts\notes\image-20220425202819068.png" alt="image-20220425202819068"></p>
-<h1 id="行业"><a href="#行业" class="headerlink" title="行业"></a>行业</h1><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<p>![image-20220425202819068](<a href="https://ckcah.github.io/2022/04/25/Study">https://ckcah.github.io/2022/04/25/Study</a> investment notes/image-20220425202819068.png)</p>
+<h1 id="行业"><a href="#行业" class="headerlink" title="行业"></a>行业</h1><h1 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h1><p>本读书笔记，一部分来自小红书，一部分来着b站，还有的是自己所收集的资料。</p>
+<p>如果涉及侵权，请留言提醒我删除。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>投资</category>
       </categories>
