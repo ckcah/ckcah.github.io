@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Study investment notes</title>
+    <url>/2022/04/25/Study%20investment%20notes/</url>
+    <content><![CDATA[<h1 id="企业"><a href="#企业" class="headerlink" title="企业"></a>企业</h1><h2 id="关键财务指标"><a href="#关键财务指标" class="headerlink" title="关键财务指标"></a>关键财务指标</h2><p><img src="/.io//blog\source_posts\notes\image-20220425201541523.png" alt="image-20220425201541523"></p>
+<p>比如：</p>
+<p>1.首选ROE（视频中的封老师一般只选ROE连续五年大于20%的公司）</p>
+<p><img src="/.io//blog\source_posts\notes\image-20220425201826454.png" alt="image-20220425201826454"></p>
+<p>2.如果选第二个，则会选净利润现金比率</p>
+<p><img src="/.io//blog\source_posts\notes\image-20220425201919454.png" alt="image-20220425201919454"></p>
+<p><strong>总结：</strong>通过“ROE”和“净利润现金比率”财务指标我们能够知道一家公司的盈利能力，以及盈利能立的真实性。另外还要考虑财务杠杆带来的风险。</p>
+<p>3.因此需要第三个指标：资产负债率</p>
+<p><img src="/.io//blog\source_posts\notes\image-20220425202248464.png" alt="image-20220425202248464"></p>
+<p>4.毛利率</p>
+<p><img src="/.io//blog\source_posts\notes\image-20220425202450084.png" alt="image-20220425202450084"></p>
+<p>5.营业利润率</p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220425202540192.png" alt="image-20220425202540192"></p>
+<p>6.营业收入增长率</p>
+<p><img src="/.io//blog\source_posts\notes\image-20220425202605175.png" alt="image-20220425202605175"></p>
+<p>总结：</p>
+<p><img src="/.io//blog\source_posts\notes\image-20220425202629814.png" alt="image-20220425202629814"></p>
+<p>7.固定资产比率</p>
+<p><img src="/.io//blog\source_posts\notes\image-20220425202703596.png" alt="image-20220425202703596"></p>
+<p>总结：</p>
+<p><img src="/.io//blog\source_posts\notes\image-20220425202720816.png" alt="image-20220425202720816"></p>
+<p>8.分红率</p>
+<p><img src="/.io//blog\source_posts\notes\image-20220425202753229.png" alt="image-20220425202753229"></p>
+<p>总结：</p>
+<p><img src="/.io//blog\source_posts\notes\image-20220425202819068.png" alt="image-20220425202819068"></p>
+<h1 id="行业"><a href="#行业" class="headerlink" title="行业"></a>行业</h1><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>投资</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Take a little summary</title>
     <url>/2022/04/20/Take%20a%20little%20summary/</url>
     <content><![CDATA[<p><strong>2022.04.20：</strong></p>
@@ -317,7 +353,6 @@
 <p><img src="https://ckcah.github.io/2022/03/18/android-reverse/image-20220425144534582.png" alt="image-20220425144534582"></p>
 <p>得到<code>account=2771773446%40qq.com&amp;clientid=1&amp;device_id=865166029891887&amp;ip=172.16.2.15&amp;modules=cloudlogin%3A1&amp;password=abc123456&amp;siteid=10001&amp;system_name=android&amp;type=android</code></p>
 <p>然后跳过两次，查看v6的值</p>
-<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220425145033656.png" alt="image-20220425145033656"></p>
 <p>v6：<code>20655d14e9879f20d1c68abc51b8d34b</code></p>
 <p>然后直接跳过下一个断点</p>
 <p>因为v9刚刚已经改成string类型，可以直接查看内容</p>
