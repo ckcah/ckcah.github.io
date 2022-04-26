@@ -873,15 +873,40 @@
 <p>模型训练模块采用ALS算法，计算出模型参数。</p>
 <p>实时推荐模块主要包括数据实时加工、接受和处理，主要涉及ml构建模型。</p>
 <p>同时，我会详细讲解每个模块代码的基本情况及实施结果。</p>
-<h1 id="具体细节"><a href="#具体细节" class="headerlink" title="具体细节"></a>具体细节</h1><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h3 id="遇到的问题-1"><a href="#遇到的问题-1" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p><em>1.最开始做的时候，遇到电脑不行，内存不足，</em></p>
+<h1 id="具体细节"><a href="#具体细节" class="headerlink" title="具体细节"></a>具体细节</h1><p>陈述搞思路：</p>
+<ul>
+<li>自我介绍：姓名班级指导老师论文题目</li>
+<li>选题背景意义：简单谈一下为什么要做这个系统，这里要精简，用几十秒简单过一下就行</li>
+<li>研究思路：整体系统搭建的思路，技术栈，数据库搭建的思路以及想法，遇到什么问题然后怎么解决，重点模块的实现思路。</li>
+<li>研究结论：系统的完成度，系统的优点（重点），简单说下缺点和需要完善的地方。</li>
+<li>致谢：简单说下致谢以及客套话，<strong>切记要简短。</strong></li>
+</ul>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p><em>1.最开始做的时候，遇到电脑不行，内存不足，</em></p>
 <p>因此也可以说明，大数据平台搭建，是一个很耗费硬件的东西，当数据量大时，集群及硬件的大小就开始体现。</p>
 <p><em>2.idea maven配置问题</em></p>
 <p>pom.xml无法下载依赖包，但有的时候只是因为它抽风，因为本地确实存在那个包的版本。</p>
 <p>还有就是，可能为仓库源的问题，多添加几个国内的仓库即可</p>
 <p><em>3.spark与hive数据库无法同步</em></p>
 <p>只需将hive文件下conf文件夹中的hive-site.xml文件软链接到spark文件下的conf文件夹中</p>
-<h2 id="有可能的提问"><a href="#有可能的提问" class="headerlink" title="有可能的提问"></a>有可能的提问</h2><p><em>1.为什么要把数据从sql中存入hive</em></p>
+<h1 id="有可能的提问"><a href="#有可能的提问" class="headerlink" title="有可能的提问"></a>有可能的提问</h1><p>老师一般只会关注你是怎么做的，最后获得的结果是什么。不会在意你的选题背景意义之类的，因为本来答辩的时间不会太长，那些背景什么的论文上都有写，不需要你再赘述。所以<strong>陈述的时候应该抓住你是怎么把你系统完成的，然后完成的成果是怎么样的</strong>，重点抓住这两部分。</p>
+<ol>
+<li><p>答辩老师一般不懂比较新的技术，只知原理，不懂编程。一般老师可能懂的技术：<strong>C、C++、数据结构、汇编、数据库设计、仿真设计、JAVA等</strong>，不懂的技术：PHP、安卓、JAVAEE、大数据、小程序、公众号等，</p>
+</li>
+<li><p>因为答辩时间紧凑、加上答辩老师自己不懂代码，所以不可能现场检查代码和让你现场写个功能，现场改个bug的可能性都基本不会有，除非你表现出“这个系统不是我做的”太明显，被杀鸡儆猴了。</p>
+</li>
+<li><p>答辩前多与导师沟通，论文和ppt是否有什么错误、格式问题</p>
+</li>
+<li><p>多问问前人，答辩可能问到的问题。你以为会问你，这个是哪一行代码实现的，这个是用什么代码函数实现的。不可能的。以我个人经验分析，一般不可能问这么细致，因为老师自己都不懂代码，问了也不知道对错。<strong>一般问法“这个功能你怎么实现？”</strong>，那么你就只<strong>需要说明流程</strong>。</p>
+<p>举个例子：问：“短信找回密码怎么实现？”，答：“先是通过用户提交注册的手机号，发送一条验证短信到用户手机号，再由用户提交验证码，只需要验证用户提交的验证码与系统发送的验证码是否一致，判断通过后即可给用户输入新的密码，重置到数据库，如此实现修改密码”。这个时候你可能还会较真，“短信发送怎么实现的？”，答：“调用阿里云短信服务接口”</p>
+</li>
+<li><p>答辩常见问题：<strong>XX功能（亮点功能）如何实现？</strong>【你可以在讲ppt的时候刻意引导，让老师问你这个问题】；调你论文上一些字眼提问，关键技术的一些解释和使用，<strong>比如你写你用了redis，他可能会问你怎么用，用在什么地方</strong></p>
+</li>
+<li><p>遇到实在不懂的问题，别慌，想办法随便说一点，好过愣在那里，愣着不说，老师自己都找不到台阶下，只能给你挂。答辩一定要自信</p>
+</li>
+</ol>
+<p><em>1.为什么要把数据从sql中存入hive</em></p>
 <p>答：因为spark快</p>
+<p><a href="https://blog.csdn.net/qq_22695001/article/details/120319040">本科毕设项目答辩问题</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>学习</category>
