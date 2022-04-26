@@ -217,10 +217,10 @@
 <p><strong>返回的包：</strong></p>
 <p>POST /v2/report HTTP/2<br>Host: stats.jpush.cn<br>Charset: UTF-8<br>Content-Length: 1415<br>Accept: application/jason<br>X-App-Key: 0e51f2f2f82cb882842bbb77<br>Content-Encoding: gzip<br>Accept-Encoding: gzip, deflate<br>Authorization: Basic NjA0NjkzMTczNTk6MzY1ZjFjZmQxMzcwODQ4OTgwNGQ3ZWQyNWM3OGNlODI=<br>User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.1.1; redmi note 3 Build/LMY48Z)<br>Connection: Keep-Alive<br>Content-Type: application/x-www-form-urlencoded</p>
 <p></p>
-<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220426145611343.png" alt="image-20220426145611343"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426145611343.png" alt="image-20220426145611343"></p>
 <p><strong>可以看到并没有什么能分析的地方，甚至还有乱码。</strong></p>
 <p>于是抓包看注册</p>
-<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426145131343.png" alt="image-20220426145131343"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426145131343.png" alt="image-20220426145131343"></p>
 <p><strong>提交的数据包：</strong></p>
 <p>GET /User/register?request=Vw5YoQuUKwqhdZkLrG77G7q4jdGkhc4oMPJbHZVazigpd00bPxcXEEqsz2wHWXo9IYcXRhXAZLhDWLRqlVcztw%3D%3D HTTP/1.1<br>sid:<br>pid: 236<br>key: 428ec0492158cd84dadb072f1e3d50ce<br>did: 865166029891887<br>uid:<br>ver: 100/95/2016020901<br>User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.1.1; redmi note 3 Build/LMY48Z)<br>Host: m.mapps.m1905.cn<br>Connection: close<br>Accept-Encoding: gzip, deflate</p>
 <p><strong>返回的包：</strong></p>
@@ -230,34 +230,34 @@
 <p><strong>2</strong></p>
 <p>POST /mobile/v2/connect HTTP/1.1<br>aid: 0<br>did: 0<br>Content-Length: 594<br>Content-Type: application/json<br>User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.1.1; redmi note 3 Build/LMY48Z)<br>X-App-License-Key: 056DADF8562257750EAC5FB13CE86F0E76<br>X-BlueWare-Connect-Time: 1650955924406<br>Host: mobile.oneapm.com<br>Connection: close<br>Accept-Encoding: gzip, deflate</p>
 <p>{“app”:{“appName”:”1905电影网”,”appVer”:”5.2.2”,”pkgName”:”com.m1905.mobilefree”,”channel”:”tencent”,”token”:”056DADF8562257750EAC5FB13CE86F0E76”},”device”:{“os”:”Android”,”ver”:”5.1.1”,”model”:”redmi note 3”,”deviceId”:”c9cbb7b3-f22e-4df5-9e32-65c2bd7d49d8”,”manufacturer”:”xiaomi”,”imei”:”865166029891887”,”size”:”normal”,”countryCode”:””,”regionCode”:””,”cityCode”:””,”country”:””,”region”:””,”city”:””,”mcc”:”460”,”mnc”:”00”,”imsi”:”460006384551485”,”networkStatus”:”wifi”,”macAddress”:””,”serialNumber”:”unknown”,”androidId”:”366a40034878b2a7”},”sdk”:{“type”:”Android”,”ver”:”3.0.9.3”}}</p>
-<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426145722195.png" alt="image-20220426145722195"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426145722195.png" alt="image-20220426145722195"></p>
 <p><strong>多看几个提交的包，发现只有<code>request</code>在变，所以就搜索路径<code>/User/register</code>名或者<code>request</code>字段</strong></p>
 <h1 id="静态分析"><a href="#静态分析" class="headerlink" title="静态分析"></a>静态分析</h1><h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>搜索路径<code>/User/register</code>名</p>
-<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426150448137.png" alt="image-20220426150448137"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426150448137.png" alt="image-20220426150448137"></p>
 <p>request字段</p>
-<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426150811364.png" alt="image-20220426150811364"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426150811364.png" alt="image-20220426150811364"></p>
 <p>这样找其实是错的，以为看上面那张图就可以对比出来，字段更像是<code>?request=</code></p>
 <p>锁定<code>/User/register</code></p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>分析的应该是<code>request</code></p>
-<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426151132504.png" alt="image-20220426151132504"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426151132504.png" alt="image-20220426151132504"></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">(Context arg7, String arg8, String arg9, String arg10, String arg11)</span> <span class="keyword">throws</span> UnsupportedEncodingException </span>&#123;</span><br><span class="line">        ze$<span class="number">3</span> v0 = <span class="keyword">new</span> hh(<span class="number">0</span>, <span class="string">&quot;http://m.mapps.m1905.cn/User/register&quot;</span> + <span class="string">&quot;?request=&quot;</span> + URLEncoder.encode(aay.b(<span class="string">&quot;username=&quot;</span> + arg8 + <span class="string">&quot;&amp;password=&quot;</span> + arg9 + <span class="string">&quot;&amp;acode=&quot;</span> + arg10 + <span class="string">&quot;&amp;islogin=&quot;</span> + arg11), <span class="string">&quot;UTF-8&quot;</span>), <span class="keyword">new</span> b(arg7) &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">(String arg4)</span> </span>&#123;</span><br><span class="line">                EUser v0 = ze.a(arg4);</span><br><span class="line">                <span class="keyword">if</span>(v0 != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(v0.getData() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        aby.a(<span class="keyword">this</span>.a, arg4);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">this</span>.b.a(<span class="number">100</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">this</span>.b.a(<span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                ze.a(<span class="keyword">this</span>.b);</span><br><span class="line">                <span class="keyword">this</span>.b.notifyObservers(v0);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
 
 
 
 <p><code>URLEncoder.encode(aay.b(&quot;username=&quot; + arg8 + &quot;&amp;password=&quot; + arg9 + &quot;&amp;acode=&quot; + arg10 + &quot;&amp;islogin=&quot; + arg11), &quot;UTF-8&quot;)</code></p>
 <p>分析不出来，自己试试动态调试</p>
-<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426152227678.png" alt="image-20220426152227678"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426152227678.png" alt="image-20220426152227678"></p>
 <p>一直跳过查看各步值</p>
-<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426152332727.png" alt="image-20220426152332727"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426152332727.png" alt="image-20220426152332727"></p>
 <p>string@7104:”Vw5YoQuUKwqHtf9D2P0iNXpRxGUdqsMeyIJ6Ke+kK+Bl2Xxapv2Eb8rbXsgeRf1QJDmwSRDq74Lw/PPruU/oEg==”</p>
 <p><strong>v3变为：</strong></p>
 <p>string@7111:”Vw5YoQuUKwqHtf9D2P0iNXpRxGUdqsMeyIJ6Ke%2BkK%2BBl2Xxapv2Eb8rbXsgeRf1QJDmwSRDq74Lw%2FPPruU%2FoEg%3D%3D”</p>
 <p>v4：</p>
-<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426152538207.png" alt="image-20220426152538207"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426152538207.png" alt="image-20220426152538207"></p>
 <p>变为</p>
-<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426152601791.png" alt="image-20220426152601791"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426152601791.png" alt="image-20220426152601791"></p>
 <p>v5</p>
-<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426152653758.png" alt="image-20220426152653758"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426152653758.png" alt="image-20220426152653758"></p>
 <p>分析：</p>
 <p>和上述代码一样，v10应该就是验证码</p>
 <p>“&amp;islogin=”应该是次数</p>
@@ -268,11 +268,11 @@
 
 
 <p><code>iv</code>和<code>key</code></p>
-<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426155632591.png" alt="image-20220426155632591"></p>
+<p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426155632591.png" alt="image-20220426155632591"></p>
 <p>注意有静态代码块</p>
 <p>aay.key = “iufles8787rewjk1qkq9dj76”;</p>
 <p>aay.iv = “vs0ld7w3”;</p>
-<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426160017171.png" alt="image-20220426160017171"></p>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p><img src="https://ckcah.github.io/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/image-20220426160017171.png" alt="image-20220426160017171"></p>
 <p>答案： Vw5YoQuUKwqhdZkLrG77G7q4jdGkhc4oMPJbHZVazijZp0IKMeCdcW5KFWYnoNJwJkjOOVDVLCFcAk+NrTsKig==</p>
 <p>解密后：</p>
 <p>username=13618396959&amp;password=abc123456&amp;acode=0987&amp;islogin=1</p>
