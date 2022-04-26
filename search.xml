@@ -131,6 +131,145 @@
       </tags>
   </entry>
   <entry>
+    <title>x对面断点调试案例分析</title>
+    <url>/2022/04/26/x%E5%AF%B9%E9%9D%A2%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<p>POST /app/login/signup.app HTTP/2<br>Host: zc.vjkeji.com<br>X-Requested-With: XMLHttpRequest<br>Vs_app_version: 3.0.4<br><strong>Vs_nonce_str</strong>: F12m8iGarppGa2WDOJUO8YayOeV2V0bx<br>Vs_device_id: 865166029891887<br>Vs_device_name: redmi note 3<br>Online_type: android<br>Vs_timestamp: 1650961572898<br>Vs_request_fromapp: f2f<br>Accept: application/json<br>Accept-Encoding: gzip, deflate<br>Accept-Language: zh-CN,zh;q=0.8<br>Connection: keep-alive<br>Content-Type: application/json<br>Cookie: JSESSIONID=F4A316916F1EAC3BE9C7D85AE94C471E; route=f5cf0741684208119280e061e407700e<br>User-Agent: Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; redmi note 3 Build/LMY48Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30<br>Content-Length: 207</p>
+<p>{“password”:”057fa5c78d2bb0139a35a65011edc6dd”,”countryCode”:”86”,”sign”:”03e0497b9c2352c7098defc43b3d1a92”,”userName”:”13618396959”,”nonceStr”:”TQbBR5qJO3rImsVJZ72rj5hTYmM6yxG6”,”timestamp”:”1650961572897”}</p>
+<p><img src="https://ckcah.github.io/2022/04/26/x%E5%AF%B9%E9%9D%A2%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/image-20220426162821517.png" alt="image-20220426162821517"></p>
+<p>查找nonceStr</p>
+<p><img src="https://ckcah.github.io/2022/04/26/x%E5%AF%B9%E9%9D%A2%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/image-20220426163506215.png" alt="image-20220426163506215"></p>
+<p>反编译：</p>
+<p><img src="https://ckcah.github.io/2022/04/26/x%E5%AF%B9%E9%9D%A2%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/image-20220426163537557.png" alt="image-20220426163537557"></p>
+<p><strong>要分析的字段：</strong></p>
+<p><strong>password</strong></p>
+<p><strong>sign</strong></p>
+<p><strong>nonceStr</strong></p>
+<p><strong>Vs_nonce_str</strong></p>
+<h2 id="password"><a href="#password" class="headerlink" title="password"></a>password</h2><p>跳转后</p>
+<p><img src="https://ckcah.github.io/2022/04/26/x%E5%AF%B9%E9%9D%A2%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/image-20220426163817208.png" alt="image-20220426163817208"></p>
+<p>因此，大胆判断就只是md5加密</p>
+<p>用js工具加密<code>abc123456</code>得到<code>0659c7992e268962384eb17fafe88364</code></p>
+<p><code>057fa5c78d2bb0139a35a65011edc6dd</code></p>
+<p>不对</p>
+<p>用网上的md5解密<code>057fa5c78d2bb0139a35a65011edc6dd</code>得到<code>0659c7992e268962384eb17fafe88364</code></p>
+<p>好了，现在可以看出来是两次md5加密后的值了</p>
+<p><img src="https://ckcah.github.io/2022/04/26/x%E5%AF%B9%E9%9D%A2%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/image-20220426164221428.png" alt="image-20220426164221428"></p>
+<h2 id="sign"><a href="#sign" class="headerlink" title="sign"></a>sign</h2><p><code>03e0497b9c2352c7098defc43b3d1a92</code></p>
+<p><img src="https://ckcah.github.io/2022/04/26/x%E5%AF%B9%E9%9D%A2%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/image-20220426164453594.png" alt="image-20220426164453594"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">encryptParam</span><span class="params">(AjaxParams arg2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ComUtil.encryptMap(arg2.getUrlParams(), <span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">encryptMap</span><span class="params">(Map arg11, <span class="keyword">boolean</span> arg12)</span> </span>&#123;</span><br><span class="line">    String v2;</span><br><span class="line">    <span class="keyword">if</span>(arg11 == <span class="keyword">null</span>) &#123;</span><br><span class="line">        v2 = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> v2;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ArrayList v3 = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    Iterator v8 = arg11.entrySet().iterator();</span><br><span class="line">    <span class="keyword">while</span>(v8.hasNext()) &#123;</span><br><span class="line">        Object v1 = v8.next();</span><br><span class="line">        <span class="keyword">if</span>(TextUtils.isEmpty(((Map$Entry)v1).getValue())) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ((List)v3).add(((Map$Entry)v1).getKey() + <span class="string">&quot;=&quot;</span> + ((Map$Entry)v1).getValue());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    String[] v6 = <span class="keyword">new</span> String[((List)v3).size()];</span><br><span class="line">    ((List)v3).toArray(((Object[])v6));</span><br><span class="line">    Arrays.sort(((Object[])v6));</span><br><span class="line">    StringBuilder v4 = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">int</span> v8_1 = v6.length;</span><br><span class="line">    <span class="keyword">int</span> v7;</span><br><span class="line">    <span class="keyword">for</span>(v7 = <span class="number">0</span>; v7 &lt; v8_1; ++v7) &#123;</span><br><span class="line">        v4.append(v6[v7] + <span class="string">&quot;&amp;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(arg12) &#123;</span><br><span class="line">        v4.append(<span class="string">&quot;key=09ebcc6549b6fad41e0b857459c5b2be&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        v4.append(<span class="string">&quot;key=75cba6dd6d4d75154624dbe9d770d451&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        v2 = MD5.md5Encode(v4.toString());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(Exception v0) &#123;</span><br><span class="line">        v0.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> v2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>arg11 = v0(上边那一堆字符串)<br>arg12 = false</p>
+<p>v4 = countryCode=86&amp;userName=13618396959&amp;password=abc123456&amp;timestamp=1650961572897&amp;nonceStr=TQbBR5qJO3rImsVJZ72rj5hTYmM6yxG6</p>
+<p>v4+75cba6dd6d4d75154624dbe9d770d451 用md5加密(这里也要看 里面还有填充0和UTF-8)  -&gt;  a</p>
+<p><img src="https://ckcah.github.io/2022/04/26/x%E5%AF%B9%E9%9D%A2%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/image-20220426170231568.png" alt="image-20220426170231568"></p>
+<p>v2 = a</p>
+<p>countryCode=86&amp;userName=13618396959&amp;password=abc123456&amp;timestamp=1650961572897&amp;nonceStr=TQbBR5qJO3rImsVJZ72rj5hTYmM6yxG675cba6dd6d4d75154624dbe9d770d451</p>
+<p>utf-8转换后：</p>
+<p>countryCode=86&amp;userName=13618396959&amp;password=abc123456&amp;timestamp=1650961572897&amp;nonceStr=TQbBR5qJO3rImsVJZ72rj5hTYmM6yxG675cba6dd6d4d75154624dbe9d770d451</p>
+<p>加密：</p>
+<p>f6593a27bd2a8d594b3ce64858d41272</p>
+<p>不对。。。。</p>
+<p><strong>累了，，，动态调试吧</strong></p>
+<p>{“password”:”057fa5c78d2bb0139a35a65011edc6dd”,”countryCode”:”86”,”sign”:”03e0497b9c2352c7098defc43b3d1a92”,”userName”:”13618396959”,”nonceStr”:”TQbBR5qJO3rImsVJZ72rj5hTYmM6yxG6”,”timestamp”:”1650961572897”}</p>
+<p>“countryCode=86&amp;nonceStr=TQbBR5qJO3rImsVJZ72rj5hTYmM6yxG6&amp;password=057fa5c78d2bb0139a35a65011edc6dd&amp;timestamp=1650961572897&amp;userName=13618396959&amp;key=75cba6dd6d4d75154624dbe9d770d451”</p>
+<p>答案： 03e0497b9c2352c7098defc43b3d1a92</p>
+<p>成功：</p>
+<p><img src="https://ckcah.github.io/2022/04/26/x%E5%AF%B9%E9%9D%A2%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/image-20220426175729482.png" alt="image-20220426175729482"></p>
+<p>但是我还是不知道这个0为什么要填充</p>
+<p><img src="https://ckcah.github.io/2022/04/26/x%E5%AF%B9%E9%9D%A2%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/image-20220426174902907.png" alt="image-20220426174902907"></p>
+<p>这一串实在没搞清楚是多少个0</p>
+<p>标题叫断点调试，but，，，我并没有用到，，，</p>
+<h2 id="nonceStr"><a href="#nonceStr" class="headerlink" title="nonceStr"></a>nonceStr</h2><p>是随机的</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>安卓逆向</category>
+      </categories>
+      <tags>
+        <tag>断点调试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>xx05电影网分析案例</title>
+    <url>/2022/04/26/xx05%E7%94%B5%E5%BD%B1%E7%BD%91%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B/</url>
+    <content><![CDATA[<h1 id="抓包查看数据"><a href="#抓包查看数据" class="headerlink" title="抓包查看数据"></a>抓包查看数据</h1><p>先抓包登录，发现没什么特别</p>
+<p><strong>提交的登录包：</strong></p>
+<p>POST /User/login HTTP/1.1<br>pid: 236<br>ver: 100/95/2016020901<br>did: 865166029891887<br>key: 428ec0492158cd84dadb072f1e3d50ce<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 39<br>Host: m.mapps.m1905.cn<br>Connection: close<br>Accept-Encoding: gzip, deflate<br>User-Agent: okhttp/3.3.1</p>
+<p>username=我的电话号码&amp;password=abc123456</p>
+<p><strong>返回的包：</strong></p>
+<p>POST /v2/report HTTP/2<br>Host: stats.jpush.cn<br>Charset: UTF-8<br>Content-Length: 1415<br>Accept: application/jason<br>X-App-Key: 0e51f2f2f82cb882842bbb77<br>Content-Encoding: gzip<br>Accept-Encoding: gzip, deflate<br>Authorization: Basic NjA0NjkzMTczNTk6MzY1ZjFjZmQxMzcwODQ4OTgwNGQ3ZWQyNWM3OGNlODI=<br>User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.1.1; redmi note 3 Build/LMY48Z)<br>Connection: Keep-Alive<br>Content-Type: application/x-www-form-urlencoded</p>
+<p></p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220426145611343.png" alt="image-20220426145611343"></p>
+<p><strong>可以看到并没有什么能分析的地方，甚至还有乱码。</strong></p>
+<p>于是抓包看注册</p>
+<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426145131343.png" alt="image-20220426145131343"></p>
+<p><strong>提交的数据包：</strong></p>
+<p>GET /User/register?request=Vw5YoQuUKwqhdZkLrG77G7q4jdGkhc4oMPJbHZVazigpd00bPxcXEEqsz2wHWXo9IYcXRhXAZLhDWLRqlVcztw%3D%3D HTTP/1.1<br>sid:<br>pid: 236<br>key: 428ec0492158cd84dadb072f1e3d50ce<br>did: 865166029891887<br>uid:<br>ver: 100/95/2016020901<br>User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.1.1; redmi note 3 Build/LMY48Z)<br>Host: m.mapps.m1905.cn<br>Connection: close<br>Accept-Encoding: gzip, deflate</p>
+<p><strong>返回的包：</strong></p>
+<p><strong>1</strong></p>
+<p>POST /mobile/v2/connect HTTP/1.1<br>aid: 0<br>did: 0<br>Content-Length: 594<br>Content-Type: application/json<br>User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.1.1; redmi note 3 Build/LMY48Z)<br>X-App-License-Key: 056DADF8562257750EAC5FB13CE86F0E76<br>X-BlueWare-Connect-Time: 1650955564406<br>Host: mobile.oneapm.com<br>Connection: close<br>Accept-Encoding: gzip, deflate</p>
+<p>{“app”:{“appName”:”1905电影网”,”appVer”:”5.2.2”,”pkgName”:”com.m1905.mobilefree”,”channel”:”tencent”,”token”:”056DADF8562257750EAC5FB13CE86F0E76”},”device”:{“os”:”Android”,”ver”:”5.1.1”,”model”:”redmi note 3”,”deviceId”:”c9cbb7b3-f22e-4df5-9e32-65c2bd7d49d8”,”manufacturer”:”xiaomi”,”imei”:”865166029891887”,”size”:”normal”,”countryCode”:””,”regionCode”:””,”cityCode”:””,”country”:””,”region”:””,”city”:””,”mcc”:”460”,”mnc”:”00”,”imsi”:”460006384551485”,”networkStatus”:”wifi”,”macAddress”:””,”serialNumber”:”unknown”,”androidId”:”366a40034878b2a7”},”sdk”:{“type”:”Android”,”ver”:”3.0.9.3”}}</p>
+<p><strong>2</strong></p>
+<p>POST /mobile/v2/connect HTTP/1.1<br>aid: 0<br>did: 0<br>Content-Length: 594<br>Content-Type: application/json<br>User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.1.1; redmi note 3 Build/LMY48Z)<br>X-App-License-Key: 056DADF8562257750EAC5FB13CE86F0E76<br>X-BlueWare-Connect-Time: 1650955924406<br>Host: mobile.oneapm.com<br>Connection: close<br>Accept-Encoding: gzip, deflate</p>
+<p>{“app”:{“appName”:”1905电影网”,”appVer”:”5.2.2”,”pkgName”:”com.m1905.mobilefree”,”channel”:”tencent”,”token”:”056DADF8562257750EAC5FB13CE86F0E76”},”device”:{“os”:”Android”,”ver”:”5.1.1”,”model”:”redmi note 3”,”deviceId”:”c9cbb7b3-f22e-4df5-9e32-65c2bd7d49d8”,”manufacturer”:”xiaomi”,”imei”:”865166029891887”,”size”:”normal”,”countryCode”:””,”regionCode”:””,”cityCode”:””,”country”:””,”region”:””,”city”:””,”mcc”:”460”,”mnc”:”00”,”imsi”:”460006384551485”,”networkStatus”:”wifi”,”macAddress”:””,”serialNumber”:”unknown”,”androidId”:”366a40034878b2a7”},”sdk”:{“type”:”Android”,”ver”:”3.0.9.3”}}</p>
+<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426145722195.png" alt="image-20220426145722195"></p>
+<p><strong>多看几个提交的包，发现只有<code>request</code>在变，所以就搜索路径<code>/User/register</code>名或者<code>request</code>字段</strong></p>
+<h1 id="静态分析"><a href="#静态分析" class="headerlink" title="静态分析"></a>静态分析</h1><h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>搜索路径<code>/User/register</code>名</p>
+<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426150448137.png" alt="image-20220426150448137"></p>
+<p>request字段</p>
+<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426150811364.png" alt="image-20220426150811364"></p>
+<p>这样找其实是错的，以为看上面那张图就可以对比出来，字段更像是<code>?request=</code></p>
+<p>锁定<code>/User/register</code></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>分析的应该是<code>request</code></p>
+<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426151132504.png" alt="image-20220426151132504"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">(Context arg7, String arg8, String arg9, String arg10, String arg11)</span> <span class="keyword">throws</span> UnsupportedEncodingException </span>&#123;</span><br><span class="line">        ze$<span class="number">3</span> v0 = <span class="keyword">new</span> hh(<span class="number">0</span>, <span class="string">&quot;http://m.mapps.m1905.cn/User/register&quot;</span> + <span class="string">&quot;?request=&quot;</span> + URLEncoder.encode(aay.b(<span class="string">&quot;username=&quot;</span> + arg8 + <span class="string">&quot;&amp;password=&quot;</span> + arg9 + <span class="string">&quot;&amp;acode=&quot;</span> + arg10 + <span class="string">&quot;&amp;islogin=&quot;</span> + arg11), <span class="string">&quot;UTF-8&quot;</span>), <span class="keyword">new</span> b(arg7) &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">(String arg4)</span> </span>&#123;</span><br><span class="line">                EUser v0 = ze.a(arg4);</span><br><span class="line">                <span class="keyword">if</span>(v0 != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(v0.getData() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        aby.a(<span class="keyword">this</span>.a, arg4);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">this</span>.b.a(<span class="number">100</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">this</span>.b.a(<span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                ze.a(<span class="keyword">this</span>.b);</span><br><span class="line">                <span class="keyword">this</span>.b.notifyObservers(v0);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>URLEncoder.encode(aay.b(&quot;username=&quot; + arg8 + &quot;&amp;password=&quot; + arg9 + &quot;&amp;acode=&quot; + arg10 + &quot;&amp;islogin=&quot; + arg11), &quot;UTF-8&quot;)</code></p>
+<p>分析不出来，自己试试动态调试</p>
+<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426152227678.png" alt="image-20220426152227678"></p>
+<p>一直跳过查看各步值</p>
+<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426152332727.png" alt="image-20220426152332727"></p>
+<p>string@7104:”Vw5YoQuUKwqHtf9D2P0iNXpRxGUdqsMeyIJ6Ke+kK+Bl2Xxapv2Eb8rbXsgeRf1QJDmwSRDq74Lw/PPruU/oEg==”</p>
+<p><strong>v3变为：</strong></p>
+<p>string@7111:”Vw5YoQuUKwqHtf9D2P0iNXpRxGUdqsMeyIJ6Ke%2BkK%2BBl2Xxapv2Eb8rbXsgeRf1QJDmwSRDq74Lw%2FPPruU%2FoEg%3D%3D”</p>
+<p>v4：</p>
+<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426152538207.png" alt="image-20220426152538207"></p>
+<p>变为</p>
+<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426152601791.png" alt="image-20220426152601791"></p>
+<p>v5</p>
+<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426152653758.png" alt="image-20220426152653758"></p>
+<p>分析：</p>
+<p>和上述代码一样，v10应该就是验证码</p>
+<p>“&amp;islogin=”应该是次数</p>
+<p><code>username=13618396959&amp;password=abc123456&amp;acode=0987&amp;islogin=1</code></p>
+<p>再来看一下代码中的b函数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">b</span><span class="params">(String arg4)</span> </span>&#123;</span><br><span class="line">        String v0_2;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            SecretKey v0_1 = SecretKeyFactory.getInstance(<span class="string">&quot;DESede&quot;</span>).generateSecret(<span class="keyword">new</span> DESedeKeySpec(aay.key.getBytes()));  <span class="comment">// DESede算法(三重DES)</span></span><br><span class="line">            Cipher v1 = Cipher.getInstance(<span class="string">&quot;DESede/CBC/PKCS5Padding&quot;</span>);  <span class="comment">// 加密模式为CBC，填充方式为PKCS5</span></span><br><span class="line">            v1.init(<span class="number">1</span>, ((Key)v0_1), <span class="keyword">new</span> IvParameterSpec(aay.iv.getBytes()));</span><br><span class="line">            v0_2 = aau.a(v1.doFinal(arg4.getBytes()));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception v0) &#123;</span><br><span class="line">            v0_2 = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> v0_2;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>iv</code>和<code>key</code></p>
+<p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426155632591.png" alt="image-20220426155632591"></p>
+<p>注意有静态代码块</p>
+<p>aay.key = “iufles8787rewjk1qkq9dj76”;</p>
+<p>aay.iv = “vs0ld7w3”;</p>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p><img src="/.io//blog\source_posts\xx05电影网分析案例\image-20220426160017171.png" alt="image-20220426160017171"></p>
+<p>答案： Vw5YoQuUKwqhdZkLrG77G7q4jdGkhc4oMPJbHZVazijZp0IKMeCdcW5KFWYnoNJwJkjOOVDVLCFcAk+NrTsKig==</p>
+<p>解密后：</p>
+<p>username=13618396959&amp;password=abc123456&amp;acode=0987&amp;islogin=1</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>对于DES的java编码，不太会用js来写</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>安卓逆向</category>
+      </categories>
+  </entry>
+  <entry>
     <title>xx镇江静态分析与log输出案例</title>
     <url>/2022/04/26/xx%E9%95%87%E6%B1%9F%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90%E4%B8%8Elog%E8%BE%93%E5%87%BA%E6%A1%88%E4%BE%8B/</url>
     <content><![CDATA[<h5 id="找到加密的smile具体位置"><a href="#找到加密的smile具体位置" class="headerlink" title="找到加密的smile具体位置"></a>找到加密的smile具体位置</h5><p>抓包查看参数</p>
@@ -1347,8 +1486,8 @@
 <p>从陈老师那里，我也明白了对一件事情需要认真到什么程度。考研加油！</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>自我探索</category>
         <category>英语</category>
+        <category>自我探索</category>
         <category>陈仲凯老师</category>
       </categories>
       <tags>
@@ -4083,8 +4222,8 @@ google dork：'inurl:bin/cklb'
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>要细心观察每一个地方的变化</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>内网渗透</category>
         <category>kali</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -4188,8 +4327,8 @@ google dork：'inurl:bin/cklb'
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>内网渗透</category>
         <category>kali</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>-vulnhub</tag>
@@ -4510,8 +4649,8 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>成功获得flag</p>
 <img src="https://ckcah.github.io/images/DC-3/34.png"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>内网渗透</category>
         <category>kali</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -4637,8 +4776,8 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>内网渗透</category>
         <category>kali</category>
+        <category>内网渗透</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
