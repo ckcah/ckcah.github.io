@@ -144,6 +144,27 @@
       </tags>
   </entry>
   <entry>
+    <title>2022中国低碳供应链&amp;物流创新发展报告</title>
+    <url>/2022/04/27/2022%E4%B8%AD%E5%9B%BD%E4%BD%8E%E7%A2%B3%E4%BE%9B%E5%BA%94%E9%93%BE&amp;%E7%89%A9%E6%B5%81%E5%88%9B%E6%96%B0%E5%8F%91%E5%B1%95%E6%8A%A5%E5%91%8A/</url>
+    <content><![CDATA[
+
+	<div class="row">
+    <embed src="https://ckcah.github.io/books/罗戈研究-2022中国低碳供应链&amp;物流创新发展报告.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>投资</category>
+        <category>行业</category>
+      </categories>
+      <tags>
+        <tag>研究报告</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>x对面断点调试案例分析</title>
     <url>/2022/04/26/x%E5%AF%B9%E9%9D%A2%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<p>POST /app/login/signup.app HTTP/2<br>Host: zc.vjkeji.com<br>X-Requested-With: XMLHttpRequest<br>Vs_app_version: 3.0.4<br><strong>Vs_nonce_str</strong>: F12m8iGarppGa2WDOJUO8YayOeV2V0bx<br>Vs_device_id: 865166029891887<br>Vs_device_name: redmi note 3<br>Online_type: android<br>Vs_timestamp: 1650961572898<br>Vs_request_fromapp: f2f<br>Accept: application/json<br>Accept-Encoding: gzip, deflate<br>Accept-Language: zh-CN,zh;q=0.8<br>Connection: keep-alive<br>Content-Type: application/json<br>Cookie: JSESSIONID=F4A316916F1EAC3BE9C7D85AE94C471E; route=f5cf0741684208119280e061e407700e<br>User-Agent: Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; redmi note 3 Build/LMY48Z) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30<br>Content-Length: 207</p>
