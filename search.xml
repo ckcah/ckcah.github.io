@@ -185,7 +185,7 @@
         <category>投资</category>
       </categories>
       <tags>
-        <tag>学习</tag>
+        <tag>财务报告分析</tag>
       </tags>
   </entry>
   <entry>
@@ -270,33 +270,22 @@
         <category>安卓逆向</category>
       </categories>
       <tags>
-        <tag>学习笔记</tag>
+        <tag>me</tag>
       </tags>
   </entry>
   <entry>
-    <title>caseclass</title>
-    <url>/2022/04/29/caseclass/</url>
-    <content><![CDATA[<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">Links</span>(<span class="params">movieId:<span class="type">Int</span>,imdbId:<span class="type">Int</span>,tmdbId:<span class="type">Int</span></span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">Movies</span>(<span class="params">movieId:<span class="type">Int</span>,title:<span class="type">String</span>,genres:<span class="type">String</span></span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">Ratings</span>(<span class="params">userId:<span class="type">Int</span>,movieId:<span class="type">Int</span>,rating:<span class="type">Double</span>,timestamp:<span class="type">Int</span></span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">Result</span>(<span class="params">userId:<span class="type">Int</span>,movieId:<span class="type">Int</span>,rating:<span class="type">Double</span></span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">Tags</span>(<span class="params">userId:<span class="type">Int</span>,movieId:<span class="type">Int</span>,tag:<span class="type">String</span>,timestamp:<span class="type">Int</span></span>)</span></span><br></pre></td></tr></table></figure>
-
+    <title>货币战争-宋鸿兵观后感</title>
+    <url>/2022/05/01/%E8%B4%A7%E5%B8%81%E6%88%98%E4%BA%89-%E5%AE%8B%E9%B8%BF%E5%85%B5%E8%A7%82%E5%90%8E%E6%84%9F/</url>
+    <content><![CDATA[<p>说实话，最开始才读这本书的时候，我被震惊了，而且随着读到后边，我几乎不敢相信这里面发生的事情是真的，但是我还是相信是真的。要不是我读完查了一下网上的评价，我可能就像个傻子一样到处吹牛了。</p>
+<p>索性还好，这本书是小说，里面的东西不全是事实。但是我认为，国际银行家们，确实是不在意国界的，但他们看重家庭。一切利益至上，这也是我赞成的观点，但总会留一个自己爱的人在心里。</p>
+<p>而对于银行家们的智慧，我是真的佩服，不同于从小听的爱因斯坦、霍金等，这本书的一些事件，我相信是真的存在的，只是不被披露。因此，银行家们的智慧，是我十分向往的。虽然把世人耍得团团转，但本就该有绿叶衬托，有何不可呢。</p>
+<p>对于中国的未来，我从来的未来，我从来都是自信的。就像我从来不敢开始怀疑我的做事能力。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>大数据</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>代码</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ETL</title>
-    <url>/2022/04/29/ETL/</url>
-    <content><![CDATA[<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> www.chengbing.com.datacleaner</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark._</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.rdd._</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql._</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.<span class="type">SaveMode</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.hive._</span><br><span class="line"><span class="keyword">import</span> www.chengbing.com.caseclass._</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">ETL</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]) &#123;</span><br><span class="line">    <span class="comment">//以下2行代码，主要是用以 在什么环境下进行调试，local[2]也就是代表本地集群双核的模式去调试</span></span><br><span class="line">    <span class="keyword">val</span> localClusterURL = <span class="string">&quot;local[2]&quot;</span></span><br><span class="line">    <span class="keyword">val</span> clusterMasterURL = <span class="string">&quot;spark://lkz-node1:7077&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//构建context才能提交代码去执行，相当于接口的作用</span></span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setAppName(<span class="string">&quot;ETL&quot;</span>).setMaster(clusterMasterURL)</span><br><span class="line">    <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//导包</span></span><br><span class="line">    <span class="keyword">val</span> sqlContext = <span class="keyword">new</span> <span class="type">SQLContext</span>(sc)</span><br><span class="line">    <span class="keyword">val</span> hc = <span class="keyword">new</span> <span class="type">HiveContext</span>(sc)</span><br><span class="line">    <span class="keyword">import</span> sqlContext.implicits._</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置RDD的partition的数量一般以集群分配给应用的CPU核数的整数倍为宜。(实际分配的整数倍)</span></span><br><span class="line">    <span class="comment">//整数倍不会造成CPU浪费</span></span><br><span class="line">    <span class="keyword">val</span> minPartitions = <span class="number">8</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据倾斜的状况，如果记录之间差距有明显的（异常的），需要做一些处理，数据太长会消耗大量的时间（预处理要观察数据）</span></span><br><span class="line">    <span class="keyword">val</span> links = sc.textFile(<span class="string">&quot;data/links.txt&quot;</span>, minPartitions).filter &#123; !_.endsWith(<span class="string">&quot;,&quot;</span>) &#125;.map(_.split(<span class="string">&quot;,&quot;</span>)).map(x =&gt; <span class="type">Links</span>(x(<span class="number">0</span>).trim.toInt, x(<span class="number">1</span>).trim.toInt, x(<span class="number">2</span>).trim().toInt)).toDF()<span class="comment">//格式转换</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> movies = sc.textFile(<span class="string">&quot;data/movies.txt&quot;</span>, minPartitions).filter &#123; !_.endsWith(<span class="string">&quot;,&quot;</span>) &#125;.map(_.split(<span class="string">&quot;,&quot;</span>)).map(x =&gt; <span class="type">Movies</span>(x(<span class="number">0</span>).trim().toInt, x(<span class="number">1</span>).trim(), x(<span class="number">2</span>).trim())).toDF()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> ratings = sc.textFile(<span class="string">&quot;data/ratings.txt&quot;</span>, minPartitions).filter &#123; !_.endsWith(<span class="string">&quot;,&quot;</span>) &#125;.map(_.split(<span class="string">&quot;,&quot;</span>)).map(x =&gt; <span class="type">Ratings</span>(x(<span class="number">0</span>).trim().toInt, x(<span class="number">1</span>).trim().toInt, x(<span class="number">2</span>).trim().toDouble, x(<span class="number">3</span>).trim().toInt)).toDF()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> tags = sc.textFile(<span class="string">&quot;data/tags.txt&quot;</span>, minPartitions).filter &#123; !_.endsWith(<span class="string">&quot;,&quot;</span>) &#125;.map(x=&gt;rebuild(x)).map(_.split(<span class="string">&quot;,&quot;</span>)).map(x =&gt; <span class="type">Tags</span>(x(<span class="number">0</span>).trim().toInt, x(<span class="number">1</span>).trim().toInt, x(<span class="number">2</span>).trim(), x(<span class="number">3</span>).trim().toInt)).toDF()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//通过HDFS绕圈，将sql的数据可以写入hive中，hive也可写入sql中，但是sql和hive不可互相直接写入</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//links</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//覆盖存储，把数据存储入/tmp/links</span></span><br><span class="line">    links.write.mode(<span class="type">SaveMode</span>.<span class="type">Overwrite</span>).parquet(<span class="string">&quot;/tmp/links&quot;</span>)</span><br><span class="line">    hc.sql(<span class="string">&quot;drop table if exists links&quot;</span>)</span><br><span class="line">    hc.sql(<span class="string">&quot;create table if not exists links(movieId int,imdbId int,tmdbId int) stored as parquet&quot;</span>)</span><br><span class="line">    hc.sql(<span class="string">&quot;load data inpath &#x27;/tmp/links&#x27; overwrite into table links&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//movies</span></span><br><span class="line">    movies.write.mode(<span class="type">SaveMode</span>.<span class="type">Overwrite</span>).parquet(<span class="string">&quot;/tmp/movies&quot;</span>)<span class="comment">//注意parquet格式与上面一致</span></span><br><span class="line">    hc.sql(<span class="string">&quot;drop table if exists movies&quot;</span>)<span class="comment">//删除原有表</span></span><br><span class="line">    hc.sql(<span class="string">&quot;create table if not exists movies(movieId int,title string,genres string) stored as parquet&quot;</span>)<span class="comment">//创建表</span></span><br><span class="line">    hc.sql(<span class="string">&quot;load data inpath &#x27;/tmp/movies&#x27; overwrite into table movies&quot;</span>)<span class="comment">//加载覆盖表</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//ratings</span></span><br><span class="line">    ratings.write.mode(<span class="type">SaveMode</span>.<span class="type">Overwrite</span>).parquet(<span class="string">&quot;/tmp/ratings&quot;</span>)</span><br><span class="line">    hc.sql(<span class="string">&quot;drop table if exists ratings&quot;</span>)</span><br><span class="line">    hc.sql(<span class="string">&quot;create table if not exists ratings(userId int,movieId int,rating double,timestamp int) stored as parquet&quot;</span>)</span><br><span class="line">    hc.sql(<span class="string">&quot;load data inpath &#x27;/tmp/ratings&#x27; overwrite into table ratings&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//tags</span></span><br><span class="line">    tags.write.mode(<span class="type">SaveMode</span>.<span class="type">Overwrite</span>).parquet(<span class="string">&quot;/tmp/tags&quot;</span>)</span><br><span class="line">    hc.sql(<span class="string">&quot;drop table if exists tags&quot;</span>)</span><br><span class="line">    hc.sql(<span class="string">&quot;create table if not exists tags(userId int,movieId int,tag string,timestamp int) stored as parquet&quot;</span>)</span><br><span class="line">    hc.sql(<span class="string">&quot;load data inpath &#x27;/tmp/tags&#x27; overwrite into table tags&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//这一部分主要处理中间那一部分元素</span></span><br><span class="line">  <span class="keyword">private</span> <span class="function"><span class="keyword">def</span> <span class="title">rebuild</span></span>(input:<span class="type">String</span>):<span class="type">String</span> = &#123;</span><br><span class="line">    <span class="keyword">val</span> a = input.split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line">    <span class="keyword">val</span> head = a.take(<span class="number">2</span>).mkString(<span class="string">&quot;,&quot;</span>)<span class="comment">//保留前面两个字段</span></span><br><span class="line">    <span class="keyword">val</span> tail = a.takeRight(<span class="number">1</span>).mkString<span class="comment">//保留最后一个元素</span></span><br><span class="line">    <span class="keyword">val</span> b = a.drop(<span class="number">2</span>).dropRight(<span class="number">1</span>).mkString.replace(<span class="string">&quot;\&quot;&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">    <span class="keyword">val</span> output = head + <span class="string">&quot;,&quot;</span> + b + <span class="string">&quot;,&quot;</span> + tail <span class="comment">//拼接</span></span><br><span class="line">    output</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>大数据</category>
-      </categories>
-      <tags>
-        <tag>代码</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
   <entry>
@@ -356,7 +345,7 @@
         <category>投资</category>
       </categories>
       <tags>
-        <tag>学习</tag>
+        <tag>研究报告</tag>
       </tags>
   </entry>
   <entry>
@@ -462,9 +451,10 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>自省</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>人格魅力</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
   <entry>
@@ -522,7 +512,7 @@
       </categories>
       <tags>
         <tag>静态分析</tag>
-        <tag>断点调试</tag>
+        <tag>动态分析</tag>
       </tags>
   </entry>
   <entry>
@@ -540,7 +530,6 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>投资</category>
-        <category>行业</category>
       </categories>
       <tags>
         <tag>研究报告</tag>
@@ -607,7 +596,7 @@
         <category>安卓逆向</category>
       </categories>
       <tags>
-        <tag>断点调试</tag>
+        <tag>动态分析</tag>
       </tags>
   </entry>
   <entry>
@@ -684,6 +673,9 @@
       <categories>
         <category>安卓逆向</category>
       </categories>
+      <tags>
+        <tag>动态分析</tag>
+      </tags>
   </entry>
   <entry>
     <title>xx镇江静态分析与log输出案例</title>
@@ -845,10 +837,10 @@
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>投资</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>书籍</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
   <entry>
@@ -865,10 +857,10 @@
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>投资</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>书籍</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
   <entry>
@@ -1006,7 +998,6 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>安卓逆向</category>
-        <category>HOOK</category>
         <category>取证分析</category>
       </categories>
       <tags>
@@ -1144,7 +1135,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">“区块链有什么用？”</span><br><span class="line"></span><br><span class="line">答案藏在区块链的技术与经济基础特性中。</span><br><span class="line"></span><br><span class="line">观察了以太坊带来的变化后，区块链特征以及这些特征相关的应用已经较为清晰地展现在我们面前。这四个基础特性分别是：不可篡改；智能合约；不可复制的唯一性；去中心自组织或社区化。</span><br><span class="line"></span><br><span class="line">区块链不只是技术，它还将从经济、管理、社会层面带来变化，它可能改变人类交易的方式，它将改变货币、账本、合同、协同等方面，这是稍后要讨论的。</span><br><span class="line"></span><br><span class="line">本文摘编自方军的一本即将出版的区块链普及书籍，这可能是第一本从互联网视角讨论区块链的书。</span><br></pre></td></tr></table></figure>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>区块链</category>
+        <category>未来</category>
       </categories>
       <tags>
         <tag>区块链</tag>
@@ -1194,7 +1185,7 @@
 <p>注：由于 Ramnit 是全盘感染性病毒，故此专杀工具运行时间比较长，需耐心等待（FxRamnit 常常给人一种” 假死 “的感觉）。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>应急响应</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>工具</tag>
@@ -1296,10 +1287,10 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://www.greynoise.io/</span><br></pre></td></tr></table></figure>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>网络安全</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -1331,7 +1322,7 @@
 <p><img src="/.io//blog\source_posts\安全应急漏洞排查思路\01.png" alt="img"></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>应急响应</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>应急排查</tag>
@@ -1369,7 +1360,7 @@
 <p>除了电力上的应用，目前已经有企业将区块链应用于工业废弃物的管理。中间的过程包括危险垃圾生成、堆放、运输都记录上区块链系统。如果此技术得到推广，相信环保活动也会变得更加绿色。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>五年</category>
+        <category>未来</category>
       </categories>
       <tags>
         <tag>区块链</tag>
@@ -1423,7 +1414,7 @@
 <p><a href="https://blog.csdn.net/qq_22695001/article/details/120319040">本科毕设项目答辩问题</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>学习</category>
+        <category>暂</category>
       </categories>
       <tags>
         <tag>论文</tag>
@@ -1438,10 +1429,10 @@
 <p>​        在整本书中，从最开始，我察觉到主角的情感不明显，没有太大的悲伤开始，我就在纳闷，为什么作者会这样写，我甚至带着一些电视剧的通俗套路去想这本书在后边章节会不会有转折什么，这本书比较短，所以读到中间本分，我就突然意识到了“局外人”三个字与故事情节的关系，我也逐渐猜到了故事的结尾。其实，身在社会，是真的身不由己的，故事的主人公，并没有随波逐流，而是随着随性，但这与大众所指定的规则是不同的，因此他是一定会遭到社会的谴责。但，谁又能说的定，这个社会到底是怎么样呢。我很倾佩主人公的随性，就算最后被判死刑，他也是没有太大感觉的。反过来说，是我比较可悲，初中时期的我，也是主人公一样的不与世俗计较，但总归是年少，也不懂这么多道理，总归是选择了妥协，在不知不觉中，就开始改变自己，融入社会。也不是不好，至少现在的我，与人相处和谐，大家都比较喜欢和我交朋友。但是有时候想起来，还是有些可惜和累的，只不过，不喜欢的事情做多了，也会成为一种习惯，累也不是肢体的累，只是一种怀念而已。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>扩展读物</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>日常阅读</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
   <entry>
@@ -1465,23 +1456,10 @@
 <p>金融书单（了解美第奇家族、罗斯柴尔德家族）</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>学习</category>
+        <category>自省</category>
       </categories>
       <tags>
-        <tag>技能提升</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>408题型总结</title>
-    <url>/2021/10/16/408%E9%A2%98%E5%9E%8B%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="DS"><a href="#DS" class="headerlink" title="DS"></a>DS</h1><p><img src="https://ckcah.github.io/images/408/image-20211016185916712.png" alt="image-20211016185916712.png"></p>
-<h1 id="CO"><a href="#CO" class="headerlink" title="CO"></a>CO</h1><h1 id="CN"><a href="#CN" class="headerlink" title="CN"></a>CN</h1><h1 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h1><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>考研</category>
-        <category>真题总结</category>
-      </categories>
-      <tags>
-        <tag>总结</tag>
+        <tag>me</tag>
       </tags>
   </entry>
   <entry>
@@ -1523,10 +1501,10 @@
 <p>这种影响就如同莱昂内尔·罗宾斯（Lionel Robbins）教授所著的《经济科学的性质和意义》对我们的经济学方法带来的影响一样，我们已经分不清是罗宾斯的还是我们自己的。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>扩展读物</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>日常阅读</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
   <entry>
@@ -1535,14 +1513,11 @@
     <content><![CDATA[<p>关于区块链，是我最新发现的，其实也正好作为新的研究方向，我的渗透有点不想搞了。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>自我探索</category>
-        <category>网络安全</category>
         <category>信息安全</category>
+        <category>区块链</category>
       </categories>
       <tags>
-        <tag>网络安全</tag>
-        <tag>区块链</tag>
-        <tag>信息安全</tag>
+        <tag>未来</tag>
       </tags>
   </entry>
   <entry>
@@ -1659,11 +1634,10 @@
 <p>Finally, I recommend the <a href="https://podcasts.apple.com/gb/podcast/on-the-road-with-penguin-classics/id1549179379">podcast</a> On the Road with Penguin Classics in which the team takes a stroll around the world’s favourite books. Hosted by the writer and editor Henry Eliot, <a href="https://www.penguin.co.uk/books/307215/the-penguin-classics-book/9780241320853.html">author</a> of <em>The Penguin Classics Book</em> (2018), each week the podcast heads to a different literary location to explore a book in the company of readers.</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>扩展读物</category>
         <category>英语</category>
       </categories>
       <tags>
-        <tag>英语</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
   <entry>
@@ -1746,11 +1720,9 @@
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>考研</category>
         <category>英语</category>
       </categories>
       <tags>
-        <tag>考研</tag>
         <tag>英语</tag>
       </tags>
   </entry>
@@ -1877,9 +1849,7 @@
 <p>更年期的讨论比过去多得多.</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>英语</category>
-        <category>随记</category>
-        <category>有趣的新发现</category>
+        <category>考研</category>
       </categories>
       <tags>
         <tag>英语</tag>
@@ -1903,11 +1873,9 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>英语</category>
-        <category>自我探索</category>
-        <category>陈仲凯老师</category>
       </categories>
       <tags>
-        <tag>思考</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
   <entry>
@@ -1915,6 +1883,9 @@
     <url>/2021/08/02/it&#39;s-nice-day/</url>
     <content><![CDATA[<p><img src="https://ckcah.github.io/images/me/hand.jpg" alt="hand"></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>嘘。。。</category>
+      </categories>
       <tags>
         <tag>me</tag>
       </tags>
@@ -1923,13 +1894,12 @@
     <title>英语词源故事集锦</title>
     <url>/2021/08/02/%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%BA%90%E6%95%85%E4%BA%8B%E9%9B%86%E9%94%A6/</url>
     <content><![CDATA[<object data="https://ckcah.github.io/books/英语词源故事集锦.pdf" type="application/pdf" width="100%" height="980px">
-
 </object><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>扩展读物</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>喜欢</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
   <entry>
@@ -1958,11 +1928,9 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>考研</category>
-        <category>408</category>
-        <category>小领悟</category>
       </categories>
       <tags>
-        <tag>考研</tag>
+        <tag>学习</tag>
       </tags>
   </entry>
   <entry>
@@ -2019,12 +1987,10 @@
 <p>4.注意作者在举例时，句子中出现的，like、as well。。。。。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>考研</category>
         <category>英语</category>
-        <category>陈仲凯老师</category>
       </categories>
       <tags>
-        <tag>考研</tag>
+        <tag>学习</tag>
       </tags>
   </entry>
   <entry>
@@ -2173,7 +2139,7 @@
 
 </src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src></src><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>hadoop</category>
+        <category>大数据</category>
       </categories>
       <tags>
         <tag>hadoop</tag>
@@ -2229,8 +2195,7 @@
 <p>结果：</p>
 <img src="https://ckcah.github.io/images/homework/python/7.png"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>homework</category>
-        <category>python</category>
+        <category>杂项</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -2398,8 +2363,7 @@
 <p>未完，待续</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>homework</category>
-        <category>hadoop</category>
+        <category>大数据</category>
       </categories>
       <tags>
         <tag>hadoop</tag>
@@ -2427,10 +2391,9 @@
 <h1 id="常见用法"><a href="#常见用法" class="headerlink" title="常见用法"></a>常见用法</h1><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>web安全</category>
-        <category>tools</category>
       </categories>
       <tags>
-        <tag>web安全</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -2519,7 +2482,7 @@
         <category>web安全</category>
       </categories>
       <tags>
-        <tag>数据分析</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -2644,10 +2607,10 @@
 </blockquote>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>学习英语的漫长历程</category>
+        <category>英语</category>
       </categories>
       <tags>
-        <tag>English</tag>
+        <tag>英语</tag>
       </tags>
   </entry>
   <entry>
@@ -2717,10 +2680,10 @@
 <p>make虽是使役动词，要用原形动词作补语，可是在被动态中就得把to放回去，成为不定词</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>学习英语的漫长历程</category>
+        <category>英语</category>
       </categories>
       <tags>
-        <tag>English</tag>
+        <tag>英语</tag>
       </tags>
   </entry>
   <entry>
@@ -2735,10 +2698,10 @@
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>总结</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>web安全</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -3003,12 +2966,10 @@
 </ol>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
-        <category>工具</category>
+        <category>安卓逆向</category>
       </categories>
       <tags>
-        <tag>网络安全</tag>
-        <tag>逆向</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -3021,11 +2982,10 @@
 <p>从外人的角度来看查尔斯，我很讨厌很讨厌他。但如果将自己代入查尔斯，却又是一件很舒服的事情，各个方面。我无法描述太多，那是一种特别的感觉，让我贪婪的觉得，如果我也如此该多好。可惜我不是天才，我得不到德克的追捧，也没有他第三任妻子的忠诚，更不能摆脱家庭。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>扩展读物</category>
-        <category>观后感</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>喜欢</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
   <entry>
@@ -3102,11 +3062,10 @@
 <p>成功获取到shell。</p>
 <iframe src="//player.bilibili.com/player.html?aid=711730464&bvid=BV1tD4y127U7&cid=224472912&page=16" width="600" height="700" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
-        <category>漏洞复现</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>网络安全</tag>
+        <tag>反序列化</tag>
       </tags>
   </entry>
   <entry>
@@ -3198,12 +3157,10 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">whoami | ping www.baidu.com</span><br><span class="line">whoami || ping www.baidu.com</span><br><span class="line">qwe &amp; ping www.baidu.com</span><br><span class="line">qwe &amp;&amp; ping www.baidu.com</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
-        <category>奇淫技巧</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>网络安全</tag>
-        <tag>姿势学习</tag>
+        <tag>命令执行</tag>
       </tags>
   </entry>
   <entry>
@@ -3282,10 +3239,10 @@
 <p><code>phar.readonly = off</code></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>网络安全</tag>
+        <tag>反序列化</tag>
       </tags>
   </entry>
   <entry>
@@ -3598,11 +3555,10 @@
 <p>3．核心区<br>核心区一般存放企业最重要的数据、文档等信息资产，如域控制器、核心生产机器等，安全 设置也最为严格。根据目标开展的业务不同，相关服务器可能存在于不同的网段上。通过分析服 务器上运行的服务和进程，可以推断出目标主机使用的运维监控管理系统和安全防护系。在内网 中横向移动时，会优先查找这些主机。核心区按照系统可分为业务系统、运维监控系统、安全系统等，按照网络段可分为各不同的 业务网段、运维监控网段、安全管理网段等。<br>通过获取的目标主机及所在域的各类信息，就可以绘制内网的拓扑结构图，在后续的渗透测 试中，对照拓扑图可以更快地了解目标域网内部环境，准确定位内网具体目标。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
-        <category>信息搜集</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>网络安全</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -3671,13 +3627,10 @@
 <p>案例2：站点同时支持http和https访问，CDN只配置 https协议，那么这时访问http就可以轻易绕过。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
-        <category>奇淫技巧</category>
-        <category>信息搜集</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>网络安全</tag>
-        <tag>姿势学习</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -3813,7 +3766,7 @@
 <p><em><strong>参考来源</strong></em><strong>：</strong>网络安全渗透hack</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>应急响应</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>应急排查</tag>
@@ -3876,11 +3829,9 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>web安全</category>
-        <category>CVE</category>
       </categories>
       <tags>
-        <tag>Apache</tag>
-        <tag>反序列化代码执行漏洞</tag>
+        <tag>反序列化</tag>
       </tags>
   </entry>
   <entry>
@@ -4027,7 +3978,7 @@ google dork：'inurl:bin/cklb'
         <category>web安全</category>
       </categories>
       <tags>
-        <tag>SSI注入</tag>
+        <tag>SSI</tag>
       </tags>
   </entry>
   <entry>
@@ -4054,10 +4005,10 @@ google dork：'inurl:bin/cklb'
 <p>研究人员已经通知了蓝牙特别兴趣小组SIG，该小组已经更新了蓝牙核心规范来缓解这一漏洞。苹果和三星等厂商很可能会在不久的将来推出固件或软件补丁，配合修复措施。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>设备漏洞</category>
+        <category>物联网安全</category>
       </categories>
       <tags>
-        <tag>ios</tag>
+        <tag>设备漏洞</tag>
       </tags>
   </entry>
   <entry>
@@ -4155,7 +4106,6 @@ google dork：'inurl:bin/cklb'
       </categories>
       <tags>
         <tag>文件上传</tag>
-        <tag>绕过技巧</tag>
       </tags>
   </entry>
   <entry>
@@ -4248,10 +4198,9 @@ google dork：'inurl:bin/cklb'
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>web安全</category>
-        <category>代码审计</category>
       </categories>
       <tags>
-        <tag>php函数</tag>
+        <tag>PHP</tag>
       </tags>
   </entry>
   <entry>
@@ -4290,11 +4239,9 @@ google dork：'inurl:bin/cklb'
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>web安全</category>
-        <category>CVE</category>
       </categories>
       <tags>
-        <tag>漏洞综合</tag>
-        <tag>转载</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -4381,6 +4328,12 @@ google dork：'inurl:bin/cklb'
 <p>影响版本：</p>
 <p> WebLogic 10.3.6.0.0、12.1.3.0.0、12.2.1.3.0、 12.2.1.4.0</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>web安全</category>
+      </categories>
+      <tags>
+        <tag>安全杂项</tag>
+      </tags>
   </entry>
   <entry>
     <title>web漏洞利用之弱口令</title>
@@ -4497,9 +4450,7 @@ google dork：'inurl:bin/cklb'
         <category>web安全</category>
       </categories>
       <tags>
-        <tag>SRC</tag>
-        <tag>弱口令</tag>
-        <tag>shodan</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -4554,12 +4505,9 @@ google dork：'inurl:bin/cklb'
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>web安全</category>
-        <category>CVE</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
-        <tag>目录遍历</tag>
-        <tag>远程命令执行</tag>
       </tags>
   </entry>
   <entry>
@@ -4638,8 +4586,7 @@ google dork：'inurl:bin/cklb'
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>要细心观察每一个地方的变化</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
-        <category>内网渗透</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -4743,11 +4690,10 @@ google dork：'inurl:bin/cklb'
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
-        <category>内网渗透</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>-vulnhub</tag>
+        <tag>vulnhub</tag>
       </tags>
   </entry>
   <entry>
@@ -4905,7 +4851,7 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
  结合IIS获取参数位置顺序：GET,POST,COOKIE<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>WAF</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>WAF</tag>
@@ -5065,12 +5011,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>成功获得flag</p>
 <img src="https://ckcah.github.io/images/DC-3/34.png"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
-        <category>内网渗透</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>vulnhub</tag>
-        <tag>Joomla</tag>
+        <tag>内网渗透</tag>
       </tags>
   </entry>
   <entry>
@@ -5192,8 +5136,7 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>kali</category>
-        <category>内网渗透</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -5208,6 +5151,12 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
 <p>修改为：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">else if(substr($filename, -strlen($fileexp))===$fileexp)</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>web安全</category>
+      </categories>
+      <tags>
+        <tag>文件上传</tag>
+      </tags>
   </entry>
   <entry>
     <title>渗透测试实战技巧</title>
@@ -5389,10 +5338,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>对了亲～ReDuh-Gui 号称端口转发神器哦。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># https://github.com/sensepost/reDuh</span><br><span class="line"></span><br><span class="line"># 步骤 1</span><br><span class="line"># 上传 reDuh.jsp 目标服务器</span><br><span class="line">$ http://192.168.10.50/uploads/reDuh.jsp</span><br><span class="line"></span><br><span class="line"># 步骤 2</span><br><span class="line"># 在本机运行 reDuhClient </span><br><span class="line">$ java -jar reDuhClient.jar http://192.168.10.50/uploads/reDuh.jsp</span><br><span class="line"></span><br><span class="line"># 步骤 3</span><br><span class="line"># 使用 nc 连接管理端口</span><br><span class="line">$ nc -nvv 127.0.0.1 1010</span><br><span class="line"></span><br><span class="line"># 步骤 4</span><br><span class="line"># 使用隧道转发本地端口到远程目标端口</span><br><span class="line">[createTunnel] 7777:172.16.0.4:3389</span><br><span class="line"></span><br><span class="line"># 步骤 5</span><br><span class="line"># 使用 RDP 连接远程</span><br><span class="line">$ /usr/bin/rdesktop -g 1024x768 -P -z -x l -k en-us -r sound:off localhost:7777</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>渗透测试</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>渗透技巧</tag>
+        <tag>技巧</tag>
       </tags>
   </entry>
   <entry>
@@ -5610,11 +5559,9 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">index.php?file=data:text/plain,&lt;?php phpinfo();?&gt;</span><br><span class="line">index.php?file=data://text/plain,&lt;?php phpinfo();</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>web安全</category>
-        <category>PHP</category>
       </categories>
       <tags>
-        <tag>Bypass</tag>
-        <tag>文件包含</tag>
+        <tag>PHP</tag>
       </tags>
   </entry>
   <entry>
@@ -5627,14 +5574,11 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>扩展读物</category>
         <category>英语</category>
-        <category>反省</category>
-        <category>TED</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>思考</tag>
-        <tag>喜欢</tag>
+        <tag>英语</tag>
       </tags>
   </entry>
   <entry>
@@ -5671,7 +5615,6 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <img src="https://ckcah.github.io/images/CVE-2019-6977/3.png"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>web安全</category>
-        <category>CVE</category>
       </categories>
       <tags>
         <tag>xss</tag>
@@ -5696,10 +5639,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>movin’ on = Moving on</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>学习英语的漫长历程</category>
+        <category>英语</category>
       </categories>
       <tags>
-        <tag>English</tag>
+        <tag>英语</tag>
       </tags>
   </entry>
   <entry>
@@ -5723,11 +5666,11 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>小川普上任这么久了，没有功劳也有苦恼，我就还是不怼（主要还是怕说错话，哈哈哈），其他方面不说，十几秒概述两个重点这个，是该值得学习的语言魅力！！</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>English</category>
-        <category>自我修养</category>
+        <category>英语</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>English</tag>
+        <tag>英语</tag>
       </tags>
   </entry>
   <entry>
@@ -5868,10 +5811,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>JSFinder  <a href="https://github.com/Threezh1/JSFinder">https://github.com/Threezh1/JSFinder</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>面试</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>网络安全</tag>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -5918,10 +5861,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>辅音<br>[p] pot pig put [b] bed bag book [t] tooth teacher tea [d] dog dig duck<br>[k] cake keep cat [g] grandpa girl green [f] father fat foot [v] five very vent<br>[s] small study bus [z] jazz zoo zero [θ] eighth forth tenth [δ] those these that<br>[∫] cash shoe ship [з] measure pleasure leisure<br>[t∫]chair chicken lunch [dз] jack job change<br>[tr] tree truck train [dr] dress drink drain<br>[ts] students coats cats [dz] beds odds codes<br>[m] mum moon morning [n] moon nut needle [ŋ] ink link ring<br>[h] hello hurry hey [l] look leg lake [r] rain radio room [w] window wake week<br>[j] yellow yes you<br>单元音：<br>[e] yes yellow bed [ae] cat bad dad [a:] are car far [۸] cut nut but<br>[כ] pot got dog [כ:] call tall or [ə:]curtain further fur [ə]mother color cooler<br>[i] ink big pig [i:] jeep tea eat [u] good book look [u:] cool zoo tool<br>双元音：<br>[ei] age eight make [ai] ice bike nice [כi]toy oil boy [əu] old joke gold<br>[au] cloud mouth cow [εə] air fair chair [iə] ear near year [uə] cure dure pure</p>
 <img src="https://ckcah.github.io/images/English/1.png"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>学习英语的漫长历程</category>
+        <category>英语</category>
       </categories>
       <tags>
-        <tag>English</tag>
+        <tag>英语</tag>
       </tags>
   </entry>
   <entry>
@@ -5951,10 +5894,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>　　以上就是整理的关于英语句子连读规则，希望对大家有所帮助。英语句子连读规则虽然大家现在都知道了，但是并不代表你们就会句子连读了。英语句子连读不能为了连读而连读，而是建立在别人能够理解的条件上。而且，英语句子连读规则要真正应用到实际，需要大家通过大量的口头练习才能掌握。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>学习英语的漫长历程</category>
+        <category>英语</category>
       </categories>
       <tags>
-        <tag>English</tag>
+        <tag>英语</tag>
       </tags>
   </entry>
   <entry>
@@ -5992,7 +5935,7 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
         <category>web安全</category>
       </categories>
       <tags>
-        <tag>NoSQL</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -6054,13 +5997,9 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>web安全</category>
-        <category>CVE</category>
-        <category>SaltStack</category>
       </categories>
       <tags>
-        <tag>目录遍历</tag>
-        <tag>认证绕过</tag>
-        <tag>任意命令执行</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -6110,10 +6049,9 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>web安全</category>
-        <category>php</category>
       </categories>
       <tags>
-        <tag>sql</tag>
+        <tag>PHP</tag>
       </tags>
   </entry>
   <entry>
@@ -6131,11 +6069,11 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>扩展读物</category>
-        <category>反省</category>
+        <category>英语</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>日常阅读</tag>
+        <tag>英语</tag>
       </tags>
   </entry>
   <entry>
@@ -6158,11 +6096,11 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>要是碰上喜欢的女孩子，就告诉她！“想成为你的人！！”（眼神一定要真诚）</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>English</category>
-        <category>自我修养</category>
+        <category>英语</category>
+        <category>窥探</category>
       </categories>
       <tags>
-        <tag>English</tag>
+        <tag>英语</tag>
       </tags>
   </entry>
   <entry>
@@ -6304,8 +6242,7 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>这段命令的意思就是先使用 find 命令查找flag4.txt 文件，然后使用它的参数 -exec 来执行命令 /bin/sh ，这样就能获取到 root权限了！</p>
 <img src="https://ckcah.github.io/images/DC_1/28.png"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>渗透测试</category>
-        <category>kali</category>
+        <category>web安全</category>
       </categories>
       <tags>
         <tag>vulnhub</tag>
@@ -6330,10 +6267,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <p>最好的方式避免暴力破解就是限制登录次数和IP地址。最新版本的WordPress默认有这个选项。确保你限制输入条目最大为3，增加锁定功能（即6次密码尝试就上锁）。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>tool</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -6928,10 +6865,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <h3 id="IIS-Generic"><a href="#IIS-Generic" class="headerlink" title="IIS Generic"></a><strong>IIS Generic</strong></h3><p>Tabs before method by @i_bo0om</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GET /login.php HTTP/1.1</span><br><span class="line">Host: favoritewaf.com</span><br><span class="line">User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>waf</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -6951,10 +6888,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 
 <h3 id="漏洞收集与-Exp、Poc-利用"><a href="#漏洞收集与-Exp、Poc-利用" class="headerlink" title="漏洞收集与 Exp、Poc 利用"></a>漏洞收集与 Exp、Poc 利用</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/Lcys/Python_PoC python3 的 poc、exp 快速编写模板，有众多模范版本</span><br><span class="line"></span><br><span class="line">https://github.com/raminfp/linux_exploit_development linux 漏洞利用开发手册</span><br><span class="line"></span><br><span class="line">https://github.com/mudongliang/LinuxFlaw 包含 linux 下软件漏洞列表</span><br><span class="line"></span><br><span class="line">https://github.com/coffeehb/Some-PoC-oR-ExP 各种漏洞 poc、Exp 的收集或编写</span><br><span class="line"></span><br><span class="line">https://github.com/userlandkernel/plataoplomo Sem Voigtländer 公开其发现的 iOS 中各种漏洞，包</span><br><span class="line">括（Writeup/POC/Exploit）</span><br><span class="line"></span><br><span class="line">https://github.com/coffeehb/Some-PoC-oR-ExP/blob/master/check_icmp_dos.py CVE-2018-4407，macos/ios 缓冲区溢出可导致系统崩溃</span><br><span class="line"></span><br><span class="line">https://github.com/vulnersCom/getsploit py2,仿照 searchsploit 通过各种数据库的官方接口进行 payload 的查找</span><br><span class="line"></span><br><span class="line">https://github.com/SecWiki/CMS-Hunter CMS 漏洞测试用例集合https://github.com/Mr5m1th/0day 各种开源 CMS 各种版本的漏洞以及 EXP</span><br><span class="line"></span><br><span class="line">https://github.com/w1109790800/penetration CMS 新老版本 exp 与系统漏洞搜集表</span><br><span class="line"></span><br><span class="line">https://github.com/blacknbunny/libSSH-Authentication-Bypass CVE-2018-10933，libssh 服务端身份验证绕过</span><br><span class="line"></span><br><span class="line">https://github.com/leapsecurity/libssh-scanner CVE-2018-10933，libssh 服务端身份验证绕过https://github.com/anbai-inc/CVE-2018-4878 Adobe Flash Exploit 生成 payload</span><br><span class="line"></span><br><span class="line">https://github.com/RetireJS/grunt-retire 扫描 js 扩展库的常见漏洞</span><br><span class="line"></span><br><span class="line">https://github.com/coffeehb/SSTIF 服务器端模板注入漏洞的半自动化工具</span><br><span class="line"></span><br><span class="line">https://github.com/tijme/angularjs-csti-scanner 探测客户端 AngularJS 模板注入漏洞工具</span><br><span class="line"></span><br><span class="line">https://github.com/blackye/Jenkins Jenkins 漏洞探测、用户抓取爆破</span><br><span class="line"></span><br><span class="line">https://github.com/epinna/tplmap 服务器端模板注入漏洞检测与利用工具</span><br><span class="line"></span><br><span class="line">https://github.com/irsdl/IIS-ShortName-Scanner Java,IIS 短文件名暴力枚举漏洞利用工具</span><br><span class="line"></span><br><span class="line">https://github.com/lijiejie/IIS_shortname_Scanner py2,IIS 短文件名漏洞扫描</span><br><span class="line"></span><br><span class="line">https://github.com/rudSarkar/crlf-injector CRLF 注入漏洞批量扫描</span><br><span class="line"></span><br><span class="line">https://github.com/hahwul/a2sv SSL 漏洞扫描，例如心脏滴血漏洞等</span><br><span class="line"></span><br><span class="line">https://github.com/jagracey/Regex-DoS RegEx 拒绝服务扫描器</span><br><span class="line"></span><br><span class="line">https://github.com/Bo0oM/PHP_imap_open_exploit 利用 imap_open 绕过 php exec 函数禁用</span><br><span class="line"></span><br><span class="line">https://www.anquanke.com/post/id/106488 利用 mysql 服务端恶意配置读取客户端文件，（如何利用 MySQL </span><br><span class="line">LOCAL INFILE 读取客户端文件，Read MySQL Client&#x27;s File，【技术分享】从 MySQL 出发的反击之路）</span><br><span class="line"></span><br><span class="line">https://www.waitalone.cn/awvs-poc.html CVE-2015-4027，AWVS10 命令执行漏洞</span><br><span class="line"></span><br><span class="line">http://an7isec.blogspot.com/2014/04/pown-noobs-acunetix-0day.html Pwn the n00bs - Acunetix 0day，awvs8 命令执行漏洞</span><br><span class="line"></span><br><span class="line">https://github.com/numpy/numpy/issues/12759 科学计算框架 numpy 命令执行 RCE 漏洞</span><br><span class="line"></span><br><span class="line">https://github.com/petercunha/Jenkins-PreAuth-RCE-PoC jenkins 远程命令执行</span><br><span class="line"></span><br><span class="line">https://github.com/WyAtu/CVE-2018-20250 WinRar 执行漏洞加使用介绍</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>安全合辑</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -7214,11 +7151,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 <h1 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h1><p>对属性或方法的访问控制，是通过在前面添加关键字 <em>public</em>（公有），<em>protected</em>（受保护）或 <em>private</em>（私有）来实现的。被定义为公有的类成员可以在任何地方被访问。被定义为受保护的类成员则可以被其自身以及其子类和父类访问。被定义为私有的类成员则只能被其定义所在的类访问。</p>
 </script></p><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
-        <category>代码审计</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>网络安全</tag>
+        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
@@ -7297,11 +7233,10 @@ http://192.168.8.161/sql.aspx?id=1.eunionselect null,null,SYSTEM_USER
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
-        <category>信息搜集</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>资产探索</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -7470,11 +7405,10 @@ shop_users 后面的两个``,做了shop_users 表的别名,所以无影响。
 <h2 id="4-5-读文件"><a href="#4-5-读文件" class="headerlink" title="4.5 读文件"></a>4.5 读文件</h2><p>只能用在Windows上，需要特殊配置。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">load_extension(library_file,entry_point)</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>sql</tag>
-        <tag>paylaod</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -7558,10 +7492,10 @@ shop_users 后面的两个``,做了shop_users 表的别名,所以无影响。
 <p>成功，密码是我重新注册的密码</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>cms</tag>
+        <tag>逻辑漏洞</tag>
       </tags>
   </entry>
   <entry>
@@ -7622,11 +7556,10 @@ shop_users 后面的两个``,做了shop_users 表的别名,所以无影响。
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>cms</tag>
-        <tag>水平越权</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -7731,11 +7664,10 @@ secure_file_priv没有设置时，则表示没有任何限制
 <p>其他查询步骤不在一一列出</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>代码审计</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>sql</tag>
-        <tag>cms</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -7801,11 +7733,10 @@ secure_file_priv没有设置时，则表示没有任何限制
 <h2 id="-11"><a href="#-11" class="headerlink" title></a></h2><h2 id="13-社工信息"><a href="#13-社工信息" class="headerlink" title="13.社工信息"></a><strong>13.社工信息</strong></h2><p>site:target.com intitle:账号 | 密码 | 工号 | 学号 | 身份证</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>googlehack</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>SRC</tag>
-        <tag>基础语法</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
   <entry>
@@ -7865,11 +7796,10 @@ secure_file_priv没有设置时，则表示没有任何限制
 <p>到这里，就没继续的必要了，因为你已经把<code>\administrator\components\com_fields\models\fields.php</code>escape之前的东西追溯了这么多了，还没发现问题，就没必要再继续了。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>sql</tag>
-        <tag>CVE</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -7908,10 +7838,10 @@ secure_file_priv没有设置时，则表示没有任何限制
 <p>当然支付逻辑漏洞不止上面列举的这些类型，但最常见的支付漏洞为直接修改金额，修改购买商品数量以及窜改商品编号这三种，下面就来实践下这三种支付逻辑漏洞。</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>逻辑漏洞</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>web</tag>
+        <tag>逻辑漏洞</tag>
       </tags>
   </entry>
   <entry>
@@ -8104,10 +8034,10 @@ secure_file_priv没有设置时，则表示没有任何限制
 <p>3.没有被骗钱的话，遇到了诈骗，建议发朋友圈或者其他信息告知更多人，避免亲友被骗</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>网络安全</category>
+        <category>web安全</category>
       </categories>
       <tags>
-        <tag>姿势学习</tag>
+        <tag>安全杂项</tag>
       </tags>
   </entry>
 </search>
