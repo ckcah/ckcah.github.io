@@ -137,6 +137,135 @@
       </tags>
   </entry>
   <entry>
+    <title>Android加壳与脱壳（二）：加壳与脱壳</title>
+    <url>/2022/05/09/Android%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3/</url>
+    <content><![CDATA[<p>有test</p>
+<p>维度</p>
+<h1 id="什么是加壳"><a href="#什么是加壳" class="headerlink" title="什么是加壳"></a>什么是加壳</h1><p>再二进制的程序中植入一段代码，在运行时优先获得程序的控制权，做一些额外的工作。</p>
+<h1 id="DEX文件格式"><a href="#DEX文件格式" class="headerlink" title="DEX文件格式"></a>DEX文件格式</h1><h2 id="DEX文件"><a href="#DEX文件" class="headerlink" title="DEX文件"></a>DEX文件</h2><p>他是Android系统的可执行文件，包含应用程序的全部操作指令以及运行时数据</p>
+<p>由于dalvik是一种针对嵌入式设备而特殊设计的java虚拟机，所以dex文件与标准的class文件在结构设计上有着本质的区别</p>
+<p>当java程序编译成class后，还需要使用dx工具将所有的class文件整合到一个dex文件，目的是其中各个类能够共享数据，在一定程度上降低了冗余，同时也是文件结构更加经凑，实验表明，dex文件是传统jar文件大小的50%左右</p>
+<h2 id="dex文件结构"><a href="#dex文件结构" class="headerlink" title="dex文件结构"></a>dex文件结构</h2><p><img src="https://ckcah.github.io/2022/05/09/Android%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3/webp" alt="img"></p>
+<p>文件整体结构说明：</p>
+<table>
+<thead>
+<tr>
+<th>数据名称</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dex_header</td>
+<td align="center">dex文件头部记录整个dex文件的相关属性</td>
+</tr>
+<tr>
+<td>string_table</td>
+<td align="center">字符串数据索引，记录了每个字符串在数据区的偏移量</td>
+</tr>
+<tr>
+<td>type_table</td>
+<td align="center">类似数据索引，记录了每个类型的字符串索引</td>
+</tr>
+<tr>
+<td>proto_table</td>
+<td align="center">原型数据索引，记录了方法声明的字符串，返回类型字符串，参数列表</td>
+</tr>
+<tr>
+<td>field_table</td>
+<td align="center">字段数据索引，记录了所属类，类型以及方法名</td>
+</tr>
+<tr>
+<td>method_table</td>
+<td align="center">类方法索引，记录方法所属类名，方法声明以及方法名等信息</td>
+</tr>
+<tr>
+<td>class_def</td>
+<td align="center">类定义数据索引，记录指定类各类信息，包括接口，超类，类数据偏移量</td>
+</tr>
+<tr>
+<td>data_section</td>
+<td align="center">数据区，保存了各个类的真是数据</td>
+</tr>
+</tbody></table>
+<h1 id="加壳作用"><a href="#加壳作用" class="headerlink" title="加壳作用"></a>加壳作用</h1><p>加壳的程序可以有效阻止对程序的反汇编分析，以达到它不可告人的目的。这种技术也常用来保护软件版权，防止被软件破解。</p>
+<h1 id="加固流程"><a href="#加固流程" class="headerlink" title="加固流程"></a>加固流程</h1><p>1.生成 originalAPK.apk</p>
+<p>2.编写 addShell.java 程序（注：虽然这里没有所要操作的 shellDex.dex 文件，但其文件格式都已知晓，不会影响程序的实现）</p>
+<p>3.编写 shellAPK.apk，并从中提取 classes.dex 文件改名为 shellDex.dex（注：虽然这里 originalAPK.apk 都没有被加密，也没有与 shellDex.dex 合并，但解密算法和文件格式都已知晓，不会影响程序的实现）</p>
+<p>4.运行 addShell.java 程序，生成 classes.dex</p>
+<p>5.修改相关文件，如 Manifest 文件，将修改后的文件和第四步生成的classes.dex 文件替换 shellAPK.apk 中相应的文件。最终获得的 shellAPK.apk 就是我们加固后的 originalAPK.apk。</p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>Dex文件整体加固原理如下：</p>
+<p><img src="https://ckcah.github.io/2022/05/09/Android%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3/webp01" alt="img"></p>
+<p>Android Dex文件加壳原理</p>
+<p>在这个过程中，牵扯到三个角色：</p>
+<p>​      1、加壳程序：加密源程序为解壳数据、组装解壳程序和解壳数据</p>
+<p>​      2、解壳程序：解密解壳数据，并运行时通过<code>DexClassLoader</code>动态加载</p>
+<p>​      3、源程序：需要加壳处理的被保护代码</p>
+<p>拼接步骤如下：</p>
+<p>• 获取脱壳 DEX （二进制数据）</p>
+<p>• 计算新 DEX 的大小（脱壳 DEX 的大小 + 加密 APK 的大小 + 4）</p>
+<p>• 依次拼接脱壳 DEX、加密 APK、加密 APK 的大小，得到新 DEX</p>
+<p>• 修改新 DEX 头的三个字段</p>
+<p>• 输出新 DEX</p>
+<p><em>根据解壳数据在解壳程序DEX文件中的不同分布，本文将提出两种Android Dex加壳的实现方案。</em></p>
+<h2 id="（一）解壳数据位于解壳程序文件尾部"><a href="#（一）解壳数据位于解壳程序文件尾部" class="headerlink" title="（一）解壳数据位于解壳程序文件尾部"></a>（一）解壳数据位于解壳程序文件<strong>尾部</strong></h2><p>该种方式简单实用，合并后的DEX文件结构如下。</p>
+<p><img src="https://ckcah.github.io/2022/05/09/Android%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3/1363336154_5208.png" alt="img"></p>
+<p><strong>加壳程序工作流程：</strong></p>
+<p>1、加密源程序APK文件为解壳数据</p>
+<p>2、把解壳数据写入解壳程序Dex文件末尾，并在文件尾部添加解壳数据的大小。</p>
+<p>3、修改解壳程序DEX头中checksum、signature 和file_size头信息。</p>
+<p>4、修改源程序AndroidMainfest.xml文件并覆盖解壳程序AndroidMainfest.xml文件。</p>
+<p><strong>解壳DEX程序工作流程：</strong></p>
+<p>1、读取DEX文件末尾数据获取借壳数据长度。</p>
+<p>2、从DEX文件读取解壳数据，解密解壳数据。以文件形式保存解密数据到a.APK文件</p>
+<p>3、通过DexClassLoader动态加载a.apk。</p>
+<h2 id="（二）解壳数据位于解壳程序文件头"><a href="#（二）解壳数据位于解壳程序文件头" class="headerlink" title="（二）解壳数据位于解壳程序文件头"></a>（二）解壳数据位于解壳程序文件头</h2><p>该种方式相对比较复杂， 合并后DEX文件结构如下：</p>
+<p><img src="https://ckcah.github.io/2022/05/09/Android%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3/1363590789_1107.png" alt="img"></p>
+<p><strong>加壳程序工作流程：</strong></p>
+<p>1、加密源程序APK文件为解壳数据</p>
+<p>2、计算解壳数据长度，并添加该长度到解壳DEX文件头末尾，并继续解壳数据到文件头末尾。</p>
+<p>​                    （插入数据的位置为0x70处）</p>
+<p> 3、修改解壳程序DEX头中checksum、signature、file_size、header_size、string_ids_off、type_ids_off、proto_ids_off、field_ids_off、method_ids_off、class_defs_off和data_off相关项。  分析map_off 数据，修改相关的数据偏移量。  </p>
+<p> 4、修改源程序AndroidMainfest.xml文件并覆盖解壳程序AndroidMainfest.xml文件。</p>
+<p><strong>解壳DEX程序工作流程:</strong><br>1、从0x70处读取解壳数据长度。</p>
+<p>2、从DEX文件读取解壳数据，解密解壳数据。以文件形式保存解密数据到a.APK</p>
+<p>3、通过DexClassLoader动态加载a.APK。</p>
+<h1 id="加壳及脱壳代码实现"><a href="#加壳及脱壳代码实现" class="headerlink" title="加壳及脱壳代码实现"></a>加壳及脱壳代码实现</h1><p>本程序基于<code>Android2.3</code>代码实现，因为牵扯到系统代码的反射修改，本程序不保证在其它android版本正常工作，可以根据实现原理，自行实现对其它Android版本的兼容性开发。</p>
+<p>1、 加壳程序流程及代码实现</p>
+<p>​        1、加密源程序APK为解壳数据</p>
+<p>​        2、把解壳数据写入解壳程序DEX文件末尾，并在文件尾部添加解壳数据的大小。</p>
+<p>​        3、修改解壳程序DEX头中checksum、signature 和file_size头信息。</p>
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.android.dexshell;</span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.security.MessageDigest;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"><span class="keyword">import</span> java.util.zip.Adler32;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DexShellTool</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			File payloadSrcFile = <span class="keyword">new</span> File(<span class="string">&quot;g:/payload.apk&quot;</span>);</span><br><span class="line">			File unShellDexFile = <span class="keyword">new</span> File(<span class="string">&quot;g:/unshell.dex&quot;</span>);</span><br><span class="line">			<span class="keyword">byte</span>[] payloadArray = encrpt(readFileBytes(payloadSrcFile));</span><br><span class="line">			<span class="keyword">byte</span>[] unShellDexArray = readFileBytes(unShellDexFile);</span><br><span class="line">			<span class="keyword">int</span> payloadLen = payloadArray.length;</span><br><span class="line">			<span class="keyword">int</span> unShellDexLen = unShellDexArray.length;</span><br><span class="line">			<span class="keyword">int</span> totalLen = payloadLen + unShellDexLen +<span class="number">4</span>;</span><br><span class="line">			<span class="keyword">byte</span>[] newdex = <span class="keyword">new</span> <span class="keyword">byte</span>[totalLen];</span><br><span class="line">			<span class="comment">//添加解壳代码</span></span><br><span class="line">			System.arraycopy(unShellDexArray, <span class="number">0</span>, newdex, <span class="number">0</span>, unShellDexLen);</span><br><span class="line">			<span class="comment">//添加加密后的解壳数据</span></span><br><span class="line">			System.arraycopy(payloadArray, <span class="number">0</span>, newdex, unShellDexLen, payloadLen);</span><br><span class="line">			<span class="comment">//添加解壳数据长度</span></span><br><span class="line">			System.arraycopy(intToByte(payloadLen), <span class="number">0</span>, newdex, totalLen-<span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line">            <span class="comment">//修改DEX file size文件头</span></span><br><span class="line">			fixFileSizeHeader(newdex);</span><br><span class="line">			<span class="comment">//修改DEX SHA1 文件头</span></span><br><span class="line">			fixSHA1Header(newdex);</span><br><span class="line">			<span class="comment">//修改DEX CheckSum文件头</span></span><br><span class="line">			fixCheckSumHeader(newdex);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">			String str = <span class="string">&quot;g:/classes.dex&quot;</span>;</span><br><span class="line">			File file = <span class="keyword">new</span> File(str);</span><br><span class="line">			<span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">				file.createNewFile();</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			FileOutputStream localFileOutputStream = <span class="keyword">new</span> FileOutputStream(str);</span><br><span class="line">			localFileOutputStream.write(newdex);</span><br><span class="line">			localFileOutputStream.flush();</span><br><span class="line">			localFileOutputStream.close();</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//直接返回数据，读者可以添加自己加密方法</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] encrpt(<span class="keyword">byte</span>[] srcdata)&#123;</span><br><span class="line">		<span class="keyword">return</span> srcdata;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fixCheckSumHeader</span><span class="params">(<span class="keyword">byte</span>[] dexBytes)</span> </span>&#123;</span><br><span class="line">		Adler32 adler = <span class="keyword">new</span> Adler32();</span><br><span class="line">		adler.update(dexBytes, <span class="number">12</span>, dexBytes.length - <span class="number">12</span>);</span><br><span class="line">		<span class="keyword">long</span> value = adler.getValue();</span><br><span class="line">		<span class="keyword">int</span> va = (<span class="keyword">int</span>) value;</span><br><span class="line">		<span class="keyword">byte</span>[] newcs = intToByte(va);</span><br><span class="line">		<span class="keyword">byte</span>[] recs = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">4</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">			recs[i] = newcs[newcs.length - <span class="number">1</span> - i];</span><br><span class="line">			System.out.println(Integer.toHexString(newcs[i]));</span><br><span class="line">		&#125;</span><br><span class="line">		System.arraycopy(recs, <span class="number">0</span>, dexBytes, <span class="number">8</span>, <span class="number">4</span>);</span><br><span class="line">		System.out.println(Long.toHexString(value));</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] intToByte(<span class="keyword">int</span> number) &#123;</span><br><span class="line">		<span class="keyword">byte</span>[] b = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">4</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">			b[i] = (<span class="keyword">byte</span>) (number % <span class="number">256</span>);</span><br><span class="line">			number &gt;&gt;= <span class="number">8</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> b;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fixSHA1Header</span><span class="params">(<span class="keyword">byte</span>[] dexBytes)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> NoSuchAlgorithmException </span>&#123;</span><br><span class="line">		MessageDigest md = MessageDigest.getInstance(<span class="string">&quot;SHA-1&quot;</span>);</span><br><span class="line">		md.update(dexBytes, <span class="number">32</span>, dexBytes.length - <span class="number">32</span>);</span><br><span class="line">		<span class="keyword">byte</span>[] newdt = md.digest();</span><br><span class="line">		System.arraycopy(newdt, <span class="number">0</span>, dexBytes, <span class="number">12</span>, <span class="number">20</span>);</span><br><span class="line">		String hexstr = <span class="string">&quot;&quot;</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; newdt.length; i++) &#123;</span><br><span class="line">			hexstr += Integer.toString((newdt[i] &amp; <span class="number">0xff</span>) + <span class="number">0x100</span>, <span class="number">16</span>)</span><br><span class="line">					.substring(<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(hexstr);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fixFileSizeHeader</span><span class="params">(<span class="keyword">byte</span>[] dexBytes)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">		<span class="keyword">byte</span>[] newfs = intToByte(dexBytes.length);</span><br><span class="line">		System.out.println(Integer.toHexString(dexBytes.length));</span><br><span class="line">		<span class="keyword">byte</span>[] refs = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">4</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">			refs[i] = newfs[newfs.length - <span class="number">1</span> - i];</span><br><span class="line">			System.out.println(Integer.toHexString(newfs[i]));</span><br><span class="line">		&#125;</span><br><span class="line">		System.arraycopy(refs, <span class="number">0</span>, dexBytes, <span class="number">32</span>, <span class="number">4</span>);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] readFileBytes(File file) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">		<span class="keyword">byte</span>[] arrayOfByte = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">		ByteArrayOutputStream localByteArrayOutputStream = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">		FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> i = fis.read(arrayOfByte);</span><br><span class="line">			<span class="keyword">if</span> (i != -<span class="number">1</span>) &#123;</span><br><span class="line">				localByteArrayOutputStream.write(arrayOfByte, <span class="number">0</span>, i);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">return</span> localByteArrayOutputStream.toByteArray();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>解壳待补充</p>
+<p>原因：暂时还没用到，看得懂</p>
+<h1 id="案例尝试"><a href="#案例尝试" class="headerlink" title="案例尝试"></a>案例尝试</h1><p>总体流程：</p>
+<p>对源 APK 进行加密、拼接到脱壳 DEX，得到新 DEX。</p>
+<h2 id="一、创建源APK"><a href="#一、创建源APK" class="headerlink" title="一、创建源APK"></a>一、创建源APK</h2><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        Log.d(<span class="string">&quot;hello Ckcah&quot;</span>, <span class="string">&quot;I am bosch&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.新建工程，默认模板即可</p>
+<p>因为暂时还没深入到，所以。。。。</p>
+<h2 id="二、加密和拼接"><a href="#二、加密和拼接" class="headerlink" title="二、加密和拼接"></a>二、加密和拼接</h2><p>略</p>
+<h2 id="三、脱壳DEX"><a href="#三、脱壳DEX" class="headerlink" title="三、脱壳DEX"></a>三、脱壳DEX</h2><p>略</p>
+<h2 id="四、新APK"><a href="#四、新APK" class="headerlink" title="四、新APK"></a>四、新APK</h2><p>略</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/androidsecurity/article/details/8678399">Android APK加壳技术方案【1】</a></p>
+<p><a href="https://blog.csdn.net/androidsecurity/article/details/8809542">Android APK加壳技术方案【2】</a></p>
+<p><a href="https://blog.csdn.net/itfootball/article/details/50962459">Android安全专项-Apk加固</a></p>
+<p><a href="https://blog.csdn.net/Cloud_Player/article/details/118018442?utm_medium=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~Rate-3-118018442-blog-null.pc_404_mixedpudn&depth_1-utm_source=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~Rate-3-118018442-blog-null.pc_404_mixedpud">apk加壳去壳</a></p>
+<p><a href="https://langgithub.github.io/2020/06/09/Android%E5%8A%A0%E5%9B%BA/">Android加固</a></p>
+<p><a href="https://www.jianshu.com/p/4ff48b761ff6">Android应用加固原理</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>安卓逆向</category>
+      </categories>
+      <tags>
+        <tag>加壳</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Android Inline Hook 初识</title>
     <url>/2022/05/06/Android%20Inline%20Hook%20%E5%88%9D%E8%AF%86/</url>
     <content><![CDATA[<h1 id="hook"><a href="#hook" class="headerlink" title="hook"></a>hook</h1><p>hook在Android的应用框架层分为：JAVA层和Native层</p>
