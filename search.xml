@@ -135,6 +135,45 @@
       </tags>
   </entry>
   <entry>
+    <title>如何选基金-资产配置笔记</title>
+    <url>/2022/06/08/%E5%A6%82%E4%BD%95%E9%80%89%E5%9F%BA%E9%87%91-%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>配置：</strong></p>
+<p>20% 债券型<br>70% 股票型<br>10% 现金/货币型/存银行</p>
+<p><em>注：</em></p>
+<p>根据市场行情进行调整<br>比如政府要开始放水了，多配置一些股票型</p>
+<p><strong>具体实现：</strong></p>
+<p>1.基金经理：<br>个人经验、业绩、业务量</p>
+<p>一般：研究员 -&gt; 基金经理助理 -&gt; 基金经理</p>
+<p>注意当投资经理的年限<br>8-10年的经理最好，牛熊都经历过</p>
+<p>投资风格</p>
+<p>2.历史收益率<br>2、3、5年表现为同类基金前1/4<br>近一年表现为1/4<br>近6个月表现为1/3<br>近3个月表现为1/3</p>
+<p>3.绝对收益率（基准，对应指数，比如标普500）、最大回撤（最低点与最高点）</p>
+<p>4.业务量（体量）</p>
+<p>5.基金公司<br>AUM，管理规模。。。。</p>
+<p>比如：</p>
+<p><img src="https://ckcah.github.io/2022/06/08/%E5%A6%82%E4%BD%95%E9%80%89%E5%9F%BA%E9%87%91-%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/image-20220608144543688.png" alt="image-20220608144543688"></p>
+<p><img src="https://ckcah.github.io/2022/06/08/%E5%A6%82%E4%BD%95%E9%80%89%E5%9F%BA%E9%87%91-%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/image-20220608144622836.png" alt="image-20220608144622836"></p>
+<p><img src="https://ckcah.github.io/2022/06/08/%E5%A6%82%E4%BD%95%E9%80%89%E5%9F%BA%E9%87%91-%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/image-20220608144642234.png" alt="image-20220608144642234"></p>
+<p><strong>我的具体配置：</strong>（暂略）</p>
+<p><em><strong>1.   20% 债券型</strong></em></p>
+<p>我选择的是<code>可转债</code></p>
+<p><a href="http://fund.eastmoney.com/000536.html">前海开源可转债债券</a></p>
+<p><a href="http://fund.eastmoney.com/000297.html">鹏华可转债债券A</a></p>
+<p><a href="http://fund.eastmoney.com/470058.html">汇添富可转换债券A</a></p>
+<p>但前海开源的基金公司规模只有1300多亿</p>
+<p><em><strong>2.    70% 股票型</strong></em></p>
+<p>主要看消费、医疗、科技、新能源</p>
+<p><em><strong>3.   10% 现金/货币型/存银行</strong></em></p>
+<p>略</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>金融</category>
+      </categories>
+      <tags>
+        <tag>基金</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>取证分析流程</title>
     <url>/2022/06/01/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="服务器取证溯源"><a href="#服务器取证溯源" class="headerlink" title="服务器取证溯源"></a>服务器取证溯源</h1><h2 id="Windows-系统排查"><a href="#Windows-系统排查" class="headerlink" title="Windows 系统排查"></a>Windows 系统排查</h2><p><strong>1.系统日志检查</strong></p>
