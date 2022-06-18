@@ -86,6 +86,96 @@
       </tags>
   </entry>
   <entry>
+    <title>美亚杯第一届-个人赛</title>
+    <url>/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/</url>
+    <content><![CDATA[<h2 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h2><p>美亚柏科取证大师试用版</p>
+<h2 id="案情："><a href="#案情：" class="headerlink" title="案情："></a>案情：</h2><p>​     Eden有很多业余爱好，儿童色情、裸聊敲诈、制造炸弹、病毒木马、假币制造、线上拍卖平台欺诈。先有Eden电脑一台，找出相关证据。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>将要用的镜像，导入取证大师中</p>
+<h2 id="比赛题目"><a href="#比赛题目" class="headerlink" title="比赛题目"></a>比赛题目</h2><h3 id="第一题："><a href="#第一题：" class="headerlink" title="第一题："></a>第一题：</h3><p>系统基本信息：</p>
+<p>​     1.操作系统版本号（xp sp1 5.1/xp sp2 5.2/xp sp3 5.1/xp sp2 5.2）</p>
+<p>答案：<code>5.1</code></p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618132406388.png" alt="image-20220618132406388"></p>
+<p>​     2.系统所有者</p>
+<p>答案：<code>Administrator</code></p>
+<p> $ extcolor{red}{更正答案} $ ：<code>Test</code></p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618143137566.png" alt="image-20220618143137566"></p>
+<p>​     3. 系统ID号</p>
+<p>答案：产品ID ?= 系统ID</p>
+<p><img src="/.io//Users\C\AppData\Roaming\Typora\typora-user-images\image-20220618125504150.png" alt="image-20220618125504150"></p>
+<p>​     4.系统安装时间</p>
+<p>答案：</p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618124732637.png" alt="image-20220618124732637"></p>
+<p>或者如下图标号1</p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618125242413.png" alt="image-20220618125242413"></p>
+<p>​     5.最后一次登录时间</p>
+<p>答案：</p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618125007414.png" alt="image-20220618125007414"></p>
+<p>​     6.最后一次正常关机时间</p>
+<p>答案：</p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618124652094.png" alt="image-20220618124652094"></p>
+<p>或如下图标号2</p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618125224796.png" alt="image-20220618125224796"></p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618130448027.png" alt="image-20220618130448027"></p>
+<p>​     7. 系统时区设置</p>
+<p>答案：</p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618125757725.png" alt="image-20220618125757725"></p>
+<p>​     8.系统IP地址</p>
+<p>答案：</p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618132717882.png" alt="image-20220618132717882"></p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618132639470.png" alt="image-20220618132639470"></p>
+<p>​    9. MAC地址</p>
+<p>答案：</p>
+<p>​     10.硬盘序列号</p>
+<p>答案：<code>4D36E972-E325-11CE-BFC1-08002BE10318</code></p>
+<p>这是查看了很多硬件信息看出来的，不知道对不对</p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618133138030.png" alt="image-20220618133138030"></p>
+<h3 id="第二题："><a href="#第二题：" class="headerlink" title="第二题："></a>第二题：</h3><p>​     11.有一个U盘插入，找到U盘的S/N号</p>
+<p>答案：</p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618130744472.png" alt="image-20220618130744472"></p>
+<h3 id="第三题："><a href="#第三题：" class="headerlink" title="第三题："></a>第三题：</h3><p>​     12.A儿童色情、B裸聊敲诈、C制造炸弹、D假币制造、E线上拍卖平台欺诈、F病毒‘MS040.exe’</p>
+<p>（1）   该用户是否有上述的不法行为，若有情列举相关证据</p>
+<p>A</p>
+<p>正常文件</p>
+<p>删除文件</p>
+<p>邮件</p>
+<p>B</p>
+<p>正常文件</p>
+<p>删除文件</p>
+<p>邮件</p>
+<p>​         ……..</p>
+<p>答案：</p>
+<p>1）<img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618133717930.png" alt="image-20220618133717930"></p>
+<p>2）<img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618133759211.png" alt="image-20220618133759211"></p>
+<p>3）<img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618133853164.png" alt="image-20220618133853164"></p>
+<p>4）<img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618134842702.png" alt="image-20220618134842702"></p>
+<p>5）<img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618134929683.png" alt="image-20220618134929683"></p>
+<p>6）<img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618135123549.png" alt="image-20220618135123549"></p>
+<p>7）<img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618144902008.png" alt="image-20220618144902008"></p>
+<p>（2）Eden、Eddie、Jess三人之间各有哪些内容交流？（从A-F中选择）</p>
+<p>A儿童色情</p>
+<p>B裸聊敲诈</p>
+<p>C制造炸弹</p>
+<p>D假币制造</p>
+<p>E线上拍卖平台欺诈</p>
+<p>F病毒‘MS040.exe’</p>
+<p>答案：<code>A   C   D   F</code></p>
+<p>1）</p>
+<p><img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618141723714.png" alt="image-20220618141723714"></p>
+<p>2）<img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618141824252.png" alt="image-20220618141824252"></p>
+<p>3）<img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618153137445.png" alt="image-20220618153137445"></p>
+<p>4）<img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618153345579.png" alt="image-20220618153345579"></p>
+<p>5）<img src="https://ckcah.github.io/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220618153402732.png" alt="image-20220618153402732"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p> 目前我所掌握的，只是一些肉眼可见的消息查找，但是有一些名词还不是很懂，比如产品ID是否就是系统ID，硬盘序列号也不太知道对不对</p>
+<p>大概是懂了取证工具有哪些作用，功能集中在哪些地方</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>电子数据取证</category>
+      </categories>
+      <tags>
+        <tag>美亚杯</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>今日反思</title>
     <url>/2022/06/10/%E4%BB%8A%E6%97%A5%E5%8F%8D%E6%80%9D/</url>
     <content><![CDATA[<p><strong>1.已学习的两个思维模型</strong></p>
