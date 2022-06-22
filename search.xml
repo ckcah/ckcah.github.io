@@ -86,6 +86,211 @@
       </tags>
   </entry>
   <entry>
+    <title>美亚杯第二届（2016）-个人赛</title>
+    <url>/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/</url>
+    <content><![CDATA[<h2 id="案情"><a href="#案情" class="headerlink" title="案情"></a>案情</h2><p>Hugo是一个职业黑客，他喜欢透过非法入侵其他人的电脑来炫耀自己高超的计算机技术。他也是一个臭名昭著的匪徒，其敛财手段主要有：</p>
+<p>1）网络攻击诈骗；</p>
+<p>2）编写及分发计算机病毒；</p>
+<p>3）网络诈骗。 </p>
+<p>Hugo最近被逮捕，他的计算机也被没收了并送至法证取证检查处。你是一个计算机取证专家，你负责调查Hugo曾经是否进行过任何的非法活动，并找出其同党的数据。</p>
+<p>你会获得一个包含Hugo电脑硬盘的镜像文件，其文件名为“Competition_HD1.E01＂，该文件是由AccessData FTK Imager采集而来的。根据Hugo电脑硬盘的内容，请回答以下问题。 </p>
+<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><p>如题目出現“C:\＂，即Ｃ盘，代表包含操作系统分区</p>
+<p>如答案需要表示包含操作系统分区，請Ｃ盘即“C:\ ＂代表</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>将镜像加载入取证大师中</p>
+<h2 id="比赛题目"><a href="#比赛题目" class="headerlink" title="比赛题目"></a>比赛题目</h2><ol>
+<li><p>请写下Hugo电脑硬盘的MD5哈希值。</p>
+<p><code>F895FD18E47A5371AEC6DB72D0AEDCA7</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619153933989.png" alt="image-20220619153933989"></p>
+</li>
+<li><p>你能找到多少个硬盘分区？<br>A)    1<br>B)    2<br><code>C)    3</code><br>D)    4<br>E)    5</p>
+<p><code>答案也在上图中，可见三个分区</code></p>
+</li>
+<li><p>根据主引導記錄（MBR），以下哪組偏移显示了包含操作系统分区的总扇区数？<br>A) 偏移 446-449<br>B) 偏移 458-461<br>C) 偏移 474-477<br>D) 偏移 490-493<br>E) 偏移 506-509</p>
+<p><strong>详细：</strong></p>
+<p>判断DBR、MBR、EBR：1FE - 1FF 是 <code>55AA</code></p>
+<p>FAT16的DBR:EB 3C 90                    没有备份的DBR<br>FAT32的DBR:EB 58 90    (备份的DBR）        在该分区的第6扇区<br>NTFS 的 DBR:EB 52 90    (备份的DBR）        在该分区的最后一个扇区</p>
+<p>判别MBR的方法:<br>MBR就在LBA第一个扇区，打开物理硬盘，第一个扇区就是了。MBR的分区表在1BE偏移往后到1FD，共64个字节，每项16个字节。<br>1FE-1FF就是“55 AA”</p>
+<p>判别EBR的方法:<br>EBR的结构和MBR的结构是一样的，在倒数第五行倒数第二个字节应该是00 01，并且前446个字节应该是0</p>
+<p> 主引导MBR是起始扇区中第一扇区的。00000001BE-00000001FF </p>
+</li>
+<li><p>根据主引導記錄（MBR），包含操作系统的分区的总扇区数是多少？<br>（答案格式：5246852048 sectors）</p>
+<p>详细：<code>102195200</code></p>
+<p>这里可以直接根据取证大师里面提供的数据看出来</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220621205728571.png" alt="image-20220621205728571"></p>
+</li>
+<li><p>请找出系统文件“SOFTWARE＂，请问操作系统的安装日期是？<br>（答案格式 －“世界协调时间＂：YYYY-MM-DD HH:MM UTC）</p>
+<p>A) 1996-01-04 02:56 UTC<br>B) 2009-06-10 21:10 UTC<br>C) 2015-04-14 07:12 UTC<br><code>D) 2016-09-09 05:26 UTC</code><br>E) 2016-09-13 02:28 UTC </p>
+</li>
+</ol>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619155241362.png" alt="image-20220619155241362"></p>
+<ol start="6">
+<li><p>用户“Hugo＂的唯一标识符（SID）是什么？（答案格式：RID）<br><code>A)    1000</code><br>B)    1001<br>C)    1002<br>D)    1003<br>E)    1007</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619155150923.png" alt="image-20220619155150923"></p>
+</li>
+<li><p>于包含操作系统的分区內，$Bitmap的物理起始偏移位置是什么？<br>（答案格式：256363）</p>
+<p><code>35987456</code></p>
+</li>
+</ol>
+<p>详细：可以直接用物理位置减去D盘的物理位置 = 3,325,526,016 - 105,906,176 = <code>3219619840</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220621210106796.png" alt="image-20220621210106796"></p>
+<p>   <img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220621210049443.png" alt="image-20220621210049443"></p>
+<ol start="8">
+<li><p>硬盘的操作系统是什么？<br>A)    视窗XP<br><code>B)    视窗7</code><br>C)    视窗8<br>D)    视窗10<br>E)    视窗CE</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619155903039.png" alt="image-20220619155903039"></p>
+</li>
+<li><p>操作系统的最新服务包（Service Pack）版本号是什么？</p>
+</li>
+</ol>
+<p><code>A) Service pack 1</code><br>B) Service pack 2<br>C) Service pack 3<br>D) Service pack 4<br>E) Service pack 5</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619160115826.png" alt="image-20220619160115826"></p>
+<ol start="10">
+<li><p>其中一个分布式拒绝服务／拒绝服务工具的readme文件中声明“SECURITY TESTING PURPOSES ONLY！＂请找出该readme文件，并列出文件中的前十二字符？</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619170804712.png" alt="image-20220619170804712"></p>
+<p><strong>更正：GoldenEye =</strong></p>
+</li>
+<li><p>哪一个用户拥有分布式拒绝服务／拒绝服务（DDOS／DOS）工具？<br>A) Home<br><code>B) Hugo</code>（由上图可见）<br>C) Administrator<br>D) Mike<br>E) Public</p>
+</li>
+<li><p>用户 “Hugo＂的收藏夹中是否含有任何与“黑客＂相关的链接？若有，请列举出相关链接。<br>（答案格式：<a href="http://123.com/abc.htm%EF%BC%89">http://123.com/abc.htm）</a><br><code>https://0day.work/</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619171545712.png" alt="image-20220619171545712"></p>
+</li>
+<li><p>Hugo有时会自己编写程序代码。请问Hugo用什么语言编写程序？<br>（答案格式：ProgramLanguageName）</p>
+<p><code>Python</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619171826364.png" alt="image-20220619171826364"></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619171927590.png" alt="image-20220619171927590"></p>
+<p>补充：找到他写的脚本，以py结尾</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622070020735.png" alt="image-20220622070020735"></p>
+</li>
+<li><p>请检查Hugo在桌面上的快捷方式文件，其中有一个快捷方式文件的创建日期是“2016-09-14＂（世界协调时间／UTC），请问该文件的目标位置是什么？<br>（答案格式：D:\folder\123.abc）</p>
+<p><code>C:\Users\C\AppData\Local\Programs\Python\Python35-32\python.exe</code><br>找到桌面快捷方式后，右击导出，查看属性<br>1）</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619172939817.png" alt="image-20220619172939817"><br>2）<br><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619172844233.png" alt="image-20220619172844233"></p>
+</li>
+<li><p>请找一个“shellcode＂的文件夹，该文件夹中含有一个用于连接HTC Touch2设备的程序。请列举出其中任何的电子邮件地址。<br>（答案格式：<a href="mailto:&#x61;&#x62;&#99;&#100;&#x40;&#x65;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;">&#x61;&#x62;&#99;&#100;&#x40;&#x65;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;</a>）</p>
+<p><strong>更正：<code>celilunuver@gmail.com</code></strong></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622072432557.png" alt="image-20220622072432557"></p>
+</li>
+<li><p>Hugo承认曾经进行网络攻击诈骗，并且把诈骗金额记录在电脑中。请问，保存有诈骗金额记录的文件名是什么？<br>（答案格式：123.abc）</p>
+<p>首先分析，一般这种文件会用txt或office文件进行记录</p>
+<p>1.挨个查看文件分析里的txt文件和office文件</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622184905449.png" alt="image-20220622184905449"></p>
+<p>2.根据上边的经验知道，hugo一般把常用的东西放在<code>Documents</code>，直接在里面查看txt或表格文件也能找到</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622185048979.png" alt="image-20220622185048979"></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622074212626.png" alt="image-20220622074212626"></p>
+</li>
+<li><p>在所有用户中，用于电子邮件发送/接收的程序名称是什么？<br>A) Gmail<br><code>B) Foxmail</code><br>C) 新浪邮箱<br>D) 网易163<br>E) 阿里邮箱</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220619175112453.png" alt="image-20220619175112453"></p>
+</li>
+<li><p>根据上述问题，请于注册表(registry) 找出该电子邮件发送/接收程序的版本号。<br>（答案格式：1.3.4.5）</p>
+<p><strong>补充：</strong></p>
+<p>这里参考<a href="http://t.zoukankan.com/lcxblogs-p-13444855.html">注册表详解</a>，知道<code>HKEY_USERS</code>里保存了电子邮件程序的基本信息，也可以直接在注册表查找<code>Foxmail</code></p>
+<p><em><strong>(暂没做)</strong></em></p>
+</li>
+<li><p>Hugo的主要电子邮件地址是什么？<br>（答案格式：<a href="mailto:&#x61;&#x62;&#x63;&#x40;&#x6d;&#97;&#105;&#108;&#46;&#99;&#x6f;&#x6d;">&#x61;&#x62;&#x63;&#x40;&#x6d;&#97;&#105;&#108;&#46;&#99;&#x6f;&#x6d;</a>）</p>
+<p><code>hackerthehugo@qq.com</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220621192240003.png" alt="image-20220621192240003"></p>
+</li>
+<li><p>加分题︰Hugo有任何其他属于Google的电子邮件地址吗？<br>（答案格式：<a href="mailto:&#x61;&#98;&#x63;&#100;&#x40;&#x67;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#109;">&#x61;&#98;&#x63;&#100;&#x40;&#x67;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#109;</a>）</p>
+<p><code>hugo82618@gmail.com</code></p>
+<p>直接搜索<code>@gmail</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622191118564.png" alt="image-20220622191118564"></p>
+</li>
+<li><p>Hugo编写了一个获取击键信息（k）的程序。请问，该程序的文件名是什么？<br>（答案格式：123.abc）</p>
+<p><code>malware.py</code></p>
+<p>根据hugo的习惯，将文件都放在<code>Documents</code>中，找到<code>Attack</code>文件夹，看到<code>malware.py</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622191508917.png" alt="image-20220622191508917"></p>
+</li>
+<li><p>根据上述问题，程序中攻击者的IP地址是什么？<br>（答案格式：123.123.123.123）</p>
+<p>通过代码可以得到<code>192.168.4.78</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622191714873.png" alt="image-20220622191714873"></p>
+</li>
+<li><p>Hugo也编写了另一个程序，并存储在同一个文件夹中，该程序开启一个用于建立连接的端口。请问，该端口号是多少？<br>（答案格式：8080）</p>
+<p><code>443</code></p>
+<p>同一个文件夹下，只有<code>test.py</code></p>
+<p>阅读代码可得<code>443</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622191927281.png" alt="image-20220622191927281"></p>
+</li>
+<li><p>Hugo有时会注入恶意脚本到已经被攻击的网站中盗取PayPal的用户帐户和密码。请找到该脚本。请问，用于存储盗窃信息的文件名称是什么？<br>（答案格式：123.abc）</p>
+<p><code>passwd.txt</code></p>
+<p>导出<code>login.php</code>文件后，查看代码解读可得</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622192530786.png" alt="image-20220622192530786"></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622192625594.png" alt="image-20220622192625594"></p>
+</li>
+<li><p>Hugo用于PayPal的网络钓鱼电子邮件，请问，该PayPal帐户号码是什么？<br>（答案格式：98-765-4321）</p>
+<p><code>12-976-9860</code></p>
+<p>翻找邮件可得</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622192930584.png" alt="image-20220622192930584"></p>
+</li>
+<li><p>根据上述问题，网络钓鱼电子邮件将链接到一个URL查看交易的细节。请问，该链接的URL是什么？<br>（答案格式：<a href="http://abc.com/abc.htm%EF%BC%89">http://abc.com/abc.htm）</a></p>
+<p><code>http://158.69.201.134/login.html</code></p>
+<p>同上题图</p>
+</li>
+<li><p>请问哪一个文件中保存了微软互联网浏览器的历史浏览记录？<br>（答案格式：123.abc）</p>
+<p><code>jindex.dat</code></p>
+<p>在取证结果中找到任意的历史浏览记录进行源文件跳转</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622193850220.png" alt="image-20220622193850220"></p>
+</li>
+<li><p>根据上述问题，那个档案储存了Hugo的微软互联网浏览器的缓存记录（cache history）？（答案格式：C:\folder\subfolder\123.abc）</p>
+<p><code>D\Users\Hugo\AppData\Local\Microsoft\Windows\Temporary Internet Files\Content.IE5\index.dat</code></p>
+<p>在取证结果中查看缓存记录后，随意点击查看源文件，都会跳转至下图位置</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622194512008.png" alt="image-20220622194512008"></p>
+</li>
+<li><p>根据微软互联网浏览器的历史浏览记录，Hugo在2016-09-13，02:32:34（世界协调时间／UTC），曾访问域／主机的名称／地址是什么？<br>（答案格式：<a href="http://www.abc.com.cn)/">http://www.abc.com.cn）</a></p>
+<p>注意到题目中说的是<code>世界协调时间</code>，所以，转换成系统时区时间，应当是查找10.32.34的浏览记录</p>
+<p><code>http://www.chiark.greenend.org.uk/</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622195227921.png" alt="image-20220622195227921"></p>
+</li>
+<li><p>请找出Mozilla Firefox的互联网历史文本，上述文本的名称是什么？<br>（答案格式：123.abc）</p>
+<p><code>places.sqlite</code></p>
+<p>同27、28</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622200031889.png" alt="image-20220622200031889"></p>
+</li>
+<li><p>请检查视窗用户Hugo中的Mozilla Firefox互联网历史文本，他是在那一天（世界协调时间／UTC），访问网页<a href="http://www.xshellz.com？">www.xshellz.com？</a><br>（答案格式：YYYY-MM-DD）</p>
+<p><code>2016-09-13</code></p>
+<p>直接用实时搜索，进行翻找</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622195619764.png" alt="image-20220622195619764"></p>
+</li>
+<li><p>请问哪一个文件中保存了Google Chrome浏览器的历史浏览记录？</p>
+<p><code>C\Users\Hugo\AppData\Local\Google\Chrome\User Data\Default\History</code></p>
+<p>同27、28</p>
+</li>
+<li><p>该电脑中可能含有Jason的相关信息，例如电子邮件地址。请问，Jason的电子邮件地址是什么？<br>(提示：21个字符)</p>
+<p><code>jasonforensics@qq.com</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622200352156.png" alt="image-20220622200352156"></p>
+</li>
+<li><p>有没有发现其他可以与手机通讯的聊天程式？<br>（答案格式：ProgramName）</p>
+<p><code>WeChat</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622200620100.png" alt="image-20220622200620100"></p>
+</li>
+<li><p>有没有发现任何包括安全文件传输功能的传输工具？<br>（答案格式：123.abc）</p>
+<p><code>WinSCP</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622201043951.png" alt="image-20220622201043951"></p>
+</li>
+<li><p>根据上述问题，该文件传输工具是从哪里下载的？<br>（答案格式：<a href="https://domain.abc)/">https://domain.abc）</a></p>
+<p><code>https://cdn.winscp.net/</code></p>
+<p>直接使用实时搜索功能</p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622201141332.png" alt="image-20220622201141332"></p>
+</li>
+<li><p>根据上述问题，请问用户使用哪一个浏览器下载该文件传输工具？<br>A)    Internet Explorer<br>B)    Firefox<br><code>C)    Chrome</code><br>D)    以上任何一个都没有</p>
+</li>
+<li><p>有没有发现任何已下载的远程访问工具？若有，请列举。<br>（答案格式：123.abc）</p>
+<p><code>putty.exe</code></p>
+<p>一般常用的工具，都会放在桌面或者一个固定的文件夹，比如<code>Documents</code></p>
+<p><img src="https://ckcah.github.io/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/image-20220622201648143.png" alt="image-20220622201648143"></p>
+</li>
+<li><p>加分题︰根据远程访问工具，请问用户曾连接到哪一个主机名？</p>
+</li>
+</ol>
+<p>这道题，一看就知道要用到注册表，可惜我的电脑硬件不行，做不了，后续补上</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>硬件的基本信息<br>像基础知识的扇区，偏移等计算，我认为在实际取证工作中，是用不到的，但比赛中，很有可能作为资格赛、个人赛题中出现，考察参赛人员的基础知识<br>对取证中各种时间、时区的记录<br>明确系统用户信息<br>软件信息的掌握，比如操作系统、最新的软件包等<br>用户和各个软件之间的使用情况，比如浏览器的收藏、下载、浏览，远程软件的使用，通讯软件的聊天数据等<br>恶意代码、脚本的分析<br>犯罪的记录是重要证据<br>一些软件的基础信息，比如版本号、远程软件的连接记录等都会在注册表中</p>
+<h2 id="自我感觉"><a href="#自我感觉" class="headerlink" title="自我感觉"></a>自我感觉</h2><p>其实使用取证工具进行分析与归类后，很方便我们查找电脑的犯罪证据，更多的是考验我们对常见犯罪的熟悉程度，考验我对工作的熟悉程度，但也有一部分的犯罪证据，是需要技术含量的，后续遇到了再总结，目前来看，2016、2017美亚杯的个人赛题目相对简单。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>电子数据取证</category>
+      </categories>
+      <tags>
+        <tag>美亚杯</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>美亚杯第一届-个人赛</title>
     <url>/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/</url>
     <content><![CDATA[<h2 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h2><p>美亚柏科取证大师试用版</p>
