@@ -1,7 +1,494 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>博世的个人博客 - cheng</title><meta name="author" content="bosch"><meta name="copyright" content="bosch"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="现在就要学既走得快又走得远的东西">
+<meta property="og:type" content="website">
+<meta property="og:title" content="博世的个人博客">
+<meta property="og:url" content="https://ckcah.github.io/index.html">
+<meta property="og:site_name" content="博世的个人博客">
+<meta property="og:description" content="现在就要学既走得快又走得远的东西">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ckcah.github.io/images/title1.jpg">
+<meta property="article:author" content="bosch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ckcah.github.io/images/title1.jpg"><link rel="shortcut icon" href="https://ckcah.github.io/images/cat.jpg"><link rel="canonical" href="https://ckcah.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1fc9630d700c25378bbd9cc7b83ea3a4";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-XDVEQ9NLN8"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XDVEQ9NLN8');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"GUYXF2H6BD","apiKey":"c0d60afba1b4290f43971634820e4275","indexName":"ckcah","hits":{"per_page":6},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '博世的个人博客',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-07-22 22:15:34'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-block content
-  include ./includes/mixins/post-ui.pug
-  #recent-posts.recent-posts
-    +postUI
-    include includes/pagination.pug
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/video.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://ckcah.github.io/images/title1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">108</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">22</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> Books</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.pixabay.com/photo/2019/12/20/02/25/por-do-sol-4707500__480.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">博世的个人博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> Books</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">博世的个人博客</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/ckcah" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:bcheng490@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2022/03/18/android-reverse/" title="android reverse"><img class="post_bg" src="https://i.pinimg.com/236x/f9/95/c3/f995c3006ecfa3d809f194c73a326c17.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="android reverse"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/03/18/android-reverse/" title="android reverse">android reverse</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">Sticky</span><span class="article-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-18T05:43:06.000Z" title="Created 2022-03-18 13:43:06">2022-03-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/">安卓逆向</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/me/">me</a></span></div><div class="content">基础如何判断apk文件是32还是64：
+ARM 32位对应的是armv7架构、armv6架构、armv5架构
+ARM 64位是armv8架构
+常用的abi:
+armeabi: armv5架构和armv6架构 （32位）
+armeabi-v7a:armv7架构 （32位）xxx
+armeabi-v8a:armv8架构 （64位）
+x86:x86架构 （32位）
+x86_64:x86_64架构 （64位）
+签名：
+签名的算法一般用消息摘要算法（不可逆）
+md5、、、
+签名的源数据一半来自于数据包
+签名之前对源数据进行排序，头尾可能会有固定字符串
+常用方法与流程1.一般会先抓包，分析参数名，查看待会逆向分析需要找哪些字段
+2.抓包细节：清除缓存、cookie等
+3.DevicesId的处理细节：找出关键请求
+4.常规手段：
+静态分析：搜索链接、参数、算法关键字
+Log输出  DDMS        用处：一打开APP就加密了的数据   （也可用hook）
+JEB动态调试  
+通过解密获取参数
+APP资源ID
+通过定位加密函数解决问题
+零散看到StringBuilder要找toString：输 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/07/09/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%9F%B9%E8%AE%AD%E6%80%BB%E7%BB%93-1/" title="第一周培训总结"><img class="post_bg" src="https://i.pinimg.com/236x/48/60/2b/48602bacede84c60b8fe95e6b3c08bca.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第一周培训总结"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/07/09/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%9F%B9%E8%AE%AD%E6%80%BB%E7%BB%93-1/" title="第一周培训总结">第一周培训总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-07-08T23:20:42.000Z" title="Created 2022-07-09 07:20:42">2022-07-09</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/07/09/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%9F%B9%E8%AE%AD%E6%80%BB%E7%BB%93/" title="第一周培训总结"><img class="post_bg" src="https://i.pinimg.com/236x/7b/27/4b/7b274b9e6ac0c084077e51bf28ed67e4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第一周培训总结"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/07/09/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%9F%B9%E8%AE%AD%E6%80%BB%E7%BB%93/" title="第一周培训总结">第一周培训总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-07-08T23:19:29.000Z" title="Created 2022-07-09 07:19:29">2022-07-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%B5%E5%AD%90%E6%95%B0%E6%8D%AE%E5%8F%96%E8%AF%81/">电子数据取证</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%9F%B9%E8%AE%AD/">培训</a></span></div><div class="content">理论知识常见介质
+固态硬盘
+
+机械硬盘
+
+U盘
+
+存储卡
+
+SD
+TF
+
+
+
+常见接口
+SATA
+
+机械硬盘
+
+
+IDE
+
+SCSI接口
+
+SAS接口
+
+m.2
+
+PCIE
+
+雷电3
+
+雷电2
+
+USB
+
+2.0
+
+常见硬盘类型
+
+HDD
+
+
+
+
+3.0
+
+3.1
+
+3.2
+
+
+
+type-c
+
+主要设备有：苹果电脑、平板、手机、笔记本电脑
+一般对应的接口协议是雷电接口、USB3.0、3.1、3.2
+
+
+type-a
+
+一般对应的接口协议是USB2.0、3.0、3.1
+
+
+UEFI
+
+一种详细描述全新类型接口的标准
+
+代替BIOS（基本输入/输出系统）
+
+提高软件互操作性和解决BIOS的局限性
+
+特点
+- 
+
+与传统BIOS的区别
+
+UEFI不需BIOS自检；传统BIOS需要长时间自检
+UEFI使用GPT磁盘分区结构；传统BIOS使用MBR磁盘分区结构
+UEFI启动读取系统保留分区的文件；传统BIOS启动从硬盘读取启动代码
+
+
+
+
+
+
+速度
+USB
+
+2.0
+
+40MB/S
+20MB~30MB左右
+
+
+3.0
+
+150MB/S
+
+
+3.1
+
+250MB/S
+
+
+
+
+雷电3
+
+理论40G ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/" title="美亚杯第二届（2016）-个人赛"><img class="post_bg" src="https://i.pinimg.com/236x/c9/a3/2f/c9a32fbeec8d43d6e18e40bd7770af54.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="美亚杯第二届（2016）-个人赛"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/" title="美亚杯第二届（2016）-个人赛">美亚杯第二届（2016）-个人赛</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-22T12:40:23.000Z" title="Created 2022-06-22 20:40:23">2022-06-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%B5%E5%AD%90%E6%95%B0%E6%8D%AE%E5%8F%96%E8%AF%81/">电子数据取证</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%BE%8E%E4%BA%9A%E6%9D%AF/">美亚杯</a></span></div><div class="content">案情Hugo是一个职业黑客，他喜欢透过非法入侵其他人的电脑来炫耀自己高超的计算机技术。他也是一个臭名昭著的匪徒，其敛财手段主要有：
+1）网络攻击诈骗；
+2）编写及分发计算机病毒；
+3）网络诈骗。 
+Hugo最近被逮捕，他的计算机也被没收了并送至法证取证检查处。你是一个计算机取证专家，你负责调查Hugo曾经是否进行过任何的非法活动，并找出其同党的数据。
+你会获得一个包含Hugo电脑硬盘的镜像文件，其文件名为“Competition_HD1.E01＂，该文件是由AccessData FTK Imager采集而来的。根据Hugo电脑硬盘的内容，请回答以下问题。 
+注如题目出現“C:\＂，即Ｃ盘，代表包含操作系统分区
+如答案需要表示包含操作系统分区，請Ｃ盘即“C:\ ＂代表
+准备将镜像加载入取证大师中
+比赛题目
+请写下Hugo电脑硬盘的MD5哈希值。
+F895FD18E47A5371AEC6DB72D0AEDCA7
+
+
+你能找到多少个硬盘分区？A)    1B)    2C)    3D)    4E)    5
+答案也在上图中，可见三个分区
+
+根据主引導記錄（MBR），以下哪組偏移显示了包含 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/" title="美亚杯第一届-个人赛"><img class="post_bg" src="https://i.pinimg.com/236x/d1/86/94/d186944fb9da1b4e080837a07cea8029.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="美亚杯第一届-个人赛"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/" title="美亚杯第一届-个人赛">美亚杯第一届-个人赛</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-18T08:06:24.000Z" title="Created 2022-06-18 16:06:24">2022-06-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%B5%E5%AD%90%E6%95%B0%E6%8D%AE%E5%8F%96%E8%AF%81/">电子数据取证</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%BE%8E%E4%BA%9A%E6%9D%AF/">美亚杯</a></span></div><div class="content">使用工具美亚柏科取证大师试用版
+案情：​     Eden有很多业余爱好，儿童色情、裸聊敲诈、制造炸弹、病毒木马、假币制造、线上拍卖平台欺诈。先有Eden电脑一台，找出相关证据。
+准备将要用的镜像，导入取证大师中
+比赛题目第一题：系统基本信息：
+​     1.操作系统版本号（xp sp1 5.1/xp sp2 5.2/xp sp3 5.1/xp sp2 5.2）
+答案：5.1
+
+​     2.系统所有者
+答案：Administrator
+ $ extcolor{red}{更正答案} $ ：Test
+
+​     3. 系统ID号
+答案：产品ID ?= 系统ID
+
+​     4.系统安装时间
+答案：
+
+或者如下图标号1
+
+​     5.最后一次登录时间
+答案：
+
+​     6.最后一次正常关机时间
+答案：
+
+或如下图标号2
+
+
+​     7. 系统时区设置
+答案：
+
+​     8.系统IP地址
+答案：
+
+
+​    9. MAC地址
+答案：
+​     10.硬盘序列号
+答案：4D36E972-E325-11CE-BFC1-08002BE10318
+这是查看了很多硬件信息看 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/06/10/%E4%BB%8A%E6%97%A5%E5%8F%8D%E6%80%9D/" title="今日反思"><img class="post_bg" src="https://cdn.pixabay.com/photo/2015/12/04/14/05/code-1076536__340.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="今日反思"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/10/%E4%BB%8A%E6%97%A5%E5%8F%8D%E6%80%9D/" title="今日反思">今日反思</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-10T08:22:42.000Z" title="Created 2022-06-10 16:22:42">2022-06-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%87%AA%E7%9C%81/">自省</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/me/">me</a></span></div><div class="content">1.已学习的两个思维模型
+目前为止，我学习了两个思维模型，一个是机会成本，另一个是直觉思维
+大概能够融会贯通，并且也尽力的用了起来。
+在思考一个事情的时候，我开始学着先分析为什么会发生，她为什么这么做，如果是我，会考虑哪些因素，怎么样才能做到全面一点
+如果是我要做一个事情，我也会先冷静下来，思考可能发生的事情以及应对方案，也会让自己多做有难度的事情（但是现在在家，没办法实现这一步）
+因此更多的时间是在思考
+2.行动前的全方位考虑和随机应变需要的智慧
+这是我前几天看电视得到的领悟，也是对自己以前想法的改正。
+以前的我，也知道全方位考虑，但是我一直以为所谓的全方位考虑，就是事事都要想周全，也就是会把准备工作时间拉的很长。看完那个电视，也就是实操以后，我发现我对之前学到的东西产生了误解。
+全方位考虑这个观点是对的，但，就像我突然想到的“赚认知以内的钱”是一个道理，全方位考虑这个动作，应当是结合当下我们所了解和掌握的信息，比如人的性格和事情可能发生的变化，来做一些常识类的应对方案。而我错在想要把所有的情况都想全，这样就浪费了很多时间。而且，涉及到的人的性格，也只是需要做一个基础判断，没必要太深 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/06/08/%E5%A6%82%E4%BD%95%E9%80%89%E5%9F%BA%E9%87%91-%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/" title="如何选基金-资产配置笔记"><img class="post_bg" src="https://cdn.pixabay.com/photo/2016/03/26/13/09/workspace-1280538__340.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何选基金-资产配置笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/08/%E5%A6%82%E4%BD%95%E9%80%89%E5%9F%BA%E9%87%91-%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/" title="如何选基金-资产配置笔记">如何选基金-资产配置笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-08T06:42:34.000Z" title="Created 2022-06-08 14:42:34">2022-06-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%87%91%E8%9E%8D/">金融</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%9F%BA%E9%87%91/">基金</a></span></div><div class="content">配置：
+20% 债券型70% 股票型10% 现金/货币型/存银行
+注：
+根据市场行情进行调整比如政府要开始放水了，多配置一些股票型
+具体实现：
+1.基金经理：个人经验、业绩、业务量
+一般：研究员 -&gt; 基金经理助理 -&gt; 基金经理
+注意当投资经理的年限8-10年的经理最好，牛熊都经历过
+投资风格
+2.历史收益率2、3、5年表现为同类基金前1/4近一年表现为1/4近6个月表现为1/3近3个月表现为1/3
+3.绝对收益率（基准，对应指数，比如标普500）、最大回撤（最低点与最高点）
+4.业务量（体量）
+5.基金公司AUM，管理规模。。。。
+比如：
+
+
+
+我的具体配置：（暂略）
+1.   20% 债券型
+我选择的是可转债
+前海开源可转债债券
+鹏华可转债债券A
+汇添富可转换债券A
+但前海开源的基金公司规模只有1300多亿
+2.    70% 股票型
+主要看消费、医疗、新能源
+新能源：信澳新能源产业股票(001410)、汇丰晋信智造先锋股票A(001643)
+医疗：工银前沿医疗股票A(001717)、招商国证生物医药指数(LOF)A(161726)、中欧医疗健康混合A(003095) ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/06/01/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/" title="取证分析流程"><img class="post_bg" src="https://i.pinimg.com/236x/d2/f3/b9/d2f3b9a9e3c7c99c6268a0f8e0c5e12d.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="取证分析流程"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/01/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/" title="取证分析流程">取证分析流程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-01T07:36:18.000Z" title="Created 2022-06-01 15:36:18">2022-06-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90/">取证分析</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%9D%82%E9%A1%B9/">杂项</a></span></div><div class="content">服务器取证溯源Windows 系统排查1.系统日志检查
+Windows事件查看器
+
+工具：
+LogonTracer：恶意登录日志工具
+2.自启动检查
+在注册表中将自启动文件导出:reg export HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run c:\autorun.reg  
+3.环境变量检查
+4.注册表检查
+5.系统服务项检查
+修改服务路径，实现权限维持  
+6.计划任务检查
+方法一：程序➜附件➜系统工具➜任务计划程序方法二：导出任务计划:schtasks /query /fo LIST /v &gt; c:\schtasks.txt
+7.系统账户检查
+• 方法一：（可看到隐藏用户）    • 运行➜compmgmt.msc➜本地用户和组• 方法二：（看不到隐藏用户）    • net user 列出系统用户（注： 用户名以$结尾的是隐藏用户）        • net user (username)查看该用户的详细信息        • net localgroup administrators查看 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/05/09/Android%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3/" title="Android加壳与脱壳（二）：加壳与脱壳"><img class="post_bg" src="https://cdn.pixabay.com/photo/2021/08/04/20/27/circuit-board-6522546__340.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Android加壳与脱壳（二）：加壳与脱壳"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/09/Android%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%8A%A0%E5%A3%B3%E4%B8%8E%E8%84%B1%E5%A3%B3/" title="Android加壳与脱壳（二）：加壳与脱壳">Android加壳与脱壳（二）：加壳与脱壳</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-09T06:24:16.000Z" title="Created 2022-05-09 14:24:16">2022-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/">安卓逆向</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%8A%A0%E5%A3%B3/">加壳</a></span></div><div class="content">有test
+维度
+什么是加壳再二进制的程序中植入一段代码，在运行时优先获得程序的控制权，做一些额外的工作。
+DEX文件格式DEX文件他是Android系统的可执行文件，包含应用程序的全部操作指令以及运行时数据
+由于dalvik是一种针对嵌入式设备而特殊设计的java虚拟机，所以dex文件与标准的class文件在结构设计上有着本质的区别
+当java程序编译成class后，还需要使用dx工具将所有的class文件整合到一个dex文件，目的是其中各个类能够共享数据，在一定程度上降低了冗余，同时也是文件结构更加经凑，实验表明，dex文件是传统jar文件大小的50%左右
+dex文件结构
+文件整体结构说明：
+
+
+
+数据名称
+解释
+
+
+
+dex_header
+dex文件头部记录整个dex文件的相关属性
+
+
+string_table
+字符串数据索引，记录了每个字符串在数据区的偏移量
+
+
+type_table
+类似数据索引，记录了每个类型的字符串索引
+
+
+proto_table
+原型数据索引，记录了方法声明的字符串，返回类型字符串，参数列表
+
+
+field_table
+字段数据索引，记录了所属类，类型以 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/05/06/Android%20Inline%20Hook%20%E5%88%9D%E8%AF%86/" title="Android Inline Hook 初识"><img class="post_bg" src="https://cdn.pixabay.com/photo/2016/03/27/07/12/apple-1282241__340.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Android Inline Hook 初识"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/06/Android%20Inline%20Hook%20%E5%88%9D%E8%AF%86/" title="Android Inline Hook 初识">Android Inline Hook 初识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-06T12:18:29.000Z" title="Created 2022-05-06 20:18:29">2022-05-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/">安卓逆向</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%84%B1%E5%A3%B3/">脱壳</a></span></div><div class="content">hookhook在Android的应用框架层分为：JAVA层和Native层
+常见实现方式为：
+
+
+
+框架层次
+Hook手段
+
+
+
+Java层
+动态代理，代码、字节码织入（AspectJ、ASM等）
+
+
+Native层
+GOT/PLT Hook，Trap Hook，Inline Hook
+
+
+其中Native层的三种hook手段在应用范围、实现难度、性能等维度上有以下区别：
+
+
+
+比较维度
+GOT/PLT Hook
+Trap Hook
+Inline Hook
+
+
+
+实现原理
+修改延时绑定表
+SIGTRAP断点信号
+运行时指令替换
+
+
+粒度
+方法级
+指令级
+指令级
+
+
+作用域
+窄
+广
+广
+
+
+性能
+高
+低
+高
+
+
+难度
+中
+中
+极高
+
+
+在实际环境中应用较多的是GOT/PLT Hook，这种方法知识在ELF动态链接的默认流程上稍作修改，入侵性低，但能保证性能，可以方便的对so库进行hook，缺点是只能作用于绑定表中存在的方法，作用域有一定限制。
+Inline hook是终极hook手段，通过直接修改运行时内存的方式替换指令，完全手工的完成hook及跳回操作，理论上可以实现任意位置的hoo ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/#content-inner">11</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://ckcah.github.io/images/title1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">bosch</div><div class="author-info__description">现在就要学既走得快又走得远的东西</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">108</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">22</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ckcah"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ckcah" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:bcheng490@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">不管怎么样，总要追求点什么，多累一点才好</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/07/09/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%9F%B9%E8%AE%AD%E6%80%BB%E7%BB%93-1/" title="第一周培训总结"><img src="https://i.pinimg.com/236x/48/60/2b/48602bacede84c60b8fe95e6b3c08bca.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第一周培训总结"/></a><div class="content"><a class="title" href="/2022/07/09/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%9F%B9%E8%AE%AD%E6%80%BB%E7%BB%93-1/" title="第一周培训总结">第一周培训总结</a><time datetime="2022-07-08T23:20:42.000Z" title="Created 2022-07-09 07:20:42">2022-07-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/09/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%9F%B9%E8%AE%AD%E6%80%BB%E7%BB%93/" title="第一周培训总结"><img src="https://i.pinimg.com/236x/7b/27/4b/7b274b9e6ac0c084077e51bf28ed67e4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第一周培训总结"/></a><div class="content"><a class="title" href="/2022/07/09/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%9F%B9%E8%AE%AD%E6%80%BB%E7%BB%93/" title="第一周培训总结">第一周培训总结</a><time datetime="2022-07-08T23:19:29.000Z" title="Created 2022-07-09 07:19:29">2022-07-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/" title="美亚杯第二届（2016）-个人赛"><img src="https://i.pinimg.com/236x/c9/a3/2f/c9a32fbeec8d43d6e18e40bd7770af54.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="美亚杯第二届（2016）-个人赛"/></a><div class="content"><a class="title" href="/2022/06/22/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%BA%8C%E5%B1%8A%EF%BC%882016%EF%BC%89-%E4%B8%AA%E4%BA%BA%E8%B5%9B/" title="美亚杯第二届（2016）-个人赛">美亚杯第二届（2016）-个人赛</a><time datetime="2022-06-22T12:40:23.000Z" title="Created 2022-06-22 20:40:23">2022-06-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/" title="美亚杯第一届-个人赛"><img src="https://i.pinimg.com/236x/d1/86/94/d186944fb9da1b4e080837a07cea8029.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="美亚杯第一届-个人赛"/></a><div class="content"><a class="title" href="/2022/06/18/%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%AC%AC%E4%B8%80%E5%B1%8A-%E4%B8%AA%E4%BA%BA%E8%B5%9B/" title="美亚杯第一届-个人赛">美亚杯第一届-个人赛</a><time datetime="2022-06-18T08:06:24.000Z" title="Created 2022-06-18 16:06:24">2022-06-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/10/%E4%BB%8A%E6%97%A5%E5%8F%8D%E6%80%9D/" title="今日反思"><img src="https://cdn.pixabay.com/photo/2015/12/04/14/05/code-1076536__340.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="今日反思"/></a><div class="content"><a class="title" href="/2022/06/10/%E4%BB%8A%E6%97%A5%E5%8F%8D%E6%80%9D/" title="今日反思">今日反思</a><time datetime="2022-06-10T08:22:42.000Z" title="Created 2022-06-10 16:22:42">2022-06-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            <a class="card-more-btn" href="/categories/" title="More">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/homework/"><span class="card-category-list-name">homework</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/homework/java/"><span class="card-category-list-name">java</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/web%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">web安全</span><span class="card-category-list-count">48</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"><span class="card-category-list-name">区块链</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90/"><span class="card-category-list-name">取证分析</span><span class="card-category-list-count">4</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8F%96%E8%AF%81%E5%88%86%E6%9E%90/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/"><span class="card-category-list-name">安卓逆向</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%98%98%E3%80%82%E3%80%82%E3%80%82/"><span class="card-category-list-name">嘘。。。</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"><span class="card-category-list-name">大数据</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/HOOK/" style="font-size: 1.1em; color: #999">HOOK</a> <a href="/tags/PHP/" style="font-size: 1.21em; color: #999ea4">PHP</a> <a href="/tags/Python/" style="font-size: 1.1em; color: #999">Python</a> <a href="/tags/SQL/" style="font-size: 1.27em; color: #99a0a9">SQL</a> <a href="/tags/SSI/" style="font-size: 1.1em; color: #999">SSI</a> <a href="/tags/SSRF/" style="font-size: 1.1em; color: #999">SSRF</a> <a href="/tags/WAF/" style="font-size: 1.1em; color: #999">WAF</a> <a href="/tags/Xposed/" style="font-size: 1.1em; color: #999">Xposed</a> <a href="/tags/hadoop/" style="font-size: 1.16em; color: #999b9e">hadoop</a> <a href="/tags/me/" style="font-size: 1.27em; color: #99a0a9">me</a> <a href="/tags/smile%E6%8F%92%E6%A1%A9/" style="font-size: 1.1em; color: #999">smile插桩</a> <a href="/tags/vulnhub/" style="font-size: 1.33em; color: #99a2af">vulnhub</a> <a href="/tags/xss/" style="font-size: 1.1em; color: #999">xss</a> <a href="/tags/%E4%BA%92%E5%B8%AE%E4%BA%92%E5%8A%A9%E5%90%8C%E5%AD%A6/" style="font-size: 1.16em; color: #999b9e">互帮互助同学</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" style="font-size: 1.1em; color: #999">代码审计</a> <a href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" style="font-size: 1.1em; color: #999">内网渗透</a> <a href="/tags/%E5%8A%A0%E5%A3%B3/" style="font-size: 1.1em; color: #999">加壳</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90/" style="font-size: 1.27em; color: #99a0a9">动态分析</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.16em; color: #999b9e">区块链</a> <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 1.21em; color: #999ea4">反序列化</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" style="font-size: 1.1em; color: #999">命令执行</a> <a href="/tags/%E5%9F%B9%E8%AE%AD/" style="font-size: 1.1em; color: #999">培训</a> <a href="/tags/%E5%9F%BA%E9%87%91/" style="font-size: 1.1em; color: #999">基金</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 1.16em; color: #999b9e">学习</a> <a href="/tags/%E5%AE%89%E5%85%A8%E6%9D%82%E9%A1%B9/" style="font-size: 1.5em; color: #99a9bf">安全杂项</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.33em; color: #99a2af">工具</a> <a href="/tags/%E5%BA%94%E6%80%A5%E6%8E%92%E6%9F%A5/" style="font-size: 1.16em; color: #999b9e">应急排查</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">技巧</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" style="font-size: 1.16em; color: #999b9e">文件上传</a> <a href="/tags/%E6%9C%AA%E6%9D%A5/" style="font-size: 1.1em; color: #999">未来</a> <a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.21em; color: #999ea4">杂项</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 1.1em; color: #999">环境配置</a> <a href="/tags/%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A/" style="font-size: 1.16em; color: #999b9e">研究报告</a> <a href="/tags/%E7%BE%8E%E4%BA%9A%E6%9D%AF/" style="font-size: 1.16em; color: #999b9e">美亚杯</a> <a href="/tags/%E8%84%B1%E5%A3%B3/" style="font-size: 1.16em; color: #999b9e">脱壳</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 1.44em; color: #99a7ba">英语</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 1.1em; color: #999">论文</a> <a href="/tags/%E8%AE%BE%E5%A4%87%E6%BC%8F%E6%B4%9E/" style="font-size: 1.1em; color: #999">设备漏洞</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 1.39em; color: #99a4b4">读书</a> <a href="/tags/%E8%B4%A2%E5%8A%A1%E6%8A%A5%E5%91%8A%E5%88%86%E6%9E%90/" style="font-size: 1.1em; color: #999">财务报告分析</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">July 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">June 2022</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">May 2022</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">April 2022</span><span class="card-archive-list-count">21</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">March 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">August 2021</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">November 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">October 2020</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">108</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">171.2k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-07-22T14:15:33.433Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By bosch</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Algolia</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
