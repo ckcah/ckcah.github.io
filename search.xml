@@ -1,6 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>速查手册</title>
+    <url>/2022/08/01/%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C/</url>
+    <content><![CDATA[<h5 id="配置文件信息"><a href="#配置文件信息" class="headerlink" title="配置文件信息"></a>配置文件信息</h5><h6 id="IIS-x2F-Apache-x2F-Nginx-x2F-Tomcat-x2F-Jboss-x2F-Weblogic-x2F-Websphere的相关配置文件以及网卡信息"><a href="#IIS-x2F-Apache-x2F-Nginx-x2F-Tomcat-x2F-Jboss-x2F-Weblogic-x2F-Websphere的相关配置文件以及网卡信息" class="headerlink" title="IIS/Apache/Nginx/Tomcat/Jboss/Weblogic/Websphere的相关配置文件以及网卡信息"></a>IIS/Apache/Nginx/Tomcat/Jboss/Weblogic/Websphere的相关配置文件以及网卡信息</h6><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">select load_file('C:/Windows/System32/drivers/etc/hosts');</span><br><span class="line">/etc/hosts/etc/apache2/apache2.conf/etc/httpd/conf/httpd.conf</span><br><span class="line">/etc/udev/rules.d/70-persistent-net.rules          //获取网卡名称</span><br><span class="line">/etc/network/interfaces                            //DHCP或静态IP</span><br><span class="line">/var/lib/dhclient/dhclient--网卡.lease             //DHCP</span><br><span class="line">/etc/sysconfig/network-scripts/ifcfg-网卡          //静态IPC:/Windows/System32/drivers/etc/hosts</span><br><span class="line">C:/Windows/system32/inetsrv/MetaBase.xml</span><br><span class="line">C:/Windows/System32/inetsrv/config/applicationHost.config</span><br><span class="line">C:/phpStudy/Apache/conf/httpd.conf</span><br><span class="line">C:/phpStudy/Apache/conf/vhosts.conf</span><br><span class="line">C:/phpStudy/PHPTutorial/Apache/conf/httpd.conf</span><br><span class="line">C:/phpStudy/PHPTutorial/Apache/conf/vhosts.conf</span><br><span class="line">C:/phpStudy/PHPTutorial/nginx/conf/nginx.conf</span><br><span class="line">C:/phpStudy/PHPTutorial/nginx/conf/vhosts.conf</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="语法查询"><a href="#语法查询" class="headerlink" title="语法查询"></a>语法查询</h3><h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><h3 id="volatility"><a href="#volatility" class="headerlink" title="volatility"></a>volatility</h3><ol>
+<li><p>volatility -f  文件路径  imageinfo<br>imageinfo  用于标识操作系统、service pack和硬件体系结构（32位或64位）；可能有多个建议的配置文件，我们必须选择正确的配置文件</p>
+</li>
+<li><p>命令格式：<br>volatility -f   文件镜像    –profile=&lt;运用的东西&gt;  &lt;插件名字&gt;  &lt;各种命令&gt;<br>–profile是调用的配置文件，这个要与插件结合起来</p>
+</li>
+<li><p>pslist/pstree/psscan  :非常有用的插件，列出转储时运行的进程的详细信息；<br>显示过程ID，该父进程ID（PPID），线程的数目，把手的数目，日期时间时，过程开始和退出<br>pslist无法显示隐藏/终止进程，解决这个问题可以使用psscan<br>pstree同样也是扫描进程的，但是是以进程树的形式出现的</p>
+</li>
+<li><p>filescan:扫描当前打开的文件</p>
+<p>filescan  |  grep Downloads 找下载的文件夹了，一般windows下载的内容都放在 Download 文件夹中。</p>
+</li>
+<li><p>dlllist命令：能够显示一个进程装载的动态链接库的信息，其显示列表主要包括加载的动态链接库文件的基地址、文件大小以及文件所在路径</p>
+</li>
+<li><p>hivelist：查看缓存在内存的注册表</p>
+</li>
+<li><p>hashdump:获取内存中的系统密码</p>
+</li>
+<li><p>userassist:提取出内存中记录的 当时正在运行的程序有哪些，运行过多少次，最后一次运行的时间等信息</p>
+</li>
+<li><p>getsids：查看SID</p>
+</li>
+<li><p>malfind:用于寻找可能注入到各种进程中的恶意软件.使用malfind时也可以使用-p直接指定进程, 从上图中可以看到pid是608对应的进程是winlogon.exe</p>
+</li>
+<li><p>printkey: 获取SAM表中的用户</p>
+</li>
+<li><p>mftparser 解析MFT记录、导出MFT记录<br>使用命令；volatility  -f   Win7_SP1_x86.vmem –profile=Win7SP1x86  mftparser<br>导出命令：后边加–output-file=mftverbose.txt  -D mftoutput</p>
+</li>
+<li><p>timeliner 可以查看访问记录</p>
+</li>
+<li><p>svcscan   该命令能查看windows的服务</p>
+</li>
+<li><p>psxview 查看被隐藏的进程，如某些隐藏的病毒文件</p>
+</li>
+<li><p>memdump  将内存中的某个进程保存出来<br>如：volatility -f mem.vmem  –-profile=WinXPSP2x86  mem  -p 1180  -D  E:\111</p>
+</li>
+<li><p>Dumpregistry - 提取内存中的注册表信息<br>使用命令：Volatility -f   Win7_SP1_x86.vmem –profile = Win7SP0x86 dumpregistry  –dump-dir=D:\text\（路径）<br>dumpregistry –dump-dir   提取内存注册表的目录路径  text先创建</p>
+</li>
+<li><p>truecryptmaster 获取TrueCrypt秘钥信息</p>
+</li>
+<li><p>truecryptpassphrase 获取TrueCrypt密码信息   </p>
+</li>
+<li><p>netscan 获取网络连接记录 </p>
+</li>
+<li><p>iehistory 获取IE浏览器历史记录</p>
+</li>
+</ol>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><h4 id="Android逆向渗透"><a href="#Android逆向渗透" class="headerlink" title="Android逆向渗透"></a>Android逆向渗透</h4><h5 id="安全测试"><a href="#安全测试" class="headerlink" title="安全测试"></a><strong>安全测试</strong></h5><p><strong>【Appie工具】</strong></p>
+<p>它是一个软件包，可以在 Windows 的机器上用于 Android 渗透测试环境，而无需虚拟机 (VM) 或双启动，也可以基于android手机进行安全分析，这个软件可以用于 Android 应用程序安全评估、Android 取证、Android 恶意软件分析所需的所有工具的一站式解决方案。</p>
+<p><a href="https://manifestsecurity.com/appie">https://manifestsecurity.com/appie</a></p>
+<p><strong>【Android Tamer】</strong></p>
+<p>Android Tamer 它是面向 Android 安全专业人士的虚拟/实时平台，它也是一个开源免费的项目，它可以提供android所有安全相关需求的分析的产品。</p>
+<p><a href="https://androidtamer.com/">https://androidtamer.com/</a></p>
+<p><strong>【</strong>drozer<strong>】</strong></p>
+<p>Drozer 的核心功能就是通过分析 AndroidManifest.xml，看四大组件中有没有可 export 的，如果有那么就进一步检测这些可导出的组件是不是存在相应的安全问题。</p>
+<p><a href="https://github.com/FSecureLABS/drozer">https://github.com/FSecureLABS/drozer</a></p>
+<p><strong>【Androl4b】</strong></p>
+<p>它可以用于评估 Android 应用程序、逆向工程和恶意软件分析的一个虚拟机。</p>
+<p><a href="https://github.com/sh4hin/Androl4b">https://github.com/sh4hin/Androl4b</a></p>
+<p><strong>【Mobisec】</strong></p>
+<p>它是移动安全测试、取证、逆向工程和无线分析的实时环境，不过这工具16年就停止更新了。</p>
+<p><a href="https://sourceforge.net/projects/mobisec/">https://sourceforge.net/projects/mobisec/</a></p>
+<p><strong>【Santoku】</strong></p>
+<p>它主要集成了三个强大的功能，移动取证数据分析、检查移动恶意软件分析、移动应用安全评估分析。并且它是个免费开源的。它可以作为独立操作系统在 VM 之外运行。</p>
+<p><a href="https://santoku-linux.com/">https://santoku-linux.com/</a></p>
+<p><strong>【Vezir】</strong></p>
+<p>它是为移动安全研究人员提供最新的测试环境。它是基于Ubuntu，同时配合使用 VMWare Fusion 6.0.4 创建的。</p>
+<p><a href="https://github.com/oguzhantopgul/Vezir-Project">https://github.com/oguzhantopgul/Vezir-Project</a></p>
+<h5 id="静态分析"><a href="#静态分析" class="headerlink" title="静态分析"></a><strong>静态分析</strong></h5><p><strong>【APKInspector】</strong></p>
+<p>它是一款强大的android的GUI工具，它主要通过qt和python相结合的，它只能在linux系统上（主要可以在kali中）运行分析。</p>
+<p><a href="https://github.com/honeynet/apkinspector/">https://github.com/honeynet/apkinspector/</a></p>
+<p><strong>【APKTool】</strong></p>
+<p>它可以用于逆向工程中反编译重打包apk程序的Android 应用程序工具。它可以将资源或代码解码为几乎原始的形式，并在进行一些修改后重建它们。</p>
+<p><a href="https://ibotpeaches.github.io/Apktool/">https://ibotpeaches.github.io/Apktool/</a></p>
+<p><strong>【GDA】</strong></p>
+<p>GJoy Dex Analyzer(GDA)，号称中国第一款也是唯一一款全交互式的现代反编译器，同时也是世界上最早实现的dalvik字节码反编译器。</p>
+<p><a href="http://www.gda.wiki:9090/index.php">http://www.gda.wiki:9090/index.php</a></p>
+<p><strong>【Sign.jar】</strong></p>
+<p>它将公钥和私钥嵌入在 jar 中，它可以自动使用 Android 测试证书对 apk 进行签名。</p>
+<p><a href="https://github.com/appium/sign">https://github.com/appium/sign</a></p>
+<p><strong>【jadx】</strong></p>
+<p>jadx它是dex转换为java代码的反编译器，它用于从 Android Dex 和 Apk 文件生成 Java 源代码的命令行和 GUI 工具。它支持全文搜索，跳转声明，突出显示语法查看反编译的代码。</p>
+<p><a href="https://github.com/skylot/jadx">https://github.com/skylot/jadx</a></p>
+<p><strong>【SmaliEX】</strong></p>
+<p>支持将 oat 文件转换为 dex，并且能够 smali/baksmali 多 dex文件的工具。</p>
+<p><a href="https://github.com/testwhat/SmaliEx">https://github.com/testwhat/SmaliEx</a></p>
+<p><strong>【FindSecurityBugs】</strong></p>
+<p>它是 FindBugs 的扩展，其中包括 Java 应用程序的安全规则，FindBugs 通过静态分析的方式从 java 代码中查找出代码中的错误。</p>
+<p><a href="http://findbugs.sourceforge.net/">http://findbugs.sourceforge.net/</a></p>
+<p><a href="https://h3xstream.github.io/find-sec-bugs/">https://h3xstream.github.io/find-sec-bugs/</a></p>
+<p><strong>【Qark】</strong></p>
+<p>它可以查找源代码或打包 APK 中的多个与安全相关的 Android 应用程序漏洞，无论是源代码还是打包的 APK。</p>
+<p><a href="https://github.com/linkedin/qark">https://github.com/linkedin/qark</a></p>
+<p><strong>【SUPER】</strong></p>
+<p>它是一个可在 Windows、MacOS X 和 Linux 中使用的命令行应用程序，可分析 .apk 文件以查找漏洞。它通过解压缩 APK 并应用一系列规则来检测这些漏洞。</p>
+<p><a href="https://github.com/SUPERAndroidAnalyzer/super">https://github.com/SUPERAndroidAnalyzer/super</a></p>
+<p><strong>【AndroBugs】</strong></p>
+<p>它是一种高效的 Android 漏洞扫描程序，可帮助开发人员或黑客发现 Android 应用程序中的潜在安全漏洞。</p>
+<p><a href="https://github.com/AndroBugs/AndroBugs_Framework">https://github.com/AndroBugs/AndroBugs_Framework</a></p>
+<p><strong>【Simplify】</strong></p>
+<p>它可以将 android 包反混淆成 Classes.dex 的工具，可以使用 Dex2jar 和 JD-GUI 提取 dex 文件的内容的工具。</p>
+<p><a href="https://github.com/CalebFenton/simplify">https://github.com/CalebFenton/simplify</a></p>
+<p><strong>【ClassNameDeobfuscator】</strong></p>
+<p>它用于解析 apktool 生成的 .smali 文件并提取 .source 注释行的简单脚本。</p>
+<p><a href="https://github.com/HamiltonianCycle/ClassNameDeobfuscator">https://github.com/HamiltonianCycle/ClassNameDeobfuscator</a></p>
+<p><strong>【Android 备份提取器】</strong></p>
+<p>它可以用于提取和重新打包使用adb backup(ICS+) 创建的 Android 备份的实用程序。</p>
+<p><a href="https://github.com/nelenkov/android-backup-extractor">https://github.com/nelenkov/android-backup-extractor</a></p>
+<h5 id="动态调试分析"><a href="#动态调试分析" class="headerlink" title="动态调试分析"></a><strong>动态调试分析</strong></h5><p><strong>【Cydia Substrate】</strong></p>
+<p>适用于 Android 的 Cydia Substrate 使开发人员能够，使用注入目标进程内存的 Substrate 扩展来修改调整软件的功能逻辑。</p>
+<p><a href="http://www.cydiasubstrate.com/">http://www.cydiasubstrate.com/</a></p>
+<p><strong>【Xposed框架】</strong></p>
+<p>它能够在运行时修改系统或应用程序方面和行为，而无需修改任何 Android 应用程序包 (APK) 或重新刷新。它还能进行模块功能二次开发，以修改设备相关信心而无需刷新自定义 ROM。</p>
+<p><a href="https://forum.xda-developers.com/xposed/xposed-installer-versions-changelog-t2714053">https://forum.xda-developers.com/xposed/xposed-installer-versions-changelog-t2714053</a></p>
+<p><strong>【Inspeckage】</strong></p>
+<p>Inspeckage 是一种为 Android 应用程序提供动态分析而开发的工具。通过对 Android API 的函数应用挂钩，Inspeckage 将帮助您了解 Android 应用程序在运行时正在做什么。</p>
+<p><a href="https://github.com/ac-pm/Inspeckage">https://github.com/ac-pm/Inspeckage</a></p>
+<p><strong>【Frida框架】</strong></p>
+<p>该工具包使用客户端-服务器模型工作，它不仅可以在 Android 上注入正在运行的进程，还可以在 iOS、Windows 和 Mac 上注入运行的进程。还支持js脚本和python定制化功能开发。</p>
+<p><a href="https://www.frida.re/">https://www.frida.re/</a></p>
+<p><strong>【Diff-GUI】</strong></p>
+<p>它是一个 Web 框架，可以用于可用模块进行检测，HOOK本机，使用 Frida 注入 JavaScript的功能。</p>
+<p><a href="https://github.com/antojoseph/diff-gui">https://github.com/antojoseph/diff-gui</a></p>
+<p><strong>【Introspy-Android】</strong></p>
+<p>它是一个黑盒工具，lackbox 工具可帮助了解 Android 应用程序在运行时正在做什么，并协助识别潜在的安全问题。它包含两个独立的组件：一个用于配置挂钩、过滤器和选项的 GUI 界面，以及一个包含工具功能核心的 Cydia Substrate 扩展，包括挂钩和潜在问题分析。</p>
+<p><a href="https://github.com/iSECPartners/Introspy-Android">https://github.com/iSECPartners/Introspy-Android</a></p>
+<h5 id="安全框架"><a href="#安全框架" class="headerlink" title="安全框架"></a><strong>安全框架</strong></h5><p><strong>【Mobile Security Framework】</strong></p>
+<p>移动安全框架 (MobSF) 是一种自动化的一体化移动应用程序 (Android/iOS/Windows) 渗透测试、恶意软件分析和安全评估框架，能够执行静态和动态分析。MobSF 支持移动应用程序二进制文件（APK、XAPK、IPA 和 APPX）以及压缩源代码，并提供 REST API 以与您的 CI/CD 或 DevSecOps 管道无缝集成。</p>
+<p><a href="https://github.com/ajinabraham/Mobile-Security-Framework-MobSF">https://github.com/ajinabraham/Mobile-Security-Framework-MobSF</a></p>
+<p><strong>【Objection】</strong></p>
+<p>objection它是一个运行时移动探索工具部，它是有frida提供的，一般需要借助python进行安装使用。它同时可以支持ios和android，可以执行和内存相关操作，还能绕过SSl。它的构建旨在帮助评估移动应用程序及其安全状况，而无需越狱或植根的移动设备。</p>
+<p><a href="https://github.com/sensepost/objection">https://github.com/sensepost/objection</a></p>
+<h5 id="网络抓包分析"><a href="#网络抓包分析" class="headerlink" title="网络抓包分析"></a><strong>网络抓包分析</strong></h5><p><strong>【Tcpdump】</strong></p>
+<p>它是一个命令行数据包捕获实用程序。它可以从您的 Wi-Fi 连接、蜂窝连接以及在 Android 设备上可能拥有的任何其他网络连接中捕获数据包。</p>
+<p><a href="http://www.androidtcpdump.com/">http://www.androidtcpdump.com/</a></p>
+<p><strong>【Wireshark】</strong></p>
+<p>它是一个开源数据包分析器，window和android都可以进行分析的强大网络数据包抓取分析工具。</p>
+<p><a href="https://www.wireshark.org/download.html">https://www.wireshark.org/download.html</a></p>
+<p><strong>【Burp Suite】</strong></p>
+<p>它是一个用于执行应用程序安全测试的集成平台。</p>
+<p><a href="https://portswigger.net/burp/download.html">https://portswigger.net/burp/download.html</a></p>
+<p><strong>【Proxydroid】</strong></p>
+<p>它适用于 Android 系统的全局代理应用程序。</p>
+<p><a href="http://android.dailydownloaded.com/zh/communications/sms-tools/63713-proxydroid-download-install">http://android.dailydownloaded.com/zh/communications/sms-tools/63713-proxydroid-download-install</a></p>
+<p><strong>【Android-ssl-bypass】</strong></p>
+<p>它是 android 调试工具，可用于绕过 SSL，即使实现了证书固定以及其他调试任务。该工具作为交互式控制台运行。</p>
+<p><a href="https://github.com/iSECPartners/android-ssl-bypass">https://github.com/iSECPartners/android-ssl-bypass</a></p>
+<p><strong>【charles】</strong></p>
+<p>Charles可以监控浏览器发送和接收的所有数据。它允许一个开发者查看所有连接互联网的HTTP通信，这些包括request, response和HTTP headers （包含cookies与caching信息）。</p>
+<p><a href="https://www.charlesproxy.com/download/">https://www.charlesproxy.com/download/</a></p>
+<h5 id="安全插件"><a href="#安全插件" class="headerlink" title="安全插件"></a><strong>安全插件</strong></h5><p><strong>【PublicKey Pinning】</strong></p>
+<p>Android 中的 Pinning 可以通过自定义 X509TrustManager 来完成。X509TrustManager 除了执行固定配置外，还应该执行常规的 X509 检查。</p>
+<p><a href="https://www.owasp.org/images/1/1f/Pubkey-pin-android.zip">https://www.owasp.org/images/1/1f/Pubkey-pin-android.zip</a></p>
+<p><strong>【Android Pinning】</strong></p>
+<p>它是一个独立的 Android 库项目，可促进来自 Android 应用程序的 SSL 连接的证书固定，以最大限度地减少对证书颁发机构的依赖。</p>
+<p><a href="https://github.com/moxie0/AndroidPinning">https://github.com/moxie0/AndroidPinning</a></p>
+<p><strong>【Java AES Crypto】</strong></p>
+<p>它是一个用于加密和解密字符串的简单 Android的aes库，它旨在避免大多数此类类遭受的经典错误。</p>
+<p><a href="https://github.com/tozny/java-aes-crypto">https://github.com/tozny/java-aes-crypto</a></p>
+<p><strong>【Proguard】</strong></p>
+<p>它是一个免费的 Java 类文件收缩器、优化器、混淆器和预验证器。它检测并删除未使用的类、字段、方法和属性，目前很多项目还是用这个工具进行java代码保护。</p>
+<p><a href="http://proguard.sourceforge.net/">http://proguard.sourceforge.net/</a></p>
+<p><strong>【Secure Preferences】</strong></p>
+<p>它是 Android Shared 首选项包装器，它使用AES 128、CBC和PKCS5填充加密 Shared Preferences 的值，并以 SHA 256 哈希的形式进行完整性检查。</p>
+<p><a href="https://github.com/scottyab/secure-preferences">https://github.com/scottyab/secure-preferences</a></p>
+<p><strong>【Trusted Intents】</strong></p>
+<p>它是用于 Android 应用程序之间灵活可信交互的库。</p>
+<p><a href="https://github.com/guardianproject/TrustedIntents">https://github.com/guardianproject/TrustedIntents</a></p>
+<h4 id="额外收集取证工具"><a href="#额外收集取证工具" class="headerlink" title="额外收集取证工具"></a>额外收集取证工具</h4><h5 id="GitOps环境下开展数字取证的最佳实践"><a href="#GitOps环境下开展数字取证的最佳实践" class="headerlink" title="GitOps环境下开展数字取证的最佳实践"></a>GitOps环境下开展数字取证的最佳实践</h5><p>数字取证和事件响应（DFIR）主要包括恢复和调查数字化IT系统上发现的违法线索和证据。随着社会越来越依赖计算机系统和云计算，DFIR已成为网络安全防护和执法管理工作的重要方面，也是确保网络安全的关键操作程序。</p>
+<p>GitOps是一种全新的应用系统开发模式，因此安全人员也需要从新的视角看待GitOps环境下的数字业务取证、事件响应及其他安全建设工作。过去，安全事件响应人员在开展安全事件调查和溯源时首先需要花费大量时间去查清环境中究竟发生了什么。通过正确实施的GitOps模型，可以清晰记录整个环境中的所有行为来源，只要识别中央Git存储库中的更改或检测环境中的“漂移”行为，就可以立即检测到漏洞、不安全的配置或对资源进行的恶意更改。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>常用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>android reverse</title>
     <url>/2022/03/18/android-reverse/</url>
     <content><![CDATA[<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p><strong>如何判断apk文件是32还是64：</strong></p>
