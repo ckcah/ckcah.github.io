@@ -273,23 +273,23 @@
     <url>/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/</url>
     <content><![CDATA[<p>[Toc]</p>
 <h1 id="腾讯云数据库服务器备份下载"><a href="#腾讯云数据库服务器备份下载" class="headerlink" title="腾讯云数据库服务器备份下载"></a>腾讯云数据库服务器备份下载</h1><p>这次的腾讯云数据库服务器，是做了每天自动增量备份的，于是直接下载<code>.xb</code>文件。（下图是网上找的，只是为了演示）</p>
-<p><img src="https://ckcah.github.io/2022/08/27/rql7aarhaj.png" alt="preload"></p>
+<p><img src="https://ckcah.github.io/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/rql7aarhaj.png" alt="preload"></p>
 <h1 id="重构数据库服务器"><a href="#重构数据库服务器" class="headerlink" title="重构数据库服务器"></a>重构数据库服务器</h1><h2 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h2><p><code>.xb</code>格式是数据库进行备份产生的，类似于我们平时用的<code>.rar</code>、<code>.tar</code>压缩包。</p>
 <p>在一边下载的过程中，一边确定好数据库是<code>mysql 5.7</code></p>
 <h2 id="安装centos8虚拟机"><a href="#安装centos8虚拟机" class="headerlink" title="安装centos8虚拟机"></a>安装centos8虚拟机</h2><p>这一步较为简单，默认安装，然后硬盘选择1T的，（后来加了个2T的，解压时觉得不够，又加了个3T，结果发现2T就够了）</p>
 <h2 id="安装mysql及解压工具"><a href="#安装mysql及解压工具" class="headerlink" title="安装mysql及解压工具"></a>安装mysql及解压工具</h2><h3 id="宝塔及mysql安装"><a href="#宝塔及mysql安装" class="headerlink" title="宝塔及mysql安装"></a>宝塔及mysql安装</h3><p><code>yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</code></p>
 <p>安装完成后：</p>
-<p><img src="https://ckcah.github.io/2022/08/27/image-20220825094324225.png" alt="image-20220825094324225"></p>
+<p><img src="https://ckcah.github.io/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/image-20220825094324225.png" alt="image-20220825094324225"></p>
 <p>在控制面版安装<code>mysql5.7</code></p>
 <h3 id="Percona-XtraBackup安装"><a href="#Percona-XtraBackup安装" class="headerlink" title="Percona XtraBackup安装"></a>Percona XtraBackup安装</h3><p>1.安装Percona yum存储库：</p>
 <p><code>yum install -y https://repo.percona.com/yum/percona-release-latest.noarch.rpm</code></p>
-<p><img src="https://ckcah.github.io/2022/08/27/image-20220825104014456.png" alt="image-20220825104014456"></p>
+<p><img src="https://ckcah.github.io/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/image-20220825104014456.png" alt="image-20220825104014456"></p>
 <p>最后会显示</p>
-<p><img src="https://ckcah.github.io/2022/08/27/image-20220825104756426.png" alt="image-20220825104756426"></p>
+<p><img src="https://ckcah.github.io/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/image-20220825104756426.png" alt="image-20220825104756426"></p>
 <p>2.启动存储库：</p>
 <p>因为要将Percona XtraBAckup与已安装的Mysql结合使用，所以只需要启用工具存储库：</p>
 <p><code>percona-release enable-only tools</code></p>
-<p><img src="https://ckcah.github.io/2022/08/27/image-20220825105242064.png" alt="image-20220825105242064"></p>
+<p><img src="https://ckcah.github.io/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/image-20220825105242064.png" alt="image-20220825105242064"></p>
 <p>如果只是单纯启动存储库，就可以使用<code>percona-release enable-only tools release</code></p>
 <p>3.安装<code>Xtrabackup 2.4</code>版本</p>
 <ul>
@@ -311,13 +311,13 @@
 <figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">[root@localhost ~]# fdisk -l</span><br><span class="line">Disk /dev/nvme0n1: 30 GiB, 32212254720 bytes, 62914560 sectors</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disklabel type: dos</span><br><span class="line">Disk identifier: 0x5fe17404</span><br><span class="line"></span><br><span class="line">Device         Boot   Start      End  Sectors  Size Id Type</span><br><span class="line">/dev/nvme0n1p1 *       2048   616447   614400  300M 83 Linux</span><br><span class="line">/dev/nvme0n1p2       616448  4999167  4382720  2.1G 82 Linux swap / Solaris</span><br><span class="line">/dev/nvme0n1p3      4999168 62914559 57915392 27.6G 83 Linux</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disk /dev/nvme0n2: 4 GiB, 4294967296 bytes, 8388608 sectors</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br></pre></td></tr></tbody></table></figure>
 
 <p>挂载前：</p>
-<p><img src="https://ckcah.github.io/2022/08/27/image-20220825113117910.png" alt="image-20220825113117910"></p>
+<p><img src="https://ckcah.github.io/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/image-20220825113117910.png" alt="image-20220825113117910"></p>
 <p>挂载过程：</p>
-<p><img src="https://ckcah.github.io/2022/08/27/image-20220825113248809.png" alt="image-20220825113248809"></p>
+<p><img src="https://ckcah.github.io/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/image-20220825113248809.png" alt="image-20220825113248809"></p>
 <p>空白处为<code>回车</code></p>
-<p><img src="https://ckcah.github.io/2022/08/27/image-20220825113546806.png" alt="image-20220825113546806"></p>
+<p><img src="https://ckcah.github.io/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/image-20220825113546806.png" alt="image-20220825113546806"></p>
 <p>再次进行查看：</p>
-<p><img src="https://ckcah.github.io/2022/08/27/image-20220825113607559.png" alt="image-20220825113607559"></p>
+<p><img src="https://ckcah.github.io/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/image-20220825113607559.png" alt="image-20220825113607559"></p>
 <p>可将挂载命令写入开机自挂载文件中：</p>
 <p><code>echo "/dev/nvme0n2 /mnt1 ext4 defaults 0 0" &gt;&gt; /etc/fstab</code></p>
 <p>再次执行<code>cat XXX.xb  | xbstream -x -v -C /mnt1/</code></p>
@@ -325,9 +325,9 @@
 <p>–decompress：该选项表示解压	–compress选项压缩的文件。</p>
 <p>–remove-original删除原有的<code>.qp</code>文件</p>
 <h2 id="添加数据库"><a href="#添加数据库" class="headerlink" title="添加数据库"></a>添加数据库</h2><p>解压后的文件与mysql文件结构相同</p>
-<p><img src="https://ckcah.github.io/2022/08/27/image-20220825133239359.png" alt="image-20220825133239359"></p>
+<p><img src="https://ckcah.github.io/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/image-20220825133239359.png" alt="image-20220825133239359"></p>
 <p>2Xf2E6aEU7n685eHEbXGYHrmWn2y7a62UWBrtZzodVdD</p>
-<p><img src="/.io//Users\0101\AppData\Roaming\Typora\typora-user-images\image-20220825133907675.png" alt="image-20220825133907675"></p>
+<p><img src="https://ckcah.github.io/2022/08/27/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB/image-20220825133907675.png" alt="image-20220825133907675"></p>
 <p>这是最后一步，但最后没做成功，它显示   数据表崩溃</p>
 <p>然后我对数据表进行了修复，显示修复失败</p>
 <p>百度以后，说是数据库结构不一样，这三个文件是关键</p>
